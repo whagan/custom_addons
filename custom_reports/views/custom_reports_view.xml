@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        <!-- odoo view -->
+        
+        <record model="ir.ui.view" id="cr_view_view">
+            <field name="model">res.partner</field>
+            <field name="mode">primary</field>
+            <field name="arch" type="xml">
+                <custom_reports display_contacts="1" >
+                </custom_reports>
+            </field>
+        </record>
+
+       <!-- odoo action -->
+
+        <record model="ir.actions.act_window" id="cr_view_act_window">
+            <field name="name">Custom Reports</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">custom_reports</field>
+            <field name="view_id" ref="cr_view_view"/>
+        </record>
+
+        <!-- navbar title -->
+
+        <menuitem id="cr_view_main_menu" name="Custom Reports"/>
+
+        <!-- submenus -->
+
+        <menuitem id="custom_reports_submenu" name="Custom Reports"
+                  parent="cr_view_main_menu"/>
+        
+         <menuitem id="configure_submenu" name="Configure"
+                  parent="cr_view_main_menu"/>
+
+
+
+        <!-- submenu list items -->
+
+
+        <menuitem id="cr_open_view" name="Employee Performance" parent="custom_reports_submenu"
+                  action="cr_view_act_window"/>
+
+        <menuitem id="co_open_view" name="Configure" parent="configure_submenu"
+                  action="cr_view_act_window"/>
+
+        <!-- sidebar
+        <record id="bh_sidebar_id" model="ir.ui.view">
+            <field name="name">sidbar_widget.bh_sidebar</field>
+            <field name="model"></field>
+            <field name="inherit_id" ref="custom_reports.custom_reports_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//header" position="after">
+                    <widget name="bh_sidebar"/>
+                </xpath>
+            </field>
+
+        </record>-->
+
+
+        
+</odoo>

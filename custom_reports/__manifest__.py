@@ -11,7 +11,7 @@
     'depends': ['web'],
     'data': [
         "views/assets.xml",
-        "views/data.xml"
+        "views/custom_reports_view.xml"
     ],
     'qweb': [],
     'installable': True,
