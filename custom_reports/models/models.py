@@ -7,5 +7,6 @@ class CustomReport(models.Model):
     _name = 'custom_reports.custom_report'
     _description = "Custom Reports"
 
-    name = fields.Char(string=_("Title"), required=True)
+    name = fields.Char(string="Title", required=True)
     description = fields.Text()
+
