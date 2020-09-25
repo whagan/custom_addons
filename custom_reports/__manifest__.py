@@ -15,6 +15,9 @@
         'views/assets.xml',
         'views/custom_reports_view.xml'
     ],
+    'demo': [
+        'demo/demo.xml',
+    ]
     'installable': True,
     'application': True,
     'auto_install': True
