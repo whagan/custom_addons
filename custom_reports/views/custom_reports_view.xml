@@ -17,47 +17,14 @@
     <!-- submenu list items -->
     <menuitem id="cr_open_view" name="Employee Performance" parent="custom_reports_submenu" action="custom_reports_action"/>
     <menuitem id="co_open_view" name="Configure" parent="configure_submenu" action="custom_reports_action"/>
-    
-    <!-- odoo tree view  
-    <record model="ir.ui.view" id="cr_view_tree">
-        <field name="name">Custom Reports List</field>
-        <field name="model">custom_reports.custom_report</field>
-        <field name="arch" type="xml">
-            <tree>
-                <field name="name"/>
-                <field name="department"/>
-                <field name="description"/>
-            </tree>
-        </field>
-    </record>-->
-
-    <!-- custom reports view
-    <record model="ir.ui.view" id="cr_view_view">
-        <field name="name">Custom Reports view</field>
-        <field name="model">custom_reports.custom_report</field>
-        <field name="arch" type="xml">
-            <custom_report>
-                <field name="name"/>
-                <field name="department"/>
-            </custom_report>
-        </field>
-    </record> --> 
-
-<!--
-    <record model="ir.actions.act_window" id="cr_view_act_window2">
-        <field name="name">Custom Reports</field>
-        <field name="res_model">custom_reports.custom_report</field>
-        <field name="view_mode">tree</field>
-    </record>
-    -->
         
-    <record model="ir.ui.view" id="custom_reports_view_list">
+    <record model="ir.ui.view" id="custom_reports_view">
         <field name="name">Custom Reports List</field>
         <field name="model">custom_reports.custom_report</field>
         <field name="arch" type="xml">
-            <tree>
+            <custom_reports>
                 <field name="name"/>
-            </tree>
+            </custom_reports>
         </field>
     </record>
 </odoo>
