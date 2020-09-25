@@ -8,14 +8,13 @@
     """,
 
     'version': '0.1',
-    'depends': ['web'],
+    'depends': ['base','web'],
     'data': [
-        #'security/security.xml',
-        #'security/ir.model.access.csv',
+        'security/security.xml',
+        'security/ir.model.access.csv',
         'views/assets.xml',
         'views/custom_reports_view.xml'
     ],
-    'qweb': [],
     'installable': True,
     'application': True,
     'auto_install': True
