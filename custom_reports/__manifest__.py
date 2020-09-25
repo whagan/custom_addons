@@ -10,8 +10,10 @@
     'version': '0.1',
     'depends': ['web'],
     'data': [
-        "views/assets.xml",
-        "views/custom_reports_view.xml"
+        #'security/security.xml',
+        #'security/ir.model.access.csv',
+        'views/assets.xml',
+        'views/custom_reports_view.xml'
     ],
     'qweb': [],
     'installable': True,
