@@ -1,3 +1,4 @@
 id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
 access_custom_report_manager,custom reports manager,model_custom_reports_custom_report,group_manager,1,1,1,1
 access_custom_report_user,custom reports user,model_custom_reports_custom_report,group_user,1,0,0,0
+access_employee_performance_report_manager,custom reports employee performance manager,model_custom_reports_employee_performance_report,group_manager,1,1,1,1
