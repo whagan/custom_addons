@@ -14,7 +14,7 @@
         <field name="model">custom_reports.employee_performance_report</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="employee_performance_ids"/>
+                <field name="employee_id.worked_hours_total"/>
             </tree>
         </field>
     </record>
@@ -37,7 +37,7 @@
         <field name="model">custom_reports.employee_performance_report</field>
         <field name="arch" type="xml">
             <graph string="Employee" type="pie">
-                <field name="employee_performance_ids" type="row"/>
+                <field name="employee_id.worked_hours_total" type="row"/>
             </graph>
         </field>
     </record>

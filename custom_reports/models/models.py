@@ -15,7 +15,11 @@ class EmployeePerformanceReport(models.Model):
     _name = 'custom_reports.employee_performance_report'
     _description = "Employee Performance Reports"
     
-    employee_performance_ids = fields.Many2many('custom_reports.employee_performance', string="Employee Performances")
+    employee_id = fields.Many2one('hr.employee', string="Employee", required=True, ondelete='cascade', index=True)
+
+    
+    worked_hours = fields.Float(related='employee_id.worked_hours_total')
+    #emp_perform_emp_ids = fields.Many2many('custom_reports.employee_performance', store=True, relation='emp_perform_emp_rel', column1='emp_perform_report_id', column2='emp_perform_id', string="Employee Performances")
 
 
 class EmployeePerformance(models.Model):
@@ -23,15 +27,13 @@ class EmployeePerformance(models.Model):
     _description = 'Employee Performance'
 
     #employee_performance_report_id = fields.Many2one('custom_report.employee_performance_report', string="Employee Performance Report")
-    employee_id = fields.Many2one('custom_reports.employee', string="Employee", required=True, ondelete='cascade', index=True)
+    employee_id = fields.Many2one('hr.employee', string="Employee", required=True, ondelete='cascade', index=True)
     
     
         
 
 class Employee(models.Model):
-    _name = 'custom_reports.employee'
     _inherit = 'hr.employee'
-    _description = 'Custom Reports Employee'
 
     worked_hours_total = fields.Float(string="Worked Hours", compute="worked_hours", store=True)
 
