@@ -17,13 +17,13 @@ class CustomReport(models.Model):
     delete_uid = fields.Many2one(comodel_name="res.users")
 
     # auto
-    @api.multi
-    def action_url(self):
-        return {
-            'type' : 'ir.actions.act_url',
-            'url' : '/custom_reports/go?model=custom_reports.custom_report&field=url&id=%s'%(self.id),
-            'target' : 'new',
-        }
+    # @api.multi
+    # def action_url(self):
+    #     return {
+    #         'type' : 'ir.actions.act_url',
+    #         'url' : '/custom_reports/go?model=custom_reports.custom_report&field=url&id=%s'%(self.id),
+    #         'target' : 'new',
+    #     }
 
 # class CustomReport_History(models.Model):
 #     _name = 'custom_reports.custom_report_history'
