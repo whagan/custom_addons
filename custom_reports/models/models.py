@@ -28,6 +28,9 @@ class EmployeePerformance(models.Model):
 
     #employee_performance_report_id = fields.Many2one('custom_report.employee_performance_report', string="Employee Performance Report")
     employee_id = fields.Many2one('hr.employee', string="Employee", required=True, ondelete='cascade', index=True)
+    start_date = fields.Date(string="Start Date")
+    end_date = fields.Date(string="End Date")
+    worked_hours = fields.
     
     
         
