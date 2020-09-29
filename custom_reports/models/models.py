@@ -15,22 +15,38 @@ class EmployeePerformanceReport(models.Model):
     _name = 'custom_reports.employee_performance_report'
     _description = "Employee Performance Reports"
     
-    employee_performance_id = fields.One2many('custom_reports.employee_performance', 'employee_performance_report_id', string="Employee Performances")
+    employee_performance_ids = fields.Many2many('custom_reports.employee_performance', string="Employee Performances")
 
 
 class EmployeePerformance(models.Model):
     _name = 'custom_reports.employee_performance'
     _description = 'Employee Performance'
 
-    worked_hours_sum = fields.Float(string="Worked Hours", compute='worked_hours')
-    employee_performance_report_id = fields.Many2one('custom_report.employee_performance_report', string="Employee Performance Report")
+    #employee_performance_report_id = fields.Many2one('custom_report.employee_performance_report', string="Employee Performance Report")
+    employee_id = fields.Many2one('custom_report.employee', string="Employee", required=True, ondelete='cascade', index=True)
+    
+    
+        
+
+class Employee(models.Model):
+    _name = 'custom_reports.employee'
+    _inherit = 'hr.employee'
+    _description = 'Custom Reports Employee'
+
+    worked_hours_total = fields.Float(string="Worked Hours", compute="worked_hours", store=True)
 
     def worked_hours(self):
-        total = 0
-        for attendance in self:
-            recordset = self.env['hr.attendance'].search_read([('employee_id', '=', attendance.employee_id.id)])
-            for record in recordset:
-                total = total + record.worked_hours
-        worked_hours_sum = total
-        
-                
+        for employee in self:
+            worked_hours_total = 0
+            if employee.id:
+                attendances = self.env['hr.attendance'].search([('employee_id', '=', employee.id)])   
+                if attendances:
+                    for attendance in attendances:
+                        worked_hours_total += attendance.worked_hours
+                else:
+                    employee.worked_hours_total = worked_hours_total
+            else:
+                employee.worked_hours_total = worked_hours_total
+            employee.worked_hours_total = worked_hours_total
+
+

@@ -8,7 +8,7 @@
     """,
 
     'version': '0.1',
-    'depends': ['base','web'],
+    'depends': ['base','hr', 'web'],
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',
