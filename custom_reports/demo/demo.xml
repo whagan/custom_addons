@@ -8,7 +8,7 @@
         <field name="name">Contacts</field>
         <field name="description">Contacts custom report description.</field>
     </record>
-
+<!--
     <record model="custom_reports.employee_performance_report" id="employeeperformancereport0">
         <field name="employee">Will Hagan</field>
         <field name="work_period">09/01/20 - 09/15/20</field>
@@ -28,7 +28,18 @@
         <field name="employee">John Salajka</field>
         <field name="work_period">09/01/20 - 09/15/20</field>
         <field name="sales">1021.22</field>
+    </record>-->
+    <record model="custom_reports.employee_performance_report" id="employeeperformancereport3">
+        <field name="emp_id">1</field>
+        <field name="work_period">09/01/20 - 09/15/20</field>
+        <field name="sales">1021.22</field>
     </record>
+        <record model="custom_reports.employee_performance_report" id="employeeperformancereport3">
+        <field name="emp_id">7</field>
+        <field name="work_period">09/01/20 - 09/15/20</field>
+        <field name="sales">1021.22</field>
+    </record>
+    
 
 </odoo>
 
