@@ -23,7 +23,7 @@ class EmployeePerformance(models.Model):
     _description = 'Employee Performance'
 
     #employee_performance_report_id = fields.Many2one('custom_report.employee_performance_report', string="Employee Performance Report")
-    employee_id = fields.Many2one('custom_report.employee', string="Employee", required=True, ondelete='cascade', index=True)
+    employee_id = fields.Many2one('custom_reports.employee', string="Employee", required=True, ondelete='cascade', index=True)
     
     
         
