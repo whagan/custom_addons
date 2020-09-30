@@ -14,9 +14,7 @@
         <field name="model">custom_reports.employee_performance_report</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="work_period"/>
-                <field name="employee"/>
-                <field name="sales"/>
+                <field name="employee_id.worked_hours_total"/>
             </tree>
         </field>
     </record>
@@ -39,8 +37,7 @@
         <field name="model">custom_reports.employee_performance_report</field>
         <field name="arch" type="xml">
             <graph string="Employee" type="pie">
-                <field name="employee" type="row"/>
-                <field name="sales" type="measure"/>
+                <field name="employee_id.worked_hours_total" type="row"/>
             </graph>
         </field>
     </record>
