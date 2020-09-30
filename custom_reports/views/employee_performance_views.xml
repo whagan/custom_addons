@@ -4,7 +4,7 @@
     <record id="employee_performance_report_action" model="ir.actions.act_window">
         <field name="name">Employee Performance</field>
         <field name="res_model">custom_reports.employee_performance_report</field>
-        <field name="view_mode">tree,graph</field>
+        <field name="view_mode">tree,form</field>
 
     </record>
 
@@ -14,11 +14,28 @@
         <field name="model">custom_reports.employee_performance_report</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="employee_id.worked_hours_total"/>
+                <field name="employee_id"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+                <field name="worked_hours"/>
             </tree>
         </field>
     </record>
 
+     <!-- tree -->
+    <record model="ir.ui.view" id="employee_performance_report_view_form">
+        <field name="name">custom_reports.employee_performance_report.form</field>
+        <field name="model">custom_reports.employee_performance_report</field>
+        <field name="arch" type="xml">
+            <form>
+                <field name="employee_id"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+               
+
+            </form>
+        </field>
+    </record>
     <!-- graph
     <record model="ir.ui.view" id="employee_performance_report_view_graph_bar">
         <field name="name">custom_reports.employee_performance_report.graph_bar</field>
@@ -31,7 +48,7 @@
         </field>
     </record>
     -->
-    <!-- graph -->
+    <!-- graph 
     <record model="ir.ui.view" id="employee_performance_report_view_graph_pie">
         <field name="name">custom_reports.employee_performance_report.graph_pie</field>
         <field name="model">custom_reports.employee_performance_report</field>
@@ -40,7 +57,7 @@
                 <field name="employee_id.worked_hours_total" type="row"/>
             </graph>
         </field>
-    </record>
+    </record>-->
 
 
 </odoo>
