@@ -18,9 +18,6 @@ class EmployeePerformanceReport(models.Model):
     employee_id = fields.Many2one('hr.employee', string="Employee", required=True, ondelete='cascade', index=True)
 
     
-    worked_hours = fields.Float(related='employee_id.worked_hours_total')
-    #emp_perform_emp_ids = fields.Many2many('custom_reports.employee_performance', store=True, relation='emp_perform_emp_rel', column1='emp_perform_report_id', column2='emp_perform_id', string="Employee Performances")
-
 
 class EmployeePerformance(models.Model):
     _name = 'custom_reports.employee_performance'
@@ -30,7 +27,38 @@ class EmployeePerformance(models.Model):
     employee_id = fields.Many2one('hr.employee', string="Employee", required=True, ondelete='cascade', index=True)
     start_date = fields.Date(string="Start Date")
     end_date = fields.Date(string="End Date")
-    worked_hours = fields.
+    worked_hours = fields.Float = fields.Float(string="Worked Hours", compute="worked_hours", store=True)
+    total_sales = fields.Float(string="Sales", compute="sales", store=True)
+
+    def worked_hours(self):
+        for employee in self:
+            worked_hours = 0
+            if employee.employee_id:
+                attendances = self.env['hr.attendance'].search([('employee_id', '=', employee.employee_id)])
+                if attendances:
+                    for attendance in attendances:
+                        worked_hours += attendance.worked_hours
+                else:
+                    employee.worked_hours = worked_hours
+            else:
+                employee.worked_hours = worked_hours 
+            employee.worked_hours = worked_hours
+    
+    def sales(self):
+        for employee in self:
+            if employee.employee_id:
+                total_sales = 0
+                orders = self.env['sale.order'].search([('state', 'in', ['sale', 'done']), ('user_id', '=', employee.employee_id)])
+                if orders:
+                    for sale in sales:
+                        total_sales += sale.amount_total
+                else:
+                    employee.total_sales = total_sales
+            else:
+                employee.total_sales = total_sales
+            employee.total_sales = total_sales
+
+                
     
     
         
