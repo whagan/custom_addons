@@ -26,7 +26,9 @@ class EmployeePerformanceReport(models.Model):
     def compute_worked_hours(self):
         for record in self:
             if record.employee_id:
-                attendances = self.env['hr.attendance'].search([('employee_id', '=', self.employee_id.id)])
+                attendances = self.env['hr.attendance'].search([
+                    ('employee_id', '=', self.employee_id.id)
+                ])
                 if attendances:
                     w_hours = 0.0
                     for attendance in attendances:
@@ -37,4 +39,4 @@ class EmployeePerformanceReport(models.Model):
                 record.worked_hours = w_hours
             record.worked_hours = w_hours
     
-    
+   
