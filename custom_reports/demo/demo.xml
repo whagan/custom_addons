@@ -1,5 +1,6 @@
 <odoo>
 
+    <!-- custom reports -->
     <record model="custom_reports.custom_report" id="customreport0">
         <field name="name">Employee Performance</field>
         <field name="description">Employee Performance custom report description.</field>
@@ -9,4 +10,58 @@
         <field name="description">Contacts custom report description.</field>
     </record>
 
+
+    <!-- employee performance -->
+     <record model="custom_reports.employee_performance" id="employeeperformance0">
+        <field name="employee_id">1</field>
+    </record>
+    <record model="custom_reports.employee_performance_report" id="employeeperformance1">
+        <field name="employee_id">7</field>
+    </record>
+
+    <!-- employee performance reports
+    <record model="custom_reports.employee_performance_report" id="employeeperformancereport0">
+        <field name="emp_perform_emp_ids">1</field>
+    </record>
+    <record model="custom_reports.employee_performance_report" id="employeeperformancereport1">
+        <field name="emp_perform_emp_ids">2</field>
+    </record>-->
+
+
+
+    
+<!--
+    <record model="custom_reports.employee_performance_report" id="employeeperformancereport0">
+        <field name="employee">Will Hagan</field>
+        <field name="work_period">09/01/20 - 09/15/20</field>
+        <field name="sales">555.55</field>
+    </record>
+    <record model="custom_reports.employee_performance_report" id="employeeperformancereport1">
+        <field name="employee">Daniel Chang</field>
+        <field name="work_period">09/01/20 - 09/15/20</field>
+        <field name="sales">664.44</field>
+    </record>
+    <record model="custom_reports.employee_performance_report" id="employeeperformancereport2">
+        <field name="employee">KEvin Murphy</field>
+        <field name="work_period">09/01/20 - 09/15/20</field>
+        <field name="sales">1015.00</field>
+    </record>
+    <record model="custom_reports.employee_performance_report" id="employeeperformancereport3">
+        <field name="employee">John Salajka</field>
+        <field name="work_period">09/01/20 - 09/15/20</field>
+        <field name="sales">1021.22</field>
+    </record>-->
+    <!--<record model="custom_reports.employee_performance_report" id="employeeperformancereport3">
+        <field name="emp_id">1</field>
+        <field name="work_period">09/01/20 - 09/15/20</field>
+        <field name="sales">1021.22</field>
+    </record>
+        <record model="custom_reports.employee_performance_report" id="employeeperformancereport3">
+        <field name="emp_id">7</field>
+        <field name="work_period">09/01/20 - 09/15/20</field>
+        <field name="sales">1021.22</field>
+    </record>-->
+    
+
 </odoo>
+

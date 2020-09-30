@@ -8,12 +8,13 @@
     """,
 
     'version': '0.1',
-    'depends': ['base','web'],
+    'depends': ['base','hr', 'hr_attendance', 'web'],
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',
         'views/assets.xml',
-        'views/custom_reports_view.xml'
+        'views/employee_performance_views.xml',
+        'views/custom_reports_views.xml',
     ],
     'demo': [
         'demo/demo.xml',
