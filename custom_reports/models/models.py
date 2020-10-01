@@ -21,22 +21,39 @@ class EmployeePerformanceReport(models.Model):
     start_date = fields.Datetime(string="Start Date")
     end_date = fields.Datetime(string="End Date")
     worked_hours = fields.Float(string="Worked Hours", compute="compute_worked_hours", readonly=False, store=True)
-    
+    total_sales = fields.Float(string="Total Sales", compute="compute_total_sales", readonly=False, store=True)
+
     @api.depends('employee_id')
     def compute_worked_hours(self):
         for record in self:
+            w_hours = 0.0
             if record.employee_id:
                 attendances = self.env['hr.attendance'].search([
                     ('employee_id', '=', self.employee_id.id)
                 ])
                 if attendances:
-                    w_hours = 0.0
                     for attendance in attendances:
-                        w_hours = w_hours + attendance.worked_hours
+                        w_hours += attendance.worked_hours
                 else:
                     record.worked_hours = w_hours
             else:
                 record.worked_hours = w_hours
             record.worked_hours = w_hours
     
+    @api.depends('employee_id')
+    def compute_total_sales(self):
+        for record in self:
+            t_sales = 0.0
+            if record.employee_id:
+                orders = self.env['sale.order'].search([('state', 'in', ['sale', 'done']),('user_id', '=', self.employee_id.id)])
+                if orders:
+                    for sale in orders:
+                        t_sales += sale.amount_total
+                else:
+                    record.total_sales = t_sales
+            else:
+                record.total_sales = t_sales
+            record.total_sales = t_sales
    
+
+   #    ('state', 'in', ['sale', 'done']), 
