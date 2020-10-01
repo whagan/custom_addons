@@ -78,4 +78,7 @@ class EmployeePerformance(models.Model):
     @api.depends('total_sales', 'worked_hours')
     def compute_sales_hour(self):
         for record in self:
-            record.sales_hour = self.total_sales / self.worked_hours
+            if(self.worked_hours != 0):
+                record.sales_hour = self.total_sales / self.worked_hours
+            else:
+                record.sales_hour = 0
