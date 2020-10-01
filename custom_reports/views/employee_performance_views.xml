@@ -11,7 +11,7 @@
     <!-- tree -->
     <record model="ir.ui.view" id="employee_performance_report_view_tree">
         <field name="name">custom_reports.employee_performance_report.tree</field>
-        <field name="model">custom_reports.employee_performance_report</field>
+        <field name="model">custom_reports.employee_performance</field>
         <field name="arch" type="xml">
             <tree>
                 <field name="employee_id"/>

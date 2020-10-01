@@ -15,11 +15,23 @@ class CustomReport(models.Model):
 class EmployeePerformanceReport(models.Model):
     _name = 'custom_reports.employee_performance_report'
     _description = "Employee Performance Reports"
-   
-    employee_id = fields.Many2one('hr.employee', string="Employee", required=True, ondelete='cascade', index=True, store=True)
-    employee_user_id = fields.Many2one(related='employee_id.user_id', store=True, readonly=True)
+    
     start_date = fields.Datetime(string="Start Date")
     end_date = fields.Datetime(string="End Date")
+
+
+class EmployeePerformance(models.Model):
+    _name = 'custom_reports.employee_performance'
+    _description = "Employee Performance"
+
+    employee_id = fields.Many2one('hr.employee', string="Employee", required=True, ondelete='cascade', index=True, store=True)
+    employee_user_id = fields.Many2one(related='employee_id.user_id', store=True, readonly=True)
+
+    empl_per_report = fields.Many2one('custom_reports.employee_performance', string="Employee Performance  Report", require=True, ondelete='cascade', store=True)
+    start_date_id = fields.Many2one(related='custom_reports.employee_performance_report', store=True)
+    end_date = fields.Many2one(related='custom_reports.employee_performance_report', store=True)
+
+
     worked_hours = fields.Float(string="Worked Hours", compute="compute_worked_hours", readonly=False, store=True)
     total_sales = fields.Float(string="Total Sales", compute="compute_total_sales", readonly=False, store=True)
     sales_hour = fields.Float(string="Sales / Hour", compute="compute_sales_hour", readonly=False, store=True)
