@@ -27,9 +27,9 @@ class EmployeePerformance(models.Model):
     employee_id = fields.Many2one('hr.employee', string="Employee", required=True, ondelete='cascade', index=True, store=True)
     employee_user_id = fields.Many2one(related='employee_id.user_id', store=True, readonly=True)
 
-    empl_per_report = fields.Many2one('custom_reports.employee_performance', string="Employee Performance  Report", require=True, ondelete='cascade', store=True)
-    start_date_id = fields.Many2one(related='custom_reports.employee_performance_report', store=True)
-    end_date = fields.Many2one(related='custom_reports.employee_performance_report', store=True)
+    empl_per_report_id = fields.Many2one('custom_reports.employee_performance_report', string="Employee Performance Report", require=True, ondelete='cascade', store=True)
+    start_date = fields.Datetime(related='empl_per_report_id.start_date', store=True)
+    end_date = fields.Datetime(related='empl_per_report_id.end_date', store=True)
 
 
     worked_hours = fields.Float(string="Worked Hours", compute="compute_worked_hours", readonly=False, store=True)
