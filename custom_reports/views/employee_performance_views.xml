@@ -18,6 +18,8 @@
                 <field name="start_date"/>
                 <field name="end_date"/>
                 <field name="worked_hours"/>
+                <field name="total_sales"/>
+                <field name="sales_hour"/>
             </tree>
         </field>
     </record>
