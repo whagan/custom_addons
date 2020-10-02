@@ -15,7 +15,6 @@
         <field name="arch" type="xml">
             <tree>
                 <field name="employee_id"/>
-                <field name="empl_per_report_id"/>
                 <field name="total_sales"/>
                 <field name="worked_hours"/>
                 <field name="sales_hour"/>
@@ -30,11 +29,23 @@
         <field name="arch" type="xml">
             <form>
                 <field name="employee_id"/>
-                <field name="empl_per_report_id"/>
             </form>
         </field>
     </record>
 
+      <!-- pivot -->
+    <record model="ir.ui.view" id="employee_performance_view_pivot">
+        <field name="name">Employee Performance Report</field>
+        <field name="model">custom_reports.employee_performance</field>
+        <field name="arch" type="xml">
+            <pivot>
+                <field name="employee_id" type="row"/>
+                <field name="worked_hours"/>
+                <field name="total_sales"/>
+                <field name="sales_hour"/>
+            </pivot>
+        </field>
+    </record>
      <!--********************************************************************-->
 
     

@@ -2,7 +2,7 @@
 {
     'name': "Custom Reports",
 
-    'summary': "ClickIt Custom Reports",
+    'summary': "Custom Reports",
     'description': """
         ClickIt COMP 4882 Custom Reports
     """,

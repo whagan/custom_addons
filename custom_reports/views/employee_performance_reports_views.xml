@@ -4,7 +4,7 @@
     <record id="employee_performance_report_action" model="ir.actions.act_window">
         <field name="name">Employee Performance Report</field>
         <field name="res_model">custom_reports.employee_performance_report</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">tree,graph,form</field>
 
     </record>
 
@@ -26,15 +26,20 @@
         <field name="model">custom_reports.employee_performance_report</field>
         <field name="arch" type="xml">
             <form>
-                <field name="start_date"/>
-                <field name="end_date"/>
+                <sheet>
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                    <field name="employee_ids" widget="many2many_tags"/>
+                </sheet>
             </form>
         </field>
     </record>
 
+   
+
+
     <!--********************************************************************-->
     
     
-    <menuitem id="employee_performance_menu" name="Employee Performance" parent="custom_reports_submenu" action="custom_reports.employee_performance_action"/>
-
+    
 </odoo>

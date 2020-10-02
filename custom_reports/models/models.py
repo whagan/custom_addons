@@ -14,22 +14,34 @@ class CustomReport(models.Model):
 
 class EmployeePerformanceReport(models.Model):
     _name = 'custom_reports.employee_performance_report'
-    _description = "Employee Performance Reports"
+    _description = "Employee Performance Report"
     
-    start_date = fields.Datetime(string="Start Date")
-    end_date = fields.Datetime(string="End Date")
+    start_date = fields.Datetime(string='Start Date')
+    end_date = fields.Datetime(string='End Date')
 
+    employee_ids = fields.Many2many('hr.employee', relation='custom_reports_ep_report_rel', column1='custom_report_id', column2='employee_id', string="Employees")
+
+    #@api.depends('employee_ids', 'start_date', 'end_date')
+    @api.model
+    def create_employee_performances(self):
+        for employee_id in self.employee_ids:
+            self.env['custom_reports.employee_performance'].create({
+                'start_date': self.start_date,
+                'end_date': self.end_date,
+                'employee_id': employee_id,
+                'employee_performance_report_id': self.id
+            })
 
 class EmployeePerformance(models.Model):
     _name = 'custom_reports.employee_performance'
-    _description = "Employee Performance"
+    _description = 'Employee Performance'
 
     employee_id = fields.Many2one('hr.employee', string="Employee", required=True, ondelete='cascade', index=True, store=True)
     employee_user_id = fields.Many2one(related='employee_id.user_id', store=True, readonly=True)
 
-    empl_per_report_id = fields.Many2one('custom_reports.employee_performance_report', string="Employee Performance Report", require=True, ondelete='cascade', store=True)
-    start_date = fields.Datetime(related='empl_per_report_id.start_date', store=True)
-    end_date = fields.Datetime(related='empl_per_report_id.end_date', store=True)
+    employee_performance_report_id = fields.Many2one('custom_reports.employee_performance_report', string="Employee Performance Report", required=True, ondelete='cascade', store=True)
+    start_date = fields.Datetime(string="Start Date", required=True, store=True)
+    end_date = fields.Datetime(string="End Date", required=True, store=True)
 
 
     worked_hours = fields.Float(string="Worked Hours", compute="compute_worked_hours", readonly=False, store=True)
