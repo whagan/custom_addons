@@ -4,6 +4,9 @@ from odoo import models, fields, api
 from odoo.tools import format_datetime
 from odoo.exceptions import ValidationError
 import datetime
+import logging
+_logger = logging.getLogger(__name__)
+
 
 class CustomReport(models.Model):
     _name = 'custom_reports.custom_report'
@@ -19,27 +22,30 @@ class EmployeePerformanceReport(models.Model):
     start_date = fields.Datetime(string='Start Date')
     end_date = fields.Datetime(string='End Date')
 
-    employee_ids = fields.Many2many('hr.employee', relation='custom_reports_ep_report_rel', column1='custom_report_id', column2='employee_id', string="Employees")
-
-    #@api.depends('employee_ids', 'start_date', 'end_date')
+    employee_ids = fields.Many2many('hr.employee', relation='custom_reports_employee_report_rel', column1='custom_report_id', column2='employee_id', string="Employees")
+    
     @api.model
-    def create_employee_performances(self):
-        for employee_id in self.employee_ids:
+    def create(self, values):
+        record = super(EmployeePerformanceReport, self).create(values)
+        employ_ids = values['employee_ids']
+        for employee_id in employ_ids:
             self.env['custom_reports.employee_performance'].create({
-                'start_date': self.start_date,
-                'end_date': self.end_date,
                 'employee_id': employee_id,
-                'employee_performance_report_id': self.id
+                'employee_performance_report_id': record.id,
+                'start_date': record.start_date,
+                'end_date': record.end_date
             })
+        return record
 
+     
 class EmployeePerformance(models.Model):
     _name = 'custom_reports.employee_performance'
     _description = 'Employee Performance'
 
-    employee_id = fields.Many2one('hr.employee', string="Employee", required=True, ondelete='cascade', index=True, store=True)
+    employee_id = fields.Many2one('hr.employee', string="Employee", ondelete='cascade', index=True, store=True)
     employee_user_id = fields.Many2one(related='employee_id.user_id', store=True, readonly=True)
 
-    employee_performance_report_id = fields.Many2one('custom_reports.employee_performance_report', string="Employee Performance Report", required=True, ondelete='cascade', store=True)
+    employee_performance_report_id = fields.Many2one('custom_reports.employee_performance_report', string="Employee Performance Report", ondelete='cascade', store=True)
     start_date = fields.Datetime(string="Start Date", required=True, store=True)
     end_date = fields.Datetime(string="End Date", required=True, store=True)
 
