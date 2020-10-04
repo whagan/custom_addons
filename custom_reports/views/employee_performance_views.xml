@@ -15,9 +15,9 @@
         <field name="arch" type="xml">
             <tree>
                 <field name="employee_id"/>
-                <field name="total_sales"/>
-                <field name="worked_hours"/>
-                <field name="sales_hour"/>
+                <!--<field name="total_sales"/>-->
+                <!--<field name="worked_hours"/>-->
+                <!--<field name="sales_hour"/>-->
             </tree>
         </field>
     </record>
@@ -40,9 +40,9 @@
         <field name="arch" type="xml">
             <pivot>
                 <field name="employee_id" type="row"/>
-                <field name="worked_hours"/>
-                <field name="total_sales"/>
-                <field name="sales_hour"/>
+                <!--<field name="worked_hours"/>-->
+                <!--<field name="total_sales"/>
+                <field name="sales_hour"/>-->
             </pivot>
         </field>
     </record>

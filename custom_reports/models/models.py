@@ -27,16 +27,17 @@ class EmployeePerformanceReport(models.Model):
     @api.model
     def create(self, values):
         record = super(EmployeePerformanceReport, self).create(values)
-        employ_ids = values['employee_ids']
-        for employee_id in employ_ids:
-            self.env['custom_reports.employee_performance'].create({
+        employee_ids = values['employee_ids'][0][2]
+        records = []
+        for employee_id in employee_ids:
+            records.append({
                 'employee_id': employee_id,
                 'employee_performance_report_id': record.id,
                 'start_date': record.start_date,
                 'end_date': record.end_date
             })
+        self.env['custom_reports.employee_performance'].create(records)
         return record
-
      
 class EmployeePerformance(models.Model):
     _name = 'custom_reports.employee_performance'
@@ -49,7 +50,6 @@ class EmployeePerformance(models.Model):
     start_date = fields.Datetime(string="Start Date", required=True, store=True)
     end_date = fields.Datetime(string="End Date", required=True, store=True)
 
-
     worked_hours = fields.Float(string="Worked Hours", compute="compute_worked_hours", readonly=False, store=True)
     total_sales = fields.Float(string="Total Sales", compute="compute_total_sales", readonly=False, store=True)
     sales_hour = fields.Float(string="Sales / Hour", compute="compute_sales_hour", readonly=False, store=True)
@@ -58,11 +58,11 @@ class EmployeePerformance(models.Model):
     def compute_worked_hours(self):
         for record in self:
             worked_hours = 0.0
-            if record.employee_id and (self.start_date <= self.end_date):
-                attendances = self.env['hr.attendance'].search([
-                    ('employee_id', '=', self.employee_id.id),
-                    ('check_in', '>=', self.start_date),
-                    ('check_out', '<=', self.end_date)
+            if record.employee_id and (record.start_date <= record.end_date):
+                attendances = record.env['hr.attendance'].search([
+                    ('employee_id', '=', record.employee_id.id),
+                    ('check_in', '>=', record.start_date),
+                    ('check_out', '<=', record.end_date)
                 ])
                 if attendances:
                     for attendance in attendances:
@@ -72,17 +72,17 @@ class EmployeePerformance(models.Model):
             else:
                 record.worked_hours = worked_hours
             record.worked_hours = worked_hours
-    
-    @api.depends('employee_user_id', 'start_date', 'end_date')
+
+    @api.depends('employee_id', 'employee_user_id', 'start_date', 'end_date')
     def compute_total_sales(self):
         for record in self:
             total_sales = 0.0
-            if record.employee_id and (self.start_date <= self.end_date):
-                orders = self.env['sale.order'].search([
+            if record.employee_id and (record.start_date <= record.end_date):
+                orders = record.env['sale.order'].search([
                     ('state', 'in', ['sale', 'done']),
-                    ('user_id', '=', self.employee_user_id.id),
-                    ('date_order', '>=', self.start_date),
-                    ('date_order', '<=', self.end_date)
+                    ('user_id', '=', record.employee_user_id.id),
+                    ('date_order', '>=', record.start_date),
+                    ('date_order', '<=', record.end_date)
                     ])
                 if orders:
                     for sale in orders:
@@ -92,11 +92,11 @@ class EmployeePerformance(models.Model):
             else:
                 record.total_sales = total_sales
             record.total_sales = total_sales
-
+    
     @api.depends('total_sales', 'worked_hours')
     def compute_sales_hour(self):
         for record in self:
-            if(self.worked_hours != 0):
-                record.sales_hour = self.total_sales / self.worked_hours
+            if(record.worked_hours != 0):
+                record.sales_hour = record.total_sales / record.worked_hours
             else:
                 record.sales_hour = 0
