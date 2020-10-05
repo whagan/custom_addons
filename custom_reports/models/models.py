@@ -65,7 +65,7 @@ class EmployeePerformance(models.Model):
     def compute_worked_hours(self):
         # worked_hours = 0.0
         for record in self:
-            # worked_hours = 0.0           
+            worked_hours = 0.0           
             if record.employee_id and (record.start_date <= record.end_date):
                 attendances = record.env['hr.attendance'].search([
                     ('employee_id', '=', record.employee_id.id),
@@ -86,7 +86,7 @@ class EmployeePerformance(models.Model):
     def compute_total_sales(self):
         # total_sales = 0.0
         for record in self:
-            # total_sales = 0.0
+            total_sales = 0.0
             if record.employee_id and (record.start_date <= record.end_date):
                 orders = record.env['sale.order'].search([
                     ('state', 'in', ['sale', 'done']),
