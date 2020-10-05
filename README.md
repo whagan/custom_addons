@@ -4,7 +4,7 @@ Team ClickIt Github repo.
 ### Installation
 #### Install Odoo
 * [Odoo Installation Guide](https://www.odoo.com/documentation/master/setup/install.html#source-install)
-    * The installation **WILL NOT WORK** if you are using Python 3.7+. Use Python 3.6.
+    * The installation **WILL NOT WORK** if you are using Python 3.8+. We recommend using Python 3.6.x
 
 #### Install Our Module
 1. Open a terminal (in administrator mode, if relevant) at the root of your Odoo installation.
