@@ -24,6 +24,7 @@
     <record model="ir.ui.view" id="custom_reports_view_tree">
         <field name="name">custom_reports.custom_report.tree</field>
         <field name="model">custom_reports.custom_report</field>
+        <field name="type">tree</field>
         <field name="arch" type="xml">
             <tree>
                 <field name="name"/>
@@ -35,11 +36,15 @@
     <record model="ir.ui.view" id="custom_reports_view_form">
         <field name="name">custom_reports.custom_report.form</field>
         <field name="model">custom_reports.custom_report</field>
+        <field name="type">form</field>
         <field name="arch" type="xml">
             <form>
                 <sheet>
                     <group>
+                        <h1>Report Details</h1>
                         <field name="name"/>
+                        <field name="url"/>
+                        <field name="category"/>
                         <field name="description"/>
                     </group>
                 </sheet>

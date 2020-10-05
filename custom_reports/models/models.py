@@ -14,7 +14,7 @@ class CustomReport(models.Model):
 
     # basic properties
     name = fields.Char(string="Report Title", required=True)
-    url = fields.Char(required=True)
+    url = fields.Char() #required=True
     category = fields.Char()
     description = fields.Text()
     delete_date = fields.Datetime()
