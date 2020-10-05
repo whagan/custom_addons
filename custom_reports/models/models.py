@@ -40,6 +40,7 @@ class EmployeePerformanceReport(models.Model):
     start_date = fields.Datetime(string='Start Date')
     end_date = fields.Datetime(string='End Date')
     employee_ids = fields.Many2many('hr.employee', relation='custom_reports_employee_report_rel', column1='custom_report_id', column2='employee_id', string="Employees")
+    employee_performance_ids = fields.One2many('custom_reports.employee_performance', 'employee_performance_report_id', string="Employee Performances")
     
     # methods
     @api.model
@@ -78,7 +79,6 @@ class EmployeePerformance(models.Model):
     # this method gets the computed work hours between a time period
     @api.depends('employee_id', 'start_date', 'end_date')
     def compute_worked_hours(self):
-        # worked_hours = 0.0
         for record in self:
             worked_hours = 0.0           
             if record.employee_id and (record.start_date <= record.end_date):
@@ -90,16 +90,11 @@ class EmployeePerformance(models.Model):
                 if attendances: # if found in attendance, sum the worked_hours
                     for attendance in attendances:
                         worked_hours += attendance.worked_hours
-            #     else: 
-            #         record.worked_hours = worked_hours
-            # else:
-            # record.worked_hours = worked_hours
             record.worked_hours = worked_hours
 
     # this method gets the computed total sales between a time period
     @api.depends('employee_id', 'employee_user_id', 'start_date', 'end_date')
     def compute_total_sales(self):
-        # total_sales = 0.0
         for record in self:
             total_sales = 0.0
             if record.employee_id and (record.start_date <= record.end_date):
@@ -112,10 +107,6 @@ class EmployeePerformance(models.Model):
                 if orders: # if found in orders, sum the total sales
                     for sale in orders:
                         total_sales += sale.amount_total
-            #     else:
-            #         record.total_sales = total_sales
-            # else:
-            #     record.total_sales = total_sales
             record.total_sales = total_sales
     
     # this method gets the computer sales per hour between a time period
@@ -126,7 +117,4 @@ class EmployeePerformance(models.Model):
                 record.sales_hour = 0
             else:
                 record.sales_hour = record.total_sales / record.worked_hours
-        # if(self.worked_hours == 0):
-        #     self.sales_hour = 0
-        # else:
-        #     self.sales_hour = self.total_sales / self.worked_hours
+        
