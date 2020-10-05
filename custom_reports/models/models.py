@@ -69,8 +69,8 @@ class EmployeePerformance(models.Model):
             if record.employee_id and (record.start_date <= record.end_date):
                 attendances = record.env['hr.attendance'].search([
                     ('employee_id', '=', record.employee_id.id),
-                    ('check_in', '>=', record.start_date),
-                    ('check_out', '<=', record.end_date)
+                    ('check_in', '<=', record.end_date),
+                    ('check_out', '>=', record.start_date)
                 ])
                 if attendances: # if found in attendance, sum the worked_hours
                     for attendance in attendances:
