@@ -63,7 +63,7 @@ class EmployeePerformance(models.Model):
     # this method gets the computed work hours between a time period
     @api.depends('employee_id', 'start_date', 'end_date')
     def compute_worked_hours(self):
-        worked_hours = 0.0
+        # worked_hours = 0.0
         for record in self:
             # worked_hours = 0.0           
             if record.employee_id and (record.start_date <= record.end_date):
@@ -78,13 +78,13 @@ class EmployeePerformance(models.Model):
             #     else: 
             #         record.worked_hours = worked_hours
             # else:
-            #     record.worked_hours = worked_hours
-        self.worked_hours = worked_hours
+            # record.worked_hours = worked_hours
+            record.worked_hours = worked_hours
 
     # this method gets the computed total sales between a time period
     @api.depends('employee_id', 'employee_user_id', 'start_date', 'end_date')
     def compute_total_sales(self):
-        total_sales = 0.0
+        # total_sales = 0.0
         for record in self:
             # total_sales = 0.0
             if record.employee_id and (record.start_date <= record.end_date):
@@ -101,17 +101,17 @@ class EmployeePerformance(models.Model):
             #         record.total_sales = total_sales
             # else:
             #     record.total_sales = total_sales
-        self.total_sales = total_sales
+            record.total_sales = total_sales
     
     # this method gets the computer sales per hour between a time period
     @api.depends('total_sales', 'worked_hours')
     def compute_sales_hour(self):
-        # for record in self:
-        #     if(record.worked_hours == 0):
-        #         record.sales_hour = 0
-        #     else:
-        #         record.sales_hour = record.total_sales / record.worked_hours
-        if(self.worked_hours == 0):
-            self.sales_hour = 0
-        else:
-            self.sales_hour = self.total_sales / self.worked_hours
+        for record in self:
+            if(record.worked_hours == 0):
+                record.sales_hour = 0
+            else:
+                record.sales_hour = record.total_sales / record.worked_hours
+        # if(self.worked_hours == 0):
+        #     self.sales_hour = 0
+        # else:
+        #     self.sales_hour = self.total_sales / self.worked_hours
