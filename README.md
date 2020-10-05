@@ -17,7 +17,7 @@ Team ClickIt Github repo.
     `python3 odoo-bin --addons-path=addons,custom_addons -d odoo_db`
     * Windows:   
     `python odoo-bin -w odoo -r odoo --addons-path=addons,custom_addons -d odoo_db`
-4. In step 2, we launched odoo with the argument `-d odoo`. This allowed odoo to properly initialize, but unfortunately we cannot log in using that database. In your browser, go to `localhost:8069`. 
+4. In step 2, we launched odoo with the argument `-d odoo_db`. This allowed odoo to properly initialize, but unfortunately we cannot log in using that database. In your browser, go to `localhost:8069`. 
 
 ![Odoo Login Page](https://github.com/jsalajka/images/blob/main/odoo_landing_page.png)
 
