@@ -7,23 +7,26 @@ import datetime
 import logging
 _logger = logging.getLogger(__name__)
 
-
+# Custom Report DataModel
 class CustomReport(models.Model):
     _name = 'custom_reports.custom_report'
     _description = "Custom Reports"
 
+    # basic properties
     name = fields.Char(string="Title", required=True)
     description = fields.Text()
 
+# Employee Performance Report DataModel
 class EmployeePerformanceReport(models.Model):
     _name = 'custom_reports.employee_performance_report'
     _description = "Employee Performance Report"
     
+    # basic properties
     start_date = fields.Datetime(string='Start Date')
     end_date = fields.Datetime(string='End Date')
-
     employee_ids = fields.Many2many('hr.employee', relation='custom_reports_employee_report_rel', column1='custom_report_id', column2='employee_id', string="Employees")
     
+    # methods
     @api.model
     def create(self, values):
         record = super(EmployeePerformanceReport, self).create(values)
@@ -38,45 +41,52 @@ class EmployeePerformanceReport(models.Model):
             })
         self.env['custom_reports.employee_performance'].create(records)
         return record
-     
+
+#Employee Performance DataModel
 class EmployeePerformance(models.Model):
     _name = 'custom_reports.employee_performance'
     _description = 'Employee Performance'
 
+    # properties
     employee_id = fields.Many2one('hr.employee', string="Employee", ondelete='cascade', index=True, store=True)
     employee_user_id = fields.Many2one(related='employee_id.user_id', store=True, readonly=True)
-
     employee_performance_report_id = fields.Many2one('custom_reports.employee_performance_report', string="Employee Performance Report", ondelete='cascade', store=True)
     start_date = fields.Datetime(string="Start Date", required=True, store=True)
     end_date = fields.Datetime(string="End Date", required=True, store=True)
 
+    #computed properties
     worked_hours = fields.Float(string="Worked Hours", compute="compute_worked_hours", readonly=False, store=True)
     total_sales = fields.Float(string="Total Sales", compute="compute_total_sales", readonly=False, store=True)
     sales_hour = fields.Float(string="Sales / Hour", compute="compute_sales_hour", readonly=False, store=True)
 
+    # methods
+    # this method gets the computed work hours between a time period
     @api.depends('employee_id', 'start_date', 'end_date')
     def compute_worked_hours(self):
+        worked_hours = 0.0
         for record in self:
-            worked_hours = 0.0
+            # worked_hours = 0.0           
             if record.employee_id and (record.start_date <= record.end_date):
                 attendances = record.env['hr.attendance'].search([
                     ('employee_id', '=', record.employee_id.id),
                     ('check_in', '>=', record.start_date),
                     ('check_out', '<=', record.end_date)
                 ])
-                if attendances:
+                if attendances: # if found in attendance, sum the worked_hours
                     for attendance in attendances:
                         worked_hours += attendance.worked_hours
-                else:
-                    record.worked_hours = worked_hours
-            else:
-                record.worked_hours = worked_hours
-            record.worked_hours = worked_hours
+            #     else: 
+            #         record.worked_hours = worked_hours
+            # else:
+            #     record.worked_hours = worked_hours
+        self.worked_hours = worked_hours
 
+    # this method gets the computed total sales between a time period
     @api.depends('employee_id', 'employee_user_id', 'start_date', 'end_date')
     def compute_total_sales(self):
+        total_sales = 0.0
         for record in self:
-            total_sales = 0.0
+            # total_sales = 0.0
             if record.employee_id and (record.start_date <= record.end_date):
                 orders = record.env['sale.order'].search([
                     ('state', 'in', ['sale', 'done']),
@@ -84,19 +94,24 @@ class EmployeePerformance(models.Model):
                     ('date_order', '>=', record.start_date),
                     ('date_order', '<=', record.end_date)
                     ])
-                if orders:
+                if orders: # if found in orders, sum the total sales
                     for sale in orders:
                         total_sales += sale.amount_total
-                else:
-                    record.total_sales = total_sales
-            else:
-                record.total_sales = total_sales
-            record.total_sales = total_sales
+            #     else:
+            #         record.total_sales = total_sales
+            # else:
+            #     record.total_sales = total_sales
+        self.total_sales = total_sales
     
+    # this method gets the computer sales per hour between a time period
     @api.depends('total_sales', 'worked_hours')
     def compute_sales_hour(self):
-        for record in self:
-            if(record.worked_hours != 0):
-                record.sales_hour = record.total_sales / record.worked_hours
-            else:
-                record.sales_hour = 0
+        # for record in self:
+        #     if(record.worked_hours == 0):
+        #         record.sales_hour = 0
+        #     else:
+        #         record.sales_hour = record.total_sales / record.worked_hours
+        if(self.worked_hours == 0):
+            self.sales_hour = 0
+        else:
+            self.sales_hour = self.total_sales / self.worked_hours

@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
     <!-- odoo action -->
-
- 
-
     <record id="custom_report_action" model="ir.actions.act_window">
         <field name="name">Custom Reports</field>
         <field name="res_model">custom_reports.custom_report</field>
         <field name="view_mode">tree,form</field>
     </record>
-
     
-    
+    <!-- Menu -->
     <!-- navbar title -->
     <menuitem id="custom_reports_menu" name="Custom Reports" action="custom_reports.custom_report_action"/>
 
@@ -19,9 +15,11 @@
     <menuitem id="custom_reports_submenu" name="Custom Reports" parent="custom_reports_menu" action="custom_reports.custom_report_action"/>
     <menuitem id="configure_submenu" name="Configure" parent="custom_reports_menu" action="custom_reports.custom_report_action"/>
    
+    <!-- submenu list items placeholder -->
+    <!-- cannot get dynamically list url yet -->
+    <menuitem id="employee_performance_report_menu" name="Employee Performance Report" parent="custom_reports_submenu" action="custom_reports.employee_performance_report_action"/>    
     
-    <!-- submenu list items -->
-        
+    <!-- Views -->
     <!-- tree -->
     <record model="ir.ui.view" id="custom_reports_view_tree">
         <field name="name">custom_reports.custom_report.tree</field>
@@ -47,10 +45,5 @@
                 </sheet>
             </form>
         </field>
-    </record>
-
-    <!-- ************************************************* -->
-
-    <menuitem id="employee_performance_report_menu" name="Employee Performance Report" parent="custom_reports_submenu" action="custom_reports.employee_performance_report_action"/>
-    
+    </record>    
 </odoo>

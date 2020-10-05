@@ -14,12 +14,11 @@ odoo.define('custom_reports_view.CustomReportsView', function (require) {
                 Controller: CustomReportsController,
                 Renderer: CustomReportsRenderer,
         },
-        withControlPanel: false,
-        
-        viewType: 'custom_reports',
-        
+        withControlPanel: false,        
+        viewType: 'custom_reports',        
     });
+
     viewRegistry.add('custom_reports', CustomReportsView);
     return CustomReportsView;
-    });
+});
     
