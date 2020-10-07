@@ -5,7 +5,6 @@
         <field name="name">Email Marketing Report</field>
         <field name="res_model">custom_reports.employee_performance_report</field>
         <field name="view_mode">tree,form</field>
-
     </record>
 
    

@@ -18,6 +18,7 @@
     <!-- submenu list items placeholder -->
     <!-- cannot get dynamically list url yet -->
     <menuitem id="employee_performance_report_menu" name="Employee Performance Report" parent="custom_reports_submenu" action="custom_reports.employee_performance_report_action"/>    
+    <menuitem id="email_marketing_report_menu" name="Email Marketing Report" parent="custom_reports_submenu" action="custom_reports.email_marketing_report_action"/>
     
     <!-- Views -->
     <!-- tree -->
