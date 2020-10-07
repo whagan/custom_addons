@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- odoo action -->
+    <record model="ir.actions.act_window" id="email_marketing_report_action" >
+        <field name="name">Email Marketing Report</field>
+        <field name="res_model">custom_reports.employee_performance_report</field>
+        <field name="view_mode">tree,form</field>
+
+    </record>
+
+   
+
+    <!-- tree -->
+    <record model="ir.ui.view" id="email_marketing_report_view_tree">
+        <field name="name">Email Marketing Report</field>
+        <field name="model">custom_reports.email_marketing_report</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="start_date"/>
+                <field name="end_date"/>
+            </tree>
+        </field>
+    </record>
+
+</odoo>
