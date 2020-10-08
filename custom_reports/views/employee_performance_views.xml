@@ -5,7 +5,7 @@
     <record id="employee_performance_action" model="ir.actions.act_window">
         <field name="name">Employee Performance</field>
         <field name="res_model">custom_reports.employee_performance</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">tree,form,pivot</field>
     </record>
     
     <!-- employee performance tree -->
@@ -15,9 +15,9 @@
         <field name="arch" type="xml">
             <tree>
                 <field name="employee_id"/>
-                <!--<field name="total_sales"/>-->
-                <!--<field name="worked_hours"/>-->
-                <!--<field name="sales_hour"/>-->
+                <field name="total_sales"/>
+                <field name="worked_hours"/>
+                <field name="sales_hour"/>
             </tree>
         </field>
     </record>
@@ -29,6 +29,8 @@
         <field name="arch" type="xml">
             <form>
                 <field name="employee_id"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
             </form>
         </field>
     </record>
@@ -40,13 +42,12 @@
         <field name="arch" type="xml">
             <pivot>
                 <field name="employee_id" type="row"/>
-                <!--<field name="worked_hours"/>-->
-                <!--<field name="total_sales"/>
-                <field name="sales_hour"/>-->
+                <field name="worked_hours" type="col"/>
+                <field name="total_sales" type="col"/>
+                <field name="sales_hour" type="col"/>
             </pivot>
         </field>
     </record>
-     <!--********************************************************************-->
 
     
 </odoo>
