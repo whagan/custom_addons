@@ -41,24 +41,36 @@
                                 <label class="oe_input_label" for="name" string="End Date:" style="font-weight:bold"/>
                                 <field name="end_date"/>
                             </div>
+                            <div>
+                                <label class="oe_input_label" for="name" string="Mailings" style="font-weight:bold"/>
+                                <field name="mass_mailing_ids" widget="many2many_tags"/>
+                            </div>
                         </group>
                     </group>
-
                     <notebook>
                         <page string="Email Marketing Pivot">
-                            
-                            <pivot>
-                                <field name="start_date" type="row"/>
-                                <field name="end_date" type="col"/>
-                            </pivot>
-                            
+                            <field name="mass_mailing_ids">
+                                <pivot>
+                                    <field name="sent" type="row"/>
+                                    <field name="received_ratio" type="col"/>
+                                    <field name="opened_ratio" type="col"/>
+                                    <field name="replied_ratio" type="col"/>
+                                    <field name="bounced_ratio" type="col"/>
+                                </pivot>
+                            </field>
                         </page>
-                        <page string="Email Marketing Graph">
-                            <pivot>
-                                <field name="start_date" type="row"/>
-                                <field name="end_date" type="col"/>
-                            </pivot>
+                        <page string="Email Marketing Pivot">
+                            <field name="mass_mailing_ids">
+                                <pivot>
+                                    <field name="sent" type="row"/>
+                                    <field name="received_ratio" type="col"/>
+                                    <field name="opened_ratio" type="col"/>
+                                    <field name="replied_ratio" type="col"/>
+                                    <field name="bounced_ratio" type="col"/>
+                                </pivot>
+                            </field>
                         </page>
+                        
                     </notebook>
 
                 </sheet>
@@ -66,5 +78,33 @@
         </field>
     </record>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- extension of email marketing view -->
+    <record model="ir.ui.view" id="mass_mailing_view_form_inherit">
+        <field name="name">Email Marketing Custom</field>
+        <field name="model">mailing.mailing</field>
+        <field name="inherit_id" ref="mass_mailing.view_mail_mass_mailing_form"/>
+        <field name="arch" type="xml">
+            <field name="mailing_model_id" position="after">
+                <label class="oe_input_label" for="name" string="Products" style="font-weight:bold"/>
+                <field name="product_ids" widget="many2many_tags"/>
+            </field>
+        </field>
+    </record>
+
+   
 
 </odoo>
