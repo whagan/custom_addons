@@ -34,14 +34,6 @@
                         </div>
                         <group>
                             <div>
-                                <label class="oe_input_label" for="name" string="Start Date:" style="font-weight:bold"/>
-                                <field name="start_date"/>
-                            </div>
-                            <div>
-                                <label class="oe_input_label" for="name" string="End Date:" style="font-weight:bold"/>
-                                <field name="end_date"/>
-                            </div>
-                            <div>
                                 <label class="oe_input_label" for="name" string="Mailings" style="font-weight:bold"/>
                                 <field name="mass_mailing_ids" widget="many2many_tags"/>
                             </div>
@@ -52,6 +44,7 @@
                             <field name="mass_mailing_ids">
                                 <pivot>
                                     <field name="sent" type="row"/>
+                                    <field name="sent_date" type="col"/>
                                     <field name="received_ratio" type="col"/>
                                     <field name="opened_ratio" type="col"/>
                                     <field name="replied_ratio" type="col"/>
@@ -59,10 +52,11 @@
                                 </pivot>
                             </field>
                         </page>
-                        <page string="Email Marketing Pivot">
+                        <page string="Email Marketing Graph">
                             <field name="mass_mailing_ids">
                                 <pivot>
                                     <field name="sent" type="row"/>
+                                    <field name="sent_date" type="col"/>
                                     <field name="received_ratio" type="col"/>
                                     <field name="opened_ratio" type="col"/>
                                     <field name="replied_ratio" type="col"/>
