@@ -15,8 +15,7 @@
         <field name="model">custom_reports.email_marketing_report</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="start_date"/>
-                <field name="end_date"/>
+                <field name="id"/>
             </tree>
         </field>
     </record>
@@ -42,17 +41,18 @@
                     <notebook>
                         <page string="Email Marketing Pivot">
                             <field name="mass_mailing_ids">
-                                <pivot>
-                                    <field name="sent" type="row"/>
+                                <tree>
+                                    <field name="subject" type="row"/>
                                     <field name="sent_date" type="col"/>
                                     <field name="received_ratio" type="col"/>
                                     <field name="opened_ratio" type="col"/>
                                     <field name="replied_ratio" type="col"/>
                                     <field name="bounced_ratio" type="col"/>
-                                </pivot>
+                                    <field name="sales_prev_avg" type="col"/>
+                                </tree>
                             </field>
                         </page>
-                        <page string="Email Marketing Graph">
+                        <!--<page string="Email Marketing Graph">
                             <field name="mass_mailing_ids">
                                 <pivot>
                                     <field name="sent" type="row"/>
@@ -61,9 +61,10 @@
                                     <field name="opened_ratio" type="col"/>
                                     <field name="replied_ratio" type="col"/>
                                     <field name="bounced_ratio" type="col"/>
+                                    <field name="sales_prev_avg" type="col"/>
                                 </pivot>
                             </field>
-                        </page>
+                        </page>-->
                         
                     </notebook>
 
