@@ -31,3 +31,4 @@ class CustomReport(models.Model):
     #         'target' : 'new',
     #     }
 
+

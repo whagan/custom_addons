@@ -44,6 +44,6 @@ class SalesByLocation(models.Model):
     sale_id = fields.Many2one('sale.order', string="Company", ondelete='cascade', index=True, store=True)
     company_id = fields.Many2one(related='sale_id.company_id', store=True, readonly=True)
     sales_by_location_report_id = fields.Many2one('custom_reports.sales_by_location_report', string="Sales By location", ondelete='cascade', store=True)
-    start_date = fields.Datetime(related='sales_by_location_id.start_date', required=True)
+    start_date = fields.Datetime(related='sales_by_location_report_id.start_date', required=True)
     end_date = fields.Datetime(related='sales_by_location_report_id.end_date', required=True)
     

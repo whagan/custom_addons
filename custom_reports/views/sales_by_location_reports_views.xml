@@ -8,8 +8,6 @@
 
     </record>
 
-   
-
     <!-- tree -->
     <record model="ir.ui.view" id="sales_by_location_report_view_tree">
         <field name="name">Sales By Location Report</field>
@@ -22,6 +20,4 @@
         </field>
     </record>
  
-
-
 </odoo>

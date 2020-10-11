@@ -13,7 +13,7 @@
         'security/security.xml',
         'security/ir.model.access.csv',
         'views/assets.xml',
-        'views/employee_performance_views.xml',
+        'views/sales_by_location_reports_views.xml',
         'views/employee_performance_reports_views.xml',
         'views/custom_reports_views.xml',
     ],

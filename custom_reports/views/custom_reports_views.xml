@@ -18,7 +18,9 @@
     <!-- submenu list items placeholder -->
     <!-- cannot get dynamically list url yet -->
     <menuitem id="employee_performance_report_menu" name="Employee Performance Report" parent="custom_reports_submenu" action="custom_reports.employee_performance_report_action"/>    
+    <menuitem id="sales_by_location_report_menu" name="Sales by Location Report" parent="custom_reports_submenu" action="custom_reports.sales_by_location_report_action"/> 
     
+
     <!-- Views -->
     <!-- tree -->
     <record model="ir.ui.view" id="custom_reports_view_tree">
