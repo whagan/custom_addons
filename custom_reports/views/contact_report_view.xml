@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- odoo action -->
+    <record model="ir.actions.act_window" id="contact_report_action" >
+        <field name="name">Contacts Report</field>
+        <field name="res_model">res.partner</field> 
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>
