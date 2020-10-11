@@ -49,6 +49,7 @@
                                     <field name="replied_ratio" type="col"/>
                                     <field name="bounced_ratio" type="col"/>
                                     <field name="sales_prev_avg" type="col"/>
+                                    <field name="sales_since_avg" type="col"/>
                                 </tree>
                             </field>
                         </page>
