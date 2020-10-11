@@ -32,10 +32,10 @@ class MassMailing(models.Model):
             total_qty = 0
             if record.product_ids:
                 for product_id in record.product_ids:
-                    #_logger.debug("Product IDEEEEEEEEEEEEEEEEEE: ", str(product_id.id))
                     product_sales = record.env['sale.order.line'].search([
                         ('product_id', '=', product_id.id),
-                        ('', '=', )
+                        ('order_id.date_order', '<', record.sent_date),
+                        ('state', 'in', ('sale', 'done')),
                     ])
                     for product_sale in product_sales:
                         total_sales += product_sale.price_subtotal

@@ -9,6 +9,28 @@
         <field name="description">Contacts custom report description.</field>
     </record>
 
+
+    <record model="mailing.mailing" id="massmailing0">
+            <field name="name">ClickIt September Sale Ad</field>
+            <field name="subject" eval="'%s Newsletter' % (DateTime.today().strftime('%B'))"/>
+            <field name="state">done</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="email_from">wgaddis@clickit.com</field>
+            <field name="sent_date" eval="(DateTime.today() - relativedelta(days=8)).strftime('%Y-%m-%d %H:%M:%S')"/>
+            <field name="campaign_id" ref="mass_mailing.mass_mail_campaign_1"/>
+            <field name="source_id" ref="mass_mailing.utm_source_0"/>
+            <field name="mailing_model_id" ref="base.model_res_partner"/>
+            <field name="mailing_domain" eval="[('parent_id', '=', ref('base.res_partner_4'))]"/>
+            <field name="reply_to_mode">email</field>
+            <field name="reply_to">Info &lt;info@clickit.com&gt;</field>
+            <field name="body_html" type="html">
+                <div class="o_layout o_default_theme">
+                    <p>hello</p>
+                </div>
+            </field>
+        <field name="attachment_ids" eval="[(4, ref('mass_mail_attach_1'))]"/>
+    </record>
+        
     <!-- employee performance
     <record model="custom_reports.employee_performance_report" id="employeeperformance0">
         <field name="employee_id">1</field>
