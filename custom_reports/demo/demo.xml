@@ -28,7 +28,7 @@
                     <p>hello</p>
                 </div>
             </field>
-        <field name="attachment_ids" eval="[(4, ref('mass_mail_attach_1'))]"/>
+        <!--<field name="attachment_ids" eval="[(4, ref('mass_mail_attach_1'))]"/>-->
     </record>
         
     <!-- employee performance
