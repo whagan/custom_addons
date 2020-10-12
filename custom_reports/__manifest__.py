@@ -18,7 +18,8 @@
         'views/custom_reports_views.xml',
     ],
     'demo': [
-        'demo/demo.xml',
+        'demo/email_marketing_demo.xml',
+        'demo/custom_reports_demo.xml',
     ],
     'installable': True,
     'application': True,

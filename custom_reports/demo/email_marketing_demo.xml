@@ -1,12 +1,40 @@
-<odoo>
-    <!-- custom reports -->
-    <record model="custom_reports.custom_report" id="customreport0">
-        <field name="name">Employee Performance</field>
-        <field name="description">Employee Performance custom report description.</field>
+<record id="product_click_01" model="product.product">
+            <field name="name">ClickIt Lamp</field>
+            <field name="categ_id" ref="product.product_category_5"/>
+            <field name="standard_price">35.0</field>
+            <field name="list_price">40.0</field>
+            <field name="type">consu</field>
+            <field name="weight">0.01</field>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
+            <field name="uom_po_id" ref="uom.product_uom_unit"/>
+            <field name="default_code">FURN_1122</field>
+            <field name="image_1920" type="base64" file="custom_reports/static/img/lamp.png"/>
     </record>
-    <record model="custom_reports.custom_report" id="customreport1">
-        <field name="name">Contacts</field>
-        <field name="description">Contacts custom report description.</field>
+
+    <record id="product_click_02" model="product.product">
+            <field name="name">ClickIt Stapler</field>
+            <field name="categ_id" ref="product.product_category_5"/>
+            <field name="standard_price">5.0</field>
+            <field name="list_price">10.0</field>
+            <field name="type">consu</field>
+            <field name="weight">0.01</field>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
+            <field name="uom_po_id" ref="uom.product_uom_unit"/>
+            <field name="default_code">FURN_1123</field>
+            <field name="image_1920" type="base64" file="custom_reports/static/img/stapler.png"/>
+    </record>
+
+    <record id="product_click_03" model="product.product">
+            <field name="name">ClickIt Tape Dispenser</field>
+            <field name="categ_id" ref="product.product_category_5"/>
+            <field name="standard_price">10.0</field>
+            <field name="list_price">12.0</field>
+            <field name="type">consu</field>
+            <field name="weight">0.01</field>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
+            <field name="uom_po_id" ref="uom.product_uom_unit"/>
+            <field name="default_code">FURN_1124</field>
+            <field name="image_1920" type="base64" file="custom_reports/static/img/tape_dispenser.png"/>
     </record>
 
 
@@ -111,24 +139,6 @@
                     </table>
                 </div>
             </field>
+            <field name="product_ids" eval="[(6, 0, [product_click_01, product_click_02, product_click_03])]"/>
     </record>
         
-    <!-- employee performance
-    <record model="custom_reports.employee_performance_report" id="employeeperformance0">
-        <field name="employee_id">1</field>
-        <field name="start_date">2020-08-22 15:21:00</field>
-        <field name="end_date">2020-09-30 15:21:43</field>
-    </record>
-    <record model="custom_reports.employee_performance_report" id="employeeperformance1">
-        <field name="employee_id">1</field>
-        <field name="start_date">2020-08-22 15:21:00</field>
-        <field name="end_date">2020-09-30 15:21:43</field>
-    </record>
-    <record model="custom_reports.employee_performance_report" id="employeeperformance2">
-        <field name="employee_id">7</field>
-        <field name="start_date">2020-08-22 15:21:00</field>
-        <field name="end_date">2020-09-30 15:21:43</field>
-    </record>
-    -->
-</odoo>
-
