@@ -2,6 +2,7 @@ from odoo import models, fields, api
 from odoo.tools import format_datetime
 from odoo.exceptions import ValidationError
 import datetime
+#from datetime import date
 import logging
 _logger = logging.getLogger(__name__)
 
@@ -47,6 +48,7 @@ class MassMailing(models.Model):
         for record in self:
             total_sales = 0.0
             total_qty = 0
+            date_delta = datetime.datetime.now() - record.sent_date
             if record.product_ids:
                 for product_id in record.product_ids:
                     product_sales = record.env['sale.order.line'].search([
@@ -56,7 +58,7 @@ class MassMailing(models.Model):
                     ])
                     for product_sale in product_sales:
                         total_sales += product_sale.price_subtotal
-                record.sales_since_avg = total_sales
+                record.sales_since_avg = total_sales / (date_delta.days / 7.0)
             else:
-                record.sales_since_avg = total_sales
+                record.sales_since_avg = total_sales / (date_delta.days / 7.0)
      
