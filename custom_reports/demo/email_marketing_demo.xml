@@ -191,7 +191,7 @@
             <field name="campaign_id" ref="utm.utm_campaign_email_campaign_products"/>
             <field name="medium_id" ref="utm.utm_medium_email"/>
             <field name="source_id" ref="sale.utm_source_sale_order_0"/>
-            <field name="date_order" eval="(DateTime.today() - relativedelta(months=4,days=8)).strftime('%Y-%m-%d %H:%M')"/>
+            <field name="date_order" eval="(datetime.now()-relativedelta(months=4,days=10)).strftime('%Y-%m-%d %H:%M:%S')"/>
         </record>
 
         <record id="sale_order_click_02" model="sale.order">
@@ -204,7 +204,7 @@
             <field name="campaign_id" ref="utm.utm_campaign_email_campaign_products"/>
             <field name="medium_id" ref="utm.utm_medium_email"/>
             <field name="source_id" ref="sale.utm_source_sale_order_0"/>
-            <field name="date_order" eval="(DateTime.today() - relativedelta(months=4,days=7)).strftime('%Y-%m-%d %H:%M')"/>
+            <field name="date_order" eval="(datetime.now()-relativedelta(months=4,days=14)).strftime('%Y-%m-%d %H:%M:%S')"/>
         </record>
 
         <record id="sale_order_click_03" model="sale.order">
@@ -217,7 +217,7 @@
             <field name="campaign_id" ref="utm.utm_campaign_email_campaign_products"/>
             <field name="medium_id" ref="utm.utm_medium_email"/>
             <field name="source_id" ref="sale.utm_source_sale_order_0"/>
-            <field name="date_order" eval="(DateTime.today() - relativedelta(months=4,days=6)).strftime('%Y-%m-%d %H:%M')"/>
+            <field name="date_order" eval="(datetime.now()-relativedelta(months=3,days=14)).strftime('%Y-%m-%d %H:%M:%S')"/>
         </record>
 
         <record id="sale_order_click_04" model="sale.order">
@@ -230,7 +230,7 @@
             <field name="campaign_id" ref="utm.utm_campaign_email_campaign_products"/>
             <field name="medium_id" ref="utm.utm_medium_email"/>
             <field name="source_id" ref="sale.utm_source_sale_order_0"/>
-            <field name="date_order" eval="(DateTime.today() - relativedelta(days=4)).strftime('%Y-%m-%d %H:%M')"/>
+            <field name="date_order" eval="(DateTime.today() - relativedelta(months=2,days=4)).strftime('%Y-%m-%d %H:%M')"/>
         </record>
 
         <record id="sale_order_click_05" model="sale.order">
