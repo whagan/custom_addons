@@ -64,8 +64,8 @@
                             <field name="employee_performance_ids">
                                 <graph type="bar">
                                     <field name="employee_id" type="row"/>
-                                    <!--<field name="worked_hours" type="col"/>
-                                    <field name="total_sales" type="col"/>-->
+                                    <field name="worked_hours" type="col"/>
+                                    <field name="total_sales" type="col"/>
                                     <field name="sales_hour" type="measure"/>
                                 </graph>
                             </field>
