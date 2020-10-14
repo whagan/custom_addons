@@ -1,0 +1,15 @@
+<odoo>
+    <!-- custom reports -->
+    <record model="custom_reports.custom_report" id="customreport0">
+        <field name="name">Employee Performance</field>
+        <field name="description">Employee Performance custom report description.</field>
+    </record>
+    <record model="custom_reports.custom_report" id="customreport1">
+        <field name="name">Contacts</field>
+        <field name="description">Contacts custom report description.</field>
+    </record>
+
+    
+   
+</odoo>
+

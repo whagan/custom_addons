@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- odoo action -->
+    <record model="ir.actions.act_window" id="email_marketing_report_action" >
+        <field name="name">Email Marketing Report</field>
+        <field name="res_model">custom_reports.email_marketing_report</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+   
+
+    <!-- tree -->
+    <record model="ir.ui.view" id="email_marketing_report_view_tree">
+        <field name="name">Email Marketing Report</field>
+        <field name="model">custom_reports.email_marketing_report</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- form -->
+    <record model="ir.ui.view" id="email_marketing_report_view_form">
+        <field name="name">Email Marketing Report</field>
+        <field name="model">custom_reports.email_marketing_report</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <div class="oe_title">
+                            <h1>Email Marketing Report</h1>
+                        </div>
+                        <group>
+                            <div>
+                                <label class="oe_input_label" for="name" string="Mailings" style="font-weight:bold"/>
+                                <field name="mass_mailing_ids" widget="many2many_tags"/>
+                            </div>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Email Marketing Pivot">
+                            <field name="mass_mailing_ids">
+                                <tree>
+                                    <field name="subject" type="row"/>
+                                    <field name="sent_date" type="col"/>
+                                    <field name="received_ratio" type="col"/>
+                                    <field name="opened_ratio" type="col"/>
+                                    <field name="replied_ratio" type="col"/>
+                                    <field name="bounced_ratio" type="col"/>
+                                    <field name="sales_prev_avg" type="col"/>
+                                    <field name="sales_since_avg" type="col"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <!--<page string="Email Marketing Graph">
+                            <field name="mass_mailing_ids">
+                                <pivot>
+                                    <field name="sent" type="row"/>
+                                    <field name="sent_date" type="col"/>
+                                    <field name="received_ratio" type="col"/>
+                                    <field name="opened_ratio" type="col"/>
+                                    <field name="replied_ratio" type="col"/>
+                                    <field name="bounced_ratio" type="col"/>
+                                    <field name="sales_prev_avg" type="col"/>
+                                </pivot>
+                            </field>
+                        </page>-->
+                        
+                    </notebook>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- extension of email marketing view -->
+    <record model="ir.ui.view" id="mass_mailing_view_form_inherit">
+        <field name="name">Email Marketing Custom</field>
+        <field name="model">mailing.mailing</field>
+        <field name="inherit_id" ref="mass_mailing.view_mail_mass_mailing_form"/>
+        <field name="arch" type="xml">
+            <field name="mailing_model_id" position="after">
+                <label class="oe_input_label" for="name" string="Products" style="font-weight:bold"/>
+                <field name="product_ids" widget="many2many_tags"/>
+            </field>
+        </field>
+    </record>
+
+   
+
+</odoo>
