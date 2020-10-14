@@ -11,6 +11,7 @@ _logger = logging.getLogger(__name__)
 class CustomReport(models.Model):
     _name = 'custom_reports.custom_report'
     _description = 'Custom Reports'
+    _order = "category, name, description"
 
     # basic properties
     name = fields.Char(string="Report Title", required=True)
