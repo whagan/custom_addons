@@ -17,17 +17,22 @@ class CustomReport(models.Model):
     url = fields.Char() #required=True
     category = fields.Char()
     description = fields.Text()
-    delete_date = fields.Datetime()
+    # delete_date = fields.Datetime()
 
     # relational fields
-    delete_uid = fields.Many2one(comodel_name="res.users")
+    # delete_uid = fields.Many2one(comodel_name="res.users")
 
-    # auto
-    # @api.multi
-    # def action_url(self):
-    #     return {
-    #         'type' : 'ir.actions.act_url',
-    #         'url' : '/custom_reports/go?model=custom_reports.custom_report&field=url&id=%s'%(self.id),
-    #         'target' : 'new',
-    #     }
+    def click(self):
+        action = self.env['ir_actions'].search([
+                    ('name', '=', self.name)])
+        menu_id = self.env['ir_ui_menu'].search([
+                    ('name', '=', "Custom Reports"),
+                    ('parent_id', '=?', None)])
+        urlString = "web#action=" + action + "&model=custom_reports." + self.name + "&view_type=list&cids=&menu_id=" + menu_id
+        return {
+            'name': 'View',
+            'type': 'ir.actions.act_url',
+            # 'url': self.url
+            'url': urlString,
+            'target': 'self',}
 

@@ -37,7 +37,11 @@
         <field name="type">tree</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="name"/>
+                <field name="name" />
+                <field name="url" widget="url" />
+                <button name="click" type="object" string="View"/>
+                <field name="category" />
+                <field name="description" />
             </tree>
         </field>
     </record>
@@ -50,12 +54,14 @@
         <field name="arch" type="xml">
             <form>
                 <sheet>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only" string="Report Name" />
+                        <h1><field name="name" /></h1>
+                    </div>
                     <group>
-                        <h1>Report Details</h1>
-                        <field name="name"/>
-                        <field name="url"/>
-                        <field name="category"/>
-                        <field name="description"/>
+                        <field name="url" widget="url" />
+                        <field name="category" placeholder="Unknown" />
+                        <field name="description" placeholder="Report description..." />
                     </group>
                 </sheet>
             </form>

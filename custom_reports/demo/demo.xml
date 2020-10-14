@@ -2,29 +2,23 @@
     <!-- custom reports -->
     <record model="custom_reports.custom_report" id="customreport0">
         <field name="name">Employee Performance</field>
+        <field name="category">Unknown</field>
         <field name="description">Employee Performance custom report description.</field>
-    </record>
-        <record model="custom_reports.custom_report" id="customreport1">
-        <field name="name">Contacts</field>
-        <field name="description">Contacts custom report description.</field>
+        <field name="url">http://espn.com</field>
     </record>
 
-    <!-- employee performance
-    <record model="custom_reports.employee_performance_report" id="employeeperformance0">
-        <field name="employee_id">1</field>
-        <field name="start_date">2020-08-22 15:21:00</field>
-        <field name="end_date">2020-09-30 15:21:43</field>
+    <record model="custom_reports.custom_report" id="customreport1">
+        <field name="name">Contacts</field>
+        <field name="category">Unknown</field>
+        <field name="description">Contacts custom report description.</field>
+        <field name="url">http://google.com</field>
     </record>
-    <record model="custom_reports.employee_performance_report" id="employeeperformance1">
-        <field name="employee_id">1</field>
-        <field name="start_date">2020-08-22 15:21:00</field>
-        <field name="end_date">2020-09-30 15:21:43</field>
+
+    <record model="custom_reports.custom_report" id="customreport2">
+        <field name="name">Test</field>
+        <field name="category">Unknown</field>
+        <field name="description">Test</field>
+        <field name="url">http://bing.com</field>
     </record>
-    <record model="custom_reports.employee_performance_report" id="employeeperformance2">
-        <field name="employee_id">7</field>
-        <field name="start_date">2020-08-22 15:21:00</field>
-        <field name="end_date">2020-09-30 15:21:43</field>
-    </record>
-    -->
 </odoo>
 
