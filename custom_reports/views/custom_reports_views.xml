@@ -38,8 +38,9 @@
         <field name="arch" type="xml">
             <tree>
                 <field name="name" />
-                <field name="url" widget="url" />
-                <button name="click" type="object" string="View"/>
+                <!-- <field name="url" widget="url" />  -->
+                <!-- <button name="%(custom_reports.contact_report_action)d" type="action" string="VIEW" /> -->
+                <button name="click" type="object" string="View" />
                 <field name="category" />
                 <field name="description" />
             </tree>
@@ -59,7 +60,7 @@
                         <h1><field name="name" /></h1>
                     </div>
                     <group>
-                        <field name="url" widget="url" />
+                        <field name="url" /> <!-- widget="url" -->
                         <field name="category" placeholder="Unknown" />
                         <field name="description" placeholder="Report description..." />
                     </group>

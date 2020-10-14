@@ -17,22 +17,31 @@ class CustomReport(models.Model):
     url = fields.Char() #required=True
     category = fields.Char()
     description = fields.Text()
-    # delete_date = fields.Datetime()
-
-    # relational fields
-    # delete_uid = fields.Many2one(comodel_name="res.users")
 
     def click(self):
-        action = self.env['ir_actions'].search([
-                    ('name', '=', self.name)])
-        menu_id = self.env['ir_ui_menu'].search([
-                    ('name', '=', "Custom Reports"),
-                    ('parent_id', '=?', None)])
-        urlString = "web#action=" + action + "&model=custom_reports." + self.name + "&view_type=list&cids=&menu_id=" + menu_id
         return {
-            'name': 'View',
-            'type': 'ir.actions.act_url',
-            # 'url': self.url
-            'url': urlString,
-            'target': 'self',}
+            'name': self.name,
+            'view_mode' : 'tree,form',
+            'view_id': False,
+            'res_model': self.url,
+            'type':'ir.actions.act_window',
+            'target': 'current',
+            }
+    #     # action = ir.actions.search([
+    #     #             ('name', '=', self.name)]).id
+    #     # menu_id = ir.ui.menu.search([
+    #     #             ('name', '=', "Custom Reports"),
+    #     #             ('parent_id', '=?', None)]).id
+    #     # urlString = "web#action=" + action + "&model=" + self._name + "&view_type=list&cids=1&menu_id=" + menu_id
+    #     return {
+    #         # 'name': 'View',
+    #         # 'type': 'ir.actions.act_url',
+    #         # # 'url': self.url
+    #         # 'url': urlString,
+    #         # 'target': 'self',
+    #         'type': 'ir.actions.act_window',
+    #         'view_mode': 'tree',
+    #         'view_type': 'tree',
+    #         'res_model': self.url
+    #         }
 
