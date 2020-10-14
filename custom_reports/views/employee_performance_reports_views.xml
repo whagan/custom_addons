@@ -5,9 +5,8 @@
         <field name="name">Employee Performance Report</field>
         <field name="res_model">custom_reports.employee_performance_report</field>
         <field name="view_mode">tree,form</field>
-
     </record>
-
+    
     <!-- tree -->
     <record model="ir.ui.view" id="employee_performance_report_view_tree">
         <field name="name">Employee Performance Report</field>
