@@ -23,7 +23,7 @@ class SalesByLocationReport(models.Model):
     @api.model
     def create(self, values):
         record = super(SalesByLocationReport, self).create(values)
-        company_ids = values['company_ids']
+        company_ids = values['company_ids'][0][2]
         records = []
         for company_id in company_ids:
             records.append({
@@ -59,7 +59,7 @@ class SalesByLocation(models.Model):
             if record.company_id and (record.start_date <= record.end_date):
                 orders = record.env['sale.order'].search([
                     ('state', 'in', ['sale', 'done']),
-                    ('company_id', '=', record.company_id.id),
+                    ('company_id', '=', record.sale_id.id),
                     ('date_order', '>=', record.start_date),
                     ('date_order', '<=', record.end_date)
                     ])
