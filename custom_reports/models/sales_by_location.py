@@ -16,8 +16,10 @@ class SalesByLocationReport(models.Model):
     start_date = fields.Datetime(string='Start Date')
     end_date = fields.Datetime(string='End Date')
     company_ids = fields.Many2many('sale.order', relation='sales_by_location_report_rel', column1='custom_report_id', column2='company_id', string="companies")
-   
+    sales_by_location_ids = fields.One2many('custom_reports.sales_by_location', 'sales_by_location_report_id', string="Sales By Location")
+
     # methods
+    # method for the creation of a new instance of a report
     @api.model
     def create(self, values):
         record = super(SalesByLocationReport, self).create(values)
@@ -32,8 +34,8 @@ class SalesByLocationReport(models.Model):
             })
         self.env['custom_reports.sales_by_location'].create(records)
         return record
-      
-   
+    
+
 #Sales By Location DataModel
 class SalesByLocation(models.Model):
     _name = 'custom_reports.sales_by_location'
@@ -47,3 +49,21 @@ class SalesByLocation(models.Model):
     start_date = fields.Datetime(related='sales_by_location_report_id.start_date', required=True)
     end_date = fields.Datetime(related='sales_by_location_report_id.end_date', required=True)
     
+    
+    
+    #computing totals of the sales by location in a given time period
+    @api.depends('sale_id','company_id','start_date','end_date')
+    def _calculate_total_sales(self):
+        for record in self:
+            total_sales = 00.0
+            if record.company_id and (record.start_date <= record.end_date):
+                orders = record.env['sale.order'].search([
+                    ('state', 'in', ['sale', 'done']),
+                    ('company_id', '=', record.company_id.id),
+                    ('date_order', '>=', record.start_date),
+                    ('date_order', '<=', record.end_date)
+                    ])
+                if orders: # if found in orders, sum the total sales
+                    for sale in orders:
+                        total_sales += sale.amount_total
+            record.total_sales = total_sales
