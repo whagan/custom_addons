@@ -17,17 +17,31 @@ class CustomReport(models.Model):
     url = fields.Char() #required=True
     category = fields.Char()
     description = fields.Text()
-    delete_date = fields.Datetime()
 
-    # relational fields
-    delete_uid = fields.Many2one(comodel_name="res.users")
-
-    # auto
-    # @api.multi
-    # def action_url(self):
+    def click(self):
+        return {
+            'name': self.name,
+            'view_mode' : 'tree,form',
+            'view_id': False,
+            'res_model': self.url,
+            'type':'ir.actions.act_window',
+            'target': 'current',
+            }
+    #     # action = ir.actions.search([
+    #     #             ('name', '=', self.name)]).id
+    #     # menu_id = ir.ui.menu.search([
+    #     #             ('name', '=', "Custom Reports"),
+    #     #             ('parent_id', '=?', None)]).id
+    #     # urlString = "web#action=" + action + "&model=" + self._name + "&view_type=list&cids=1&menu_id=" + menu_id
     #     return {
-    #         'type' : 'ir.actions.act_url',
-    #         'url' : '/custom_reports/go?model=custom_reports.custom_report&field=url&id=%s'%(self.id),
-    #         'target' : 'new',
-    #     }
+    #         # 'name': 'View',
+    #         # 'type': 'ir.actions.act_url',
+    #         # # 'url': self.url
+    #         # 'url': urlString,
+    #         # 'target': 'self',
+    #         'type': 'ir.actions.act_window',
+    #         'view_mode': 'tree',
+    #         'view_type': 'tree',
+    #         'res_model': self.url
+    #         }
 
