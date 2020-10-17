@@ -1,5 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
+
+ <!-- sales by location action -->
+    <record id="sales_by_location_action" model="ir.actions.act_window">
+        <field name="name">Sales By Location</field>
+        <field name="res_model">custom_reports.sales_by_location</field>
+        <field name="view_mode">tree,pivot</field>
+    </record>
+    
+
+      <!-- pivot -->
+    <record model="ir.ui.view" id="sales_by_location_pivot">
+        <field name="name">Sales by Location Report</field>
+        <field name="model">custom_reports.sales_by_location</field>
+        <field name="arch" type="xml">
+            <pivot>
+                <field name="company_id" type="row"/>
+                <field name="total_sales" type="col"/>
+            </pivot>
+        </field>
+    </record>
+    
+    <!-- sales by location tree -->
+     <record model="ir.ui.view" id="sales_by_location_view_tree">
+        <field name="name">Sales By Location</field>
+        <field name="model">custom_reports.sales_by_location</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="company_id"/>
+                <field name="total_sales"/>
+            </tree>
+        </field>
+    </record>
+
+
+
+
+
     <!-- odoo action -->
     <record model="ir.actions.act_window" id="sales_by_location_report_action" >
         <field name="name">Sales By Location Report</field>
