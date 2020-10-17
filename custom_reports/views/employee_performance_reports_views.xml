@@ -1,14 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <!-- odoo action -->
+   
+    <!-- employee performance action -->
+    <record model="ir.actions.act_window" id="employee_performance_action">
+        <field name="name">Employee Performance</field>
+        <field name="res_model">custom_reports.employee_performance</field>
+        <field name="view_mode">tree,form,pivot</field>
+    </record>
+
+    <!-- employee performance tree -->
+    <record model="ir.ui.view" id="employee_performance_view_tree">
+        <field name="name">Employee Performance</field>
+        <field name="model">custom_reports.employee_performance</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="employee_id"/>
+                <field name="total_sales"/>
+                <field name="worked_hours"/>
+                <field name="sales_hour"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- employee performance form -->
+    <record model="ir.ui.view" id="employee_performance_view_form">
+        <field name="name">Employee Performance</field>
+        <field name="model">custom_reports.employee_performance</field>
+        <field name="arch" type="xml">
+            <form>
+                <field name="employee_id"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+            </form>
+        </field>
+    </record>
+
+    <!-- employee performance pivot -->
+    <record model="ir.ui.view" id="employee_performance_view_pivot">
+        <field name="name">Employee Performance Report</field>
+        <field name="model">custom_reports.employee_performance</field>
+        <field name="arch" type="xml">
+            <pivot>
+                <field name="employee_id" type="row"/>
+                <field name="worked_hours" type="col"/>
+                <field name="total_sales" type="col"/>
+                <field name="sales_hour" type="col"/>
+            </pivot>
+        </field>
+    </record>
+
+     <!-- employee performance reports action -->
     <record model="ir.actions.act_window" id="employee_performance_report_action" >
         <field name="name">Employee Performance Report</field>
         <field name="res_model">custom_reports.employee_performance_report</field>
         <field name="view_mode">tree,form</field>
-
     </record>
-
-   
 
     <!-- tree -->
     <record model="ir.ui.view" id="employee_performance_report_view_tree">
@@ -62,12 +108,12 @@
                         </page>
                         <page string="Employee Performances Graph">
                             <field name="employee_performance_ids">
-                                <graph type="bar">
+                                <pivot>
                                     <field name="employee_id" type="row"/>
                                     <field name="worked_hours" type="col"/>
                                     <field name="total_sales" type="col"/>
-                                    <field name="sales_hour" type="measure"/>
-                                </graph>
+                                    <field name="sales_hour" type="col"/>
+                                </pivot>
                             </field>
                         </page>
                     </notebook>

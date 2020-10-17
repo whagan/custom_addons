@@ -53,40 +53,12 @@
                                 </tree>
                             </field>
                         </page>
-                        <!--<page string="Email Marketing Graph">
-                            <field name="mass_mailing_ids">
-                                <pivot>
-                                    <field name="sent" type="row"/>
-                                    <field name="sent_date" type="col"/>
-                                    <field name="received_ratio" type="col"/>
-                                    <field name="opened_ratio" type="col"/>
-                                    <field name="replied_ratio" type="col"/>
-                                    <field name="bounced_ratio" type="col"/>
-                                    <field name="sales_prev_avg" type="col"/>
-                                </pivot>
-                            </field>
-                        </page>-->
-                        
                     </notebook>
 
                 </sheet>
             </form>
         </field>
     </record>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     <!-- extension of email marketing view -->
     <record model="ir.ui.view" id="mass_mailing_view_form_inherit">
