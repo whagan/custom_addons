@@ -20,7 +20,7 @@
     ],
     'demo': [
         'demo/email_marketing_demo.xml',
-        'demo/custom_reports_demo.xml',
+        'demo/demo.xml',
     ],
     'installable': True,
     'application': True,
