@@ -24,9 +24,7 @@ class MassMailing(models.Model):
     sales_since_avg = fields.Float(string="Avg Weekly Sales Since Mailing", readonly=True, compute="_compute_since_sales")
     sales_delta = fields.Float(string="Change in Avg Sales", readonly=True, compute="_compute_avg_diff")
     sales_delta_per = fields.Char(string="Change in Avg Sales Percent", readonly=True, compute="_compute_avg_diff")
-    # percent change
-    #sales_avg_delta = fields.Float(string="Percent Change Average Sales", store=True, readonly=True, compute="_compute_avg_change")
-
+   
     @api.depends('product_ids')
     def _compute_prev_sales(self):
         for record in self:
