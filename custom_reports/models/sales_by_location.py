@@ -27,7 +27,7 @@ class SalesByLocationReport(models.Model):
         records = []
         for company_id in company_ids:
             records.append({
-                'company_id': company_id,
+                'company': company_id,
                 'sales_by_location_report_id': record.id,
                 'start_date': record.start_date,
                 'end_date': record.end_date
