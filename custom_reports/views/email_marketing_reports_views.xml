@@ -46,10 +46,10 @@
                                     <field name="sent_date" type="col"/>
                                     <field name="received_ratio" type="col"/>
                                     <field name="opened_ratio" type="col"/>
-                                    <field name="replied_ratio" type="col"/>
-                                    <field name="bounced_ratio" type="col"/>
                                     <field name="sales_prev_avg" type="col"/>
                                     <field name="sales_since_avg" type="col"/>
+                                    <field name="sales_delta" type="col"/>
+                                    <field name="sales_delta_per" type="col"/>
                                 </tree>
                             </field>
                         </page>

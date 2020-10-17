@@ -22,7 +22,8 @@ class MassMailing(models.Model):
 
     sales_prev_avg = fields.Float(string="Avg Weekly Sales Prev 6 mos", readonly=True, compute="_compute_prev_sales")
     sales_since_avg = fields.Float(string="Avg Weekly Sales Since Mailing", readonly=True, compute="_compute_since_sales")
-    
+    sales_delta = fields.Float(string="Change in Avg Sales", readonly=True, compute="_compute_avg_diff")
+    sales_delta_per = fields.Char(string="Change in Avg Sales Percent", readonly=True, compute="_compute_avg_diff")
     # percent change
     #sales_avg_delta = fields.Float(string="Percent Change Average Sales", store=True, readonly=True, compute="_compute_avg_change")
 
@@ -32,7 +33,6 @@ class MassMailing(models.Model):
             total_sales = 0.0
             total_qty = 0
             prev_date = record.sent_date - relativedelta(days=180)
-            _logger.debug("PREVVVV DATE: ", prev_date)
             if record.product_ids:
                 for product_id in record.product_ids:
                     product_sales = record.env['sale.order.line'].search([
@@ -65,4 +65,21 @@ class MassMailing(models.Model):
                 record.sales_since_avg = total_sales / (date_delta.days / 7.0)
             else:
                 record.sales_since_avg = total_sales / (date_delta.days / 7.0)
-     
+    
+    @api.depends('sales_prev_avg', 'sales_since_avg')
+    def _compute_avg_diff(self):
+        for record in self:
+            diff_avg = record.sales_since_avg - record.sales_prev_avg
+            record.sales_delta = diff_avg
+
+            if (record.sales_prev_avg == 0.0):
+                record.sales_delta_per = "No previous sales"
+            elif (record.sales_prev_avg  > 0.0):
+                if (diff_avg < 0.0):
+                    record.sales_delta_per = "Down {0}{1}".format('%0.0f' % ((diff_avg / record.sales_prev_avg) * 100), "%")
+                elif (diff_avg == 0.0):
+                    record.sales_delta_per = "No change"
+                else:
+                    record.sales_delta_per = "Up {0}{1}".format('%0.0f' % ((diff_avg / record.sales_prev_avg) * 100), "%")
+            else:
+                raise ValidationError(_("Error. The previous sales average %s is less than 0.00.", s = str(record.sales_prev_avg)))
