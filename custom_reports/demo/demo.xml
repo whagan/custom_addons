@@ -20,6 +20,12 @@
         <field name="description">Test</field>
         <field name="url">custom_reports.custom_report</field>
     </record>
+      <record model="custom_reports.custom_report" id="customreport3">
+        <field name="name">Sales By Location</field>
+        <field name="category">Sales</field>
+        <field name="description">Sales By Location Report</field>
+        <field name="url">custom_reports.sales_by_location_report</field>
+    </record>
 
      <record model="custom_reports.custom_report" id="customreport3">
         <field name="name">Email Marketing Report</field>

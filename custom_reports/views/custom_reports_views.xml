@@ -12,13 +12,14 @@
     <menuitem id="custom_reports_menu" name="Custom Reports" action="custom_reports.custom_report_action"/>
 
     <!-- submenus -->
-    <menuitem id="custom_reports_submenu" name="Custom Reports" parent="custom_reports_menu" action="custom_reports.custom_report_action"/>
+    <menuitem id="custom_reports_submenu" name="My Reports" parent="custom_reports_menu" action="custom_reports.custom_report_action"/>
     <menuitem id="configure_submenu" name="Configure" parent="custom_reports_menu" action="custom_reports.custom_report_action"/>
    
     <!-- submenu list items placeholder -->
     <!-- cannot get dynamically list url yet -->
     <menuitem id="email_marketing_report_menu" name="Email Marketing Report" parent="custom_reports_submenu" action="custom_reports.email_marketing_report_action"/>
     <menuitem id="employee_performance_report_menu" name="Employee Performance Report" parent="custom_reports_submenu" action="custom_reports.employee_performance_report_action"/>    
+    <menuitem id="sales_by_location_report_menu" name="Sales by Location Report" parent="custom_reports_submenu" action="custom_reports.sales_by_location_report_action"/> 
     <menuitem
         id="contact_menu"
         name="Contacts Report"
@@ -27,6 +28,7 @@
         sequence="10"/>
     
     
+
     <!-- Views -->
     <!-- tree -->
     <record model="ir.ui.view" id="custom_reports_view_tree">
