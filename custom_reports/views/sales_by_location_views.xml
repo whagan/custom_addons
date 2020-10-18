@@ -5,32 +5,53 @@
     <record id="sales_by_location_action" model="ir.actions.act_window">
         <field name="name">Sales By Location</field>
         <field name="res_model">custom_reports.sales_by_location</field>
-        <field name="view_mode">tree,pivot</field>
+        <field name="view_mode">tree,pivot,graph</field>
     </record>
     
-
-      <!-- pivot -->
-    <record model="ir.ui.view" id="sales_by_location_pivot">
-        <field name="name">Sales by Location Report</field>
-        <field name="model">custom_reports.sales_by_location</field>
-        <field name="arch" type="xml">
-            <pivot>
-                <field name="company_id" type="row"/>
-                <field name="total_sales" type="col"/>
-            </pivot>
-        </field>
-    </record>
-    
-    <!-- sales by location tree -->
-     <record model="ir.ui.view" id="sales_by_location_view_tree">
-        <field name="name">Sales By Location</field>
-        <field name="model">custom_reports.sales_by_location</field>
-        <field name="arch" type="xml">
-            <tree>
-                <field name="company_id"/>
-                <field name="total_sales"/>
-            </tree>
-        </field>
-    </record>
-    
-</odoo>
+   
+       <!-- pivot --> 
+        <record model="ir.ui.view" id="sales_by_location_pivot">
+            <field name="name">Sales by Location Report</field>
+            <field name="model">custom_reports.sales_by_location</field>
+            <field name="arch" type="xml">
+                <pivot>
+                    <field name="company_id" type="row"/>
+                    <field name="total_sales" type="col"/>
+                </pivot>
+            </field>
+        </record>
+        <record id="sales_by_location_graph" model="ir.ui.view">
+            <field name="name">sales_by_location.graph</field>
+            <field name="model">custom_reports.sales_by_location</field>
+            <field name="arch" type="xml">
+                <graph string="Sales By Location" type="bar">
+                    <field name="company_id" type="row"/>
+                    <field name="total_sales" type="measure"/>
+                </graph>
+            </field>
+        </record>
+    <notebook>
+        <!-- sales by location tree -->
+        <page string="Sales By location ">
+            <record model="ir.ui.view" id="sales_by_location_view_tree">
+                <field name="name">Sales By Location</field>
+                <field name="model">custom_reports.sales_by_location</field>
+                <field name="arch" type="xml">
+                    <tree>
+                        <field name="company_id"/>
+                        <field name="total_sales"/>
+                    </tree>
+                </field>
+            </record>
+        </page> 
+         <!-- sales by location graphs  -->   
+        <page string="Graph">
+            <field name="sales_by_location_ids">
+                <pivot>
+                    <field name="company_id" type="row"/>
+                    <field name="total_sales" type="col"/>
+                </pivot>
+            </field>
+        </page>
+    </notebook>
+</odoo>     

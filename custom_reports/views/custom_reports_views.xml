@@ -12,7 +12,7 @@
     <menuitem id="custom_reports_menu" name="Custom Reports" action="custom_reports.custom_report_action"/>
 
     <!-- submenus -->
-    <menuitem id="custom_reports_submenu" name="Custom Reports" parent="custom_reports_menu" action="custom_reports.custom_report_action"/>
+    <menuitem id="custom_reports_submenu" name="My Reports" parent="custom_reports_menu" action="custom_reports.custom_report_action"/>
     <menuitem id="configure_submenu" name="Configure" parent="custom_reports_menu" action="custom_reports.custom_report_action"/>
    
     <!-- submenu list items placeholder -->

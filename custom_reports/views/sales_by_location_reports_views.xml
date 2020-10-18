@@ -9,7 +9,7 @@
     </record>
     
 
-      <!-- pivot -->
+    <!-- pivot -->
     <record model="ir.ui.view" id="sales_by_location_pivot">
         <field name="name">Sales by Location Report</field>
         <field name="model">custom_reports.sales_by_location</field>
@@ -20,7 +20,18 @@
             </pivot>
         </field>
     </record>
-    
+    <!-- Graph -->
+    <record model="ir.ui.view" id="sales_by_location_graph">
+        <field name="name">sales_by_location.graph</field>
+        <field name="model">custom_reports.sales_by_location</field>
+        <field name="type">graph</field>
+        <field name="arch" type="xml">
+            <graph string="Sales By Location" type="bar">
+                <field name="company" type="row"/>
+                <field name="total_sales" type="measure"/>
+            </graph>
+        </field>
+    </record>
     <!-- sales by location tree -->
      <record model="ir.ui.view" id="sales_by_location_view_tree">
         <field name="name">Sales By Location</field>
@@ -95,6 +106,14 @@
                                 </pivot>
                             </field>  
                             
+                        </page>
+                        <page string="Graph">
+                            <field name="sales_by_location_ids">
+                                <pivot>
+                                    <field name="company_id" type="row"/>
+                                    <field name="total_sales" type="col"/>
+                                </pivot> 
+                            </field>
                         </page>
                     </notebook>
                 </sheet>    
