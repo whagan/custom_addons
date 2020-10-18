@@ -3,9 +3,6 @@ from odoo.tools import format_datetime
 from odoo.exceptions import ValidationError
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
-#from datetime import date
-import logging
-_logger = logging.getLogger(__name__)
 
 class EmailMarketingReport(models.Model):
     _name = 'custom_reports.email_marketing_report'
@@ -29,8 +26,6 @@ class MassMailing(models.Model):
     def _compute_prev_sales(self):
         for record in self:
             total_sales = 0.0
-            total_qty = 0
-            prev_date = record.sent_date - relativedelta(days=180)
             if record.product_ids:
                 for product_id in record.product_ids:
                     product_sales = record.env['sale.order.line'].search([
@@ -49,7 +44,6 @@ class MassMailing(models.Model):
     def _compute_since_sales(self):
         for record in self:
             total_sales = 0.0
-            total_qty = 0
             date_delta = datetime.now() - record.sent_date
             if record.product_ids:
                 for product_id in record.product_ids:
@@ -69,7 +63,6 @@ class MassMailing(models.Model):
         for record in self:
             diff_avg = record.sales_since_avg - record.sales_prev_avg
             record.sales_delta = diff_avg
-
             if (record.sales_prev_avg == 0.0):
                 record.sales_delta_per = "No previous sales"
             elif (record.sales_prev_avg  > 0.0):
