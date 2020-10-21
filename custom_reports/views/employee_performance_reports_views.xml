@@ -124,4 +124,21 @@
         </field>
     </record>
 
+    <!-- employee performance report graph -->
+
+    <record id="employee_performance_report_view_form_graph" model="ir.ui.view">
+        <field name="name">Employee Performance Report Graph</field>
+        <field name="model">custom_reports.employee_performance_report</field>
+        <field name="inherit_id" ref="custom_reports.employee_performance_report_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Employee Performance Report Graph">
+                    <group>
+                        <field name="graph_view" widget="graph_view" title="Sales / Hour" options="{'graph_type':'bar'}"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
 </odoo>
