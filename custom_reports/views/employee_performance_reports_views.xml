@@ -125,6 +125,19 @@
     </record>
 
     <!-- employee performance report graph -->
+    <!-- Description:
+            
+            The view below inherits the view above. For development purposes, currently 
+            plan to keep these separate. However, assuming the graph / chart works, this
+            view will be incorporated into the form view above. 
+
+            <page> adds another page to the already created <notebook>.
+            
+            emp_perform_graph is a new Binary field of the model. 
+
+            emp_perform_graph is also the name of the custom JS widget in static/src/js folder.
+    
+    -->
 
     <record id="employee_performance_report_view_form_graph" model="ir.ui.view">
         <field name="name">Employee Performance Report Graph</field>
@@ -134,7 +147,7 @@
             <xpath expr="//notebook" position="inside">
                 <page string="Employee Performance Report Graph">
                     <group>
-                        <field name="graph_view" widget="graph_view" title="Sales / Hour" options="{'graph_type':'bar'}"/>
+                        <field name="emp_perform_graph" widget="emp_perform_graph" title="Sales / Hour" options="{'graph_type':'bar'}"/>
                     </group>
                 </page>
             </xpath>

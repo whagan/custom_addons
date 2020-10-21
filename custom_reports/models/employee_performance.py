@@ -15,6 +15,7 @@ class EmployeePerformanceReport(models.Model):
     end_date = fields.Datetime(string='End Date')
     employee_ids = fields.Many2many('hr.employee', relation='custom_reports_employee_report_rel', column1='custom_report_id', column2='employee_id', string="Employees")
     employee_performance_ids = fields.One2many('custom_reports.employee_performance', 'employee_performance_report_id', string="Employee Performances")
+    emp_perform_graph = fields.Binary('Employee Performance Graph')
     
     # methods 
     @api.model
