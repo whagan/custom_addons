@@ -6,24 +6,15 @@ odoo.define('custom_reports.employee_performance_graph', function (require) {
 
     var _t = core._t;
     
-    const AbstractAction = require('web.AbstractAction');    
-    
-    var OurAction = AbstractAction.extend({  
-        template: "custom_reports.EmployeePerformanceGraph",  
-        info: "this message comes from the JS"
-    });
-    core.action_registry.add('custom_reports.action', OurAction);
-
     var BarChart = publicWidget.Widget.extend({
         jsLibs: [
             '/web/static/lib/Chart/Chart.js',
         ],
-        // /**
-        //  * @constructor
-        //  * @param   {Object}    parent
-        //  * @param   {object}    
-        //  * @param   {Object}
-        //  */
+        
+        init: function () {
+			this._super.apply(this, arguments);
+		},
+
         start: function()   {
             var config = {
                 type: 'line',
@@ -44,8 +35,23 @@ odoo.define('custom_reports.employee_performance_graph', function (require) {
             };
             var canvas = this.$('canvas')[0];
             var context = canvas.getContext('2d');
-            new CharacterData(context, config);
+            new Chart(context, config);
         },
+    });
+
+    publicWidget.registry.employeePerformanceGraph = publicWidget.Widget.extend({
+        selector: '.o_emp_perform_graph',
+        /**
+         * @override
+         */
+        start: function()   {
+            var self = this;
+            this.charts = {};
+            self.charts.emp_bar_chart = new BarChart();
+            self.charts.emp_bar_chart.attachTo($('#emp_bar_clicks_chart'));
+          
+        }
+
     });
 
     return  {
