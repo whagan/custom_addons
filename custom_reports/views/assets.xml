@@ -2,11 +2,13 @@
 <odoo>
     <template id="assets_backend" name="custom reports assets" inherit_id="web.assets_backend">
         <xpath expr="." position="inside">
-            <script type="text/javascript" src="/custom_reports/static/src/js/custom_reports_view.js"/>
+            <!--<script type="text/javascript" src="/custom_reports/static/src/js/custom_reports_view.js"/>
             <script type="text/javascript" src="/custom_reports/static/src/js/custom_reports_model.js"/>
             <script type="text/javascript" src="/custom_reports/static/src/js/custom_reports_controller.js"/>
-            <script type="text/javascript" src="/custom_reports/static/src/js/custom_reports_renderer.js"/>
-            <link rel="stylesheet" type="text/scss" href="/custom_reports/static/src/scss/custom_reports_view.scss"/>
+            <script type="text/javascript" src="/custom_reports/static/src/js/custom_reports_renderer.js"/>-->
+            <script type="text/javascript" src="/custom_reports/static/src/js/employee_performance_graph.js"/>
+            <link rel="stylesheet" type="text/scss" href="/custom_reports/static/src/scss/employee_performance_graph.scss"/>
         </xpath>
     </template>
+
 </odoo>

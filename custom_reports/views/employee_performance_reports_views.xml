@@ -154,4 +154,12 @@
         </field>
     </record>
 
+    <record id="action_graph" model="ir.actions.client">                                        
+      <field name="name">Tutorial Demo</field>                                        
+      <field name="tag">custom_reports.action</field>                                    
+    </record>                                    
+
+    <menuitem name="GRAPH" id="graph_menu_root" action="action_graph"></menuitem>
+  
+
 </odoo>
