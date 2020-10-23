@@ -1,69 +1,90 @@
 odoo.define('custom_reports.CustomWidget', function(require)    {
+    console.log("HEY WILL");
     'use strict';
 
-    var core = require('web.core');
+    var _t = require('web.core')._t;
+    var ajax = require('web.ajax');
     var publicWidget = require('web.public.widget');
-    var _t = core._t;
-
-    var PieChart = publicWidget.Widget.extend({
+    
+    publicWidget.registry.PieChart = publicWidget.Widget.extend({
         jsLibs: [
             '/web/static/lib/Chart/Chart.js',
         ],
         /**
          * @override
-         * @param   {Object}    parent
-         * @param   {Object}    data
-         */
-        init: function(parent, data)    {
-            this._super.apply(this, arguments);
-            this.data = data;
-        },
-        /**
-         * @override
          */
         start: function()   {
+            var self = this;
+
+            return this._super.apply(this, arguments).then(function ()  {
+                self.chartConfig = self._getPieChartConfig();
+                self._loadChart();
+            });
+        },
+        // ----------------------------
+        // Private
+        // ----------------------------
+
+        /**
+         * @private
+         */
+        
+        _getPieChartConfig: function() {
             var labels = ['Nashville', 'Memphis', 'Knoxville', 'Chattanooga'];
             var data = [5000, 500, 50, 5,];
             var label = 'Population';
-            var config = {
+            return {
                 type: 'pie',
-                data: {
+                data:   {
                     labels: labels,
                     datasets:   [{
                         data: data,
                         label: label,
                     }]
-                },
+                }
             };
-            var canvas = this.$('canvas')[0];
-            var context = canvas.getContext('2d');
-            new Chart(context, config);
         },
+
+        /**
+         * @private
+         */
+        _loadChart: function()  {
+            this.$el.css({position: 'relative'});
+            var $canvas = this.$('canvas');
+            var ctx = $canvas.get(0).getContext('2d');
+            return new Chart(ctx, this.chartConfig);
+        }
     });
 
-    publicWidget.registry.pieChart = publicWidget.Widget.extend({
-        selector: '.o_pie_chart',
-        
+    publicWidget.registry.CustomReportGraph = publicWidget.Widget.extend({
+        selector: '.o_custom_report_graph',
 
         /**
          * @override
          */
-        start: function() {
+        start: function()   {
             var self = this;
-            this.charts = {};
-            var defs = [];
-            defs.push(this._super.apply(this, arguments));
-            return Promise.all(defs).then(function (results)    {
-                self.charts.emp_pie_chart = new PieChart();
-                self.charts.emp_pie_chart.attachTo($('#emp_per_chart'));
-                var rowWidth = $('#emp_per_chart').parent().width();
-                var $chartCanvas = $('#emp_per_chart').find('canvas');
-                $chartCanvas.height('20em');
+            return this._super.apply(this, arguments).then(function ()  {
+                var allPromises = [];
+                self.$('.custom_graph').each(function() {
+                    allPromises.push(new publicWidget.registry.PieChart(self)
+                    .attachTo($(this)));
+                });
+                if (allPromises.length !== 0)   {
+                    return Promise.all(allPromises);
+                }   else    {
+                    return Promise.resolve();
+                }
+
             });
         },
+
     });
 
-    return  {
-        PieChart: PieChart,
-    };
-})
+   return   {
+       chartWidget: publicWidget.registry.PieChart,
+       customReportGraphWidget: publicWidget.registry.CustomReportGraph
+   };
+});
+
+  

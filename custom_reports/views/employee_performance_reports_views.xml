@@ -123,13 +123,7 @@
         <field name="arch" type="xml">
             <xpath expr="//notebook" position="inside">
                 <page string="Employee Performance Report Graph">
-                    <div class = "o_pie_chart">
-                        <h2 class="o_page_header">Employee Performance</h2>
-                        <div class="website_links_click_chart" id="emp_per_chart">
-                            <h3 class="title"></h3>
-                            <canvas style="height:20em;"></canvas>
-                        </div>
-                    </div>
+                
                     
                 </page>
             </xpath>

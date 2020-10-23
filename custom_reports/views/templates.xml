@@ -1,0 +1,10 @@
+<odoo>
+  <template id="test_page" name="Test Page">
+    <t t-call="website.layout">
+      <div id="my-container">
+        Some content        
+        <span class="current-date"> Today is: <span/> </span>
+      </div>
+    </t>
+  </template>
+</odoo>
