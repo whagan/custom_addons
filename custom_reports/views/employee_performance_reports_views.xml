@@ -76,7 +76,33 @@
         <field name="arch" type="xml">
             <form>
                 <sheet>
-                    <group>
+                    <widget name="web_ribbon" title="Archived" bg_color="bg-danger"/>             
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    
+<!-- 
+    <record id="employee_performance_report_view_form_graph" model="ir.ui.view">
+        <field name="name">Employee Performance Report Graph Form</field>
+        <field name="model">custom_reports.employee_performance_report</field>
+        <field name="inherit_id" ref="custom_reports.employee_performance_report_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Employee Performance Report Graph">
+                    <h2>Hey There</h2>
+                    <widget name="bh_sidebar"/>
+                
+                    
+                </page>
+            </xpath>
+        </field>
+    </record> -->
+
+    
+<!-- <group>
                         <div class="oe_title">
                             <h1>Employee Performance Report</h1>
                         </div>
@@ -107,30 +133,14 @@
                                 </pivot>
                             </field>
                         </page>
-                    </notebook>
+                        <page string="Employee Performance Report Graph">
+                            <h2>Hey There</h2>
+                            <xpath expr="//header" position="after">
+                                <widget name="custom_ribbon" title="Archived" bg_color="bg-danger"/>
+                            </xpath>
+                        </page>
+                    </notebook> -->
 
-                </sheet>
-            </form>
-        </field>
-    </record>
-
-    
-
-    <record id="employee_performance_report_view_form_graph" model="ir.ui.view">
-        <field name="name">Employee Performance Report Graph Form</field>
-        <field name="model">custom_reports.employee_performance_report</field>
-        <field name="inherit_id" ref="custom_reports.employee_performance_report_view_form"/>
-        <field name="arch" type="xml">
-            <xpath expr="//notebook" position="inside">
-                <page string="Employee Performance Report Graph">
-                
-                    
-                </page>
-            </xpath>
-        </field>
-    </record>
-
-    
 
  
   

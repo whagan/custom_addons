@@ -13,6 +13,7 @@
         'security/security.xml',
         'security/ir.model.access.csv',
         'views/assets.xml',
+        'views/templates.xml',
         'views/sales_by_location_reports_views.xml',
         'views/employee_performance_reports_views.xml',
         'views/email_marketing_reports_views.xml',
@@ -23,6 +24,7 @@
         'demo/email_marketing_demo.xml',
         'demo/demo.xml',
     ],
+    'qweb': ['static/src/xml/ribbon.xml'],
 
     'installable': True,
     'application': True,

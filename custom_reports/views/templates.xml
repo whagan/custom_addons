@@ -3,7 +3,7 @@
     <t t-call="website.layout">
       <div id="my-container">
         Some content        
-        <span class="current-date"> Today is: <span/> </span>
+        <span class="current-dated"> Today is: <span/> </span>
       </div>
     </t>
   </template>
