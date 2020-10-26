@@ -1,12 +1,9 @@
 <?xml version="1.0"?>
 <templates id="template" xml:space="preserve">
    <t t-name="bh_sidebar_template">
-    <div style="background-color:red;" class="myClass">
+       <div style="background-color:red;" class="myClass">
            <a href="#" class="butt1">Button 1</a>
            <a href="#" class="butt2">Button 2</a>
        </div>
-       
-     
-       
    </t>
 </templates> 
