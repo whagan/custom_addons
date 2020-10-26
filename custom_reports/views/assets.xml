@@ -1,16 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-
-    <template id="assets_backend_first" name="custom reports assets" inherit_id="web.assets_frontend">
-        <xpath expr="." position="inside">
-            <script type="text/javascript" src="/custom_reports/static/src/js/test2.js"/>
-            <link rel="stylesheet" type="text/scss" href="/custom_reports/static/src/scss/employee_performance_graph.scss"/>
-        </xpath>
-    </template>
-
-     <template id="assets_frontend" inherit_id="web.assets_frontend" name="Test assets">
-    <xpath expr="//script[last()]" position="after">
-      <script type="text/javascript" src="/my_module/static/src/js/current_date.js"/>
+  <template id="emp_perform_assets" name="Employee Performance Assets" inherit_id="web.assets_backend">
+    <xpath expr="." position="inside">
+      <script type="text/javascript" src="/custom_reports/static/src/js/sidebar.js"/>
+      <link rel="stylesheet" type="text/scss" href="/custom_reports/static/src/scss/employee_performance_graph.scss"/>  
     </xpath>
   </template>
 

@@ -9,6 +9,7 @@
 
     'version': '0.1',
     'depends': ['base', 'hr', 'hr_attendance', 'mass_mailing', 'product', 'sale', 'web'],
+    
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',
@@ -23,7 +24,11 @@
         'demo/email_marketing_demo.xml',
         'demo/demo.xml',
     ],
-
+    'qweb': [
+        'static/src/xml/sidebar.xml',
+    ],
+    
+    
     'installable': True,
     'application': True,
     'auto_install': True

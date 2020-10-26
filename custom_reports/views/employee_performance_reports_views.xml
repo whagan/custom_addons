@@ -123,7 +123,8 @@
         <field name="arch" type="xml">
             <xpath expr="//notebook" position="inside">
                 <page string="Employee Performance Report Graph">
-                
+                    <widget name = "bh_sidebar"/>
+                  
                     
                 </page>
             </xpath>
