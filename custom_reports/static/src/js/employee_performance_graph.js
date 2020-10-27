@@ -15,17 +15,40 @@ odoo.define('custom_reports.EmployeePerformanceGraph', function(require)   {
         
         /**
          * @override
+         * @param {Widget} parent
+         * @param {Object} params
+         * @param {string} options.graph_type
          */
-        init: function(parent) {
-            var self = this;
-            this._super(parent);
+        init: function (parent, params) {
+            this._super.apply(this, arguments);
+            this.graph_type = options.graph_type == undefined ? 'bar' : options.graph_type
             console.log('Widget initialized');
-
         },
 
+        /**
+         * @override
+         */
         start: function()   {
             var self = this;
-            self.config = self._getBarGraph();
+            
+            if (self.graph_type != undefined) {
+                if (self.graph_type == 'bar') {
+                    self.config = self._getBarGraph();
+                }
+                else if (self.graph_type == 'pie')    {
+                    self.config = self._getPieGraph();
+                }
+                else    {
+                    self.config = self._getPolarGraph();
+                }
+            }
+            else    {
+                self.config = self._getDoughnutGraph();
+            }
+
+            
+
+            // self.config = self._getBarGraph();
             self._loadChart();
             
         },
