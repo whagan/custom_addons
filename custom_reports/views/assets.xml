@@ -1,25 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-<<<<<<< HEAD
   <template id="emp_perform_assets" name="Employee Performance Assets" inherit_id="web.assets_backend">
     <xpath expr="." position="inside">
       <script type="text/javascript" src="/custom_reports/static/src/js/sidebar.js"/>
       <link rel="stylesheet" type="text/scss" href="/custom_reports/static/src/scss/employee_performance_graph.scss"/>  
     </xpath>
   </template>
-=======
-
-    <template id="assets_backend" name="custom reports assets" inherit_id="web.assets_frontend">
-        <xpath expr="." position="inside">
-            <script type="text/javascript" src="/custom_reports/static/src/js/ribbon.js"/>
-        </xpath>
-    </template>
-
-    <template id="assets_frontend" inherit_id="web.assets_frontend" name="Test assets">
-        <xpath expr="//script[last()]" position="after">
-          <script type="text/javascript" src="/custom_reports/static/src/js/current_date.js"/>
-        </xpath>
-    </template>
->>>>>>> db834c14e361b97477e687c98a19411a317e88d3
 
 </odoo>
