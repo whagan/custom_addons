@@ -95,7 +95,6 @@
                             <field name="employee_ids" widget="many2many_tags"/>
                         </div>
                     </group>
-
                     <notebook>
                         <page string="Pivot">
                             <field name="employee_performance_ids">

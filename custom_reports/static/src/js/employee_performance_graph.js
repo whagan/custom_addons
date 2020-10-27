@@ -19,16 +19,14 @@ odoo.define('custom_reports.EmployeePerformanceGraph', function(require)   {
         init: function(parent) {
             var self = this;
             this._super(parent);
-            console.log()
             console.log('Widget initialized');
 
         },
 
         start: function()   {
             var self = this;
-            console.log(this.getParent().$el);
             var config = {
-                type: 'pie',
+                type: 'polarArea',
                 data: {
                    labels: ['Marc Demo', 'Mitchell Admin', 'Paul Williams', 'Ronnie Hart', 'Randall Lewis'],
                    datasets: [{
