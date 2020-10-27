@@ -14,7 +14,6 @@
         'security/security.xml',
         'security/ir.model.access.csv',
         'views/assets.xml',
-        'views/templates.xml',
         'views/sales_by_location_reports_views.xml',
         'views/employee_performance_reports_views.xml',
         'views/email_marketing_reports_views.xml',
