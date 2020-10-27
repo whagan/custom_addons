@@ -25,7 +25,7 @@
         'demo/demo.xml',
     ],
     'qweb': [
-        'static/src/xml/sidebar.xml',
+        'static/src/xml/employee_performance_graph.xml',
     ],
     
     

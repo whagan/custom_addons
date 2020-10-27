@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-  <template id="emp_perform_assets" name="Employee Performance Assets" inherit_id="web.assets_backend">
+  <template id="employee_performance_assets" name="Employee Performance Assets" inherit_id="web.assets_backend">
     <xpath expr="." position="inside">
-      <script type="text/javascript" src="/custom_reports/static/src/js/sidebar.js"/>
+      <script type="text/javascript" src="/custom_reports/static/src/js/employee_performance_graph.js"/>
       <link rel="stylesheet" type="text/scss" href="/custom_reports/static/src/scss/employee_performance_graph.scss"/>  
     </xpath>
   </template>

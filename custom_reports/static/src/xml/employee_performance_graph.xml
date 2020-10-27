@@ -1,6 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<templates xml:space="preserve">
-    <t t-name="EmployeePerformanceTemplate">
-        <div style="background-color: red;">This is some simple HTML</div>
-    </t>
-</templates>
+<?xml version="1.0"?>
+
+<templates id="template" xml:space="preserve">
+
+   <t t-name="employee_performance_graph_template">
+      <div class="col-md-12" style="display: block !important;">
+			<canvas class="bar-chart" id="bar-chart" width="300" height="150" style="display:block !important;width:100%;"></canvas>
+		</div>
+   </t>
+
+</templates> 

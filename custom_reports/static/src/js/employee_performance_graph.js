@@ -1,60 +1,51 @@
-odoo.define('custom_reports.employee_performance_graph', function (require) {
+odoo.define('custom_reports.EmployeePerformanceGraph', function(require)   {
     'use strict';
-    
-    var core = require('web.core');
-    var publicWidget = require('web.public.widget');
 
-    var _t = core._t;
-    
-    var BarChart = publicWidget.Widget.extend({
+    var Widget = require('web.Widget');
+    var Registry = require('web.widget_registry');
+    var core = require('web.core');
+
+
+    var EmployeePerformanceGraph = Widget.extend({
         jsLibs: [
             '/web/static/lib/Chart/Chart.js',
         ],
+        template: 'employee_performance_graph_template',
+        xmlDependencies: ['custom_reports/static/src/xml/employee_performance_graph.xml'],
         
-        init: function () {
-			this._super.apply(this, arguments);
-		},
+        /**
+         * @override
+         */
+        init: function(parent) {
+            var self = this;
+            this._super(parent);
+            console.log()
+            console.log('Widget initialized');
+
+        },
 
         start: function()   {
+            var self = this;
+            console.log(this.getParent().$el);
             var config = {
-                type: 'line',
-                data:   {
-                    labels: ['Nashville', 'Memphis', 'Knoxville', 'Chattanooga'],
-                    datasets:   [{
-                        label: 'Population',
-                        data:   [
-                            5000,
-                            500,
-                            50,
-                            5,
-                        ],
-                        backgroundColor: '#ebf2f7',
-                        borderColor: '#6aa1ca',
+                type: 'pie',
+                data: {
+                   labels: ['Marc Demo', 'Mitchell Admin', 'Paul Williams', 'Ronnie Hart', 'Randall Lewis'],
+                   datasets: [{
+                       label: 'Employee Performances',
+                       data: [44, 24, 37, 12, 8],
+                       backgroundColor: ["#1f77b4", "#c5b0d5", "#e377c2", "#7f7f7f", "#dbdb8d"],
                     }]
                 },
             };
             var canvas = this.$('canvas')[0];
             var context = canvas.getContext('2d');
             new Chart(context, config);
+            
         },
-    });
-
-    publicWidget.registry.employeePerformanceGraph = publicWidget.Widget.extend({
-        selector: '.o_emp_perform_graph',
-        /**
-         * @override
-         */
-        start: function()   {
-            var self = this;
-            this.charts = {};
-            self.charts.emp_bar_chart = new BarChart();
-            self.charts.emp_bar_chart.attachTo($('#emp_bar_clicks_chart'));
-          
-        }
 
     });
 
-    return  {
-        BarChart: BarChart,
-    };
-});            
+    Registry.add('employee_performance_graph', EmployeePerformanceGraph);
+
+});
