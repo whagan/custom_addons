@@ -22,7 +22,7 @@ class TrafficStatisticsReport(models.Model):
         record = super(TrafficStatisticsReport, self).create(values)
         order_ids = values['order_ids'][0][2]
         records = []
-        for company_id in company_ids:
+        for order_id in order_ids:
             records.append({
                 'order': order_id,
                 'traffic_statistics_report_id': record.id,
