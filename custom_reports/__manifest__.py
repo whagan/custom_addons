@@ -17,6 +17,7 @@
         'views/employee_performance_reports_views.xml',
         'views/email_marketing_reports_views.xml',
         'views/contact_report_view.xml',
+        'views/traffic_statistics_report_views.xml'
         'views/custom_reports_views.xml',
     ],
     'demo': [
