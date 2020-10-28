@@ -8,7 +8,7 @@
     """,
 
     'version': '0.1',
-    'depends': ['base', 'hr', 'hr_attendance', 'mass_mailing', 'product', 'sale', 'web'],
+    'depends': ['base', 'hr', 'hr_attendance', 'mass_mailing', 'point_of_sale', 'product', 'sale', 'web'],
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',
@@ -17,7 +17,7 @@
         'views/employee_performance_reports_views.xml',
         'views/email_marketing_reports_views.xml',
         'views/contact_report_view.xml',
-        'views/traffic_statistics_report_views.xml',
+        'views/traffic_statistics_reports_views.xml',
         'views/custom_reports_views.xml',
     ],
     'demo': [
