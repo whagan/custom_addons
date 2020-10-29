@@ -39,7 +39,7 @@
                         </group>
                     </group>
                     <notebook>
-                        <page string="Email Marketing Pivot">
+                        <page string="Pivot">
                             <field name="mass_mailing_ids">
                                 <tree>
                                     <field name="subject" type="row"/>
@@ -72,6 +72,20 @@
             </field>
         </field>
     </record>
+
+    <!-- employee performance graph form view -->
+    <record id="email_marketing_report_view_form_graph" model="ir.ui.view">
+        <field name="name">Email Marketing Report Graph Form</field>
+        <field name="model">custom_reports.email_marketing_report</field>
+        <field name="inherit_id" ref="custom_reports.email_marketing_report_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Graph">
+                    <widget name ="email_marketing_graph"/>    
+                </page>
+            </xpath>
+        </field>
+    </record> 
 
    
 

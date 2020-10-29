@@ -3,6 +3,7 @@
   <template id="employee_performance_assets" name="Employee Performance Assets" inherit_id="web.assets_backend">
     <xpath expr="." position="inside">
       <script type="text/javascript" src="/custom_reports/static/src/js/employee_performance_graph.js"/>
+      <script type="text/javascript" src="/custom_reports/static/src/js/email_marketing_graph.js"/>
       <link rel="stylesheet" type="text/scss" href="/custom_reports/static/src/scss/employee_performance_graph.scss"/>  
     </xpath>
   </template>

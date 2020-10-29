@@ -26,6 +26,7 @@
     ],
     'qweb': [
         'static/src/xml/employee_performance_graph.xml',
+         'static/src/xml/email_marketing_graph.xml'
     ],
     
     
