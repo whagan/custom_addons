@@ -1,12 +1,15 @@
-odoo.define('custom_reports.EmployeePerformanceGraph', function(require)   {
+odoo.define('custom_reports.Graph', function(require)   {
     'use strict';
 
-    var Widget = require('web.Widget');
-    var Registry = require('web.widget_registry');
+    // var Widget = require('web.Widget');
+    // var Registry = require('web.widget_registry');
     var core = require('web.core');
 
+    var BasicFields = require('web.basic_fields');
+    var FieldRegistry = require('web.field_registry');
 
-    var EmployeePerformanceGraph = Widget.extend({
+
+    var EmployeePerformanceGraph = BasicFields.FieldText.extend({
         jsLibs: [
             '/web/static/lib/Chart/Chart.js',
         ],
@@ -15,14 +18,16 @@ odoo.define('custom_reports.EmployeePerformanceGraph', function(require)   {
         
         /**
          * @override
-         * @param   {Object}    parent
-         * @param   {Object}    data
          */
-        init: function (parent, data) {
+        init: function () {
             this._super.apply(this, arguments);
-            this.data = data;
-            console.log(this.data);
+            console.log(this);
+            console.log(arguments);
+
             console.log('Widget initialized');
+
+            console.log(this.attrs.options.graph_type);
+            this.graph_type = this.attrs.options.graph_type;
         },
 
         /**
@@ -30,12 +35,7 @@ odoo.define('custom_reports.EmployeePerformanceGraph', function(require)   {
          */
         start: function()   {
             var self = this;
-            self.graph_type = "polarArea";
             
-    
-            console.log(this.$('canvas').attr('id'));
-
-
             switch (self.graph_type) {
                 case 'polarArea':
                     self.config = self._getPolarGraph();
@@ -157,10 +157,37 @@ odoo.define('custom_reports.EmployeePerformanceGraph', function(require)   {
             var canvas = this.$('canvas')[0];
             var context = canvas.getContext('2d');
             return new Chart(context, this.config);
-        }
+        },
 
     });
 
-    Registry.add('employee_performance_graph', EmployeePerformanceGraph);
+    FieldRegistry.add('employee_performance_graph', EmployeePerformanceGraph);
+
+    // var RenderGraphWidget = Widget.extend({
+    //     selector: '.o_employee_performance_graph',
+
+    //     /**
+    //      * @override
+    //      */
+    //     start: function()   {
+    //         var self = this;
+    //         console.log('Widget started');
+
+    //         var graph_type = self.$('widget').attr('graph_type');
+    //         console.log(graph_type);
+            
+    //         var defs = [this._super.apply(this, arguments)];
+
+    //         return Promise.all(defs).then(function()    {
+    //             self.pie_chart = new EmployeePerformanceGraph(self, "doughnut");
+    //             self.pie_chart.attachTo($('#hang_graph'));
+    //         });
+
+        
+    //     },
+
+    // });
+
+    // Registry.add('render_graph', RenderGraphWidget);
 
 });

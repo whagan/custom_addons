@@ -119,8 +119,13 @@
         <field name="inherit_id" ref="custom_reports.employee_performance_report_view_form"/>
         <field name="arch" type="xml">
             <xpath expr="//notebook" position="inside">
+                <t t-foreach="employee_performance_ids" t-as="ep_id">
+                    <p><t t-esc="ep_id.sales_hour"/></p>
+                </t>
                 <page string="Graph">
-                    <widget name ="employee_performance_graph"/>    
+                    <field name="employee_performance_graph" widget="employee_performance_graph"
+						title="Employee Performances" 
+						options="{'graph_type': 'doughnut'}"/>
                 </page>
             </xpath>
         </field>
