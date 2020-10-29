@@ -15,13 +15,17 @@ odoo.define('custom_reports.EmployeePerformanceGraph', function(require)   {
         
         /**
          * @override
-         * @param {Widget} parent
-         * @param {Object} params
-         * @param {string} options.graph_type
+         * @param   {Object}    parent
+         * @param   {Object}    data
          */
-        init: function (parent, params) {
+        init: function (parent, data) {
             this._super.apply(this, arguments);
-            this.graph_type = options.graph_type == undefined ? 'bar' : options.graph_type
+            this.data = data;
+            console.log(this.data);
+            console.log(this.data.data.employee_performance_ids.data[0].data.worked_hours);
+            // employee_ids.data[0].data.display_name
+            //data.employee_performance_ids.data[0].fields.worked_hours
+            this.graph_type = data.graph_type == undefined ? data.graph_type : 'bar'
             console.log('Widget initialized');
         },
 
@@ -31,24 +35,27 @@ odoo.define('custom_reports.EmployeePerformanceGraph', function(require)   {
         start: function()   {
             var self = this;
             
-            if (self.graph_type != undefined) {
-                if (self.graph_type == 'bar') {
-                    self.config = self._getBarGraph();
-                }
-                else if (self.graph_type == 'pie')    {
-                    self.config = self._getPieGraph();
-                }
-                else    {
+
+            console.log(this.$('canvas').attr('id'));
+            console.log(self.$('canvas').attr('id'));
+            console.log(self.$('widget').attr('graph_type'));
+
+
+            switch (self.graph_type) {
+                case 'polarArea':
                     self.config = self._getPolarGraph();
-                }
+                    break;
+                case 'bar':
+                    self.config = self._getBarGraph();
+                    break;
+                case 'pie':
+                    self.config = self._getPieGraph();
+                    break;
+                case 'doughnut':
+                    self.config = self._getDoughnutGraph();
+                    break;
             }
-            else    {
-                self.config = self._getDoughnutGraph();
-            }
-
             
-
-            // self.config = self._getBarGraph();
             self._loadChart();
             
         },

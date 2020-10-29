@@ -120,7 +120,8 @@
         <field name="arch" type="xml">
             <xpath expr="//notebook" position="inside">
                 <page string="Graph">
-                    <widget name="employee_performance_graph" graph_type="pie" attrs="{'graph_type': 'pie'}"/>
+                    <widget name ="employee_performance_graph" options="{'graph_type':'pie'}" graph_type="pie"/>
+                
                 </page>
             </xpath>
         </field>
