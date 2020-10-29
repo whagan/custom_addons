@@ -92,7 +92,7 @@
                     </group>
 
                     <notebook>
-                        <page string="Traffic Statistics Pivot">
+                        <page string="Pivot">
                             <field name="traffic_statistic_ids">
                                 <pivot>
                                     <field name="location_id" type="row"/>
@@ -106,6 +106,19 @@
         </field>
     </record>
 
+    <!-- traffic statistic graph form view -->
+    <record id="traffic_statistics_report_view_form_graph" model="ir.ui.view">
+        <field name="name">Traffic Statistics Report Graph Form</field>
+        <field name="model">custom_reports.traffic_statistics_report</field>
+        <field name="inherit_id" ref="custom_reports.traffic_statistics_report_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Graph">
+                    <widget name ="traffic_statistic_graph"/>    
+                </page>
+            </xpath>
+        </field>
+    </record> 
 
 
 

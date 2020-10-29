@@ -57,7 +57,7 @@
     </record>
 
     
-    <!-- tree -->
+    <!-- employee performance report tree -->
     <record model="ir.ui.view" id="employee_performance_report_view_tree">
         <field name="name">Employee Performance Report</field>
         <field name="model">custom_reports.employee_performance_report</field>
@@ -69,7 +69,7 @@
         </field>
     </record>
 
-     <!-- form -->
+    <!-- employee performance report form -->
     <record model="ir.ui.view" id="employee_performance_report_view_form">
         <field name="name">Employee Performance Report</field>
         <field name="model">custom_reports.employee_performance_report</field>
@@ -95,19 +95,8 @@
                             <field name="employee_ids" widget="many2many_tags"/>
                         </div>
                     </group>
-
                     <notebook>
-                        <page string="Employee Performances Pivot">
-                            <field name="employee_performance_ids">
-                                <pivot>
-                                    <field name="employee_id" type="row"/>
-                                    <field name="worked_hours" type="col"/>
-                                    <field name="total_sales" type="col"/>
-                                    <field name="sales_hour" type="col"/>
-                                </pivot>
-                            </field>
-                        </page>
-                        <page string="Employee Performances Graph">
+                        <page string="Pivot">
                             <field name="employee_performance_ids">
                                 <pivot>
                                     <field name="employee_id" type="row"/>
@@ -118,10 +107,24 @@
                             </field>
                         </page>
                     </notebook>
-
                 </sheet>
             </form>
         </field>
     </record>
+    
+    <!-- employee performance graph form view -->
+    <record id="employee_performance_report_view_form_graph" model="ir.ui.view">
+        <field name="name">Employee Performance Report Graph Form</field>
+        <field name="model">custom_reports.employee_performance_report</field>
+        <field name="inherit_id" ref="custom_reports.employee_performance_report_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Graph">
+                    <widget name ="employee_performance_graph"/>    
+                </page>
+            </xpath>
+        </field>
+    </record> 
 
 </odoo>
+

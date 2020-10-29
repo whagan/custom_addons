@@ -24,6 +24,13 @@
         'demo/email_marketing_demo.xml',
         'demo/demo.xml',
     ],
+    'qweb': [
+        'static/src/xml/employee_performance_graph.xml',
+        'static/src/xml/email_marketing_graph.xml',
+        'static/src/xml/traffic_statistic_graph.xml',
+    ],
+    
+    
     'installable': True,
     'application': True,
     'auto_install': True
