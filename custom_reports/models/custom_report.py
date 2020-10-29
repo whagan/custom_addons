@@ -46,3 +46,4 @@ class CustomReport(models.Model):
     #         'res_model': self.url
     #         }
 
+

@@ -31,7 +31,7 @@ class EmployeePerformanceReport(models.Model):
             })
         self.env['custom_reports.employee_performance'].create(records)
         return record
-
+    
 #Employee Performance DataModel
 class EmployeePerformance(models.Model):
     _name = 'custom_reports.employee_performance'

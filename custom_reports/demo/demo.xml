@@ -1,0 +1,45 @@
+<odoo>
+    <!-- custom reports -->
+    <record model="custom_reports.custom_report" id="customreport0">
+        <field name="name">Employee Performance</field>
+        <field name="category">Unknown</field>
+        <field name="description">Employee Performance custom report description.</field>
+        <field name="url">custom_reports.employee_performance_report</field>
+    </record>
+
+    <record model="custom_reports.custom_report" id="customreport1">
+        <field name="name">Contacts</field>
+        <field name="category">Unknown</field>
+        <field name="description">Contacts custom report description.</field>
+        <field name="url">res.partner</field>
+    </record>
+
+    <record model="custom_reports.custom_report" id="customreport2">
+        <field name="name">Test</field>
+        <field name="category">Unknown</field>
+        <field name="description">Test</field>
+        <field name="url">custom_reports.custom_report</field>
+    </record>
+      <record model="custom_reports.custom_report" id="customreport3">
+        <field name="name">Sales By Location</field>
+        <field name="category">Sales</field>
+        <field name="description">Sales By Location Report</field>
+        <field name="url">custom_reports.sales_by_location_report</field>
+    </record>
+
+     <record model="custom_reports.custom_report" id="customreport3">
+        <field name="name">Email Marketing Report</field>
+        <field name="category">Unknown</field>
+        <field name="description">Email Marketing custom report description.</field>
+        <field name="url">custom_reports.email_marketing_report</field>
+    </record>
+
+     <record model="custom_reports.custom_report" id="customreport5">
+        <field name="name">Traffic Statistics Report</field>
+        <field name="category">Unknown</field>
+        <field name="description">Traffic Statistics Report</field>
+        <field name="url">custom_reports.traffic_statistics_report</field>
+    </record>
+
+</odoo>
+

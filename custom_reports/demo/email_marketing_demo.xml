@@ -259,10 +259,14 @@
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=2)).strftime('%Y-%m-%d %H:%M')"/>
         </record>
 
+        
+
+
+
           <!-- sale order lines -->
 
         <record id="sale_order_line_click_01" model="sale.order.line">
-            <field name="order_id" ref="sale_order_click_01"/>
+            <field name="order_id" ref="sale_order_click_02"/>
             <!--<field name="name" model="sale.order.line" eval="obj().env.ref('product.product_click_01').get_product_multiline_description_sale()"/>-->
             <field name="product_id" ref="product_click_01"/>
             <field name="product_uom_qty">1</field>
@@ -271,7 +275,7 @@
         </record>
 
         <record id="sale_order_line_click_02" model="sale.order.line">
-            <field name="order_id" ref="sale_order_click_01"/>
+            <field name="order_id" ref="sale_order_click_02"/>
             <field name="product_id" ref="product_click_02"/>
             <field name="product_uom_qty">2</field>
             <field name="product_uom" ref="uom.product_uom_unit"/>
@@ -279,7 +283,7 @@
         </record>
 
         <record id="sale_order_line_click_03" model="sale.order.line">
-            <field name="order_id" ref="sale_order_click_01"/>
+            <field name="order_id" ref="sale_order_click_02"/>
             <field name="product_id" ref="product_click_03"/>
             <field name="product_uom_qty">3</field>
             <field name="product_uom" ref="uom.product_uom_unit"/>
@@ -287,7 +291,7 @@
         </record>
 
         <record id="sale_order_line_click_04" model="sale.order.line">
-            <field name="order_id" ref="sale_order_click_01"/>
+            <field name="order_id" ref="sale_order_click_02"/>
             <field name="product_id" ref="product_click_04"/>
             <field name="product_uom_qty">4</field>
             <field name="product_uom" ref="uom.product_uom_unit"/>
@@ -462,6 +466,26 @@
         <function model="sale.order" name="action_confirm" eval="[[ref('sale_order_click_04')]]"/>
         <function model="sale.order" name="action_confirm" eval="[[ref('sale_order_click_05')]]"/>
         <function model="sale.order" name="action_confirm" eval="[[ref('sale_order_click_06')]]"/>
+
+        <!-- setting date_order in the past for spread -->
+        <record id="sale_order_click_01" model="sale.order">
+            <field name="date_order" eval="datetime.now() - relativedelta(months=4,days=10)"/>
+        </record>
+         <record id="sale_order_click_02" model="sale.order">
+            <field name="date_order" eval="datetime.now() - relativedelta(months=4,days=14)"/>
+        </record>
+         <record id="sale_order_click_03" model="sale.order">
+            <field name="date_order" eval="datetime.now() - relativedelta(months=3,days=14)"/>
+        </record>
+         <record id="sale_order_click_04" model="sale.order">
+            <field name="date_order" eval="datetime.now() - relativedelta(months=2,days=4)"/>
+        </record>
+         <record id="sale_order_click_05" model="sale.order">
+            <field name="date_order" eval="datetime.now() - relativedelta(days=3)"/>
+        </record>
+         <record id="sale_order_click_06" model="sale.order">
+            <field name="date_order" eval="datetime.now() - relativedelta(days=2)"/>
+        </record>
 
         <!-- mailing lists -->
 

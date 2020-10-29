@@ -8,21 +8,29 @@
     """,
 
     'version': '0.1',
-    'depends': ['base', 'hr', 'hr_attendance', 'mass_mailing', 'product', 'sale', 'web'],
+    'depends': ['base', 'hr', 'hr_attendance', 'mass_mailing', 'point_of_sale', 'product', 'sale', 'web'],
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',
         'views/assets.xml',
-        'views/employee_performance_views.xml',
+        'views/sales_by_location_reports_views.xml',
         'views/employee_performance_reports_views.xml',
         'views/email_marketing_reports_views.xml',
         'views/contact_report_view.xml',
+        'views/traffic_statistics_reports_views.xml',
         'views/custom_reports_views.xml',
     ],
     'demo': [
         'demo/email_marketing_demo.xml',
-        'demo/custom_reports_demo.xml',
+        'demo/demo.xml',
     ],
+    'qweb': [
+        'static/src/xml/employee_performance_graph.xml',
+        'static/src/xml/email_marketing_graph.xml',
+        'static/src/xml/traffic_statistic_graph.xml',
+    ],
+    
+    
     'installable': True,
     'application': True,
     'auto_install': True
