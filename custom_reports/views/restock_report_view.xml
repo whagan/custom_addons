@@ -4,7 +4,7 @@
     <record id="custom_reports.restock_action" model="ir.actions.act_window">
         <field name="name">Inventory Restock</field>
         <field name="res_model">custom_reports.restock_report</field>
-        <field name="view_mode">tree</field>
+        <field name="view_mode">tree,form</field>
     </record>
 
     <record id="custom_reports.restock_tree" model="ir.ui.view">
@@ -20,6 +20,16 @@
                 <field name="sales_total"/>
                 <field name="restock_recommended" widget="boolean_button"/>
             </tree>
+        </field>
+    </record>
+
+    <record id="custom_reports.restock_form" model="ir.ui.view">
+        <field name="name">custom_reports.restock.form</field>
+        <field name="model">custom_reports.restock_report</field>
+        <field name="arch" type="xml">
+             <form string="Inventory Restock">
+                <field name="product_id"/>
+            </form>
         </field>
     </record>
 </odoo>

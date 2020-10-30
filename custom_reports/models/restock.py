@@ -1,16 +1,17 @@
 from odoo import models, fields, api
 from odoo.tools import format_datetime
 from odoo.exceptions import ValidationError
-import datetime
+from datetime import datetime, timedelta
 
 class RestockReport(models.Model):
     _name = 'custom_reports.restock_report'
     _description = 'Inventory Restock Report'
     # _inherits = {'product.product': 'product_id'}
+    # _inherit = 'product.product'
 
     product_id = fields.Many2one('product.product', string='Product', ondelete="cascade", required=True)
     product_template_id = fields.Many2one('product.template', string='Template', related="product_id.product_tmpl_id")
-    stock_inventory_line_ids = fields.Many2many('stock.inventory.line', 'restock_line_rel', 'product_id', 'restock_id', string='Stocks')
+    # stock_inventory_line_ids = fields.Many2many('stock.inventory.line', 'restock_line_rel', 'product_id', 'restock_id', string='Stocks')
     
     product_stock = fields.Integer(string="Stock", readonly=True, compute="_compute_stocks")
     sales_quantity = fields.Integer(string="Last Month Sales Quantity", readonly=True, compute="_compute_sales")
@@ -19,21 +20,24 @@ class RestockReport(models.Model):
     restock_recommended = fields.Boolean(string="Should Restock", readonly=True, compute="_get_recommandation")
 
     def _compute_stocks(self):
-        # line = self.env['stock.inventory.line'].search([('product_id','=',self.product_id)])
-
-        product_qty = sum(t.get('product_qty', 0.0) for t in self.inventory_line_ids)
-        # product_qty = 0
-        # for line in self.inventory_line_ids:
-        #     product_qty = line.product_qty
-        self.product_stock = product_qty.product_qty
+        for record in self:
+            total_qty = 0.0
+            lines = record.env['stock.inventory.line'].search([('product_id','=',record.product_id.id)])
+            for line in lines:
+                total_qty += line.product_qty
+            record.product_stock = total_qty
+        # for line_id in self.stock_inventory_line_ids:
+        #     line = self.env['stock.inventory.line'].search([('id','=',line_id)])
+        #     total_qty += line.product_qty
+        # self.product_stock = total_qty
 
     def _compute_sales(self):
-        total_qty = 0
-        total_sale = 0.0
         for record in self:
+            total_qty = 0.0
+            total_sale = 0.0
             product_sales = record.env['sale.order.line'].search([
-                ('product_id', '=', record.product_id),
-                ('order_id.date_order', '>=', fields.Date.today() - timedelta(months=1)),
+                ('product_id', '=', record.product_id.id),
+                ('order_id.date_order', '>=', fields.Date.today() - timedelta(days=30)),
                 ('order_id.date_order', '<=', fields.Date.today())])
             for product_sale in product_sales:
                 total_qty += product_sale.product_uom_qty
@@ -47,15 +51,17 @@ class RestockReport(models.Model):
 
     @api.depends('product_stock','sales_quantity')
     def _estimated_stock(self):
-        self.estimated_stock = self.product_stock - self.sales_quantity
+        for record in self:
+            record.estimated_stock = record.product_stock - record.sales_quantity
 
     @api.depends('estimated_stock','sales_quantity','sales_total')
     def _get_recommandation(self):
-        if self.estimated_stock <= 0 and self.sales_total > 10 or \
-            self.estimated_stock - self.sales_quantity <= 0 and self.sales_total > 50:
-            self.restock_recommended = True
-        else:
-            self.restock_recommended = False
+        for record in self:
+            if record.estimated_stock <= 0 and record.sales_total > 10 or \
+                record.estimated_stock - record.sales_quantity <= 0 and record.sales_total > 50:
+                record.restock_recommended = True
+            else:
+                record.restock_recommended = False
 
     def unlink(self):
         unlink_records = self.env['custom_reports.restock_report']
@@ -69,15 +75,3 @@ class RestockReport(models.Model):
         unlink_lines.unlink()
         self.clear_caches()
         return res
-
-    # def _compute_sales(self):
-    #     for record in self:
-    #         total_sale = 0.0
-    #         product_sales = record.env['sale.order.line'].search([
-    #             ('product_id', '=', record.product_id),
-    #             ('order_id.date_order', '>=', fields.Date.today() - relativedelta(months=1)),
-    #             ('order_id.date_order', '<=', fields.Date.today())
-    #         ])
-    #         for product_sale in product_sales:
-    #             total_sale += product_sale.price_subtotal
-    #         record.sales_total = total_sale
