@@ -35,13 +35,9 @@ odoo.define('custom_reports.Graph', function(require)   {
 
             console.log(self.graph_data);
             self.graph_data.forEach(graph_datum =>  {
-                console.log(graph_datum);
                 labels.push(graph_datum.data.employee_id.data.display_name);
-                data.push(graph_datum.data.worked_hours);
+                data.push(graph_datum.data.sales_hour);
             });
-
-            console.log(labels);
-            console.log(data);
 
             var colors = self._getColors(data.length);
 
