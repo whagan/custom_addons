@@ -139,8 +139,8 @@
     
         <!-- hr sales job-->
 
-        <record id="job_salesman" model="hr.job">
-            <field name="name">Salesman</field>
+        <record id="job_salesperson" model="hr.job">
+            <field name="name">Sales Person</field>
             <field name="department_id" ref="hr.dep_sales"/>
             <field name="no_of_recruitment">5</field>
         </record>
@@ -152,8 +152,8 @@
             <!-- <field name="user_id" ref="res_partner_click_01"/> -->
             <field name="department_id" ref="hr.dep_sales"/>
             <field name="parent_id" ref="hr.employee_admin"/>
-            <field name="job_id" ref="job_salesman"/>
-            <field name="job_title">Salesman</field>
+            <field name="job_id" ref="job_salesperson"/>
+            <field name="job_title">Sales Person</field>
             <field name="category_ids" eval="[(6, 0, [ref('hr.employee_category_2')])]"/>
             <field name="work_location">Building 1, Second Floor</field>
             <field name="work_phone">+3281813700</field>
@@ -166,8 +166,8 @@
             <!-- <field name="user_id" ref="res_partner_click_02"/> -->
             <field name="department_id" ref="hr.dep_sales"/>
             <field name="parent_id" ref="hr.employee_admin"/>
-            <field name="job_id" ref="job_salesman"/>
-            <field name="job_title">Salesman</field>
+            <field name="job_id" ref="job_salesperson"/>
+            <field name="job_title">Sales Person</field>
             <field name="category_ids" eval="[(6, 0, [ref('hr.employee_category_2')])]"/>
             <field name="work_location">Building 1, Second Floor</field>
             <field name="work_phone">+3281813701</field>
@@ -180,8 +180,8 @@
             <!-- <field name="user_id" ref="res_partner_click_03"/>  -->
             <field name="department_id" ref="hr.dep_sales"/>
             <field name="parent_id" ref="hr.employee_admin"/>
-            <field name="job_id" ref="job_salesman"/>
-            <field name="job_title">Salesman</field>
+            <field name="job_id" ref="job_salesperson"/>
+            <field name="job_title">Sales Person</field>
             <field name="category_ids" eval="[(6, 0, [ref('hr.employee_category_2')])]"/>
             <field name="work_location">Building 1, Second Floor</field>
             <field name="work_phone">+3281813702</field>
@@ -194,8 +194,8 @@
             <!-- <field name="user_id" ref="res_partner_click_04"/>  -->
             <field name="department_id" ref="hr.dep_sales"/>
             <field name="parent_id" ref="hr.employee_admin"/>
-            <field name="job_id" ref="job_salesman"/>
-            <field name="job_title">Salesman</field>
+            <field name="job_id" ref="job_salesperson"/>
+            <field name="job_title">Sales Person</field>
             <field name="category_ids" eval="[(6, 0, [ref('hr.employee_category_2')])]"/>
             <field name="work_location">Building 1, Second Floor</field>
             <field name="work_phone">+3281813703</field>
@@ -208,8 +208,8 @@
             <!-- <field name="user_id" ref="res_partner_click_05"/> -->
             <field name="department_id" ref="hr.dep_sales"/>
             <field name="parent_id" ref="hr.employee_admin"/>
-            <field name="job_id" ref="job_salesman"/>
-            <field name="job_title">Salesman</field>
+            <field name="job_id" ref="job_salesperson"/>
+            <field name="job_title">Sales Person</field>
             <field name="category_ids" eval="[(6, 0, [ref('hr.employee_category_2')])]"/>
             <field name="work_location">Building 1, Second Floor</field>
             <field name="work_phone">+3281813704</field>
