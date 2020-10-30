@@ -8,7 +8,7 @@
     """,
 
     'version': '0.1',
-    'depends': ['base', 'hr', 'hr_attendance', 'mass_mailing', 'product', 'sale', 'web'],
+    'depends': ['base', 'hr', 'hr_attendance', 'mass_mailing', 'product', 'sale', 'sale_management', 'web'],
     
     'data': [
         'security/security.xml',
