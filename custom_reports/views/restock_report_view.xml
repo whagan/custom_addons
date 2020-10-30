@@ -44,7 +44,7 @@
         </field>
     </record>
 
-     <!-- product restock reports action -->
+     <!-- restock reports action -->
     <record model="ir.actions.act_window" id="restock_report_action" >
         <field name="name">Restock Report</field>
         <field name="res_model">custom_reports.restock_report</field>
@@ -52,18 +52,18 @@
     </record>
 
     
-    <!-- product restock tree -->
+    <!-- restock tree -->
     <record model="ir.ui.view" id="restock_report_view_tree">
         <field name="name">Restock Report</field>
         <field name="model">custom_reports.restock_report</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="report_name"/>
+                <field name="report_title"/>
             </tree>
         </field>
     </record>
 
-     <!-- form -->
+     <!-- restock form -->
     <record model="ir.ui.view" id="restock_report_view_form">
         <field name="name">Restock Report</field>
         <field name="model">custom_reports.restock_report</field>
@@ -75,6 +75,10 @@
                             <h1>Restock Report</h1>
                         </div>
                         <div>
+                            <label class="oe_input_label" for="name" string="Report Title" style="font-weight:bold"/>
+                            <field name="report_title"/>
+                        </div>
+                        <div>
                             <label class="oe_input_label" for="name" string="Products" style="font-weight:bold"/>
                             <field name="product_ids" widget="many2many_tags"/>
                         </div>
@@ -82,7 +86,7 @@
 
                     <notebook>
                         <page string="Pivot">
-                            <field name="product_ids">
+                            <field name="product_restock_ids">
                                 <pivot>
                                     <field name="product_id" type="row"/>
                                     <field name="unit_prev_avg" type="col"/>

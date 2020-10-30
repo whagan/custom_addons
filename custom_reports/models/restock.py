@@ -3,12 +3,14 @@ from odoo.tools import format_datetime
 from odoo.exceptions import ValidationError
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
+import logging
+_logger = logging.getLogger(__name__)
 
 class RestockReport(models.Model):
     _name = 'custom_reports.restock_report'
     _description = 'Inventory Restock Report'
 
-    report_name = fields.Char('Report Title', required=True)
+    report_title = fields.Char('Report Title', required=True)
     product_ids = fields.Many2many('product.product', relation='custom_reports_restock_report_rel', column1='custom_report_id', column2='product_id')
     product_restock_ids = fields.One2many('custom_reports.product_restock', 'restock_report_id', string="Product Restock")
 
@@ -17,10 +19,12 @@ class RestockReport(models.Model):
     def create(self, values):
         record = super(RestockReport, self).create(values)
         product_ids = values['product_ids'][0][2]
+        _logger.debug("HEYYYYY", record.product_ids)
         records = []
         for product_id in product_ids:
             records.append({
-                'product_id': product_id
+                'product_id': product_id,
+                'restock_report_id': record.id,
             })
         self.env['custom_reports.product_restock'].create(records)
         return record
@@ -29,7 +33,7 @@ class Restock(models.Model):
     _name = 'custom_reports.product_restock'
     _description = 'Product Restock'
 
-    product_id = fields.Many2one('product,product', string="Product", ondelete='cascade', index=True, store=True)
+    product_id = fields.Many2one('product.product', string="Product", ondelete='cascade', index=True, store=True)
     restock_report_id = fields.Many2one('custom_reports.restock_report', string="Restock Report", ondelete='cascade', store=True)
 
     #computed fields
@@ -45,11 +49,12 @@ class Restock(models.Model):
                 unit_orders = record.env['sale.order.line'].search([
                     ('product_id', '=', record.product_id.id),
                     ('state', 'in', ['sale', 'done']),
-                    ('order_id.date_order', '<', datetime.now()),
-                    ('order_id.date_order', '>', datetime.now() - relativedelta(months=12))
+                    # ('order_id.date_order', '<', datetime.now()),
+                    # ('order_id.date_order', '>', datetime.now() - relativedelta(months=12))
                 ])
+                _logger.debug(record.product_id)
                 for unit_order in unit_orders:
-                    units_sold += product_uom_qty
+                    units_sold += unit_order.product_uom_qty
                 record.unit_prev_avg = units_sold / 12.0
             else:
                 record.unit_prev_avg = units_sold / 12.0
