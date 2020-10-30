@@ -10,7 +10,7 @@ class RestockReport(models.Model):
 
     product_id = fields.Many2one('product.product', string='Product', ondelete="cascade", required=True)
     product_template_id = fields.Many2one('product.template', string='Template', related="product_id.product_tmpl_id")
-    inventory_line_ids = fields.One2many('stock.inventory.line','product_id', string='Stocks')
+    stock_inventory_line_ids = fields.Many2many('stock.inventory.line', 'restock_line_rel', 'product_id', 'restock_id', string='Stocks')
     
     product_stock = fields.Integer(string="Stock", readonly=True, compute="_compute_stocks")
     sales_quantity = fields.Integer(string="Last Month Sales Quantity", readonly=True, compute="_compute_sales")
@@ -19,11 +19,13 @@ class RestockReport(models.Model):
     restock_recommended = fields.Boolean(string="Should Restock", readonly=True, compute="_get_recommandation")
 
     def _compute_stocks(self):
+        # line = self.env['stock.inventory.line'].search([('product_id','=',self.product_id)])
+
         product_qty = sum(t.get('product_qty', 0.0) for t in self.inventory_line_ids)
         # product_qty = 0
         # for line in self.inventory_line_ids:
         #     product_qty = line.product_qty
-        self.product_stock = product_qty
+        self.product_stock = product_qty.product_qty
 
     def _compute_sales(self):
         total_qty = 0
