@@ -3,7 +3,7 @@
 
  <!-- sales by location action -->
     <record id="sales_by_location_action" model="ir.actions.act_window">
-        <field name="name">Sales By Location</field>
+        <field name="name">Sales By Company</field>
         <field name="res_model">custom_reports.sales_by_location</field>
         <field name="view_mode">tree,pivot</field>
     </record>
@@ -11,7 +11,7 @@
 
     <!-- pivot -->
     <record model="ir.ui.view" id="sales_by_location_pivot">
-        <field name="name">Sales by Location Report</field>
+        <field name="name">Sales by Company Report</field>
         <field name="model">custom_reports.sales_by_location</field>
         <field name="arch" type="xml">
             <pivot>
@@ -26,7 +26,7 @@
         <field name="model">custom_reports.sales_by_location</field>
         <field name="type">graph</field>
         <field name="arch" type="xml">
-            <graph string="Sales By Location" type="bar">
+            <graph string="Sales By Company" type="bar">
                 <field name="company" type="row"/>
                 <field name="total_sales" type="measure"/>
             </graph>
@@ -34,7 +34,7 @@
     </record>
     <!-- sales by location tree -->
      <record model="ir.ui.view" id="sales_by_location_view_tree">
-        <field name="name">Sales By Location</field>
+        <field name="name">Sales By Company</field>
         <field name="model">custom_reports.sales_by_location</field>
         <field name="arch" type="xml">
             <tree>
@@ -50,7 +50,7 @@
 
     <!-- odoo action -->
     <record model="ir.actions.act_window" id="sales_by_location_report_action" >
-        <field name="name">Sales By Location Report</field>
+        <field name="name">Sales By Company Report</field>
         <field name="res_model">custom_reports.sales_by_location_report</field>
         <field name="view_mode">tree,form</field>
 
@@ -58,7 +58,7 @@
 
     <!-- tree -->
     <record model="ir.ui.view" id="sales_by_location_report_view_tree">
-        <field name="name">Sales By Location Report</field>
+        <field name="name">Sales By Company Report</field>
         <field name="model">custom_reports.sales_by_location_report</field>
         <field name="arch" type="xml">
             <tree>
@@ -71,14 +71,14 @@
 
        <!-- form -->
     <record model="ir.ui.view" id="sales_by_location_report_view_form">
-        <field name="name">Sales By Location Report</field>
+        <field name="name">Sales By Company Report</field>
         <field name="model">custom_reports.sales_by_location_report</field>
         <field name="arch" type="xml">
             <form>
                 <sheet>
                     <group>
                         <div class="oe_title">
-                            <h1>Sales By Location</h1>
+                            <h1>Sales By Company</h1>
                         </div>
                         <group>
                             <div>
@@ -98,7 +98,7 @@
 
                     </group>
                     <notebook>
-                        <page name="Sales By Locaiton " string="Sales By Location">
+                        <page name="Sales By Locaiton " string="Sales By Company">
                             <field name="sales_by_location_ids">
                                 <pivot>
                                     <field name="company" type ="row"/>
