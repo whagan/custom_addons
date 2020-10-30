@@ -3,11 +3,9 @@
 <templates id="template" xml:space="preserve">
    
    <t t-name="employee_performance_graph_template">
-      <t t-if="widget.mode == 'readonly'">
-         <div class="col-md-12" style="display: block !important;">
-			   <canvas class="bar-chart" id="bar-chart" width="300" height="150" style="display:block !important;width:100%;"></canvas>
-		   </div>
-      </t>
+      <div class="col-md-12" style="display: block !important;">
+			<canvas class="bar-chart" id="bar-chart" width="300" height="150" style="display:block !important;width:100%;"></canvas>
+		</div>
    </t>
 
 </templates> 

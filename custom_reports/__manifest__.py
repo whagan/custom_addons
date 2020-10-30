@@ -21,6 +21,7 @@
         'views/custom_reports_views.xml',
     ],
     'demo': [
+        'demo/employee_performance_demo.xml',
         'demo/email_marketing_demo.xml',
         'demo/demo.xml',
     ],

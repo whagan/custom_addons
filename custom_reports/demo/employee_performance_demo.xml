@@ -1,0 +1,182 @@
+<odoo>
+
+    <data noupdate="0">
+
+        <!-- res user -->
+        <record id="user_click_01" model="res.users">
+            <field name="login">tommy@btbtam.com</field>
+            <field name="company_id">1</field>
+        </record>
+        
+        <record id="user_click_02" model="res.users">
+            <field name="login">dustie@btbtam.com</field>
+            <field name="company_id">1</field>
+        </record>
+        
+        <record id="user_click_03" model="res.users">
+            <field name="login">dan@btbtam.com</field>
+            <field name="company_id">1</field>
+        </record>
+        
+        <record id="user_click_04" model="res.users">
+            <field name="login">blake@btbtam.com</field>
+            <field name="company_id">1</field>
+        </record>
+        
+        <record id="user_click_05" model="res.users">
+            <field name="login">paul@btbtam.com</field>
+            <field name="company_id">1</field>
+        </record>
+
+        <!-- hr department -->
+
+        <record id="dep_sales" model="hr.department">
+            <field name="name">Sales</field>
+        </record>
+
+        <!-- hr sales job-->
+
+        <record id="job_salesman" model="hr.job">
+            <field name="name">Salesman</field>
+            <field name="department_id" ref="dep_sales"/>
+            <field name="no_of_recruitment">5</field>
+        </record>
+
+        <!-- hr employees -->
+    
+        <record id="employee_click_01" model="hr.employee">
+            <field name="name">Tommy Rogers</field>
+            <field name="user_id" ref="base.user_demo"/>
+            <field name="department_id" ref="dep_sales"/>
+            <field name="parent_id" ref="hr.employee_admin"/>
+            <field name="job_id" ref="hr.job_salesman"/>
+            <field name="job_title">Salesman</field>
+            <field name="category_ids" eval="[(6, 0, [ref('hr.employee_category_2')])]"/>
+            <field name="work_location">Building 1, Second Floor</field>
+            <field name="work_phone">+3281813700</field>
+            <field name="work_email">tommy@btbam.com</field>
+            <field name="emp_01" type="base64" file="custom_reports/static/img/employee_performance/emp_01.jpeg"/>
+        </record>
+
+        <record id="employee_click_02" model="hr.employee">
+            <field name="name">Dustie Waring</field>
+            <field name="user_id" ref="base.user_demo"/>
+            <field name="department_id" ref="dep_sales"/>
+            <field name="parent_id" ref="hr.employee_admin"/>
+            <field name="job_id" ref="hr.job_salesman"/>
+            <field name="job_title">Salesman</field>
+            <field name="category_ids" eval="[(6, 0, [ref('hr.employee_category_2')])]"/>
+            <field name="work_location">Building 1, Second Floor</field>
+            <field name="work_phone">+3281813701</field>
+            <field name="work_email">dustie@btbam.com</field>
+            <field name="emp_02" type="base64" file="custom_reports/static/img/employee_performance/emp_02.jpg"/>
+        </record>
+
+        <record id="employee_click_03" model="hr.employee">
+            <field name="name">Dan Briggs</field>
+            <field name="user_id" ref="base.user_demo"/>
+            <field name="department_id" ref="dep_sales"/>
+            <field name="parent_id" ref="hr.employee_admin"/>
+            <field name="job_id" ref="hr.job_salesman"/>
+            <field name="job_title">Salesman</field>
+            <field name="category_ids" eval="[(6, 0, [ref('hr.employee.category.employee_category_2')])]"/>
+            <field name="work_location">Building 1, Second Floor</field>
+            <field name="work_phone">+3281813702</field>
+            <field name="work_email">dan@btbam.com</field>
+            <field name="emp_03" type="base64" file="custom_reports/static/img/employee_performance/emp_03.jpg"/>
+        </record>
+
+        <record id="employee_click_04" model="hr.employee">
+            <field name="name">Blake Richardson</field>
+            <field name="user_id" ref="base.user_demo"/>
+            <field name="department_id" ref="dep_sales"/>
+            <field name="parent_id" ref="hr.employee_admin"/>
+            <field name="job_id" ref="hr.job_salesman"/>
+            <field name="job_title">Salesman</field>
+            <field name="category_ids" eval="[(6, 0, [ref('hr.employee.category.employee_category_2')])]"/>
+            <field name="work_location">Building 1, Second Floor</field>
+            <field name="work_phone">+3281813703</field>
+            <field name="work_email">blake@btbam</field>
+            <field name="emp_04" type="base64" file="custom_reports/static/img/employee_performance/emp_04.jpg"/>
+        </record>
+
+        <record id="employee_click_05" model="hr.employee">
+            <field name="name">Paul Waggoner</field>
+            <field name="user_id" ref="base.user_demo"/>
+            <field name="department_id" ref="dep_sales"/>
+            <field name="parent_id" ref="hr.employee_admin"/>
+            <field name="job_id" ref="hr.job_salesman"/>
+            <field name="job_title">Salesman</field>
+            <field name="category_ids" eval="[(6, 0, [ref('hr.employee.category.employee_category_2')])]"/>
+            <field name="work_location">Building 1, Second Floor</field>
+            <field name="work_phone">+3281813704</field>
+            <field name="work_email">paul@btbam</field>
+            <field name="emp_05" type="base64" file="custom_reports/static/img/employee_performance/emp_05.jpg"/>
+        </record>
+
+        <!-- employee_click_01 attendances -->
+
+        <record id="attendance_click_01" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-01 08:21')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-01 11:51')" name="check_out"/>
+            <field name="employee_id" ref="hr.employee_click_01"/>
+        </record>
+
+        <record id="attendance_click_02" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-02 12:47')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-02 19:53')" name="check_out"/>
+            <field name="employee_id" ref="hr.employee_click_01"/>
+        </record>
+
+        <record id="attendance_click_03" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-03 07:32')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-03 12:32')" name="check_out"/>
+            <field name="employee_id" ref="hr.employee_click_01"/>
+        </record>
+
+        <record id="attendance_click_04" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-04 14:01')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-04 17:21')" name="check_out"/>
+            <field name="employee_id" ref="hr.employee_click_01"/>
+        </record>
+
+        <record id="attendance_click_05" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-05 09:10')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-05 12:42')" name="check_out"/>
+            <field name="employee_id" ref="hr.employee_click_01"/>
+        </record>
+
+        <record id="attendance_click_06" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-06 13:10')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-06 18:34')" name="check_out"/>
+            <field name="employee_id" ref="hr.employee_click_01"/>
+        </record>
+
+        <record id="attendance_click_07" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-07 08:21')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-07 18:21')" name="check_out"/>
+            <field name="employee_id" ref="hr.employee_click_01"/>
+        </record>
+
+        <record id="attendance_click_08" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-08 08:21')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-08 12:54')" name="check_out"/>
+            <field name="employee_id" ref="hr.employee_click_01"/>
+        </record>
+
+        <record id="attendance_click_09" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-09 13:32')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-09 19:31')" name="check_out"/>
+            <field name="employee_id" ref="hr.employee_click_01"/>
+        </record>
+
+        <record id="attendance_click_10" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-10 08:00')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-10 09:00')" name="check_out"/>
+            <field name="employee_id" ref="hr.employee_click_01"/>
+        </record>
+
+
+    </data>
+
+</odoo>
