@@ -4,7 +4,6 @@ from odoo.exceptions import ValidationError
 import datetime
 
 
-
 # Employee Performance Report DataModel
 class EmployeePerformanceReport(models.Model):
     _name = 'custom_reports.employee_performance_report'
