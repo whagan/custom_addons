@@ -15,6 +15,7 @@
         <field name="arch" type="xml">
             <tree>
                 <field name="product_id"/>
+                <field name="unit_prev_month" type="col"/>
                 <field name="unit_prev_avg"/>
             </tree>
         </field>
@@ -27,6 +28,7 @@
         <field name="arch" type="xml">
             <form>
                 <field name="product_id"/>
+                <field name="unit_prev_month" type="col"/>
                 <field name="unit_prev_avg"/>
             </form>
         </field>
@@ -39,6 +41,7 @@
         <field name="arch" type="xml">
             <pivot>
                 <field name="product_id" type="row"/>
+                <field name="unit_prev_month" type="col"/>
                 <field name="unit_prev_avg" type="col"/>
             </pivot>
         </field>
@@ -89,6 +92,7 @@
                             <field name="product_restock_ids">
                                 <pivot>
                                     <field name="product_id" type="row"/>
+                                    <field name="unit_prev_month" type="col"/>
                                     <field name="unit_prev_avg" type="col"/>
                                 </pivot>
                             </field>
