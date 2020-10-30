@@ -13,6 +13,7 @@
         <field name="arch" type="xml">
              <tree string="Inventory Restock">
                 <field name="product_id"/>
+                <!-- <field name="name"/> -->
                 <field name="product_stock"/>
                 <field name="estimated_stock"/>
                 <field name="sales_quantity"/>

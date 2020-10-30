@@ -8,7 +8,7 @@ class RestockReport(models.Model):
     _description = 'Inventory Restock Report'
     # _inherits = {'product.product': 'product_id'}
 
-    product_id = fields.Many2one('product.product', string='Product', auto_join=True, index=True, ondelete="cascade", required=True)
+    product_id = fields.Many2one('product.product', string='Product', ondelete="cascade", required=True)
     product_template_id = fields.Many2one('product.template', string='Template', related="product_id.product_tmpl_id")
     stock_inventory_line_ids = fields.One2many('stock.inventory.line','product_id', string='Stocks')
     
@@ -19,24 +19,29 @@ class RestockReport(models.Model):
     restock_recommended = fields.Boolean(string="Should Restock", readonly=True, compute="_get_recommandation")
 
     def _compute_stocks(self):
-        product_qty = 0
-        for line in self.stock_inventory_line_ids:
-            product_qty = line.product_qty
+        product_qty = sum(t.get('product_qty', 0.0) for t in self.stock_inventory_line_ids)
+        # product_qty = 0
+        # for line in self.stock_inventory_line_ids:
+        #     product_qty = line.product_qty
         self.product_stock = product_qty
 
     def _compute_sales(self):
         total_qty = 0
         total_sale = 0.0
         for record in self:
-            product_sales = record.env.ref('sale.order.line').search([
+            product_sales = record.env['sale.order.line'].search([
                 ('product_id', '=', record.product_id),
                 ('order_id.date_order', '>=', fields.Date.today() - timedelta(months=1)),
                 ('order_id.date_order', '<=', fields.Date.today())])
             for product_sale in product_sales:
                 total_qty += product_sale.product_uom_qty
                 total_sale += product_sale.price_subtotal
-        self.sales_quantity = total_qty
-        self.sales_total = total_sale
+            record.update({
+                'sales_quantity': total_qty,
+                'sales_total': total_sale
+            })
+            # record.sales_quantity = total_qty
+            # record.sales_total = total_sale
 
     @api.depends('product_stock','sales_quantity')
     def _estimated_stock(self):
