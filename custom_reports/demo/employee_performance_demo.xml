@@ -16,7 +16,7 @@
             <field name="phone">+1 555-555-5555</field>
             <field name="email">tommy@btbam.example.com</field>
             <field name="tz">Europe/Brussels</field>
-            <field name="image_1920" type="base64" file="custom_reports/static/img/employee_performance/emp_01.jpeg"/>
+            <field name="image_1920" type="base64" file="custom_reports/static/img/employee_performance/res_partner/emp_01.jpeg"/>
         </record>
 
         <record id="res_partner_click_02" model="res.partner">
@@ -30,7 +30,7 @@
             <field name="phone">+1 555-555-5555</field>
             <field name="email">dustie@btbam.example.com</field>
             <field name="tz">Europe/Brussels</field>
-            <field name="image_1920" type="base64" file="custom_reports/static/img/employee_performance/emp_02.jpg"/>
+            <field name="image_1920" type="base64" file="custom_reports/static/img/employee_performance/res_partner/emp_02.jpg"/>
         </record>
 
         <record id="res_partner_click_03" model="res.partner">
@@ -44,7 +44,7 @@
             <field name="phone">+1 555-555-5555</field>
             <field name="email">dan@btbam.example.com</field>
             <field name="tz">Europe/Brussels</field>
-            <field name="image_1920" type="base64" file="custom_reports/static/img/employee_performance/emp_03.jpg"/>
+            <field name="image_1920" type="base64" file="custom_reports/static/img/employee_performance/res_partner/emp_03.jpg"/>
         </record>
 
         <record id="res_partner_click_04" model="res.partner">
@@ -58,7 +58,7 @@
             <field name="phone">+1 555-555-5555</field>
             <field name="email">blake@btbam.example.com</field>
             <field name="tz">Europe/Brussels</field>
-            <field name="image_1920" type="base64" file="custom_reports/static/img/employee_performance/emp_04.jpg"/>
+            <field name="image_1920" type="base64" file="custom_reports/static/img/employee_performance/res_partner/emp_04.jpg"/>
         </record>
 
         <record id="res_partner_click_05" model="res.partner">
@@ -72,35 +72,60 @@
             <field name="phone">+1 555-555-5555</field>
             <field name="email">paul@btbam.example.com</field>
             <field name="tz">Europe/Brussels</field>
-            <field name="image_1920" type="base64" file="custom_reports/static/img/employee_performance/emp_05.jpg"/>
+            <field name="image_1920" type="base64" file="custom_reports/static/img/employee_performance/res_partner/emp_05.jpg"/>
         </record>
 
         <!-- res user -->
-        <!-- <record id="user_click_01" model="res.users">
+
+        <record id="user_click_01" model="res.users">
+            <field name="partner_id" ref="res_partner_click_01"/>
             <field name="login">tommy@btbtam.com</field>
-            <field name="company_id">1</field>
+            <field name="password">demo</field>
+            <field name="signature" type="xml"><span>-- <br/>+Mr Rogers</span></field>
+            <field name="company_id" ref="main_company"/>
+            <field name="groups_id" eval="[(6,0,[ref('base.group_user'), ref('base.group_partner_manager'), ref('base.group_allow_export')])]"/>
+            <field name="image_1920" type="base64" file="custom_reports/static/img/employee_performance/res_user/emp_01.jpeg"/>
         </record>
         
         <record id="user_click_02" model="res.users">
+            <field name="partner_id" ref="res_partner_click_02"/>
             <field name="login">dustie@btbtam.com</field>
-            <field name="company_id">1</field>
+            <field name="password">demo</field>
+            <field name="signature" type="xml"><span>-- <br/>+Mr Waring</span></field>
+            <field name="company_id" ref="main_company"/>
+            <field name="groups_id" eval="[(6,0,[ref('base.group_user'), ref('base.group_partner_manager'), ref('base.group_allow_export')])]"/>
+            <field name="image_1920" type="base64" file="custom_reports/static/img/employee_performance/res_user/emp_02.jpg"/>
         </record>
         
         <record id="user_click_03" model="res.users">
+            <field name="partner_id" ref="res_partner_click_03"/>
             <field name="login">dan@btbtam.com</field>
-            <field name="company_id">1</field>
+            <field name="password">demo</field>
+            <field name="signature" type="xml"><span>-- <br/>+Mr Briggs</span></field>
+            <field name="company_id" ref="main_company"/>
+            <field name="groups_id" eval="[(6,0,[ref('base.group_user'), ref('base.group_partner_manager'), ref('base.group_allow_export')])]"/>
+            <field name="image_1920" type="base64" file="custom_reports/static/img/employee_performance/res_user/emp_03.jpg"/>
         </record>
         
         <record id="user_click_04" model="res.users">
+            <field name="partner_id" ref="res_partner_click_04"/>
             <field name="login">blake@btbtam.com</field>
-            <field name="company_id">1</field>
+            <field name="password">demo</field>
+            <field name="signature" type="xml"><span>-- <br/>+Mr Richardson</span></field>
+            <field name="company_id" ref="main_company"/>
+            <field name="groups_id" eval="[(6,0,[ref('base.group_user'), ref('base.group_partner_manager'), ref('base.group_allow_export')])]"/>
+            <field name="image_1920" type="base64" file="custom_reports/static/img/employee_performance/res_user/emp_04.jpg"/>
         </record>
         
         <record id="user_click_05" model="res.users">
+            <field name="partner_id" ref="res_partner_click_05"/>
             <field name="login">paul@btbtam.com</field>
-            <field name="company_id">1</field>
+            <field name="password">demo</field>
+            <field name="signature" type="xml"><span>-- <br/>+Mr Waggoner</span></field>
+            <field name="company_id" ref="main_company"/>
+            <field name="groups_id" eval="[(6,0,[ref('base.group_user'), ref('base.group_partner_manager'), ref('base.group_allow_export')])]"/>
+            <field name="image_1920" type="base64" file="custom_reports/static/img/employee_performance/res_user/emp_05.jpg"/>
         </record> -->
-
     
         <!-- hr sales job-->
 
@@ -123,7 +148,7 @@
             <field name="work_location">Building 1, Second Floor</field>
             <field name="work_phone">+3281813700</field>
             <field name="work_email">tommy@btbam.com</field>
-            <field name="image_1920" type="base64" file="custom_reports/static/img/employee_performance/res_partner/emp_01.jpeg"/>
+            <field name="image_1920" type="base64" file="custom_reports/static/img/employee_performance/hr/emp_01.jpeg"/>
         </record>
 
         <record id="employee_click_02" model="hr.employee">
@@ -137,7 +162,7 @@
             <field name="work_location">Building 1, Second Floor</field>
             <field name="work_phone">+3281813701</field>
             <field name="work_email">dustie@btbam.com</field>
-            <field name="image_1920" type="base64" file="custom_reports/static/img/employee_performance/res_partner/emp_02.jpg"/>
+            <field name="image_1920" type="base64" file="custom_reports/static/img/employee_performance/hr/emp_02.jpg"/>
         </record>
 
         <record id="employee_click_03" model="hr.employee">
@@ -151,7 +176,7 @@
             <field name="work_location">Building 1, Second Floor</field>
             <field name="work_phone">+3281813702</field>
             <field name="work_email">dan@btbam.com</field>
-            <field name="image_1920" type="base64" file="custom_reports/static/img/employee_performance/res_partner/emp_03.jpg"/>
+            <field name="image_1920" type="base64" file="custom_reports/static/img/employee_performance/hr/emp_03.jpg"/>
         </record>
 
         <record id="employee_click_04" model="hr.employee">
@@ -165,7 +190,7 @@
             <field name="work_location">Building 1, Second Floor</field>
             <field name="work_phone">+3281813703</field>
             <field name="work_email">blake@btbam</field>
-            <field name="image_1920" type="base64" file="custom_reports/static/img/employee_performance/res_partner/emp_04.jpg"/>
+            <field name="image_1920" type="base64" file="custom_reports/static/img/employee_performance/hr/emp_04.jpg"/>
         </record>
 
         <record id="employee_click_05" model="hr.employee">
@@ -179,7 +204,7 @@
             <field name="work_location">Building 1, Second Floor</field>
             <field name="work_phone">+3281813704</field>
             <field name="work_email">paul@btbam</field>
-            <field name="image_1920" type="base64" file="custom_reports/static/img/employee_performance/res_partner/emp_05.jpg"/>
+            <field name="image_1920" type="base64" file="custom_reports/static/img/employee_performance/hr/emp_05.jpg"/>
         </record>
 
         <!-- employee_click_01 attendances -->
