@@ -1,25 +1,98 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <!-- inventory restock action -->
-    <record id="custom_reports.restock_action" model="ir.actions.act_window">
-        <field name="name">Inventory Restock</field>
-        <field name="res_model">custom_reports.restock_report</field>
-        <field name="view_mode">tree</field>
+   
+    <!-- product restock action -->
+    <record model="ir.actions.act_window" id="product_restock_action">
+        <field name="name">Employee Performance</field>
+        <field name="res_model">custom_reports.product_restock</field>
+        <field name="view_mode">tree,form,pivot</field>
     </record>
 
-    <record id="custom_reports.restock_tree" model="ir.ui.view">
-        <field name="name">custom_reports.restock.tree</field>
-        <field name="model">custom_reports.restock_report</field>
+    <!-- product restock tree -->
+    <record model="ir.ui.view" id="product_restock_view_tree">
+        <field name="name">Product Restock</field>
+        <field name="model">custom_reports.product_restock</field>
         <field name="arch" type="xml">
-             <tree string="Inventory Restock">
+            <tree>
                 <field name="product_id"/>
-                <!-- <field name="name"/> -->
-                <field name="product_stock"/>
-                <field name="estimated_stock"/>
-                <field name="sales_quantity"/>
-                <field name="sales_total"/>
-                <field name="restock_recommended" widget="boolean_button"/>
+                <field name="unit_prev_avg"/>
             </tree>
         </field>
     </record>
+
+    <!-- product restock form -->
+    <record model="ir.ui.view" id="product_restock_view_form">
+        <field name="name">Product Restock</field>
+        <field name="model">custom_reports.product_restock</field>
+        <field name="arch" type="xml">
+            <form>
+                <field name="product_id"/>
+                <field name="unit_prev_avg"/>
+            </form>
+        </field>
+    </record>
+
+    <!-- product restock pivot -->
+    <record model="ir.ui.view" id="product_restock_view_pivot">
+        <field name="name">Product Restock</field>
+        <field name="model">custom_reports.product_restock</field>
+        <field name="arch" type="xml">
+            <pivot>
+                <field name="product_id" type="row"/>
+                <field name="unit_prev_avg" type="col"/>
+            </pivot>
+        </field>
+    </record>
+
+     <!-- product restock reports action -->
+    <record model="ir.actions.act_window" id="restock_report_action" >
+        <field name="name">Restock Report</field>
+        <field name="res_model">custom_reports.restock_report</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    
+    <!-- product restock tree -->
+    <record model="ir.ui.view" id="restock_report_view_tree">
+        <field name="name">Restock Report</field>
+        <field name="model">custom_reports.restock_report</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="report_name"/>
+            </tree>
+        </field>
+    </record>
+
+     <!-- form -->
+    <record model="ir.ui.view" id="restock_report_view_form">
+        <field name="name">Restock Report</field>
+        <field name="model">custom_reports.restock_report</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <div class="oe_title">
+                            <h1>Restock Report</h1>
+                        </div>
+                        <div>
+                            <label class="oe_input_label" for="name" string="Products" style="font-weight:bold"/>
+                            <field name="product_ids" widget="many2many_tags"/>
+                        </div>
+                    </group>
+
+                    <notebook>
+                        <page string="Pivot">
+                            <field name="product_ids">
+                                <pivot>
+                                    <field name="product_id" type="row"/>
+                                    <field name="unit_prev_avg" type="col"/>
+                                </pivot>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
 </odoo>
