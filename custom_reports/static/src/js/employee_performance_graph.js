@@ -29,11 +29,10 @@ odoo.define('custom_reports.Graph', function(require)   {
          */
         start: function()   {
             var self = this;
-
+            console.log(self);
             var labels = [];
             var data = [];
 
-            console.log(self.graph_data);
             self.graph_data.forEach(graph_datum =>  {
                 labels.push(graph_datum.data.employee_id.data.display_name);
                 data.push(graph_datum.data.sales_hour);
