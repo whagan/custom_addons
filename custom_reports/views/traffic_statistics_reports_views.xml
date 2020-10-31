@@ -86,7 +86,7 @@
                             </div>
                         </group>
                         <div>
-                            <label class="oe_input_label" for="name" string="Employees" style="font-weight:bold"/>
+                            <label class="oe_input_label" for="name" string="Locations" style="font-weight:bold"/>
                             <field name="location_ids" widget="many2many_tags"/>
                         </div>
                     </group>
