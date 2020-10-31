@@ -17,7 +17,7 @@
         'views/employee_performance_reports_views.xml',
         'views/email_marketing_reports_views.xml',
         'views/contact_report_view.xml',
-        'views/traffic_statistics_reports_views.xml',
+        'views/sales_statistics_reports_views.xml',
         'views/custom_reports_views.xml',
     ],
     'demo': [
@@ -27,7 +27,7 @@
     'qweb': [
         'static/src/xml/employee_performance_graph.xml',
         'static/src/xml/email_marketing_graph.xml',
-        'static/src/xml/traffic_statistic_graph.xml',
+        'static/src/xml/sales_statistics_graph.xml',
     ],
     
     
