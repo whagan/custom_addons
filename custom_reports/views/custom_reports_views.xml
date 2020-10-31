@@ -22,7 +22,7 @@
     <menuitem id="sales_by_location_report_menu" name="Sales by Location Report" parent="custom_reports_submenu" action="custom_reports.sales_by_location_report_action"/> 
     <menuitem 
         id="traffic_statistics_report_menu" 
-        name="Traffic Statistics Report" 
+        name="Sales Statistics Report" 
         parent="custom_reports_submenu" 
         action="custom_reports.traffic_statistics_report_action"
         sequence="20"

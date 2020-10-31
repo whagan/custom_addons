@@ -35,7 +35,7 @@
     </record>
 
      <record model="custom_reports.custom_report" id="customreport5">
-        <field name="name">Traffic Statistics Report</field>
+        <field name="name">Sales Statistics Report</field>
         <field name="category">Unknown</field>
         <field name="description">Traffic Statistics Report</field>
         <field name="url">custom_reports.traffic_statistics_report</field>
