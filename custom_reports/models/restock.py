@@ -73,4 +73,21 @@ class Restock(models.Model):
                 record.unit_prev_month = units_sold
             else:
                 record.unit_prev_month = units_sold
+    
+    @api.depends('product_id')
+    def _compute_current(self):
+        for record in self:
+            units_sold = 0.0
+            if record.product_id:
+                unit_orders = record.env['sale.order.line'].search([
+                    ('product_id', '=', record.product_id.id),
+                    ('state', 'in', ['sale', 'done']),
+                    ('order_id.date_order', '<', datetime.now()),
+                    ('order_id.date_order', '>=', datetime.now() - relativedelta(days=30))
+                ])
+                for unit_order in unit_orders:
+                    units_sold += unit_order.product_uom_qty
+                record.unit_prev_month = units_sold
+            else:
+                record.unit_prev_month = units_sold
 
