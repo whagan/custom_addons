@@ -57,19 +57,20 @@
     </record>
 
     
-    <!-- tree -->
+    <!-- employee performance report tree -->
     <record model="ir.ui.view" id="employee_performance_report_view_tree">
         <field name="name">Employee Performance Report</field>
         <field name="model">custom_reports.employee_performance_report</field>
         <field name="arch" type="xml">
             <tree>
+                <field name="report_title"/>
                 <field name="start_date"/>
                 <field name="end_date"/>
             </tree>
         </field>
     </record>
 
-     <!-- form -->
+    <!-- employee performance report form -->
     <record model="ir.ui.view" id="employee_performance_report_view_form">
         <field name="name">Employee Performance Report</field>
         <field name="model">custom_reports.employee_performance_report</field>
@@ -81,6 +82,10 @@
                             <h1>Employee Performance Report</h1>
                         </div>
                         <group>
+                            <div>
+                                <label class="oe_input_label" for="name" string="Report Title" style="font-weight:bold"/>
+                                <field name="report_title"/>
+                            </div>
                             <div>
                                 <label class="oe_input_label" for="name" string="Start Date:" style="font-weight:bold"/>
                                 <field name="start_date"/>
@@ -95,19 +100,8 @@
                             <field name="employee_ids" widget="many2many_tags"/>
                         </div>
                     </group>
-
                     <notebook>
-                        <page string="Employee Performances Pivot">
-                            <field name="employee_performance_ids">
-                                <pivot>
-                                    <field name="employee_id" type="row"/>
-                                    <field name="worked_hours" type="col"/>
-                                    <field name="total_sales" type="col"/>
-                                    <field name="sales_hour" type="col"/>
-                                </pivot>
-                            </field>
-                        </page>
-                        <page string="Employee Performances Graph">
+                        <page string="Pivot">
                             <field name="employee_performance_ids">
                                 <pivot>
                                     <field name="employee_id" type="row"/>
@@ -118,10 +112,26 @@
                             </field>
                         </page>
                     </notebook>
-
                 </sheet>
             </form>
         </field>
     </record>
+    
+    <!-- employee performance graph form view -->
+    <record id="employee_performance_report_view_form_graph" model="ir.ui.view">
+        <field name="name">Employee Performance Report Graph Form</field>
+        <field name="model">custom_reports.employee_performance_report</field>
+        <field name="inherit_id" ref="custom_reports.employee_performance_report_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Graph">
+                    <field name="employee_performance_graph" widget="employee_performance_graph"
+						title="Employee Performances" 
+						options="{'graph_type': 'pie'}"/>
+                </page>
+            </xpath>
+        </field>
+    </record> 
 
 </odoo>
+
