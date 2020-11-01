@@ -27,11 +27,18 @@
         <field name="url">custom_reports.sales_by_location_report</field>
     </record>
 
-     <record model="custom_reports.custom_report" id="customreport3">
+    <record model="custom_reports.custom_report" id="customreport4">
         <field name="name">Email Marketing Report</field>
         <field name="category">Unknown</field>
         <field name="description">Email Marketing custom report description.</field>
         <field name="url">custom_reports.email_marketing_report</field>
+    </record>
+
+    <record model="custom_reports.custom_report" id="customreport5">
+        <field name="name">Restock Report</field>
+        <field name="category">Inventory</field>
+        <field name="description">Restock custom report description.</field>
+        <field name="url">custom_reports.restock_report</field>
     </record>
 
 </odoo>
