@@ -87,12 +87,12 @@ class Restock(models.Model):
     sale_y_avg = fields.Float(string="Sales 1Y avg", readonly=True, compute="_compute_unit_sale", help="Avg monthly sales over the past year")
     sale_90d_avg = fields.Float(string="Sales 3M avg", readonly=True, compute="_compute_unit_sale", help="Avg monthly sales over the last 90 days")
     sale_month = fields.Float(string="Sales 1M", readonly=True, compute="_compute_unit_sale", help="Sales over the last month")
-    income_y_avg = fields.Float(string="Income 1Y", readonly=True, compute="_compute_unit_sale", help="Avg monthly income over the last year")
-    income_90d_avg = fields.Float(string="Income 3M", readonly=True, compute="_compute_unit_sale", help="Avg monthly income over the last 90 days")
-    income_month = fields.Float(string="RealIncome 1M", readonly=True, compute="_compute_unit_sale", help="Sales over the last month")
-    income_y_avg_r = fields.Float(string="Real Income 1Y", readonly=True, compute="_compute_unit_sale", help="Avg monthly real income over the last year")
-    income_90d_avg_r = fields.Float(string="Real Income 3M", readonly=True, compute="_compute_unit_sale", help="Avg monthly real income over the last 90 days")
-    income_month_r = fields.Float(string="Real Income 1M", readonly=True, compute="_compute_unit_sale", help="Real Sales over the last month")
+    income_y_avg = fields.Float(string="P Income 1Y", readonly=True, compute="_compute_unit_sale", help="Avg monthly income over the last year")
+    income_90d_avg = fields.Float(string="P Income 3M", readonly=True, compute="_compute_unit_sale", help="Avg monthly income over the last 90 days")
+    income_month = fields.Float(string="P Income 1M", readonly=True, compute="_compute_unit_sale", help="Sales over the last month")
+    income_y_avg_r = fields.Float(string="Income 1Y", readonly=True, compute="_compute_unit_sale", help="Avg monthly real income over the last year")
+    income_90d_avg_r = fields.Float(string="Income 3M", readonly=True, compute="_compute_unit_sale", help="Avg monthly real income over the last 90 days")
+    income_month_r = fields.Float(string="Income 1M", readonly=True, compute="_compute_unit_sale", help="Real Sales over the last month")
 
     estimated_stock = fields.Integer(string="Estimated stock based on 1M", readonly=True, compute="_estimated_stock")
     estimated_stock_90d = fields.Integer(string="Estimated stock based on 3M", readonly=True, compute="_estimated_stock")
@@ -183,8 +183,8 @@ class Restock(models.Model):
         for record in self:
             # $15 and $45 is a made up number...
             if record.estimated_stock <= 0 and record.income_month_r > 0 or \
-                record.estimated_stock_90d <= 0 and record.income_90d_avg_r > 0 or \
-                record.estimated_stock_y <= 0 and record.income_y_avg_r > 0:
+                record.estimated_stock_90d <= 0 and record.income_90d_avg_r > 0:
+                #  or record.estimated_stock_y <= 0 and record.income_y_avg_r > 0:
                 record.restock_recommended = True
             else:
                 record.restock_recommended = False
