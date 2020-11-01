@@ -20,14 +20,8 @@
     <menuitem id="email_marketing_report_menu" name="Email Marketing Report" parent="custom_reports_submenu" action="custom_reports.email_marketing_report_action"/>
     <menuitem id="employee_performance_report_menu" name="Employee Performance Report" parent="custom_reports_submenu" action="custom_reports.employee_performance_report_action"/>    
     <menuitem id="sales_by_location_report_menu" name="Sales by Location Report" parent="custom_reports_submenu" action="custom_reports.sales_by_location_report_action"/> 
-    <menuitem
-        id="contact_menu"
-        name="Contacts Report"
-        action="custom_reports.contact_report_action"
-        parent="custom_reports_submenu"
-        sequence="10"/>
-    
-    
+    <menuitem id="contact_menu" name="Contacts Report" parent="custom_reports_submenu" action="custom_reports.contact_report_action"/>        
+    <menuitem id="restock_menu" name="Inventory Restock Report" parent="custom_reports_submenu" action="custom_reports.restock_report_action"/>
 
     <!-- Views -->
     <!-- tree -->
