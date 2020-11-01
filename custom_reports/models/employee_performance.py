@@ -11,6 +11,7 @@ class EmployeePerformanceReport(models.Model):
     _description = "Employee Performance Report"
     
     # basic properties
+    report_title = fields.Char('Report Title', required=True)
     start_date = fields.Datetime(string='Start Date')
     end_date = fields.Datetime(string='End Date')
     employee_ids = fields.Many2many('hr.employee', relation='custom_reports_employee_report_rel', column1='custom_report_id', column2='employee_id', string="Employees")

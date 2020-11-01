@@ -7,7 +7,8 @@ from dateutil.relativedelta import relativedelta
 class EmailMarketingReport(models.Model):
     _name = 'custom_reports.email_marketing_report'
     _description = "Email Marketing Report"
-    
+
+    report_title = fields.Char('Report Title', required=True)
     mass_mailing_ids = fields.Many2many('mailing.mailing', relation='custom_reports_email_marketing_report_mail_rel', column1='email_marketing_id', column2='mass_mailing_id', string="Mass Mailings")
     email_marketing_graph = fields.Text('Email Marketing Graph', default='EmailMarketGraph')
     
