@@ -8,13 +8,13 @@ _logger = logging.getLogger(__name__)
 #Sales Statistics Report DataModel
 class SalesStatisticsReport(models.Model):
     _name = 'custom_reports.sales_statistics_report'
-    _description = 'sales Statistics Report'
+    _description = 'Sales Statistics Report'
 
    # Basic properties
     start_date = fields.Datetime(string = 'Start Date')
     end_date = fields.Datetime(string = 'End Date')
     location_ids = fields.Many2many('stock.location', relation='sales_statistics_report_rel', column1='custom_report_id', column2='location_id', string="Location")
-    sales_statistics_ids = fields.One2many('custom_reports.sales_statistics', 'sales_statistics_report_id', string="Sales Statistics")
+    sales_statistic_ids = fields.One2many('custom_reports.sales_statistic', 'sales_statistics_report_id', string="Sales Statistics")
 
  
     @api.model
@@ -29,15 +29,15 @@ class SalesStatisticsReport(models.Model):
                 'start_date': record.start_date,
                 'end_date': record.end_date
             })
-        self.env['custom_reports.sales_statistics'].create(records)
+        self.env['custom_reports.sales_statistic'].create(records)
         return record
 
 
 
 #sales Statistics DataModel
 class SalesStatistics(models.Model):
-    _name = 'custom_reports.Sales_statistics'
-    _description = 'Sales Statistics'
+    _name = 'custom_reports.sales_statistic'
+    _description = 'Sales Statistic'
 
     # properties
     location_id = fields.Many2one('stock.location', string="Location", ondelete='cascade', index=True, store=True)
