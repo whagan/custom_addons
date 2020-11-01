@@ -8,7 +8,7 @@
     """,
 
     'version': '0.1',
-    'depends': ['base', 'hr', 'hr_attendance', 'mass_mailing', 'product', 'sale', 'web', 'stock'],
+    'depends': ['base','hr','hr_attendance','mass_mailing','product','sale','web','stock','purchase'],
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',

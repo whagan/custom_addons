@@ -1,34 +1,150 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<odoo>
-    <!-- inventory restock action -->
-    <record id="custom_reports.restock_action" model="ir.actions.act_window">
-        <field name="name">Inventory Restock</field>
+<odoo>   
+    <!-- product restock action -->
+    <record model="ir.actions.act_window" id="product_restock_action">
+        <field name="name">Employee Performance</field>
+        <field name="res_model">custom_reports.product_restock</field>
+        <field name="view_mode">form</field>
+    </record>
+
+    <!-- product restock tree -->
+    <!-- <record model="ir.ui.view" id="product_restock_view_tree">
+        <field name="name">Product Restock</field>
+        <field name="model">custom_reports.product_restock</field>
+        <field name="arch" type="xml">
+            <tree create="false" edit="false" delete="false">
+                <field name="product_id" readonly="1"/>
+                <field name="estimated_stock"/>
+                <field name="estimated_stock_90d"/>
+                <field name="estimated_stock_y"/>
+                <field name="restock_recommended"/>
+            </tree>
+        </field>
+    </record> -->
+
+    <!-- product restock form -->
+    <record model="ir.ui.view" id="product_restock_view_form">
+        <field name="name">Product Restock</field>
+        <field name="model">custom_reports.product_restock</field>
+        <field name="arch" type="xml">
+            <form string="Product" create="false" edit="false" delete="false">
+                <header><field name="product_id"/></header>
+                <sheet>
+                    <h2><field name="name" decoration-bf="restock_recommended==True" decoration-muted="restock_recommended==False"/></h2>
+                    <group>
+                        <field name="estimated_stock" decoration-danger="estimated_stock&lt;=-10" decoration-warning="estimated_stock&lt;=0"/>
+                        <field name="estimated_stock_90d" decoration-danger="estimated_stock_90d&lt;=-10" decoration-warning="estimated_stock_90d &lt;= 0"/>
+                        <field name="estimated_stock_y" decoration-danger="estimated_stock_y&lt;=-10" decoration-warning="estimated_stock_y &lt;= 0"/>
+                        <field name="income_month" decoration-danger="income_month&lt;0"/>
+                        <field name="income_90d_avg" decoration-danger="income_90d_avg&lt;0"/>
+                        <field name="income_y_avg" decoration-danger="income_y_avg&lt;0"/>
+                        <field name="income_month_r" decoration-danger="income_month_r&lt;0"/>
+                        <field name="income_90d_avg_r" decoration-danger="income_month_r&lt;0"/>
+                        <field name="income_y_avg_r" decoration-danger="income_month_r&lt;0"/>
+                        <separator/>
+                        <field name="restock_recommended" decoration-primary="restock_recommended==True" decoration-muted="restock_recommended==False"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- product restock pivot -->
+    <!-- <record model="ir.ui.view" id="product_restock_view_pivot">
+        <field name="name">Product Restock</field>
+        <field name="model">custom_reports.product_restock</field>
+        <field name="arch" type="xml">
+            <pivot>
+                <field name="product_id" type="row"/>
+                <field name="unit_current" type="col"/>
+                <field name="unit_month" type="col"/>
+                <field name="unit_90d_avg" type="col"/>
+                <field name="unit_y_avg" type="col"/>
+                <field name="sale_month" type="col"/>
+                <field name="sale_90d_avg" type="col"/>
+                <field name="sale_y_avg" type="col"/>
+                <field name="estimated_stock" type="col"/>
+                <field name="estimated_stock_90d" type="col"/>
+                <field name="estimated_stock_y" type="col"/>
+                <field name="restock_recommended" type="col" widget="radio"/>
+            </pivot>
+        </field>
+    </record> -->
+
+    <!-- restock reports action -->
+    <record model="ir.actions.act_window" id="restock_report_action" >
+        <field name="name">Restock Report</field>
         <field name="res_model">custom_reports.restock_report</field>
         <field name="view_mode">tree,form</field>
     </record>
-
-    <record id="custom_reports.restock_tree" model="ir.ui.view">
-        <field name="name">custom_reports.restock.tree</field>
+    
+    <!-- restock tree -->
+    <record model="ir.ui.view" id="restock_report_view_tree">
+        <field name="name">Restock Report</field>
         <field name="model">custom_reports.restock_report</field>
         <field name="arch" type="xml">
-             <tree string="Inventory Restock">
-                <field name="product_id"/>
-                <!-- <field name="name"/> -->
-                <field name="product_stock"/>
-                <field name="estimated_stock"/>
-                <field name="sales_quantity"/>
-                <field name="sales_total"/>
-                <field name="restock_recommended" widget="boolean_button"/>
+            <tree>
+                <field name="report_title"/>
+                <field name="items"/>
             </tree>
         </field>
     </record>
 
-    <record id="custom_reports.restock_form" model="ir.ui.view">
-        <field name="name">custom_reports.restock.form</field>
+     <!-- restock form -->
+    <record model="ir.ui.view" id="restock_report_view_form">
+        <field name="name">Restock Report</field>
         <field name="model">custom_reports.restock_report</field>
         <field name="arch" type="xml">
-             <form string="Inventory Restock">
-                <field name="product_id"/>
+            <form edit="false">
+                <header></header>
+                <sheet>                    
+                    <group>
+                        <div>
+                            <label class="oe_input_label oe_edit_only" for="report_title" string='Report Title' style="font-weight:bold"/>
+                            <h1><field name="report_title"/></h1>
+                        </div>
+                        <div colspan="2">
+                            <label class="oe_input_label" for="product_ids" string="Products" style="font-weight:bold"/>
+                            <field name="product_ids" widget="many2many_tags"/><!-- widget="many2many_checkboxes" -->
+                        </div>
+                        <div class="oe_edit_only bg-primary">
+                            IMPORTANT: You cannot alter the choices of products after the creation of the report
+                        </div>
+                    </group>
+                    <notebook readonly="1" class="oe_read_only">
+                        <page string="View" disable_linking="true">
+                            <div>
+                                <ul>
+                                    <li class="italic">Rows italicized shows products that should be restocked</li>
+                                    <li class="text-danger">Rows in red highlights that negative income was made on those products last month</li>
+                                    <li class="text-primary">All averages are based on a monthly average</li>
+                                    <li class="text-info">Sold 1M, Sold 3M, and Sold 1Y refers to units sold<br/>
+                                        while Sales 1M refers to net sales</li>              
+                                </ul>
+                            </div>
+                            <field name="product_restock_ids">
+                                <tree create="false" delete="false"
+                                      default_order="restock_recommended desc,income_month desc,name,product_id"
+                                      decoration-bf="restock_recommended==True"
+                                      decoration-it="restock_recommended==True"
+                                      decoration-danger="income_month_r&lt;0">
+                                    <field name="product_id" readonly="1"/>
+                                    <field name="unit_current" help="Current units in stock"/>
+                                    <field name="unit_month" help="Units sold last month"/>
+                                    <field name="unit_90d_avg"/>
+                                    <field name="unit_y_avg"/>
+                                    <field name="sale_month"/>
+                                    <field name="sale_90d_avg"/>
+                                    <field name="sale_y_avg"/>
+                                    <field name="name" invisible="1"/>
+                                    <field name="income_month" invisible="1"/>
+                                    <field name="income_month_r" invisible="1"/>
+                                    <field name="restock_recommended" widget="boolean_button" invisible="1"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
             </form>
         </field>
     </record>
