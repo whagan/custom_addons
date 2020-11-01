@@ -43,7 +43,7 @@
                         <!-- <field name="income_1Y_avg_r" decoration-danger="income_1M_r&lt;0"/> -->
                         <separator/>
                         <field name="restock_recommended" decoration-primary="restock_recommended==True" decoration-muted="restock_recommended==False"/>
-                        <div>Restock recommendation is made by stock level and whether money was made off that product.</div>
+                        <div colspan="2">Restock recommendation is made by stock level and whether money was made off that product.</div>
                     </group>
                 </sheet>
             </form>
