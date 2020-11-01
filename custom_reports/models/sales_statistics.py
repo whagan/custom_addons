@@ -13,7 +13,7 @@ class SalesStatisticsReport(models.Model):
    # Basic properties
     start_date = fields.Datetime(string = 'Start Date')
     end_date = fields.Datetime(string = 'End Date')
-    location_ids = fields.Many2many('stock.location', relation='custom_reports_sales_statistics_rel', column1='stat_report_id', column2='location_id', string="Location")
+    location_ids = fields.Many2many('stock.location', relation='sales_statistics_report_rel', column1='custom_report_id', column2='location_id', string="Location")
     sales_statistics_ids = fields.One2many('custom_reports.sales_statistics', 'sales_statistics_report_id', string="Sales Statistics")
 
  
