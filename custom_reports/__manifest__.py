@@ -8,7 +8,7 @@
     """,
 
     'version': '0.1',
-    'depends': ['base', 'hr', 'hr_attendance', 'mass_mailing', 'product', 'point_of_sale', 'sale', 'sale_management', 'web'],
+    'depends': ['base', 'hr', 'hr_attendance', 'mass_mailing', 'product', 'point_of_sale', 'purchase', 'sale', 'sale_management', 'stock', 'web'],
     
     'data': [
         'security/security.xml',
@@ -19,6 +19,7 @@
         'views/email_marketing_reports_views.xml',
         'views/contact_report_view.xml',
         'views/sales_statistics_reports_views.xml',
+        'views/restock_report_view.xml',
         'views/custom_reports_views.xml',
     ],
     'demo': [

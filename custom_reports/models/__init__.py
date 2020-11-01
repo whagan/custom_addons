@@ -5,6 +5,7 @@ from . import sales_statistics
 from . import custom_report
 from . import email_marketing
 from . import employee_performance
+from . import restock
 from . import custom_report
 from . import ir_action
 from . import ir_ui_view
