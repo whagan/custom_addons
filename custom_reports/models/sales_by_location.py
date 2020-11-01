@@ -15,7 +15,7 @@ class SalesByLocationReport(models.Model):
    # basic properties
     start_date = fields.Datetime(string='Start Date')
     end_date = fields.Datetime(string='End Date')
-    company_ids = fields.Many2many('res.company', relation='sales_by_location_report_rel', column1='custom_report_id', column2='company_id', string="companies")
+    company_ids = fields.Many2many('res.company', relation='custom_reports_sales_by_location_report_rel', column1='custom_report_id', column2='company_id', string="companies")
     sales_by_location_ids = fields.One2many('custom_reports.sales_by_location', 'sales_by_location_report_id', string="Sales By Location")
 
     # methods
