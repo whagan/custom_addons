@@ -80,23 +80,23 @@ class Restock(models.Model):
     name = fields.Char(string="Product Name", compute="_get_name")
     unit_price = fields.Float(string="Unit Price", readonly=True, compute="_compute_unit_price")
     unit_price_real = fields.Float(string="Real Unit Price", readonly=True, compute="_compute_unit_price")
-    unit_current = fields.Float(string="Stock", readonly=True, compute="_compute_current", help="Currently in stock")
-    unit_y_avg = fields.Float(string="Sold 1Y avg", readonly=True, compute="_compute_unit_sale", help="Avg monthly sold over the past year")
-    unit_90d_avg = fields.Float(string="Sold 3M avg", readonly=True, compute="_compute_unit_sale", help="Avg monthly sold over the last 90 days")
-    unit_month = fields.Float(string="Sold 1M", readonly=True, compute="_compute_unit_sale", help="Sold over the last month")
-    sale_y_avg = fields.Float(string="Sales 1Y avg", readonly=True, compute="_compute_unit_sale", help="Avg monthly sales over the past year")
-    sale_90d_avg = fields.Float(string="Sales 3M avg", readonly=True, compute="_compute_unit_sale", help="Avg monthly sales over the last 90 days")
-    sale_month = fields.Float(string="Sales 1M", readonly=True, compute="_compute_unit_sale", help="Sales over the last month")
-    income_y_avg = fields.Float(string="P Income 1Y", readonly=True, compute="_compute_unit_sale", help="Avg monthly income over the last year")
-    income_90d_avg = fields.Float(string="P Income 3M", readonly=True, compute="_compute_unit_sale", help="Avg monthly income over the last 90 days")
-    income_month = fields.Float(string="P Income 1M", readonly=True, compute="_compute_unit_sale", help="Sales over the last month")
-    income_y_avg_r = fields.Float(string="Income 1Y", readonly=True, compute="_compute_unit_sale", help="Avg monthly real income over the last year")
-    income_90d_avg_r = fields.Float(string="Income 3M", readonly=True, compute="_compute_unit_sale", help="Avg monthly real income over the last 90 days")
-    income_month_r = fields.Float(string="Income 1M", readonly=True, compute="_compute_unit_sale", help="Real Sales over the last month")
+    unit_current = fields.Float(string="In Stock", readonly=True, compute="_compute_current", help="Currently in stock")
+    unit_1Y_avg = fields.Float(string="Sold 1Y avg", readonly=True, compute="_compute_unit_sale", help="Avg monthly sold over the past year")
+    unit_3M_avg = fields.Float(string="Sold 3M avg", readonly=True, compute="_compute_unit_sale", help="Avg monthly sold over the last 3 months")
+    unit_1M = fields.Float(string="Sold 1M", readonly=True, compute="_compute_unit_sale", help="Sold over the last month")
+    sale_1Y_avg = fields.Float(string="Sales 1Y avg", readonly=True, compute="_compute_unit_sale", help="Avg monthly sales over the past year")
+    sale_3M_avg = fields.Float(string="Sales 3M avg", readonly=True, compute="_compute_unit_sale", help="Avg monthly sales over the last 3 months")
+    sale_1M = fields.Float(string="Sales 1M", readonly=True, compute="_compute_unit_sale", help="Sales over the last month")
+    income_1Y_avg = fields.Float(string="P Income 1Y avg", readonly=True, compute="_compute_unit_sale", help="Avg monthly income based on standard price over the last year")
+    income_3M_avg = fields.Float(string="P Income 3M avg", readonly=True, compute="_compute_unit_sale", help="Avg monthly income based on standard price over the last 3 months")
+    income_1M = fields.Float(string="P Income 1M", readonly=True, compute="_compute_unit_sale", help="Income based on standard price over the last month")
+    income_1Y_avg_r = fields.Float(string="Income 1Y avg", readonly=True, compute="_compute_unit_sale", help="Avg monthly income over the last year")
+    income_3M_avg_r = fields.Float(string="Income 3M avg", readonly=True, compute="_compute_unit_sale", help="Avg monthly income over the last 3 months")
+    income_1M_r = fields.Float(string="Income 1M", readonly=True, compute="_compute_unit_sale", help="Income over the last month")
 
-    estimated_stock = fields.Integer(string="Estimated stock based on 1M", readonly=True, compute="_estimated_stock")
-    estimated_stock_90d = fields.Integer(string="Estimated stock based on 3M", readonly=True, compute="_estimated_stock")
-    estimated_stock_y = fields.Integer(string="Estimated stock based on 1Y", readonly=True, compute="_estimated_stock")
+    estimated_stock = fields.Integer(string="Estimated stock in 1M", readonly=True, compute="_estimated_stock")
+    estimated_stock_3M = fields.Integer(string="Estimated stock in 3M", readonly=True, compute="_estimated_stock")
+    estimated_stock_1Y = fields.Integer(string="Estimated stock in 1Y", readonly=True, compute="_estimated_stock")
     restock_recommended = fields.Boolean(string="Should Restock", readonly=True, compute="_get_recommandation", help="You ought to restock this!")
 
     @api.depends('product_id')
@@ -133,58 +133,58 @@ class Restock(models.Model):
     @api.depends('product_id','unit_price','unit_price_real')
     def _compute_unit_sale(self):
         for record in self:
-            units_sold_year = 0.0
-            units_sold_90d = 0.0
-            units_sold_month = 0.0
-            sale_year = 0.0
-            sale_90d = 0.0
-            sale_month = 0.0
-            date_year = datetime.now() - relativedelta(months=12)
-            date_90d = datetime.now() - relativedelta(months=3)
-            date_month = datetime.now() - relativedelta(months=1)
+            units_sold_1Y = 0.0
+            units_sold_3M = 0.0
+            units_sold_1M = 0.0
+            sale_1Y = 0.0
+            sale_3M = 0.0
+            sale_1M = 0.0
+            date_1Y = datetime.now() - relativedelta(months=12)
+            date_3M = datetime.now() - relativedelta(months=3)
+            date_1M = datetime.now() - relativedelta(months=1)
             if record.product_id:
                 unit_orders = record.env['sale.order.line'].search([
                     ('product_id', '=', record.product_id.id),
                     ('state', 'in', ['sale', 'done']),
                     ('order_id.date_order', '<', datetime.now()),
-                    ('order_id.date_order', '>=', date_year)
+                    ('order_id.date_order', '>=', date_1Y)
                 ])
                 for unit_order in unit_orders:
-                    if unit_order.order_id.date_order > date_90d:
-                        units_sold_90d += unit_order.product_uom_qty
-                        sale_90d += unit_order.price_subtotal
-                    if unit_order.order_id.date_order > date_month:
-                        units_sold_month += unit_order.product_uom_qty
-                        sale_month += unit_order.price_subtotal
-                    units_sold_year += unit_order.product_uom_qty
-                    sale_year += unit_order.price_subtotal  
-            record.unit_y_avg = units_sold_year / 12.0
-            record.unit_90d_avg = units_sold_90d / 3.0
-            record.unit_month = units_sold_month
-            record.sale_y_avg = sale_year / 12.0
-            record.sale_90d_avg = sale_90d / 3.0
-            record.sale_month = sale_month
-            record.income_y_avg = record.sale_y_avg - (record.unit_y_avg * record.unit_price)
-            record.income_90d_avg = record.sale_90d_avg - (record.unit_90d_avg * record.unit_price)
-            record.income_month = sale_month - (units_sold_month * record.unit_price)
-            record.income_y_avg_r = record.sale_y_avg - (record.unit_y_avg * record.unit_price_real)
-            record.income_90d_avg_r = record.sale_90d_avg - (record.unit_90d_avg * record.unit_price_real)
-            record.income_month_r = sale_month - (units_sold_month * record.unit_price_real)
+                    if unit_order.order_id.date_order >= date_3M:
+                        units_sold_3M += unit_order.product_uom_qty
+                        sale_3M += unit_order.price_subtotal
+                    if unit_order.order_id.date_order >= date_1M:
+                        units_sold_1M += unit_order.product_uom_qty
+                        sale_1M += unit_order.price_subtotal
+                    units_sold_1Y += unit_order.product_uom_qty
+                    sale_1Y += unit_order.price_subtotal  
+            record.unit_1Y_avg = units_sold_1Y / 12.0
+            record.unit_3M_avg = units_sold_3M / 3.0
+            record.unit_1M = units_sold_1M
+            record.sale_1Y_avg = sale_1Y / 12.0
+            record.sale_3M_avg = sale_3M / 3.0
+            record.sale_1M = sale_1M
+            record.income_1Y_avg = record.sale_1Y_avg - (record.unit_1Y_avg * record.unit_price)
+            record.income_3M_avg = record.sale_3M_avg - (record.unit_3M_avg * record.unit_price)
+            record.income_1M = sale_1M - (units_sold_1M * record.unit_price)
+            record.income_1Y_avg_r = record.sale_1Y_avg - (record.unit_1Y_avg * record.unit_price_real)
+            record.income_3M_avg_r = record.sale_3M_avg - (record.unit_3M_avg * record.unit_price_real)
+            record.income_1M_r = sale_1M - (units_sold_1M * record.unit_price_real)
 
-    @api.depends('unit_current','unit_y_avg','unit_90d_avg','unit_month')
+    @api.depends('unit_current','unit_1Y_avg','unit_3M_avg','unit_1M')
     def _estimated_stock(self):
         for record in self:
-            record.estimated_stock = record.unit_current - record.unit_month
-            record.estimated_stock_90d = record.unit_current - record.unit_90d_avg
-            record.estimated_stock_y = record.unit_current - record.unit_y_avg
+            record.estimated_stock = record.unit_current - record.unit_1M
+            record.estimated_stock_3M = record.unit_current - record.unit_3M_avg
+            record.estimated_stock_y = record.unit_current - record.unit_1Y_avg
 
-    @api.depends('estimated_stock','unit_month','sale_month')
+    @api.depends('estimated_stock','unit_1M','sale_1M')
     def _get_recommandation(self):
         for record in self:
             # $15 and $45 is a made up number...
-            if record.estimated_stock <= 0 and record.income_month_r > 0 or \
-                record.estimated_stock_90d <= 0 and record.income_90d_avg_r > 0:
-                #  or record.estimated_stock_y <= 0 and record.income_y_avg_r > 0:
+            if record.estimated_stock <= 0 and record.income_1M_r > 0 or \
+                record.estimated_stock_3M <= 0 and record.income_3M_avg_r > 0:
+                #  or record.estimated_stock_y <= 0 and record.income_1Y_avg_r > 0:
                 record.restock_recommended = True
             else:
                 record.restock_recommended = False

@@ -15,7 +15,7 @@
             <tree create="false" edit="false" delete="false">
                 <field name="product_id" readonly="1"/>
                 <field name="estimated_stock"/>
-                <field name="estimated_stock_90d"/>
+                <field name="estimated_stock_3M"/>
                 <field name="estimated_stock_y"/>
                 <field name="restock_recommended"/>
             </tree>
@@ -33,16 +33,17 @@
                     <h2><field name="name" decoration-bf="restock_recommended==True" decoration-muted="restock_recommended==False"/></h2>
                     <group>
                         <field name="estimated_stock" decoration-danger="estimated_stock&lt;=-10" decoration-warning="estimated_stock&lt;=0"/>
-                        <field name="estimated_stock_90d" decoration-danger="estimated_stock_90d&lt;=-10" decoration-warning="estimated_stock_90d &lt;= 0"/>
+                        <field name="estimated_stock_3M" decoration-danger="estimated_stock_3M&lt;=-10" decoration-warning="estimated_stock_3M &lt;= 0"/>
                         <!-- <field name="estimated_stock_y" decoration-danger="estimated_stock_y&lt;=-10" decoration-warning="estimated_stock_y &lt;= 0"/> -->
-                        <!-- <field name="income_month" decoration-danger="income_month&lt;0"/> -->
-                        <!-- <field name="income_90d_avg" decoration-danger="income_90d_avg&lt;0"/> -->
-                        <!-- <field name="income_y_avg" decoration-danger="income_y_avg&lt;0"/> -->
-                        <field name="income_month_r" decoration-danger="income_month_r&lt;0"/>
-                        <field name="income_90d_avg_r" decoration-danger="income_month_r&lt;0"/>
-                        <!-- <field name="income_y_avg_r" decoration-danger="income_month_r&lt;0"/> -->
+                        <!-- <field name="income_1M" decoration-danger="income_1M&lt;0"/> -->
+                        <!-- <field name="income_3M_avg" decoration-danger="income_3M_avg&lt;0"/> -->
+                        <!-- <field name="income_1Y_avg" decoration-danger="income_1Y_avg&lt;0"/> -->
+                        <field name="income_1M_r" decoration-danger="income_1M_r&lt;0"/>
+                        <field name="income_3M_avg_r" decoration-danger="income_1M_r&lt;0"/>
+                        <!-- <field name="income_1Y_avg_r" decoration-danger="income_1M_r&lt;0"/> -->
                         <separator/>
                         <field name="restock_recommended" decoration-primary="restock_recommended==True" decoration-muted="restock_recommended==False"/>
+                        <div>Restock recommendation is made by stock level and whether money was made off that product.</div>
                     </group>
                 </sheet>
             </form>
@@ -57,14 +58,14 @@
             <pivot>
                 <field name="product_id" type="row"/>
                 <field name="unit_current" type="col"/>
-                <field name="unit_month" type="col"/>
-                <field name="unit_90d_avg" type="col"/>
-                <field name="unit_y_avg" type="col"/>
-                <field name="sale_month" type="col"/>
-                <field name="sale_90d_avg" type="col"/>
-                <field name="sale_y_avg" type="col"/>
+                <field name="unit_1M" type="col"/>
+                <field name="unit_3M_avg" type="col"/>
+                <field name="unit_1Y_avg" type="col"/>
+                <field name="sale_1M" type="col"/>
+                <field name="sale_3M_avg" type="col"/>
+                <field name="sale_1Y_avg" type="col"/>
                 <field name="estimated_stock" type="col"/>
-                <field name="estimated_stock_90d" type="col"/>
+                <field name="estimated_stock_3M" type="col"/>
                 <field name="estimated_stock_y" type="col"/>
                 <field name="restock_recommended" type="col" widget="radio"/>
             </pivot>
@@ -117,29 +118,29 @@
                                 <ul>
                                     <li><b><i>Rows italicized shows products that should be restocked</i></b></li>
                                     <li class="text-danger">Rows in red highlights that negative income was made on those products last month</li>
-                                    <li class="text-primary">All averages are based on a monthly average</li>
-                                    <li class="text-info">Sold 1M, Sold 3M, and Sold 1Y refers to units sold<br/>
-                                        while Sales 1M refers to net sales</li>
+                                    <li class="text-primary">All averages (avg) are based on a monthly average</li>
+                                    <li class="text-info">Sold 1M and Sold 3M refers to units sold over the last month or the last 3 months respectively.<br/>
+                                        While Sales 1M refers to net sales.</li>
                                 </ul>
                             </div>
                             <field name="product_restock_ids">
                                 <tree create="false" delete="false"
-                                      default_order="restock_recommended desc,income_month desc,name,product_id"
+                                      default_order="restock_recommended desc,income_1M desc,name,product_id"
                                       decoration-bf="restock_recommended==True"
                                       decoration-it="restock_recommended==True"
-                                      decoration-danger="income_month_r&lt;0">
+                                      decoration-danger="income_1M_r&lt;0">
                                     <field name="product_id" readonly="1"/>
                                     <field name="unit_current"/>
-                                    <field name="unit_month"/>
-                                    <field name="unit_90d_avg"/>
-                                    <!-- <field name="unit_y_avg"/> -->
-                                    <field name="sale_month"/>
-                                    <field name="sale_90d_avg"/>
-                                    <!-- <field name="sale_y_avg"/> -->
-                                    <field name="income_month_r"/>
-                                    <field name="income_90d_avg_r"/>
+                                    <field name="unit_1M"/>
+                                    <field name="unit_3M_avg"/>
+                                    <!-- <field name="unit_1Y_avg"/> -->
+                                    <field name="sale_1M"/>
+                                    <field name="sale_3M_avg"/>
+                                    <!-- <field name="sale_1Y_avg"/> -->
+                                    <field name="income_1M_r"/>
+                                    <field name="income_3M_avg_r"/>
                                     <field name="name" invisible="1"/>
-                                    <field name="income_month" invisible="1"/>
+                                    <field name="income_1M" invisible="1"/>
                                     <field name="restock_recommended" widget="boolean_button" invisible="1"/>
                                 </tree>
                             </field>
