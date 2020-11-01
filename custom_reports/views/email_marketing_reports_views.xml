@@ -81,7 +81,9 @@
         <field name="arch" type="xml">
             <xpath expr="//notebook" position="inside">
                 <page string="Graph">
-                    <widget name ="email_marketing_graph"/>    
+                    <field name="email_marketing_graph" widget="email_marketing_graph"
+						title="Email Marketing" 
+						options="{'graph_type': 'polarArea'}"/> 
                 </page>
             </xpath>
         </field>
