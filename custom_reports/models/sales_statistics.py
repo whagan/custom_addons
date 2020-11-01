@@ -8,7 +8,7 @@ _logger = logging.getLogger(__name__)
 #Sales Statistics Report DataModel
 class SalesStatisticsReport(models.Model):
     _name = 'custom_reports.sales_statistics_report'
-    _description = 'sales Statistics Report'
+    _description = 'Sales Statistics Report'
 
    # Basic properties
     start_date = fields.Datetime(string = 'Start Date')
