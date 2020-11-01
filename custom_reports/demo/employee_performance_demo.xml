@@ -3,9 +3,9 @@
     <data noupdate="0">
 
         <!-- res company -->
-        <record id="company_click_01" model="res.company">
+        <!-- <record id="company_click_01" model="res.company">
             <field name="name">Click Inc</field>
-        </record>
+        </record> -->
 
 
         <!-- res partner -->
