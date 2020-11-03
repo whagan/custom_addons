@@ -1,4 +1,4 @@
-from odoo import models, fields, api
+from odoo import models, fields, api, api, exceptions, _
 from odoo.tools import format_datetime
 from odoo.exceptions import ValidationError
 import datetime
@@ -12,8 +12,8 @@ class EmployeePerformanceReport(models.Model):
     
     # basic properties
     report_title = fields.Char('Report Title', required=True)
-    start_date = fields.Datetime(string='Start Date')
-    end_date = fields.Datetime(string='End Date')
+    start_date = fields.Datetime(string='Start Date', required=True)
+    end_date = fields.Datetime(string='End Date', required=True)
     employee_ids = fields.Many2many('hr.employee', relation='custom_reports_employee_report_rel', column1='custom_report_id', column2='employee_id', string="Employees")
     employee_performance_ids = fields.One2many('custom_reports.employee_performance', 'employee_performance_report_id', string="Employee Performances")
     employee_performance_graph = fields.Text('Employee Graph', default='EmployeeGraph')
@@ -33,6 +33,13 @@ class EmployeePerformanceReport(models.Model):
             })
         self.env['custom_reports.employee_performance'].create(records)
         return record
+    
+    @api.constrains('start_date', 'end_date')
+    def _check_validity_start_date_end_date(self):
+        for record in self:
+            if record.start_date and record.end_date:
+                if record.end_date < record.start_date:
+                    raise exceptions.ValidationError(_("Error. Start Date must be earlier than End Date."))
     
 #Employee Performance DataModel
 class EmployeePerformance(models.Model):

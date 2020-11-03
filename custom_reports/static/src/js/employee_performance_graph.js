@@ -81,6 +81,12 @@ odoo.define('custom_reports.EmployeePerformanceGraph', function(require)   {
                        backgroundColor: colors,
                     }]
                 },
+                options:    {
+                    title:  {
+                        display: true,
+                        text: 'Sales per Hour'
+                    },
+                },
             };
         },
 
@@ -134,6 +140,12 @@ odoo.define('custom_reports.EmployeePerformanceGraph', function(require)   {
                        backgroundColor: colors,
                     }]
                 },
+                options:    {
+                    title:  {
+                        display: true,
+                        text: 'Sales per Hour'
+                    },
+                },
             };
         },
 
@@ -151,6 +163,12 @@ odoo.define('custom_reports.EmployeePerformanceGraph', function(require)   {
                        data: data,
                        backgroundColor: colors,
                     }]
+                },
+                options:    {
+                    title:  {
+                        display: true,
+                        text: 'Sales per Hour'
+                    },
                 },
             };
         },
@@ -170,6 +188,12 @@ odoo.define('custom_reports.EmployeePerformanceGraph', function(require)   {
                        backgroundColor: colors,
                     }]
                 },
+                options:    {
+                    title:  {
+                        display: true,
+                        text: 'Sales per Hour'
+                    },
+                },
             };
         },
 
@@ -187,6 +211,12 @@ odoo.define('custom_reports.EmployeePerformanceGraph', function(require)   {
                        data: data,
                        backgroundColor: colors,
                     }]
+                },
+                options:    {
+                    title:  {
+                        display: true,
+                        text: 'Sales per Hour'
+                    },
                 },
             };
         },

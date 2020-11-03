@@ -15,6 +15,8 @@ odoo.define('custom_reports.EmailMarketingGraph', function(require)   {
         template: 'email_marketing_graph_template',
         xmlDependencies: ['custom_reports/static/src/xml/email_marketing_graph.xml'],
         
+
+
         /**
          * @override
          */
