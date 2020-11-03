@@ -75,7 +75,7 @@
         <field name="name">Employee Performance Report</field>
         <field name="model">custom_reports.employee_performance_report</field>
         <field name="arch" type="xml">
-            <form string="HEy there">
+            <form>
                 <sheet>
                     <group>
                         <div class="oe_title">
