@@ -37,7 +37,7 @@ odoo.define('custom_reports.EmailMarketingGraph', function(require)   {
 
             self.graph_data.forEach(graph_datum =>  {
                 labels.push(graph_datum.data.subject);
-                data.push(graph_datum.data.sales_since_avg);
+                data.push(graph_datum.data.sales_delta_per);
             });
 
             var colors = self._getColors(data.length);
@@ -83,6 +83,19 @@ odoo.define('custom_reports.EmailMarketingGraph', function(require)   {
                        data: data,
                        backgroundColor: colors,
                     }]
+                },
+                options:    {
+                    title:  {
+                        display: true,
+                        text: 'Change in Avg Sales Percent'
+                    },
+                    scales: {
+                        yAxes:  [{
+                            ticks:  {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
                 },
             };
         },

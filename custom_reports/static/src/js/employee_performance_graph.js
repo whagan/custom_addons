@@ -86,6 +86,13 @@ odoo.define('custom_reports.EmployeePerformanceGraph', function(require)   {
                         display: true,
                         text: 'Sales per Hour'
                     },
+                    scales: {
+                        yAxes:  [{
+                            ticks:  {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
                 },
             };
         },
