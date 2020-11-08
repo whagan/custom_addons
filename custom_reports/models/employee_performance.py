@@ -54,7 +54,7 @@ class EmployeePerformance(models.Model):
     end_date = fields.Datetime(related='employee_performance_report_id.end_date', required=True)
 
     #computed properties
-    currency_id = fields.Many2one('res.currency', string="Currency")
+    currency_id = fields.Many2one('res.currency', string="Currency", default=2)
     worked_hours = fields.Float(string="Worked Hours", compute="_compute_worked_hours", readonly=False)
     total_sales = fields.Monetary(string="Total Sales", compute="_compute_total_sales", readonly=False)
     sales_hour = fields.Monetary(string="Sales / Hour", compute="_compute_sales_hour", readonly=False)
@@ -80,7 +80,7 @@ class EmployeePerformance(models.Model):
     @api.depends('employee_id', 'employee_user_id', 'start_date', 'end_date')
     def _compute_total_sales(self):
         for record in self:
-            total_sales = 0.0
+            total_sales = 0.00
             if record.employee_id and (record.start_date <= record.end_date):
                 orders = record.env['sale.order'].search([
                     ('state', 'in', ['sale', 'done']),
@@ -97,8 +97,8 @@ class EmployeePerformance(models.Model):
     @api.depends('total_sales', 'worked_hours')
     def _compute_sales_hour(self):
         for record in self:
-            if(record.worked_hours == 0):
+            if(record.worked_hours == 0.0):
                 record.sales_hour = 0.00
             else:
-                record.sales_hour = round((record.total_sales / record.worked_hours), 2)
+                record.sales_hour = record.total_sales / record.worked_hours
         

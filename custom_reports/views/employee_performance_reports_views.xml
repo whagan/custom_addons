@@ -42,6 +42,7 @@
         <field name="arch" type="xml">
             <pivot>
                 <field name="employee_id" type="row"/>
+                <field name="currency_id"/>
                 <field name="worked_hours" type="col"/>
                 <field name="total_sales" type="col"/>
                 <field name="sales_hour" type="col"/>
@@ -105,6 +106,7 @@
                             <field name="employee_performance_ids">
                                 <pivot>
                                     <field name="employee_id" type="row"/>
+                                    <field name="currency_id"/>
                                     <field name="worked_hours" type="col"/>
                                     <field name="total_sales" type="col"/>
                                     <field name="sales_hour" type="col"/>
@@ -127,7 +129,7 @@
                 <page string="Graph">
                     <field name="employee_performance_graph" widget="employee_performance_graph"
 						title="Employee Performances" 
-						options="{'graph_type': 'pie'}"/>
+						options="{'graph_type': 'bar'}"/>
                 </page>
             </xpath>
         </field>
