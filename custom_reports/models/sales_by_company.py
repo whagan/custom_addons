@@ -17,7 +17,7 @@ class SalesByCompanyReport(models.Model):
     end_date = fields.Datetime(string='End Date')
     company_ids = fields.Many2many('res.company', relation='custom_reports_sales_by_company_report_rel', column1='custom_report_id', column2='company_id', string="companies")
     sales_by_company_ids = fields.One2many('custom_reports.sales_by_company', 'sales_by_company_report_id', string="Sales By Company")
-
+    sales_by_company_graph = fields.Text('Sales Graph', default = 'SalesGraph' )
     # methods
     # method for the creation of a new instance of a report
     @api.model

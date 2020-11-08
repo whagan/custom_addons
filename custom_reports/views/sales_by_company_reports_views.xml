@@ -107,17 +107,25 @@
                             </field>  
                             
                         </page>
-                        <page string="Graph">
-                            <field name="sales_by_company_ids">
-                                <pivot>
-                                    <field name="company_id" type="row"/>
-                                    <field name="total_sales" type="col"/>
-                                </pivot> 
-                            </field>
-                        </page>
                     </notebook>
                 </sheet>    
             </form>
         </field>
     </record>
+
+    <!-- sales by company graph form view -->
+    <record id="sales_by_company_report_view_form_graph" model="ir.ui.view">
+        <field name="name">Sales by Company Report Graph Form</field>
+        <field name="model">custom_reports.sales_by_company_report</field>
+        <field name="inherit_id" ref="custom_reports.sales_by_company_report_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Graph">
+                    <field name="sales_by_company_graph" widget="sales_by_company_graph"
+						title="Sales by Company" 
+						options="{'graph_type': 'pie'}"/>
+                </page>
+            </xpath>
+        </field>
+    </record> 
 </odoo>
