@@ -54,10 +54,9 @@ class EmployeePerformance(models.Model):
     end_date = fields.Datetime(related='employee_performance_report_id.end_date', required=True)
 
     #computed properties
-    currency_id = fields.Many2one('res.currency', string="Currency", default=2)
     worked_hours = fields.Float(string="Worked Hours", compute="_compute_worked_hours", readonly=False)
-    total_sales = fields.Monetary(string="Total Sales", compute="_compute_total_sales", readonly=False)
-    sales_hour = fields.Monetary(string="Sales / Hour", compute="_compute_sales_hour", readonly=False)
+    total_sales = fields.Float(string="Total Sales", compute="_compute_total_sales", readonly=False)
+    sales_hour = fields.Float(string="Sales / Hour", compute="_compute_sales_hour", readonly=False)
 
     # methods
     # this method gets the computed work hours between a time period
