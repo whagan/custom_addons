@@ -20,6 +20,7 @@
             </pivot>
         </field>
     </record>
+
     <!-- Graph -->
     <record model="ir.ui.view" id="sales_by_company_graph">
         <field name="name">sales_by_company.graph</field>
@@ -32,6 +33,7 @@
             </graph>
         </field>
     </record>
+
     <!-- sales by Company tree -->
      <record model="ir.ui.view" id="sales_by_company_view_tree">
         <field name="name">Sales By Company</field>
@@ -43,10 +45,6 @@
             </tree>
         </field>
     </record>
-
-
-
-
 
     <!-- odoo action -->
     <record model="ir.actions.act_window" id="sales_by_company_report_action" >
@@ -91,13 +89,12 @@
                             </div>
                         </group>
                         <div>
-                            <label class="oe_input_label" for="name" string="Companys" style="font-weight:bold"/>
+                            <label class="oe_input_label" for="name" string="Companies" style="font-weight:bold"/>
                             <field name="company_ids" widget="many2many_tags"/>
                         </div>
-                        
-
                     </group>
-                    <notebook>
+                    <field name="id" invisible="1"/>
+                    <notebook attrs="{'invisible': [('id', '=', False)]}">
                         <page name="Sales By Company " string="Sales By Company">
                             <field name="sales_by_company_ids">
                                 <pivot>

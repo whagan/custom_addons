@@ -90,8 +90,8 @@
                             <field name="location_ids" widget="many2many_tags"/>
                         </div>
                     </group>
-
-                    <notebook>
+                    <field name="id" invisible="1"/>
+                    <notebook attrs="{'invisible': [('id', '=', False)]}">
                         <page string="Pivot">
                             <field name="sales_statistic_ids">
                                 <pivot>

@@ -100,7 +100,8 @@
                             <field name="employee_ids" widget="many2many_tags"/>
                         </div>
                     </group>
-                    <notebook>
+                    <field name="id" invisible="1"/>
+                    <notebook attrs="{'invisible': [('id', '=', False)]}">
                         <page string="Pivot">
                             <field name="employee_performance_ids">
                                 <pivot>
