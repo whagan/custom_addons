@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
 
- <!-- sales by location action -->
-    <record id="sales_by_location_action" model="ir.actions.act_window">
+ <!-- sales by company action -->
+    <record id="sales_by_company_action" model="ir.actions.act_window">
         <field name="name">Sales By Company</field>
-        <field name="res_model">custom_reports.sales_by_location</field>
+        <field name="res_model">custom_reports.sales_by_company</field>
         <field name="view_mode">tree,pivot</field>
     </record>
     
 
     <!-- pivot -->
-    <record model="ir.ui.view" id="sales_by_location_pivot">
+    <record model="ir.ui.view" id="sales_by_company_pivot">
         <field name="name">Sales by Company Report</field>
-        <field name="model">custom_reports.sales_by_location</field>
+        <field name="model">custom_reports.sales_by_company</field>
         <field name="arch" type="xml">
             <pivot>
                 <field name="company" type="row"/>
@@ -21,9 +21,9 @@
         </field>
     </record>
     <!-- Graph -->
-    <record model="ir.ui.view" id="sales_by_location_graph">
-        <field name="name">sales_by_location.graph</field>
-        <field name="model">custom_reports.sales_by_location</field>
+    <record model="ir.ui.view" id="sales_by_company_graph">
+        <field name="name">sales_by_company.graph</field>
+        <field name="model">custom_reports.sales_by_company</field>
         <field name="type">graph</field>
         <field name="arch" type="xml">
             <graph string="Sales By Company" type="bar">
@@ -33,9 +33,9 @@
         </field>
     </record>
     <!-- sales by Company tree -->
-     <record model="ir.ui.view" id="sales_by_location_view_tree">
+     <record model="ir.ui.view" id="sales_by_company_view_tree">
         <field name="name">Sales By Company</field>
-        <field name="model">custom_reports.sales_by_location</field>
+        <field name="model">custom_reports.sales_by_company</field>
         <field name="arch" type="xml">
             <tree>
                 <field name="company"/>
@@ -49,17 +49,17 @@
 
 
     <!-- odoo action -->
-    <record model="ir.actions.act_window" id="sales_by_location_report_action" >
+    <record model="ir.actions.act_window" id="sales_by_company_report_action" >
         <field name="name">Sales By Company Report</field>
-        <field name="res_model">custom_reports.sales_by_location_report</field>
+        <field name="res_model">custom_reports.sales_by_company_report</field>
         <field name="view_mode">tree,form</field>
 
     </record>
 
     <!-- tree -->
-    <record model="ir.ui.view" id="sales_by_location_report_view_tree">
+    <record model="ir.ui.view" id="sales_by_company_report_view_tree">
         <field name="name">Sales By Company Report</field>
-        <field name="model">custom_reports.sales_by_location_report</field>
+        <field name="model">custom_reports.sales_by_company_report</field>
         <field name="arch" type="xml">
             <tree>
                 <field name="start_date"/>
@@ -70,9 +70,9 @@
  
 
        <!-- form -->
-    <record model="ir.ui.view" id="sales_by_location_report_view_form">
+    <record model="ir.ui.view" id="sales_by_company_report_view_form">
         <field name="name">Sales By Company Report</field>
-        <field name="model">custom_reports.sales_by_location_report</field>
+        <field name="model">custom_reports.sales_by_company_report</field>
         <field name="arch" type="xml">
             <form>
                 <sheet>
@@ -98,8 +98,8 @@
 
                     </group>
                     <notebook>
-                        <page name="Sales By location " string="Sales By Company">
-                            <field name="sales_by_location_ids">
+                        <page name="Sales By Company " string="Sales By Company">
+                            <field name="sales_by_company_ids">
                                 <pivot>
                                     <field name="company" type ="row"/>
                                     <field name="total_sales" type ="col"/>
@@ -108,7 +108,7 @@
                             
                         </page>
                         <page string="Graph">
-                            <field name="sales_by_location_ids">
+                            <field name="sales_by_company_ids">
                                 <pivot>
                                     <field name="company_id" type="row"/>
                                     <field name="total_sales" type="col"/>
