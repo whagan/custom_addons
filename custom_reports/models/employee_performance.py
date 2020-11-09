@@ -79,7 +79,7 @@ class EmployeePerformance(models.Model):
                     ('user_id', '=', record.employee_user_id.id),
                     ('date_order', '>=', record.start_date),
                     ('date_order', '<=', record.end_date)
-                    ])
+                ])
                 if orders: # if found in orders, sum the total sales
                     for sale in orders:
                         total_sales += sale.amount_total
@@ -89,7 +89,7 @@ class EmployeePerformance(models.Model):
     @api.depends('total_sales', 'worked_hours')
     def _compute_sales_hour(self):
         for record in self:
-            if(record.worked_hours == 0):
+            if(record.worked_hours == 0 or record.total_sales == 0):
                 record.sales_hour = 0
             else:
                 record.sales_hour = record.total_sales / record.worked_hours

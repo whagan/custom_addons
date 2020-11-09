@@ -205,10 +205,13 @@ odoo.define('custom_reports.EmployeePerformanceGraph', function(require)   {
          * Returns an array of colors
          * @private
          */
-        _getColors: function(length)    {
+        _getColors: function(length) {
             var colors_array = COLORS;
-            while (colors_array.length < length)  {
-                colors_array.concat(colors_array);
+            var color_length = COLORS.length;
+            var current_length = color_length;
+            while (current_length < length) {
+                colors_array.concat(COLORS)
+                current_length += color_length;
             }
             return colors_array.slice(0, length);
         },
