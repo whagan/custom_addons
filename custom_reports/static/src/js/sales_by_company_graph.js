@@ -207,11 +207,11 @@ odoo.define('custom_reports.SalesByCompanyGraph', function(require)   {
          * @private
          */
         _getColors: function(length)    {
-            var colors_array = COLORS;
-            while (colors_array.length < length)  {
-                colors_array.concat(colors_array);
+            var bgColors = [];
+            for (var i = 0; i < length; i++)    {
+                bgColors.push(COLORS[i % COLORS.length]);
             }
-            return colors_array.slice(0, length);
+            return bgColors;
         },
 
     });
