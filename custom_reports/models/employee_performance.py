@@ -12,8 +12,8 @@ class EmployeePerformanceReport(models.Model):
     
     # basic properties
     report_title = fields.Char('Report Title', required=True)
-    start_date = fields.Datetime(string='Start Date')
-    end_date = fields.Datetime(string='End Date')
+    start_date = fields.Datetime(string='Start Date', required=True, ValidationError='_check_date_validity')
+    end_date = fields.Datetime(string='End Date', required=True, ValidationError='_check_date_validity')
     employee_ids = fields.Many2many('hr.employee', relation='custom_reports_employee_report_rel', column1='custom_report_id', column2='employee_id', string="Employees")
     employee_performance_ids = fields.One2many('custom_reports.employee_performance', 'employee_performance_report_id', string="Employee Performances")
     employee_performance_graph = fields.Text('Employee Graph', default='EmployeeGraph')
@@ -33,6 +33,14 @@ class EmployeePerformanceReport(models.Model):
             })
         self.env['custom_reports.employee_performance'].create(records)
         return record
+
+    @api.constrains('start_date','end_date')
+    def _check_date_validity(self):
+        for report in self:
+            if report.start_date and report.end_date:
+                if report.start_date > report.end_date:
+                    raise ValidationError(_("Error. Start date must be earlier than end date."))
+
     
 #Employee Performance DataModel
 class EmployeePerformance(models.Model):
