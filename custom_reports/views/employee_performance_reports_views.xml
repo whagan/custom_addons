@@ -81,20 +81,24 @@
                         <div class="oe_title">
                             <h1>Employee Performance Report</h1>
                         </div>
-                        <group>
-                            <div>
-                                <label class="oe_input_label" for="name" string="Report Title" style="font-weight:bold"/>
-                                <field name="report_title"/>
-                            </div>
-                            <div>
-                                <label class="oe_input_label" for="name" string="Start Date:" style="font-weight:bold"/>
-                                <field name="start_date"/>
-                            </div>
-                            <div>
-                                <label class="oe_input_label" for="name" string="End Date:" style="font-weight:bold"/>
-                                <field name="end_date"/>
-                            </div>
-                        </group>
+                    </group>
+                    <group>
+                        <div>
+                            <label class="oe_input_label" for="name" string="Report Title" style="font-weight:bold"/>
+                            <field name="report_title"/>
+                        </div>
+                    </group>
+                    <group>
+                        <div>
+                            <label class="oe_input_label" for="name" string="Start Date:" style="font-weight:bold"/>
+                            <field name="start_date"/>
+                        </div>
+                        <div>
+                            <label class="oe_input_label" for="name" string="End Date:" style="font-weight:bold"/>
+                            <field name="end_date"/>
+                        </div>
+                    </group>
+                    <group>
                         <div>
                             <label class="oe_input_label" for="name" string="Employees" style="font-weight:bold"/>
                             <field name="employee_ids" widget="many2many_tags"/>
@@ -127,7 +131,7 @@
                 <page string="Graph">
                     <field name="employee_performance_graph" widget="employee_performance_graph"
 						title="Employee Performances" 
-						options="{'graph_type': 'pie'}"/>
+						options="{'graph_type': 'bar'}"/>
                 </page>
             </xpath>
         </field>
