@@ -64,8 +64,6 @@
         <field name="arch" type="xml">
             <tree>
                 <field name="report_title"/>
-                <field name="start_date"/>
-                <field name="end_date"/>
             </tree>
         </field>
     </record>

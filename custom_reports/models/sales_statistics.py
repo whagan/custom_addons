@@ -9,8 +9,9 @@ _logger = logging.getLogger(__name__)
 class SalesStatisticsReport(models.Model):
     _name = 'custom_reports.sales_statistics_report'
     _description = 'Sales Statistics Report'
-
-   # Basic properties
+    
+    # Basic properties
+    report_title = fields.Char('Report Title', required=True)
     start_date = fields.Datetime(string = 'Start Date')
     end_date = fields.Datetime(string = 'End Date')
     location_ids = fields.Many2many('stock.location', relation='sales_statistics_report_rel', column1='custom_report_id', column2='location_id', string="Location")
