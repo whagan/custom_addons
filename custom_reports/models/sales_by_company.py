@@ -12,7 +12,8 @@ class SalesByCompanyReport(models.Model):
     _name = 'custom_reports.sales_by_company_report'
     _description = 'Sales By Company Report'
     
-   # basic properties
+    # basic properties
+    report_title = fields.Char('Report Title', required=True)
     start_date = fields.Datetime(string='Start Date')
     end_date = fields.Datetime(string='End Date')
     company_ids = fields.Many2many('res.company', relation='custom_reports_sales_by_company_report_rel', column1='custom_report_id', column2='company_id', string="companies")
