@@ -1,5 +1,5 @@
 
-from odoo import models, fields, api
+from odoo import models, fields, api, _
 from odoo.tools import format_datetime
 from odoo.exceptions import ValidationError
 import datetime
