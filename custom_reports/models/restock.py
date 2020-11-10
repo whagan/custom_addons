@@ -9,6 +9,7 @@ _logger = logging.getLogger(__name__)
 class RestockReport(models.Model):
     _name = 'custom_reports.restock_report'
     _description = 'Inventory Restock Report'
+    _rec_name = 'report_title'
 
     report_title = fields.Char('Report Title', default="My Restock Report", required=True)
     product_ids = fields.Many2many('product.product', relation='custom_reports_restock_report_rel', column1='custom_report_id', column2='product_id')
