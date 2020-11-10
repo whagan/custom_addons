@@ -31,7 +31,7 @@
         <field name="model">custom_reports.custom_report</field>
         <field name="type">tree</field>
         <field name="arch" type="xml">
-            <tree>
+            <tree default_order="name">
                 <field name="name" />
                 <!-- <field name="url" widget="url" />  -->
                 <!-- <button name="%(custom_reports.contact_report_action)d" type="action" string="VIEW" /> -->
