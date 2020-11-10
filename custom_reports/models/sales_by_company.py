@@ -1,5 +1,5 @@
 
-from odoo import models, fields, api
+from odoo import models, fields, api, _
 from odoo.tools import format_datetime
 from odoo.exceptions import ValidationError
 import datetime
@@ -13,10 +13,11 @@ class SalesByCompanyReport(models.Model):
     _description = 'Sales By Company Report'
     _rec_name = 'report_title'
     
-    # basic properties
+
+
     report_title = fields.Char('Report Title', required=True)
-    start_date = fields.Datetime(string='Start Date')
-    end_date = fields.Datetime(string='End Date')
+    start_date = fields.Datetime(string='Start Date', required=True, ValidationError='_check_date_validity')
+    end_date = fields.Datetime(string='End Date', required=True, ValidationError='_check_date_validity')
     company_ids = fields.Many2many('res.company', relation='custom_reports_sales_by_company_report_rel', column1='custom_report_id', column2='company_id', string="companies")
     sales_by_company_ids = fields.One2many('custom_reports.sales_by_company', 'sales_by_company_report_id', string="Sales By Company")
     sales_by_company_graph = fields.Text('Sales Graph', default = 'SalesGraph' )
@@ -36,6 +37,13 @@ class SalesByCompanyReport(models.Model):
             })
         self.env['custom_reports.sales_by_company'].create(records)
         return record
+
+    @api.constrains('start_date','end_date')
+    def _check_date_validity(self):
+        for report in self:
+            if report.start_date and report.end_date:
+                if report.start_date > report.end_date:
+                    raise ValidationError(_("Error. Start date must be earlier than end date."))
     
 
 #Sales By Company DataModel

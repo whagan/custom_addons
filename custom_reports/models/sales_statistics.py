@@ -1,4 +1,4 @@
-from odoo import models, fields, api
+from odoo import models, fields, api, _
 from odoo.tools import format_datetime
 from odoo.exceptions import ValidationError
 import datetime
@@ -13,8 +13,8 @@ class SalesStatisticsReport(models.Model):
     
     # Basic properties
     report_title = fields.Char('Report Title', required=True)
-    start_date = fields.Datetime(string = 'Start Date')
-    end_date = fields.Datetime(string = 'End Date')
+    start_date = fields.Datetime(string = 'Start Date', required=True, ValidationError='_check_date_validity')
+    end_date = fields.Datetime(string = 'End Date', required=True, ValidationError='_check_date_validity')
     location_ids = fields.Many2many('stock.location', relation='sales_statistics_report_rel', column1='custom_report_id', column2='location_id', string="Location")
     sales_statistic_ids = fields.One2many('custom_reports.sales_statistic', 'sales_statistics_report_id', string="Sales Statistics")
 
@@ -33,6 +33,13 @@ class SalesStatisticsReport(models.Model):
             })
         self.env['custom_reports.sales_statistic'].create(records)
         return record
+
+    @api.constrains('start_date','end_date')
+    def _check_date_validity(self):
+        for report in self:
+            if report.start_date and report.end_date:
+                if report.start_date > report.end_date:
+                    raise ValidationError(_("Error. Start date must be earlier than end date."))
 
 
 
