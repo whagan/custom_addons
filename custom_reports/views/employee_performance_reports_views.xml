@@ -99,7 +99,7 @@
                     <group>
                         <div>
                             <label class="oe_input_label" for="name" string="Employees" style="font-weight:bold"/>
-                            <field name="employee_ids" widget="many2many_tags"/>
+                            <field name="employee_ids" widget="many2many_tags" domain="[('user_id', '!=', False)]"/>
                         </div>
                     </group>
                     <field name="id" invisible="1"/>

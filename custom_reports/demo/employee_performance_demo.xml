@@ -149,7 +149,7 @@
     
         <record id="employee_click_01" model="hr.employee">
             <field name="name">Tommy Rogers</field>
-            <!-- <field name="user_id" ref="res_partner_click_01"/> -->
+            <field name="user_id" ref="user_click_01"/>
             <field name="department_id" ref="hr.dep_sales"/>
             <field name="parent_id" ref="hr.employee_admin"/>
             <field name="job_id" ref="job_salesperson"/>
@@ -163,7 +163,7 @@
 
         <record id="employee_click_02" model="hr.employee">
             <field name="name">Dustie Waring</field>
-            <!-- <field name="user_id" ref="res_partner_click_02"/> -->
+            <field name="user_id" ref="user_click_02"/>
             <field name="department_id" ref="hr.dep_sales"/>
             <field name="parent_id" ref="hr.employee_admin"/>
             <field name="job_id" ref="job_salesperson"/>
@@ -177,7 +177,7 @@
 
         <record id="employee_click_03" model="hr.employee">
             <field name="name">Dan Briggs</field>
-            <!-- <field name="user_id" ref="res_partner_click_03"/>  -->
+            <field name="user_id" ref="user_click_03"/>
             <field name="department_id" ref="hr.dep_sales"/>
             <field name="parent_id" ref="hr.employee_admin"/>
             <field name="job_id" ref="job_salesperson"/>
@@ -191,7 +191,7 @@
 
         <record id="employee_click_04" model="hr.employee">
             <field name="name">Blake Richardson</field>
-            <!-- <field name="user_id" ref="res_partner_click_04"/>  -->
+            <field name="user_id" ref="user_click_04"/>
             <field name="department_id" ref="hr.dep_sales"/>
             <field name="parent_id" ref="hr.employee_admin"/>
             <field name="job_id" ref="job_salesperson"/>
@@ -205,7 +205,7 @@
 
         <record id="employee_click_05" model="hr.employee">
             <field name="name">Paul Waggoner</field>
-            <!-- <field name="user_id" ref="res_partner_click_05"/> -->
+            <field name="user_id" ref="user_click_05"/>
             <field name="department_id" ref="hr.dep_sales"/>
             <field name="parent_id" ref="hr.employee_admin"/>
             <field name="job_id" ref="job_salesperson"/>
@@ -219,66 +219,914 @@
 
         <!-- employee_click_01 attendances -->
 
-        <record id="attendance_click_01" model="hr.attendance">
+        <record id="attendance_click_01_01" model="hr.attendance">
             <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-01 08:21')" name="check_in"/>
             <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-01 11:51')" name="check_out"/>
             <field name="employee_id" ref="employee_click_01"/>
         </record>
 
-        <record id="attendance_click_02" model="hr.attendance">
+        <record id="attendance_click_01_02" model="hr.attendance">
             <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-02 12:47')" name="check_in"/>
             <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-02 19:53')" name="check_out"/>
             <field name="employee_id" ref="employee_click_01"/>
         </record>
 
-        <record id="attendance_click_03" model="hr.attendance">
+        <record id="attendance_click_01_03" model="hr.attendance">
             <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-03 07:32')" name="check_in"/>
             <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-03 12:32')" name="check_out"/>
             <field name="employee_id" ref="employee_click_01"/>
         </record>
 
-        <record id="attendance_click_04" model="hr.attendance">
+        <record id="attendance_click_01_04" model="hr.attendance">
             <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-04 14:01')" name="check_in"/>
             <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-04 17:21')" name="check_out"/>
             <field name="employee_id" ref="employee_click_01"/>
         </record>
 
-        <record id="attendance_click_05" model="hr.attendance">
+        <record id="attendance_click_01_05" model="hr.attendance">
             <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-05 09:10')" name="check_in"/>
             <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-05 12:42')" name="check_out"/>
             <field name="employee_id" ref="employee_click_01"/>
         </record>
 
-        <record id="attendance_click_06" model="hr.attendance">
+        <record id="attendance_click_01_06" model="hr.attendance">
             <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-06 13:10')" name="check_in"/>
             <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-06 18:34')" name="check_out"/>
             <field name="employee_id" ref="employee_click_01"/>
         </record>
 
-        <record id="attendance_click_07" model="hr.attendance">
+        <record id="attendance_click_01_07" model="hr.attendance">
             <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-07 08:21')" name="check_in"/>
             <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-07 18:21')" name="check_out"/>
             <field name="employee_id" ref="employee_click_01"/>
         </record>
 
-        <record id="attendance_click_08" model="hr.attendance">
+        <record id="attendance_click_01_08" model="hr.attendance">
             <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-08 08:21')" name="check_in"/>
             <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-08 12:54')" name="check_out"/>
             <field name="employee_id" ref="employee_click_01"/>
         </record>
 
-        <record id="attendance_click_09" model="hr.attendance">
+        <record id="attendance_click_01_09" model="hr.attendance">
             <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-09 13:32')" name="check_in"/>
             <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-09 19:31')" name="check_out"/>
             <field name="employee_id" ref="employee_click_01"/>
         </record>
 
-        <record id="attendance_click_10" model="hr.attendance">
+        <record id="attendance_click_01_10" model="hr.attendance">
             <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-10 08:00')" name="check_in"/>
             <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-10 09:00')" name="check_out"/>
             <field name="employee_id" ref="employee_click_01"/>
         </record>
 
+        <record id="attendance_click_01_11" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-11 08:21')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-11 11:51')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_01"/>
+        </record>
+
+        <record id="attendance_click_01_12" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-12 12:47')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-12 19:53')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_01"/>
+        </record>
+
+        <record id="attendance_click_01_13" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-13 07:32')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-13 12:32')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_01"/>
+        </record>
+
+        <record id="attendance_click_01_14" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-14 14:01')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-14 17:21')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_01"/>
+        </record>
+
+        <record id="attendance_click_01_15" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-15 09:10')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-15 12:42')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_01"/>
+        </record>
+
+        <record id="attendance_click_01_16" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-16 13:10')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-16 18:34')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_01"/>
+        </record>
+
+        <record id="attendance_click_01_17" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-17 08:21')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-17 18:21')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_01"/>
+        </record>
+
+        <record id="attendance_click_01_18" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-18 08:21')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-18 12:54')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_01"/>
+        </record>
+
+        <record id="attendance_click_01_19" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-19 13:32')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-19 19:31')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_01"/>
+        </record>
+
+        <record id="attendance_click_01_20" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-20 08:00')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-20 09:00')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_01"/>
+        </record>
+
+        <record id="attendance_click_01_21" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-21 08:21')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-21 11:51')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_01"/>
+        </record>
+
+        <record id="attendance_click_01_22" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-22 12:47')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-22 19:53')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_01"/>
+        </record>
+
+        <record id="attendance_click_01_23" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-23 07:32')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-23 12:32')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_01"/>
+        </record>
+
+        <record id="attendance_click_01_24" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-24 14:01')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-24 17:21')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_01"/>
+        </record>
+
+        <record id="attendance_click_01_25" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-25 09:10')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-25 12:42')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_01"/>
+        </record>
+
+        <record id="attendance_click_01_26" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-26 13:10')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-26 18:34')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_01"/>
+        </record>
+
+        <record id="attendance_click_01_27" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-27 08:21')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-27 18:21')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_01"/>
+        </record>
+
+        <record id="attendance_click_01_28" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-28 08:21')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-28 12:54')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_01"/>
+        </record>
+
+        <record id="attendance_click_01_29" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-29 13:32')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-29 19:31')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_01"/>
+        </record>
+
+        <record id="attendance_click_01_30" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-30 08:00')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-30 09:00')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_01"/>
+        </record>
+
+        <!-- employee_click_02 attendances -->
+
+        <record id="attendance_click_02_01" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-01 08:21')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-01 11:51')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_02"/>
+        </record>
+
+        <record id="attendance_click_02_02" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-02 12:47')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-02 19:53')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_02"/>
+        </record>
+
+        <record id="attendance_click_02_03" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-03 07:32')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-03 12:32')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_02"/>
+        </record>
+
+        <record id="attendance_click_02_04" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-04 14:01')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-04 17:21')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_02"/>
+        </record>
+
+        <record id="attendance_click_02_05" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-05 09:10')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-05 12:42')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_02"/>
+        </record>
+
+        <record id="attendance_click_02_06" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-06 13:10')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-06 18:34')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_02"/>
+        </record>
+
+        <record id="attendance_click_02_07" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-07 08:21')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-07 18:21')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_02"/>
+        </record>
+
+        <record id="attendance_click_02_08" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-08 08:21')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-08 12:54')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_02"/>
+        </record>
+
+        <record id="attendance_click_02_09" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-09 13:32')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-09 19:31')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_02"/>
+        </record>
+
+        <record id="attendance_click_02_10" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-10 08:00')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-10 09:00')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_02"/>
+        </record>
+
+        <record id="attendance_click_02_11" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-11 08:21')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-11 11:51')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_02"/>
+        </record>
+
+        <record id="attendance_click_02_12" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-12 12:47')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-12 19:53')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_02"/>
+        </record>
+
+        <record id="attendance_click_02_13" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-13 07:32')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-13 12:32')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_02"/>
+        </record>
+
+        <record id="attendance_click_02_14" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-14 14:01')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-14 17:21')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_02"/>
+        </record>
+
+        <record id="attendance_click_02_15" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-15 09:10')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-15 12:42')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_02"/>
+        </record>
+
+        <record id="attendance_click_02_16" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-16 13:10')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-16 18:34')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_02"/>
+        </record>
+
+        <record id="attendance_click_02_17" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-17 08:21')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-17 18:21')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_02"/>
+        </record>
+
+        <record id="attendance_click_02_18" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-18 08:21')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-18 12:54')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_02"/>
+        </record>
+
+        <record id="attendance_click_02_19" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-19 13:32')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-19 19:31')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_02"/>
+        </record>
+
+        <record id="attendance_click_02_20" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-20 08:00')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-20 09:00')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_02"/>
+        </record>
+
+        <record id="attendance_click_02_21" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-21 08:21')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-21 11:51')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_02"/>
+        </record>
+
+        <record id="attendance_click_02_22" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-22 12:47')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-22 19:53')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_02"/>
+        </record>
+
+        <record id="attendance_click_02_23" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-23 07:32')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-23 12:32')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_02"/>
+        </record>
+
+        <record id="attendance_click_02_24" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-24 14:01')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-24 17:21')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_02"/>
+        </record>
+
+        <record id="attendance_click_02_25" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-25 09:10')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-25 12:42')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_02"/>
+        </record>
+
+        <record id="attendance_click_02_26" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-26 13:10')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-26 18:34')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_02"/>
+        </record>
+
+        <record id="attendance_click_02_27" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-27 08:21')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-27 18:21')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_02"/>
+        </record>
+
+        <record id="attendance_click_02_28" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-28 08:21')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-28 12:54')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_02"/>
+        </record>
+
+        <record id="attendance_click_02_29" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-29 13:32')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-29 19:31')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_02"/>
+        </record>
+
+        <record id="attendance_click_02_30" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-30 08:00')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-30 09:00')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_02"/>
+        </record>
+
+        <!-- employee_click_03 attendances -->
+
+        <record id="attendance_click_03_01" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-01 08:21')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-01 11:51')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_03"/>
+        </record>
+
+        <record id="attendance_click_03_02" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-02 12:47')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-02 19:53')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_03"/>
+        </record>
+
+        <record id="attendance_click_03_03" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-03 07:32')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-03 12:32')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_03"/>
+        </record>
+
+        <record id="attendance_click_03_04" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-04 14:01')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-04 17:21')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_03"/>
+        </record>
+
+        <record id="attendance_click_03_05" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-05 09:10')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-05 12:42')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_03"/>
+        </record>
+
+        <record id="attendance_click_03_06" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-06 13:10')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-06 18:34')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_03"/>
+        </record>
+
+        <record id="attendance_click_03_07" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-07 08:21')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-07 18:21')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_03"/>
+        </record>
+
+        <record id="attendance_click_03_08" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-08 08:21')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-08 12:54')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_03"/>
+        </record>
+
+        <record id="attendance_click_03_09" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-09 13:32')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-09 19:31')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_03"/>
+        </record>
+
+        <record id="attendance_click_03_10" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-10 08:00')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-10 09:00')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_03"/>
+        </record>
+
+        <record id="attendance_click_03_11" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-11 08:21')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-11 11:51')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_03"/>
+        </record>
+
+        <record id="attendance_click_03_12" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-12 12:47')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-12 19:53')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_03"/>
+        </record>
+
+        <record id="attendance_click_03_13" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-13 07:32')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-13 12:32')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_03"/>
+        </record>
+
+        <record id="attendance_click_03_14" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-14 14:01')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-14 17:21')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_03"/>
+        </record>
+
+        <record id="attendance_click_03_15" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-15 09:10')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-15 12:42')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_03"/>
+        </record>
+
+        <record id="attendance_click_03_16" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-16 13:10')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-16 18:34')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_03"/>
+        </record>
+
+        <record id="attendance_click_03_17" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-17 08:21')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-17 18:21')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_03"/>
+        </record>
+
+        <record id="attendance_click_03_18" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-18 08:21')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-18 12:54')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_03"/>
+        </record>
+
+        <record id="attendance_click_03_19" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-19 13:32')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-19 19:31')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_03"/>
+        </record>
+
+        <record id="attendance_click_03_20" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-20 08:00')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-20 09:00')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_03"/>
+        </record>
+
+        <record id="attendance_click_03_21" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-21 08:21')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-21 11:51')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_03"/>
+        </record>
+
+        <record id="attendance_click_03_22" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-22 12:47')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-22 19:53')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_03"/>
+        </record>
+
+        <record id="attendance_click_03_23" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-23 07:32')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-23 12:32')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_03"/>
+        </record>
+
+        <record id="attendance_click_03_24" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-24 14:01')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-24 17:21')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_03"/>
+        </record>
+
+        <record id="attendance_click_03_25" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-25 09:10')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-25 12:42')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_03"/>
+        </record>
+
+        <record id="attendance_click_03_26" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-26 13:10')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-26 18:34')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_03"/>
+        </record>
+
+        <record id="attendance_click_03_27" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-27 08:21')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-27 18:21')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_03"/>
+        </record>
+
+        <record id="attendance_click_03_28" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-28 08:21')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-28 12:54')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_03"/>
+        </record>
+
+        <record id="attendance_click_03_29" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-29 13:32')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-29 19:31')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_03"/>
+        </record>
+
+        <record id="attendance_click_03_30" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-30 08:00')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-30 09:00')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_03"/>
+        </record>
+
+        <!-- employee_click_04 attendances -->
+
+        <record id="attendance_click_04_01" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-01 08:21')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-01 11:51')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_04"/>
+        </record>
+
+        <record id="attendance_click_04_02" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-02 12:47')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-02 19:53')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_04"/>
+        </record>
+
+        <record id="attendance_click_04_03" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-03 07:32')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-03 12:32')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_04"/>
+        </record>
+
+        <record id="attendance_click_04_04" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-04 14:01')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-04 17:21')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_04"/>
+        </record>
+
+        <record id="attendance_click_04_05" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-05 09:10')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-05 12:42')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_04"/>
+        </record>
+
+        <record id="attendance_click_04_06" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-06 13:10')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-06 18:34')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_04"/>
+        </record>
+
+        <record id="attendance_click_04_07" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-07 08:21')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-07 18:21')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_04"/>
+        </record>
+
+        <record id="attendance_click_04_08" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-08 08:21')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-08 12:54')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_04"/>
+        </record>
+
+        <record id="attendance_click_04_09" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-09 13:32')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-09 19:31')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_04"/>
+        </record>
+
+        <record id="attendance_click_04_10" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-10 08:00')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-10 09:00')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_04"/>
+        </record>
+
+        <record id="attendance_click_04_11" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-11 08:21')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-11 11:51')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_04"/>
+        </record>
+
+        <record id="attendance_click_04_12" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-12 12:47')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-12 19:53')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_04"/>
+        </record>
+
+        <record id="attendance_click_04_13" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-13 07:32')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-13 12:32')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_04"/>
+        </record>
+
+        <record id="attendance_click_04_14" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-14 14:01')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-14 17:21')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_04"/>
+        </record>
+
+        <record id="attendance_click_04_15" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-15 09:10')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-15 12:42')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_04"/>
+        </record>
+
+        <record id="attendance_click_04_16" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-16 13:10')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-16 18:34')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_04"/>
+        </record>
+
+        <record id="attendance_click_04_17" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-17 08:21')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-17 18:21')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_04"/>
+        </record>
+
+        <record id="attendance_click_04_18" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-18 08:21')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-18 12:54')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_04"/>
+        </record>
+
+        <record id="attendance_click_04_19" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-19 13:32')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-19 19:31')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_04"/>
+        </record>
+
+        <record id="attendance_click_04_20" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-20 08:00')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-20 09:00')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_04"/>
+        </record>
+
+        <record id="attendance_click_04_21" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-21 08:21')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-21 11:51')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_04"/>
+        </record>
+
+        <record id="attendance_click_04_22" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-22 12:47')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-22 19:53')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_04"/>
+        </record>
+
+        <record id="attendance_click_04_23" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-23 07:32')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-23 12:32')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_04"/>
+        </record>
+
+        <record id="attendance_click_04_24" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-24 14:01')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-24 17:21')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_04"/>
+        </record>
+
+        <record id="attendance_click_04_25" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-25 09:10')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-25 12:42')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_04"/>
+        </record>
+
+        <record id="attendance_click_04_26" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-26 13:10')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-26 18:34')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_04"/>
+        </record>
+
+        <record id="attendance_click_04_27" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-27 08:21')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-27 18:21')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_04"/>
+        </record>
+
+        <record id="attendance_click_04_28" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-28 08:21')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-28 12:54')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_04"/>
+        </record>
+
+        <record id="attendance_click_04_29" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-29 13:32')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-29 19:31')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_04"/>
+        </record>
+
+        <record id="attendance_click_04_30" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-30 08:00')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-30 09:00')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_04"/>
+        </record>
+
+        <!-- employee_click_05 attendances -->
+
+        <record id="attendance_click_05_01" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-01 08:21')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-01 11:51')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_05"/>
+        </record>
+
+        <record id="attendance_click_05_02" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-02 12:47')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-02 19:53')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_05"/>
+        </record>
+
+        <record id="attendance_click_05_03" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-03 07:32')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-03 12:32')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_05"/>
+        </record>
+
+        <record id="attendance_click_05_04" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-04 14:01')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-04 17:21')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_05"/>
+        </record>
+
+        <record id="attendance_click_05_05" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-05 09:10')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-05 12:42')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_05"/>
+        </record>
+
+        <record id="attendance_click_05_06" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-06 13:10')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-06 18:34')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_05"/>
+        </record>
+
+        <record id="attendance_click_05_07" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-07 08:21')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-07 18:21')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_05"/>
+        </record>
+
+        <record id="attendance_click_05_08" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-08 08:21')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-08 12:54')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_05"/>
+        </record>
+
+        <record id="attendance_click_05_09" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-09 13:32')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-09 19:31')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_05"/>
+        </record>
+
+        <record id="attendance_click_05_10" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-10 08:00')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-10 09:00')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_05"/>
+        </record>
+
+        <record id="attendance_click_05_11" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-11 08:21')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-11 11:51')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_05"/>
+        </record>
+
+        <record id="attendance_click_05_12" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-12 12:47')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-12 19:53')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_05"/>
+        </record>
+
+        <record id="attendance_click_05_13" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-13 07:32')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-13 12:32')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_05"/>
+        </record>
+
+        <record id="attendance_click_05_14" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-14 14:01')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-14 17:21')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_05"/>
+        </record>
+
+        <record id="attendance_click_05_15" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-15 09:10')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-15 12:42')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_05"/>
+        </record>
+
+        <record id="attendance_click_05_16" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-16 13:10')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-16 18:34')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_05"/>
+        </record>
+
+        <record id="attendance_click_05_17" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-17 08:21')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-17 18:21')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_05"/>
+        </record>
+
+        <record id="attendance_click_05_18" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-18 08:21')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-18 12:54')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_05"/>
+        </record>
+
+        <record id="attendance_click_05_19" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-19 13:32')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-19 19:31')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_05"/>
+        </record>
+
+        <record id="attendance_click_05_20" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-20 08:00')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-20 09:00')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_05"/>
+        </record>
+
+        <record id="attendance_click_05_21" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-21 08:21')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-21 11:51')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_05"/>
+        </record>
+
+        <record id="attendance_click_05_22" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-22 12:47')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-22 19:53')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_05"/>
+        </record>
+
+        <record id="attendance_click_05_23" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-23 07:32')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-23 12:32')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_05"/>
+        </record>
+
+        <record id="attendance_click_05_24" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-24 14:01')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-24 17:21')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_05"/>
+        </record>
+
+        <record id="attendance_click_05_25" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-25 09:10')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-25 12:42')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_05"/>
+        </record>
+
+        <record id="attendance_click_05_26" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-26 13:10')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-26 18:34')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_05"/>
+        </record>
+
+        <record id="attendance_click_05_27" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-27 08:21')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-27 18:21')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_05"/>
+        </record>
+
+        <record id="attendance_click_05_28" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-28 08:21')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-28 12:54')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_05"/>
+        </record>
+
+        <record id="attendance_click_05_29" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-29 13:32')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-29 19:31')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_05"/>
+        </record>
+
+        <record id="attendance_click_05_30" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-30 08:00')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-30 09:00')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_05"/>
+        </record>
+        
 
     </data>
 
