@@ -31,6 +31,8 @@
                         <div class="oe_title">
                             <h1>Email Marketing Report</h1>
                         </div>
+                    </group>
+                    <group>
                         <div>
                             <label class="oe_input_label" for="name" string="Report Title" style="font-weight:bold"/>
                             <field name="report_title"/>
@@ -42,15 +44,13 @@
                             </div>
                         </group>
                     </group>
-                    <notebook>
+                    <field name="id" invisible="1"/>
+                    <notebook attrs="{'invisible': [('id', '=', False)]}">
                         <page string="Pivot">
                             <field name="mass_mailing_ids">
                                 <tree>
                                     <field name="subject" type="row"/>
                                     <field name="sent_date" type="col"/>
-                                    <field name="received_ratio" type="col"/>
-                                    <field name="opened_ratio" type="col"/>
-                                    <field name="sales_prev_avg" type="col"/>
                                     <field name="sales_since_avg" type="col"/>
                                     <field name="sales_delta" type="col"/>
                                     <field name="sales_delta_per" type="col"/>

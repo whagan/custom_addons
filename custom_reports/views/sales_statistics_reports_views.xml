@@ -58,6 +58,7 @@
         <field name="model">custom_reports.sales_statistics_report</field>
         <field name="arch" type="xml">
             <tree>
+                <field name="report_title"/>
                 <field name="start_date"/>
                 <field name="end_date"/>
             </tree>
@@ -75,23 +76,31 @@
                         <div class="oe_title">
                             <h1>Sales Statistics</h1>
                         </div>
-                        <group>
-                            <div>
-                                <label class="oe_input_label" for="name" string="Start Date:" style="font-weight:bold"/>
-                                <field name="start_date"/>
-                            </div>
-                            <div>
-                                <label class="oe_input_label" for="name" string="End Date:" style="font-weight:bold"/>
-                                <field name="end_date"/>
-                            </div>
-                        </group>
+                    </group>
+                    <group>
+                        <div>
+                            <label class="oe_input_label" for="name" string="Report Title" style="font-weight:bold"/>
+                            <field name="report_title"/>
+                        </div>
+                    </group>
+                    <group>
+                        <div>
+                            <label class="oe_input_label" for="name" string="Start Date:" style="font-weight:bold"/>
+                            <field name="start_date"/>
+                        </div>
+                        <div>
+                            <label class="oe_input_label" for="name" string="End Date:" style="font-weight:bold"/>
+                            <field name="end_date"/>
+                        </div>
+                    </group>
+                    <group>
                         <div>
                             <label class="oe_input_label" for="name" string="Location" style="font-weight:bold"/>
                             <field name="location_ids" widget="many2many_tags"/>
                         </div>
                     </group>
-
-                    <notebook>
+                    <field name="id" invisible="1"/>
+                    <notebook attrs="{'invisible': [('id', '=', False)]}">
                         <page string="Pivot">
                             <field name="sales_statistic_ids">
                                 <pivot>
