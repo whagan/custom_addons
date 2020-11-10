@@ -37,12 +37,12 @@
                             <label class="oe_input_label" for="name" string="Report Title" style="font-weight:bold"/>
                             <field name="report_title"/>
                         </div>
-                        <group>
-                            <div>
-                                <label class="oe_input_label" for="name" string="Mailings" style="font-weight:bold"/>
-                                <field name="mass_mailing_ids" widget="many2many_tags"/>
-                            </div>
-                        </group>
+                    </group>
+                    <group>
+                        <div>
+                            <label class="oe_input_label" for="name" string="Mailings" style="font-weight:bold"/>
+                            <field name="mass_mailing_ids" widget="many2many_tags"/>
+                        </div>
                     </group>
                     <field name="id" invisible="1"/>
                     <notebook attrs="{'invisible': [('id', '=', False)]}">

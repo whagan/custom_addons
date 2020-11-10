@@ -11,6 +11,7 @@ _logger = logging.getLogger(__name__)
 class SalesByCompanyReport(models.Model):
     _name = 'custom_reports.sales_by_company_report'
     _description = 'Sales By Company Report'
+    _rec_name = 'report_title'
     
 
 

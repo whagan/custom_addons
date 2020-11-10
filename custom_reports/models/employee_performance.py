@@ -9,6 +9,7 @@ import datetime
 class EmployeePerformanceReport(models.Model):
     _name = 'custom_reports.employee_performance_report'
     _description = "Employee Performance Report"
+    _rec_name = 'report_title'
     
     # basic properties
     report_title = fields.Char('Report Title', required=True)

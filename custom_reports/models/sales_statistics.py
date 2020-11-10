@@ -9,7 +9,9 @@ _logger = logging.getLogger(__name__)
 class SalesStatisticsReport(models.Model):
     _name = 'custom_reports.sales_statistics_report'
     _description = 'Sales Statistics Report'
-
+    _rec_name = 'report_title'
+    
+    # Basic properties
     report_title = fields.Char('Report Title', required=True)
     start_date = fields.Datetime(string = 'Start Date', required=True, ValidationError='_check_date_validity')
     end_date = fields.Datetime(string = 'End Date', required=True, ValidationError='_check_date_validity')
