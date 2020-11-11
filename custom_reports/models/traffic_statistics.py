@@ -85,8 +85,11 @@ class TrafficStatistic(models.Model):
                     for hour in hours_sales:
                         hours_sales_avg.append(record._avg_per_hour(hour))
                     _logger.debug("THIS IS THE hours_sales_avg: ", hours_sales_avg)
-                record.first_hour = hours_sales_avg.index(max(hours_sales_avg))
-            record.first_hour = 1
+                    record.first_hour = hours_sales_avg.index(max(hours_sales_avg))
+                else:
+                    record.first_hour = 0
+            else:
+                record.first_hour = 1
             
 
     def _avg_per_hour(self, hour_list):
