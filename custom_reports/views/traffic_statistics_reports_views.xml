@@ -14,7 +14,8 @@
         <field name="model">custom_reports.traffic_statistic</field>
         <field name="arch" type="xml">
             <tree>
-               
+                <field name="shop_id"/>
+                <field name="first_hour"/>           
             </tree>
         </field>
     </record>
@@ -25,7 +26,8 @@
         <field name="model">custom_reports.traffic_statistic</field>
         <field name="arch" type="xml">
             <form>
-                
+                <field name="shop_id"/>
+                <field name="first_hour"/>
             </form>
         </field>
     </record>
@@ -36,7 +38,8 @@
         <field name="model">custom_reports.traffic_statistic</field>
         <field name="arch" type="xml">
             <pivot>
-                
+                <field name="shop_id" type="row"/>
+                <field name="first_hour" type="col"/>     
             </pivot>
         </field>
     </record>
@@ -99,7 +102,8 @@
                         <page string="Pivot">
                             <field name="traffic_statistic_ids">
                                 <pivot>
-                                   
+                                    <field name="shop_id" type="row"/>
+                                    <field name="first_hour" type="col"/>                                            
                                 </pivot>
                             </field>
                         </page>

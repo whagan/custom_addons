@@ -1,12 +1,10 @@
 odoo.define('custom_reports.TrafficStatisticGraph', function(require)   {
     'use strict';
 
-    var Widget = require('web.Widget');
-    var Registry = require('web.widget_registry');
-    var core = require('web.core');
+    var BasicFields = require('web.basic_fields');
+    var FieldRegistry = require('web.field_registry');
 
-
-    var TrafficStatisticsGraph = Widget.extend({
+    var TrafficStatisticGraph = BasicFields.FieldText.extend({
         jsLibs: [
             '/web/static/lib/Chart/Chart.js',
         ],
@@ -15,13 +13,10 @@ odoo.define('custom_reports.TrafficStatisticGraph', function(require)   {
         
         /**
          * @override
-         * @param   {Object}    parent
-         * @param   {Object}    data
          */
-        init: function (parent, data) {
+        init: function () {
             this._super.apply(this, arguments);
-            this.data = data;
-            console.log(this.data);
+            console.log(this);
             console.log('Widget initialized');
         },
 
@@ -30,7 +25,7 @@ odoo.define('custom_reports.TrafficStatisticGraph', function(require)   {
          */
         start: function()   {
             var self = this;
-            self.graph_type = "pie";
+            // self.graph_type = "pie";
             
     
             console.log(this.$('canvas').attr('id'));
@@ -79,6 +74,6 @@ odoo.define('custom_reports.TrafficStatisticGraph', function(require)   {
 
     });
 
-    Registry.add('traffic_statistics_graph', TrafficStatisticsGraph);
+    FieldRegistry.add('traffic_statistic_graph', TrafficStatisticGraph);
 
 });

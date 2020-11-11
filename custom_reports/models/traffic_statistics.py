@@ -49,8 +49,7 @@ class TrafficStatistic(models.Model):
     traffic_statistics_report_id = fields.Many2one('custom_reports.traffic_statistics_report', string="Traffic Statistics Report", ondelete='cascade', store=True)
     start_date = fields.Datetime(related='traffic_statistics_report_id.start_date', required=True)
     end_date = fields.Datetime(related='traffic_statistics_report_id.end_date', required=True)
-
-    sales_location = fields.Float(string="Sales / Location", compute="_compute_sales_location", readonly=False)
+    first_hour = fields.Integer(string="Top Hour", compute="_compute_avg_hour", readonly=False)
 
     @api.depends('shop_id', 'start_date', 'end_date')
     def _compute_sales_shop(self):
@@ -66,5 +65,34 @@ class TrafficStatistic(models.Model):
                     for sale in sales:
                         sales_shop += sale.amount_total
             record.sales_shop = sales_location
+    
+    @api.depends('shop_id', 'start_date', 'end_date')
+    def _compute_avg_hour(self):
+        for record in self:
+            sales_shop = 0.0
+            if record.shop_id and (record.start_date <= record.end_date):
+                sales = record.env['pos.order'].search([
+                    ('session_id', '=', record.shop_id.id),
+                    ('date_order', '<=', record.end_date),
+                    ('date_order', '>=', record.start_date)
+                ])
+                if sales:
+                    hours_sales = [[] for i in range(24)]
+                    hours_sales_avg = []
+                    for sale in sales:
+                        hours_sales[sale.date_order.hour].append(sale.amount_total)
+                    _logger.debug("THIS IS THE hours_sales: ", hours_sales)
+                    for hour in hours_sales:
+                        hours_sales_avg.append(record._avg_per_hour(hour))
+                    _logger.debug("THIS IS THE hours_sales_avg: ", hours_sales_avg)
+                record.first_hour = hours_sales_avg.index(max(hours_sales_avg))
+            record.first_hour = 1
+            
+
+    def _avg_per_hour(self, hour_list):
+        if not hour_list:
+            return round(0, 2)
+        return round((sum(hour_list) / len(hour_list)), 2)
+                       
     
     

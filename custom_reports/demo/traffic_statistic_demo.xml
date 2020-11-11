@@ -3,6 +3,7 @@
     <data noupdate="0">
 
         <!-- pos configs (locations) -->
+        
         <record model="pos.config" id="click_pos_config_01">
             <field name="name">The Arcade</field>
             <field name="barcode_nomenclature_id" ref="barcodes.default_barcode_nomenclature"/>
