@@ -13,14 +13,14 @@ class TrafficStatisticsReport(models.Model):
     report_title = fields.Char('Report Title', required=True)
     start_date = fields.Datetime(string = 'Start Date', required=True, ValidationError='_check_date_validity')
     end_date = fields.Datetime(string = 'End Date', required=True, ValidationError='_check_date_validity')
-    #location_ids = fields.Many2many('stock.location', relation='sales_statistics_report_rel', column1='custom_report_id', column2='location_id', string="Location")
+    #session_ids = fields.Many2many('stock.location', relation='sales_statistics_report_rel', column1='custom_report_id', column2='location_id', string="Location")
     #sales_statistic_ids = fields.One2many('custom_reports.sales_statistic', 'sales_statistics_report_id', string="Sales Statistics")
 
  
     @api.model
     def create(self, values):
         record = super(TrafficStatisticsReport, self).create(values)
-        location_ids = values['location_ids'][0][2]
+        #location_ids = values['location_ids'][0][2]
         records = []
         for location_id in location_ids:
             records.append({

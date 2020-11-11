@@ -11,7 +11,7 @@ odoo.define('custom_reports.TrafficStatisticGraph', function(require)   {
             '/web/static/lib/Chart/Chart.js',
         ],
         template: 'traffic_statistic_graph_template',
-        xmlDependencies: ['custom_reports/static/src/xml/traffic_statistics_graph.xml'],
+        xmlDependencies: ['custom_reports/static/src/xml/traffic_statistic_graph.xml'],
         
         /**
          * @override
