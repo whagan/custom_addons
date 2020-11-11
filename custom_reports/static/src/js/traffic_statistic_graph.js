@@ -34,22 +34,10 @@ odoo.define('custom_reports.TrafficStatisticGraph', function(require)   {
             
     
             console.log(this.$('canvas').attr('id'));
+            self.config = self._getBarGraph();
 
 
-            switch (self.graph_type) {
-                case 'polarArea':
-                    self.config = self._getPolarGraph();
-                    break;
-                case 'bar':
-                    self.config = self._getBarGraph();
-                    break;
-                case 'pie':
-                    self.config = self._getPieGraph();
-                    break;
-                case 'doughnut':
-                    self.config = self._getDoughnutGraph();
-                    break;
-            }
+
             
             self._loadChart();
             
@@ -77,77 +65,7 @@ odoo.define('custom_reports.TrafficStatisticGraph', function(require)   {
             };
         },
 
-        /**
-         * Returns a pie graph
-         * @private
-         */
-        _getPieGraph: function ()   {
-            return {
-                type: 'pie',
-                data: {
-                   labels: ['Store A', 'Store B', 'Store C', 'Store D', 'Store F'],
-                   datasets: [{
-                       label: 'Store Sales Statistics',
-                       data: [55, 78, 37, 10, 48],
-                       backgroundColor: ["#1f77b4", "#c5b0d5", "#e377c2", "#7f7f7f", "#dbdb8d"],
-                    }]
-                },
-            };
-        },
 
-        /**
-         * Returns a doughnut graph
-         * @private
-         */
-        _getDoughnutGraph: function ()   {
-            return {
-                type: 'doughnut',
-                data: {
-                   labels: ['Marc Demo', 'Mitchell Admin', 'Paul Williams', 'Ronnie Hart', 'Randall Lewis'],
-                   datasets: [{
-                       label: 'Employee Performances',
-                       data: [44, 24, 37, 12, 8],
-                       backgroundColor: ["#1f77b4", "#c5b0d5", "#e377c2", "#7f7f7f", "#dbdb8d"],
-                    }]
-                },
-            };
-        },
-
-        /**
-         * Returns a polar graph
-         * @private
-         */
-        _getPolarGraph: function ()   {
-            return {
-                type: 'polarArea',
-                data: {
-                   labels: ['Marc Demo', 'Mitchell Admin', 'Paul Williams', 'Ronnie Hart', 'Randall Lewis'],
-                   datasets: [{
-                       label: 'Employee Performances',
-                       data: [44, 24, 37, 12, 8],
-                       backgroundColor: ["#1f77b4", "#c5b0d5", "#e377c2", "#7f7f7f", "#dbdb8d"],
-                    }]
-                },
-            };
-        },
-
-        /**
-         * Returns a radar graph
-         * @private
-         */
-        _getRadarGraph: function ()   {
-            return {
-                type: 'radar',
-                data: {
-                   labels: ['Marc Demo', 'Mitchell Admin', 'Paul Williams', 'Ronnie Hart', 'Randall Lewis'],
-                   datasets: [{
-                       label: 'Employee Performances',
-                       data: [44, 24, 37, 12, 8],
-                       backgroundColor: ["#1f77b4", "#c5b0d5", "#e377c2", "#7f7f7f", "#dbdb8d"],
-                    }]
-                },
-            };
-        },
 
         /**
          * Loads chart 
