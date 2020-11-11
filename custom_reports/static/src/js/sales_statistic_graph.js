@@ -1,4 +1,4 @@
-odoo.define('custom_reports.TrafficStatisticGraph', function(require)   {
+odoo.define('custom_reports.SalesStatisticGraph', function(require)   {
     'use strict';
 
     var Widget = require('web.Widget');
@@ -6,12 +6,12 @@ odoo.define('custom_reports.TrafficStatisticGraph', function(require)   {
     var core = require('web.core');
 
 
-    var TrafficStatisticsGraph = Widget.extend({
+    var SalesStatisticsGraph = Widget.extend({
         jsLibs: [
             '/web/static/lib/Chart/Chart.js',
         ],
-        template: 'traffic_statistic_graph_template',
-        xmlDependencies: ['custom_reports/static/src/xml/traffic_statistics_graph.xml'],
+        template: 'sales_statistics_graph_template',
+        xmlDependencies: ['custom_reports/static/src/xml/sales_statistics_graph.xml'],
         
         /**
          * @override
@@ -161,6 +161,6 @@ odoo.define('custom_reports.TrafficStatisticGraph', function(require)   {
 
     });
 
-    Registry.add('traffic_statistics_graph', TrafficStatisticsGraph);
+    Registry.add('sales_statistics_graph', SalesStatisticsGraph);
 
 });

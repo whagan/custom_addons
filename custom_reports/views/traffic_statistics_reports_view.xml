@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+   
+    <!-- traffic statistic action -->
+    <record model="ir.actions.act_window" id="traffic_statistic_action">
+        <field name="name">Traffic Statistic</field>
+        <field name="res_model">custom_reports.traffic_statistic</field>
+        <field name="view_mode">tree,form,pivot</field>
+    </record>
+
+    <!-- traffic statistic tree -->
+    <record model="ir.ui.view" id="traffic_statistic_view_tree">
+        <field name="name">Traffic Statistic</field>
+        <field name="model">custom_reports.traffic_statistic</field>
+        <field name="arch" type="xml">
+            <tree>
+               
+            </tree>
+        </field>
+    </record>
+
+    <!-- traffic statistic form -->
+    <record model="ir.ui.view" id="traffic_statistic_view_form">
+        <field name="name">Traffic Statistic</field>
+        <field name="model">custom_reports.traffic_statistic</field>
+        <field name="arch" type="xml">
+            <form>
+                
+            </form>
+        </field>
+    </record>
+
+    <!-- traffic statistic pivot -->
+    <record model="ir.ui.view" id="traffic_statistic_view_pivot">
+        <field name="name">Traffic Statistic</field>
+        <field name="model">custom_reports.traffic_statistic</field>
+        <field name="arch" type="xml">
+            <pivot>
+                
+            </pivot>
+        </field>
+    </record>
+
+     <!-- traffic statistics report action -->
+    <record model="ir.actions.act_window" id="traffic_statistics_report_action" >
+        <field name="name">Traffic Statistics Report</field>
+        <field name="res_model">custom_reports.traffic_statistics_report</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    
+    <!-- traffic statistics report tree -->
+    <record model="ir.ui.view" id="traffic_statistics_report_view_tree">
+        <field name="name">Traffic Statistics Report</field>
+        <field name="model">custom_reports.traffic_statistics_report</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="report_title"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- traffic statistics report form -->
+    <record model="ir.ui.view" id="sales_statistics_report_view_form">
+        <field name="name">Traffic Statistics Report</field>
+        <field name="model">custom_reports.traffic_statistics_report</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <div class="oe_title">
+                            <h1>Traffic Statistics Report</h1>
+                        </div>
+                    </group>
+                    <group>
+                        <div>
+                            <label class="oe_input_label" for="name" string="Report Title" style="font-weight:bold"/>
+                            <field name="report_title"/>
+                        </div>
+                    </group>
+                    <group>
+                        <div>
+                            <label class="oe_input_label" for="name" string="Start Date:" style="font-weight:bold"/>
+                            <field name="start_date"/>
+                        </div>
+                        <div>
+                            <label class="oe_input_label" for="name" string="End Date:" style="font-weight:bold"/>
+                            <field name="end_date"/>
+                        </div>
+                    </group>
+                    <!-- <group>
+                        <div> -->
+                            <!-- <label class="oe_input_label" for="name" string="Employees" style="font-weight:bold"/>
+                            <field name="employee_ids" widget="many2many_tags"/> -->
+                        <!-- </div>
+                    </group> -->
+                    <field name="id" invisible="1"/>
+                    <notebook attrs="{'invisible': [('id', '=', False)]}">
+                        <page string="Pivot">
+                            <field name="traffic_statistic_ids">
+                                <pivot>
+                                   
+                                </pivot>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    
+    <!-- traffic statistic graph form view -->
+    <record id="traffic_statistics_report_view_form_graph" model="ir.ui.view">
+        <field name="name">Traffic Statistics Report Graph Form</field>
+        <field name="model">custom_reports.traffic_statistics_report</field>
+        <field name="inherit_id" ref="custom_reports.traffic_statistics_report_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Graph">
+                    <field name="traffic_statistic_graph" widget="traffic_statistic_graph"
+						title="Traffic Statistics" 
+						options="{'graph_type': 'bar'}"/>
+                </page>
+            </xpath>
+        </field>
+    </record> 
+
+</odoo>
+
