@@ -61,7 +61,7 @@
     </record>
 
     <!-- traffic statistics report form -->
-    <record model="ir.ui.view" id="sales_statistics_report_view_form">
+    <record model="ir.ui.view" id="traffic_statistics_report_view_form">
         <field name="name">Traffic Statistics Report</field>
         <field name="model">custom_reports.traffic_statistics_report</field>
         <field name="arch" type="xml">
@@ -88,12 +88,12 @@
                             <field name="end_date"/>
                         </div>
                     </group>
-                    <!-- <group>
-                        <div> -->
-                            <!-- <label class="oe_input_label" for="name" string="Employees" style="font-weight:bold"/>
-                            <field name="employee_ids" widget="many2many_tags"/> -->
-                        <!-- </div>
-                    </group> -->
+                    <group>
+                        <div>
+                            <label class="oe_input_label" for="name" string="Shops" style="font-weight:bold"/>
+                            <field name="shop_ids" widget="many2many_tags"/>
+                        </div>
+                    </group>
                     <field name="id" invisible="1"/>
                     <notebook attrs="{'invisible': [('id', '=', False)]}">
                         <page string="Pivot">

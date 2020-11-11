@@ -24,9 +24,11 @@
         'views/custom_reports_views.xml',
     ],
     'demo': [
+        'demo/custom_report.xml',
         'demo/employee_performance_demo.xml',
         'demo/email_marketing_demo.xml',
-        'demo/demo.xml',
+        'demo/traffic_statistic_demo.xml'
+        
     ],
     'qweb': [
         'static/src/xml/sales_by_company_graph.xml',
