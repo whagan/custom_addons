@@ -17,7 +17,7 @@ class SalesStatisticsReport(models.Model):
     end_date = fields.Datetime(string = 'End Date', required=True, ValidationError='_check_date_validity')
     location_ids = fields.Many2many('stock.location', relation='sales_statistics_report_rel', column1='custom_report_id', column2='location_id', string="Location")
     sales_statistic_ids = fields.One2many('custom_reports.sales_statistic', 'sales_statistics_report_id', string="Sales Statistics")
-
+    sales_statistics_graph = fields.Text('Sales Graph', default = 'SalesGraph' )
  
     @api.model
     def create(self, values):
