@@ -15,7 +15,9 @@
         <field name="arch" type="xml">
             <tree>
                 <field name="shop_id"/>
-                <field name="first_hour"/>           
+                <field name="max_hour"/>    
+                <field name="min_hour"/>
+                <field name="all_hour"/>         
             </tree>
         </field>
     </record>
@@ -27,7 +29,8 @@
         <field name="arch" type="xml">
             <form>
                 <field name="shop_id"/>
-                <field name="first_hour"/>
+                <field name="start_date"/>
+                <field name="end_date"/>        
             </form>
         </field>
     </record>
@@ -39,7 +42,9 @@
         <field name="arch" type="xml">
             <pivot>
                 <field name="shop_id" type="row"/>
-                <field name="first_hour" type="col"/>     
+                <field name="max_hour" type="col"/>
+                <field name="min_hour" type="col"/>
+                <field name="all_hour" type="col"/>       
             </pivot>
         </field>
     </record>
@@ -103,7 +108,8 @@
                             <field name="traffic_statistic_ids">
                                 <pivot>
                                     <field name="shop_id" type="row"/>
-                                    <field name="first_hour" type="col"/>                                            
+                                    <field name="max_hour" type="col"/>
+                                    <field name="min_hour" type="col"/>                                       
                                 </pivot>
                             </field>
                         </page>
@@ -121,9 +127,7 @@
         <field name="arch" type="xml">
             <xpath expr="//notebook" position="inside">
                 <page string="Graph">
-                    <field name="traffic_statistic_graph" widget="traffic_statistic_graph"
-						title="Traffic Statistics" 
-						options="{'graph_type': 'bar'}"/>
+                    <field name="traffic_statistic_graph" widget="traffic_statistic_graph" title="Traffic Statistics"/>
                 </page>
             </xpath>
         </field>

@@ -49,7 +49,10 @@ class TrafficStatistic(models.Model):
     traffic_statistics_report_id = fields.Many2one('custom_reports.traffic_statistics_report', string="Traffic Statistics Report", ondelete='cascade', store=True)
     start_date = fields.Datetime(related='traffic_statistics_report_id.start_date', required=True)
     end_date = fields.Datetime(related='traffic_statistics_report_id.end_date', required=True)
-    first_hour = fields.Integer(string="Top Hour", compute="_compute_avg_hour", readonly=False)
+
+    max_hour = fields.Char(string="Max Hour(s)", compute="_compute_rank_hour", readonly=False)
+    min_hour = fields.Char(string="Min Hour(s)", compute="_compute_rank_hour", readonly=False)
+    all_hour = fields.Char(string="All Hours", compute="_compute_rank_hour", readonly=False)
 
     @api.depends('shop_id', 'start_date', 'end_date')
     def _compute_sales_shop(self):
@@ -67,9 +70,8 @@ class TrafficStatistic(models.Model):
             record.sales_shop = sales_location
     
     @api.depends('shop_id', 'start_date', 'end_date')
-    def _compute_avg_hour(self):
+    def _compute_rank_hour(self):
         for record in self:
-            sales_shop = 0.0
             if record.shop_id and (record.start_date <= record.end_date):
                 sales = record.env['pos.order'].search([
                     ('session_id', '=', record.shop_id.id),
@@ -85,17 +87,22 @@ class TrafficStatistic(models.Model):
                     for hour in hours_sales:
                         hours_sales_avg.append(record._avg_per_hour(hour))
                     _logger.debug("THIS IS THE hours_sales_avg: ", hours_sales_avg)
-                    record.first_hour = hours_sales_avg.index(max(hours_sales_avg))
+                    record.max_hour = str(record._max_hour(hours_sales_avg))
+                    record.min_hour = str(record._min_hour(hours_sales_avg))
+                    record.all_hour = str(hours_sales_avg)
                 else:
-                    record.first_hour = 0
+                    record.max_hour = "No sales found"
             else:
-                record.first_hour = 1
+                raise exceptions.ValidationError(_("Error. Shop not found."))
             
 
     def _avg_per_hour(self, hour_list):
         if not hour_list:
             return round(0, 2)
         return round((sum(hour_list) / len(hour_list)), 2)
-                       
+
+    def _max_hour(self, hour_list_avg):
+        return [index for index, value in enumerate(hour_list_avg) if value == max(hour_list_avg)]
     
-    
+    def _min_hour(self, hour_list_avg):
+        return [index for index, value in enumerate(hour_list_avg) if value == min(hour_list_avg)]
