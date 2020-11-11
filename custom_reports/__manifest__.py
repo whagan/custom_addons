@@ -32,8 +32,7 @@
         'static/src/xml/sales_by_company_graph.xml',
         'static/src/xml/employee_performance_graph.xml',
         'static/src/xml/email_marketing_graph.xml',
-        'static/src/xml/sales_statistics_graph.xml',
-        'static/src/xml/traffic_statistics_graph.xml',
+        'static/src/xml/traffic_statistic_graph.xml',
     ],
     
     
