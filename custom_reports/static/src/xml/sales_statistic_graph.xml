@@ -1,8 +1,6 @@
 <?xml version="1.0"?>
 
 <templates id="template" xml:space="preserve">
-
-   <t t-name="sales_statistic_graph_template">
    
    <t t-name="sales_statistic_graph_template">
       <div class="col-md-12" style="display: block !important;">
