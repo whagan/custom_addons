@@ -5,7 +5,7 @@
         <!-- pos configs (locations) -->
         
         <record model="pos.config" id="click_pos_config_01">
-            <field name="name">The Arcade</field>
+            <field name="name">Kevin's Arcade</field>
             <field name="barcode_nomenclature_id" ref="barcodes.default_barcode_nomenclature"/>
         </record>
 
@@ -15,7 +15,12 @@
         </record>
 
         <record model="pos.config" id="click_pos_config_03">
-            <field name="name">Carpenter's Gothic</field>
+            <field name="name">Daniel's Pizzeria</field>
+            <field name="barcode_nomenclature_id" ref="barcodes.default_barcode_nomenclature"/>
+        </record>
+
+        <record model="pos.config" id="click_pos_config_03">
+            <field name="name">John's Video Lodge</field>
             <field name="barcode_nomenclature_id" ref="barcodes.default_barcode_nomenclature"/>
         </record>
 
