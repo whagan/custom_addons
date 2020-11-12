@@ -1,4 +1,5 @@
-odoo.define('custom_reports.EmailMarketingGraph', function(require)   {
+
+odoo.define('custom_reports.SalesStatisticGraph', function(require)   {
     'use strict';
 
     var core = require('web.core');
@@ -8,21 +9,19 @@ odoo.define('custom_reports.EmailMarketingGraph', function(require)   {
 
     var COLORS = ['#875a7b', '#21b799', '#E4A900', '#D5653E', '#5B899E', '#E46F78', '#8F8F8F'];
 
-    var EmailMarketingGraph = BasicFields.FieldText.extend({
+    var SalesStatisticGraph = BasicFields.FieldText.extend({
         jsLibs: [
             '/web/static/lib/Chart/Chart.js',
         ],
-        template: 'email_marketing_graph_template',
-        xmlDependencies: ['custom_reports/static/src/xml/email_marketing_graph.xml'],
+        template: 'sales_statistic_graph_template',
+        xmlDependencies: ['custom_reports/static/src/xml/sale_statistic_graph.xml'],
         
-
-
         /**
          * @override
          */
         init: function () {
             this._super.apply(this, arguments);
-            this.graph_data = arguments[2].data.mass_mailing_ids.data;
+            this.graph_data = arguments[2].data.sales_statistic_ids.data;
             this.graph_type = this.attrs.options.graph_type;
         },
 
@@ -31,13 +30,12 @@ odoo.define('custom_reports.EmailMarketingGraph', function(require)   {
          */
         start: function()   {
             var self = this;
-            console.log(self);
             var labels = [];
             var data = [];
 
             self.graph_data.forEach(graph_datum =>  {
-                labels.push(graph_datum.data.subject);
-                data.push(graph_datum.data.sales_delta_per);
+                labels.push(graph_datum.data.location_id.data.display_name);
+                data.push(graph_datum.data.sales_location);
             });
 
             var colors = self._getColors(data.length);
@@ -47,7 +45,7 @@ odoo.define('custom_reports.EmailMarketingGraph', function(require)   {
                     self.config = self._getBarGraph(labels, data, colors);
                     break;
                 // case 'line':
-                //     self.config = self._getLineGraph();
+                //     self.config = self._getLineGraph(labels, data, colors);
                 //     break;
                 case 'pie':
                     self.config = self._getPieGraph(labels, data, colors);
@@ -79,23 +77,10 @@ odoo.define('custom_reports.EmailMarketingGraph', function(require)   {
                 data: {
                    labels: labels,
                    datasets: [{
-                       label: 'Email Marketing',
+                       label: 'Sales Statistics',
                        data: data,
                        backgroundColor: colors,
                     }]
-                },
-                options:    {
-                    title:  {
-                        display: true,
-                        text: 'Change in Avg Sales Percent'
-                    },
-                    scales: {
-                        yAxes:  [{
-                            ticks:  {
-                                beginAtZero: true
-                            }
-                        }]
-                    }
                 },
             };
         },
@@ -145,7 +130,7 @@ odoo.define('custom_reports.EmailMarketingGraph', function(require)   {
                 data: {
                    labels: labels,
                    datasets: [{
-                       label: 'Email Marketing',
+                       label: 'Sales Statistics',
                        data: data,
                        backgroundColor: colors,
                     }]
@@ -163,7 +148,7 @@ odoo.define('custom_reports.EmailMarketingGraph', function(require)   {
                 data: {
                    labels: labels,
                    datasets: [{
-                       label: 'Email Marketing',
+                       label: 'Sales Statistics',
                        data: data,
                        backgroundColor: colors,
                     }]
@@ -181,7 +166,7 @@ odoo.define('custom_reports.EmailMarketingGraph', function(require)   {
                 data: {
                    labels: labels,
                    datasets: [{
-                       label: 'Email Marketing',
+                       label: 'Sales Statistics',
                        data: data,
                        backgroundColor: colors,
                     }]
@@ -199,7 +184,7 @@ odoo.define('custom_reports.EmailMarketingGraph', function(require)   {
                 data: {
                    labels: labels,
                    datasets: [{
-                       label: 'Email Marketing',
+                       label: 'Sales by Company',
                        data: data,
                        backgroundColor: colors,
                     }]
@@ -222,18 +207,15 @@ odoo.define('custom_reports.EmailMarketingGraph', function(require)   {
          * @private
          */
         _getColors: function(length)    {
-            var colors_array = COLORS;
-            while (colors_array.length < length)  {
-                colors_array.concat(colors_array);
+            var bgColors = [];
+            for (var i = 0; i < length; i++)    {
+                bgColors.push(COLORS[i % COLORS.length]);
             }
-            return colors_array.slice(0, length);
+            return bgColors;
         },
 
     });
 
-    FieldRegistry.add('email_marketing_graph', EmailMarketingGraph);
+    FieldRegistry.add('sales_statistic_graph', SalesStatisticGraph);
 
 });
-
-
-

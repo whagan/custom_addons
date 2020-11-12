@@ -7,8 +7,11 @@ from dateutil.relativedelta import relativedelta
 class EmailMarketingReport(models.Model):
     _name = 'custom_reports.email_marketing_report'
     _description = "Email Marketing Report"
-    
+    _rec_name = 'report_title'
+
+    report_title = fields.Char('Report Title', required=True)
     mass_mailing_ids = fields.Many2many('mailing.mailing', relation='custom_reports_email_marketing_report_mail_rel', column1='email_marketing_id', column2='mass_mailing_id', string="Mass Mailings")
+    email_marketing_graph = fields.Text('Email Marketing Graph', default='EmailMarketGraph')
     
 
 
@@ -20,7 +23,7 @@ class MassMailing(models.Model):
     sales_prev_avg = fields.Float(string="Avg Weekly Sales Prev 6 mos", readonly=True, compute="_compute_prev_sales")
     sales_since_avg = fields.Float(string="Avg Weekly Sales Since Mailing", readonly=True, compute="_compute_since_sales")
     sales_delta = fields.Float(string="Change in Avg Sales", readonly=True, compute="_compute_avg_diff")
-    sales_delta_per = fields.Char(string="Change in Avg Sales Percent", readonly=True, compute="_compute_avg_diff")
+    sales_delta_per = fields.Float(string="Change in Avg Sales Percent", readonly=True, compute="_compute_avg_diff")
    
     @api.depends('product_ids')
     def _compute_prev_sales(self):
@@ -63,14 +66,14 @@ class MassMailing(models.Model):
         for record in self:
             diff_avg = record.sales_since_avg - record.sales_prev_avg
             record.sales_delta = diff_avg
-            if (record.sales_prev_avg == 0.0):
-                record.sales_delta_per = "No previous sales"
-            elif (record.sales_prev_avg  > 0.0):
-                if (diff_avg < 0.0):
-                    record.sales_delta_per = "Down {0}{1}".format('%0.0f' % ((diff_avg / record.sales_prev_avg) * 100), "%")
-                elif (diff_avg == 0.0):
-                    record.sales_delta_per = "No change"
+            if (record.sales_prev_avg == 0):
+                record.sales_delta_per = 0
+            elif (record.sales_prev_avg  > 0):
+                if (diff_avg < 0):
+                    record.sales_delta_per = float('%0.0f' % ((diff_avg / record.sales_prev_avg) * 100))
+                elif (diff_avg == 0):
+                    record.sales_delta_per = 0
                 else:
-                    record.sales_delta_per = "Up {0}{1}".format('%0.0f' % ((diff_avg / record.sales_prev_avg) * 100), "%")
+                    record.sales_delta_per = float('%0.0f' % ((diff_avg / record.sales_prev_avg) * 100))
             else:
                 raise ValidationError(_("Error. The previous sales average %s is less than 0.00.", s = str(record.sales_prev_avg)))

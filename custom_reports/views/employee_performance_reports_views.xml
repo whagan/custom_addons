@@ -63,8 +63,7 @@
         <field name="model">custom_reports.employee_performance_report</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="start_date"/>
-                <field name="end_date"/>
+                <field name="report_title"/>
             </tree>
         </field>
     </record>
@@ -80,22 +79,31 @@
                         <div class="oe_title">
                             <h1>Employee Performance Report</h1>
                         </div>
-                        <group>
-                            <div>
-                                <label class="oe_input_label" for="name" string="Start Date:" style="font-weight:bold"/>
-                                <field name="start_date"/>
-                            </div>
-                            <div>
-                                <label class="oe_input_label" for="name" string="End Date:" style="font-weight:bold"/>
-                                <field name="end_date"/>
-                            </div>
-                        </group>
+                    </group>
+                    <group>
+                        <div>
+                            <label class="oe_input_label" for="name" string="Report Title" style="font-weight:bold"/>
+                            <field name="report_title"/>
+                        </div>
+                    </group>
+                    <group>
+                        <div>
+                            <label class="oe_input_label" for="name" string="Start Date:" style="font-weight:bold"/>
+                            <field name="start_date"/>
+                        </div>
+                        <div>
+                            <label class="oe_input_label" for="name" string="End Date:" style="font-weight:bold"/>
+                            <field name="end_date"/>
+                        </div>
+                    </group>
+                    <group>
                         <div>
                             <label class="oe_input_label" for="name" string="Employees" style="font-weight:bold"/>
                             <field name="employee_ids" widget="many2many_tags"/>
                         </div>
                     </group>
-                    <notebook>
+                    <field name="id" invisible="1"/>
+                    <notebook attrs="{'invisible': [('id', '=', False)]}">
                         <page string="Pivot">
                             <field name="employee_performance_ids">
                                 <pivot>
@@ -103,7 +111,7 @@
                                     <field name="worked_hours" type="col"/>
                                     <field name="total_sales" type="col"/>
                                     <field name="sales_hour" type="col"/>
-                                </pivot>
+                                </pivot> 
                             </field>
                         </page>
                     </notebook>
@@ -120,7 +128,9 @@
         <field name="arch" type="xml">
             <xpath expr="//notebook" position="inside">
                 <page string="Graph">
-                    <widget name ="employee_performance_graph"/>    
+                    <field name="employee_performance_graph" widget="employee_performance_graph"
+						title="Employee Performances" 
+						options="{'graph_type': 'bar'}"/>
                 </page>
             </xpath>
         </field>

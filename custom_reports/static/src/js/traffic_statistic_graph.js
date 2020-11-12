@@ -1,12 +1,12 @@
 odoo.define('custom_reports.TrafficStatisticGraph', function(require)   {
     'use strict';
 
-    var Widget = require('web.Widget');
-    var Registry = require('web.widget_registry');
-    var core = require('web.core');
+    var BasicFields = require('web.basic_fields');
+    var FieldRegistry = require('web.field_registry');
 
+    var COLORS = ['#875a7b', '#21b799', '#E4A900', '#D5653E', '#5B899E', '#E46F78', '#8F8F8F'];
 
-    var TrafficStatisticGraph = Widget.extend({
+    var TrafficStatisticGraph = BasicFields.FieldText.extend({
         jsLibs: [
             '/web/static/lib/Chart/Chart.js',
         ],
@@ -15,14 +15,11 @@ odoo.define('custom_reports.TrafficStatisticGraph', function(require)   {
         
         /**
          * @override
-         * @param   {Object}    parent
-         * @param   {Object}    data
          */
-        init: function (parent, data) {
+        init: function () {
             this._super.apply(this, arguments);
-            this.data = data;
-            console.log(this.data);
-            console.log('Widget initialized');
+            this.graph_data = this.record.data.traffic_statistic_ids.data;
+            console.log(this.graph_data);
         },
 
         /**
@@ -30,27 +27,22 @@ odoo.define('custom_reports.TrafficStatisticGraph', function(require)   {
          */
         start: function()   {
             var self = this;
-            self.graph_type = "pie";
             
-    
-            console.log(this.$('canvas').attr('id'));
+            var datasets = [];
+            var colors = self._getColors(self.graph_data.length);
 
+            self.graph_data.forEach(function (graph_datum, index)   {
+                datasets.push({
+                    label: graph_datum.data.shop_id.data.display_name,
+                    data: JSON.parse(graph_datum.data.all_hour),
+                    borderColor: colors[index],
+                    fill: false
+                })
+            });
 
-            switch (self.graph_type) {
-                case 'polarArea':
-                    self.config = self._getPolarGraph();
-                    break;
-                case 'bar':
-                    self.config = self._getBarGraph();
-                    break;
-                case 'pie':
-                    self.config = self._getPieGraph();
-                    break;
-                case 'doughnut':
-                    self.config = self._getDoughnutGraph();
-                    break;
-            }
-            
+            console.log(datasets);
+
+            self.config = self._getLineGraph(datasets);
             self._loadChart();
             
         },
@@ -59,92 +51,36 @@ odoo.define('custom_reports.TrafficStatisticGraph', function(require)   {
         // Private
         // ----------------------------
 
-        /**
-         * Returns a bar graph
+         /**
+         * Returns a line graph
          * @private
          */
-        _getBarGraph: function ()   {
+        _getLineGraph: function (datasets)   {
             return {
-                type: 'bar',
+                type: 'line',
                 data: {
-                   labels: ['Marc Demo', 'Mitchell Admin', 'Paul Williams', 'Ronnie Hart', 'Randall Lewis'],
-                   datasets: [{
-                       label: 'Employee Performances',
-                       data: [44, 24, 37, 12, 8],
-                       backgroundColor: ["#1f77b4", "#c5b0d5", "#e377c2", "#7f7f7f", "#dbdb8d"],
-                    }]
+                   labels: ['12AM', '1AM', '2AM', '3AM', '4AM', '5AM', '6AM', '7AM', '8AM', '9AM', '10AM', '11AM',
+                            '12PM', '1PM', '2PM', '3PM', '4PM', '5PM', '6PM', '7PM', '8PM', '9PM', '10PM', '11PM'],
+                   datasets: datasets,
                 },
-            };
-        },
-
-        /**
-         * Returns a pie graph
-         * @private
-         */
-        _getPieGraph: function ()   {
-            return {
-                type: 'pie',
-                data: {
-                   labels: ['Store A', 'Store B', 'Store C', 'Store D', 'Store F'],
-                   datasets: [{
-                       label: 'Store Traffic Statistics',
-                       data: [55, 78, 37, 10, 48],
-                       backgroundColor: ["#1f77b4", "#c5b0d5", "#e377c2", "#7f7f7f", "#dbdb8d"],
-                    }]
-                },
-            };
-        },
-
-        /**
-         * Returns a doughnut graph
-         * @private
-         */
-        _getDoughnutGraph: function ()   {
-            return {
-                type: 'doughnut',
-                data: {
-                   labels: ['Marc Demo', 'Mitchell Admin', 'Paul Williams', 'Ronnie Hart', 'Randall Lewis'],
-                   datasets: [{
-                       label: 'Employee Performances',
-                       data: [44, 24, 37, 12, 8],
-                       backgroundColor: ["#1f77b4", "#c5b0d5", "#e377c2", "#7f7f7f", "#dbdb8d"],
-                    }]
-                },
-            };
-        },
-
-        /**
-         * Returns a polar graph
-         * @private
-         */
-        _getPolarGraph: function ()   {
-            return {
-                type: 'polarArea',
-                data: {
-                   labels: ['Marc Demo', 'Mitchell Admin', 'Paul Williams', 'Ronnie Hart', 'Randall Lewis'],
-                   datasets: [{
-                       label: 'Employee Performances',
-                       data: [44, 24, 37, 12, 8],
-                       backgroundColor: ["#1f77b4", "#c5b0d5", "#e377c2", "#7f7f7f", "#dbdb8d"],
-                    }]
-                },
-            };
-        },
-
-        /**
-         * Returns a radar graph
-         * @private
-         */
-        _getRadarGraph: function ()   {
-            return {
-                type: 'radar',
-                data: {
-                   labels: ['Marc Demo', 'Mitchell Admin', 'Paul Williams', 'Ronnie Hart', 'Randall Lewis'],
-                   datasets: [{
-                       label: 'Employee Performances',
-                       data: [44, 24, 37, 12, 8],
-                       backgroundColor: ["#1f77b4", "#c5b0d5", "#e377c2", "#7f7f7f", "#dbdb8d"],
-                    }]
+                options:    {
+                    title:  {
+                        display: true,
+                        text: 'Sales per Hour in Day'
+                    },
+                    scales: {
+                        yAxes:  [{
+                            ticks:  {
+                                beginAtZero: true,
+                                callback: function(value, index, values)    {
+                                    value = value.toString();
+                                    value = value.split(/(?=(?:...)*$)/);
+                                    value = value.join('.');
+                                    return '$' + value;
+                                }
+                            }
+                        }]
+                    }
                 },
             };
         },
@@ -157,10 +93,22 @@ odoo.define('custom_reports.TrafficStatisticGraph', function(require)   {
             var canvas = this.$('canvas')[0];
             var context = canvas.getContext('2d');
             return new Chart(context, this.config);
-        }
+        },
+
+        /**
+         * Returns an array of colors
+         * @private
+         */
+        _getColors: function(length) {
+            var bgColors = [];
+            for (var i = 0; i < length; i++) {
+                bgColors.push(COLORS[i % COLORS.length]);  
+            }
+            return bgColors;
+        },
 
     });
 
-    Registry.add('traffic_statistic_graph', TrafficStatisticGraph);
+    FieldRegistry.add('traffic_statistic_graph', TrafficStatisticGraph);
 
 });

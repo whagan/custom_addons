@@ -1,4 +1,4 @@
-from odoo import models, fields, api
+from odoo import models, fields, api, exceptions, _
 from odoo.tools import format_datetime
 from odoo.exceptions import ValidationError
 import datetime
@@ -9,12 +9,16 @@ import datetime
 class EmployeePerformanceReport(models.Model):
     _name = 'custom_reports.employee_performance_report'
     _description = "Employee Performance Report"
+    _rec_name = 'report_title'
     
     # basic properties
-    start_date = fields.Datetime(string='Start Date')
-    end_date = fields.Datetime(string='End Date')
+    report_title = fields.Char('Report Title', required=True)
+    start_date = fields.Datetime(string='Start Date', required=True, ValidationError='_check_date_validity')
+    end_date = fields.Datetime(string='End Date', required=True, ValidationError='_check_date_validity')
+
     employee_ids = fields.Many2many('hr.employee', relation='custom_reports_employee_report_rel', column1='custom_report_id', column2='employee_id', string="Employees")
     employee_performance_ids = fields.One2many('custom_reports.employee_performance', 'employee_performance_report_id', string="Employee Performances")
+    employee_performance_graph = fields.Text('Employee Graph', default='EmployeeGraph')
     
     # methods 
     @api.model
@@ -31,6 +35,21 @@ class EmployeePerformanceReport(models.Model):
             })
         self.env['custom_reports.employee_performance'].create(records)
         return record
+
+    @api.constrains('start_date','end_date')
+    def _check_date_validity(self):
+        for report in self:
+            if report.start_date and report.end_date:
+                if report.start_date > report.end_date:
+                    raise ValidationError(_("Error. Start date must be earlier than end date."))
+
+    
+    @api.constrains('start_date', 'end_date')
+    def _check_validity_start_date_end_date(self):
+        for record in self:
+            if record.start_date and record.end_date:
+                if record.end_date < record.start_date:
+                    raise exceptions.ValidationError(_("Error. Start Date must be earlier than End Date."))
     
 #Employee Performance DataModel
 class EmployeePerformance(models.Model):
@@ -70,14 +89,14 @@ class EmployeePerformance(models.Model):
     @api.depends('employee_id', 'employee_user_id', 'start_date', 'end_date')
     def _compute_total_sales(self):
         for record in self:
-            total_sales = 0.0
+            total_sales = 0.00
             if record.employee_id and (record.start_date <= record.end_date):
                 orders = record.env['sale.order'].search([
                     ('state', 'in', ['sale', 'done']),
                     ('user_id', '=', record.employee_user_id.id),
                     ('date_order', '>=', record.start_date),
                     ('date_order', '<=', record.end_date)
-                    ])
+                ])
                 if orders: # if found in orders, sum the total sales
                     for sale in orders:
                         total_sales += sale.amount_total
@@ -87,7 +106,7 @@ class EmployeePerformance(models.Model):
     @api.depends('total_sales', 'worked_hours')
     def _compute_sales_hour(self):
         for record in self:
-            if(record.worked_hours == 0):
+            if(record.worked_hours == 0 or record.total_sales == 0):
                 record.sales_hour = 0
             else:
                 record.sales_hour = record.total_sales / record.worked_hours

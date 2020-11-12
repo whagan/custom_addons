@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <!-- odoo action -->
+    <!-- email marketing report action -->
     <record model="ir.actions.act_window" id="email_marketing_report_action" >
         <field name="name">Email Marketing Report</field>
         <field name="res_model">custom_reports.email_marketing_report</field>
@@ -9,18 +9,18 @@
 
    
 
-    <!-- tree -->
+    <!-- email marketing report tree -->
     <record model="ir.ui.view" id="email_marketing_report_view_tree">
         <field name="name">Email Marketing Report</field>
         <field name="model">custom_reports.email_marketing_report</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="id"/>
+                <field name="report_title"/>
             </tree>
         </field>
     </record>
 
-    <!-- form -->
+    <!-- email marketing report form -->
     <record model="ir.ui.view" id="email_marketing_report_view_form">
         <field name="name">Email Marketing Report</field>
         <field name="model">custom_reports.email_marketing_report</field>
@@ -31,22 +31,26 @@
                         <div class="oe_title">
                             <h1>Email Marketing Report</h1>
                         </div>
-                        <group>
-                            <div>
-                                <label class="oe_input_label" for="name" string="Mailings" style="font-weight:bold"/>
-                                <field name="mass_mailing_ids" widget="many2many_tags"/>
-                            </div>
-                        </group>
                     </group>
-                    <notebook>
+                    <group>
+                        <div>
+                            <label class="oe_input_label" for="name" string="Report Title" style="font-weight:bold"/>
+                            <field name="report_title"/>
+                        </div>
+                    </group>
+                    <group>
+                        <div>
+                            <label class="oe_input_label" for="name" string="Mailings" style="font-weight:bold"/>
+                            <field name="mass_mailing_ids" widget="many2many_tags"/>
+                        </div>
+                    </group>
+                    <field name="id" invisible="1"/>
+                    <notebook attrs="{'invisible': [('id', '=', False)]}">
                         <page string="Pivot">
                             <field name="mass_mailing_ids">
                                 <tree>
                                     <field name="subject" type="row"/>
                                     <field name="sent_date" type="col"/>
-                                    <field name="received_ratio" type="col"/>
-                                    <field name="opened_ratio" type="col"/>
-                                    <field name="sales_prev_avg" type="col"/>
                                     <field name="sales_since_avg" type="col"/>
                                     <field name="sales_delta" type="col"/>
                                     <field name="sales_delta_per" type="col"/>
@@ -73,7 +77,7 @@
         </field>
     </record>
 
-    <!-- employee performance graph form view -->
+    <!-- email marketing graph form view -->
     <record id="email_marketing_report_view_form_graph" model="ir.ui.view">
         <field name="name">Email Marketing Report Graph Form</field>
         <field name="model">custom_reports.email_marketing_report</field>
@@ -81,7 +85,9 @@
         <field name="arch" type="xml">
             <xpath expr="//notebook" position="inside">
                 <page string="Graph">
-                    <widget name ="email_marketing_graph"/>    
+                    <field name="email_marketing_graph" widget="email_marketing_graph"
+						title="Email Marketing" 
+						options="{'graph_type': 'bar'}"/> 
                 </page>
             </xpath>
         </field>

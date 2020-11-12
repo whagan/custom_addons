@@ -1,0 +1,285 @@
+<odoo>
+
+    <data noupdate="0">
+
+        <!-- res company -->
+        <!-- <record id="company_click_01" model="res.company">
+            <field name="name">Click Inc</field>
+        </record> -->
+
+
+        <!-- res partner -->
+
+        <record id="res_partner_click_01" model="res.partner">
+            <field name="name">Tommy Rogers</field>
+            <field name="company_name">BTBAM</field>
+            <field name="street">775 Watauga</field>
+            <field name="city">Memphis</field>
+            <field name="zip">38117</field>
+            <field name='country_id' ref='base.us'/>
+            <field name='state_id' ref='base.state_us_43'/>
+            <field name="phone">+1 555-555-5555</field>
+            <field name="email">tommy@btbam.example.com</field>
+            <field name="tz">Europe/Brussels</field>
+            <field name="image_1920" type="base64" file="custom_reports/static/img/employee_performance/res_partner/emp_01.jpeg"/>
+        </record>
+
+        <record id="res_partner_click_02" model="res.partner">
+            <field name="name">Dustie Waring</field>
+            <field name="company_name">BTBAM</field>
+            <field name="street">215 Perkins Rd</field>
+            <field name="city">Memphis</field>
+            <field name="zip">38117</field>
+            <field name='country_id' ref='base.us'/>
+            <field name='state_id' ref='base.state_us_43'/>
+            <field name="phone">+1 555-555-5555</field>
+            <field name="email">dustie@btbam.example.com</field>
+            <field name="tz">Europe/Brussels</field>
+            <field name="image_1920" type="base64" file="custom_reports/static/img/employee_performance/res_partner/emp_02.jpg"/>
+        </record>
+
+        <record id="res_partner_click_03" model="res.partner">
+            <field name="name">Dan Briggs</field>
+            <field name="company_name">BTBAM</field>
+            <field name="street">677 Alexander St</field>
+            <field name="city">Memphis</field>
+            <field name="zip">38117</field>
+            <field name='country_id' ref='base.us'/>
+            <field name='state_id' ref='base.state_us_43'/>
+            <field name="phone">+1 555-555-5555</field>
+            <field name="email">dan@btbam.example.com</field>
+            <field name="tz">Europe/Brussels</field>
+            <field name="image_1920" type="base64" file="custom_reports/static/img/employee_performance/res_partner/emp_03.jpg"/>
+        </record>
+
+        <record id="res_partner_click_04" model="res.partner">
+            <field name="name">Blake Richardson</field>
+            <field name="company_name">BTBAM</field>
+            <field name="street">72 Patterson</field>
+            <field name="city">Memphis</field>
+            <field name="zip">38117</field>
+            <field name='country_id' ref='base.us'/>
+            <field name='state_id' ref='base.state_us_43'/>
+            <field name="phone">+1 555-555-5555</field>
+            <field name="email">blake@btbam.example.com</field>
+            <field name="tz">Europe/Brussels</field>
+            <field name="image_1920" type="base64" file="custom_reports/static/img/employee_performance/res_partner/emp_04.jpg"/>
+        </record>
+
+        <record id="res_partner_click_05" model="res.partner">
+            <field name="name">Paul Waggoner</field>
+            <field name="company_name">BTBAM</field>
+            <field name="street">459 Holmes St</field>
+            <field name="city">Memphis</field>
+            <field name="zip">38117</field>
+            <field name='country_id' ref='base.us'/>
+            <field name='state_id' ref='base.state_us_43'/>
+            <field name="phone">+1 555-555-5555</field>
+            <field name="email">paul@btbam.example.com</field>
+            <field name="tz">Europe/Brussels</field>
+            <field name="image_1920" type="base64" file="custom_reports/static/img/employee_performance/res_partner/emp_05.jpg"/>
+        </record>
+
+        <!-- res user -->
+
+        <record id="user_click_01" model="res.users">
+            <field name="partner_id" ref="res_partner_click_01"/>
+            <field name="login">tommy@btbtam.com</field>
+            <field name="password">demo</field>
+            <field name="signature" type="xml"><span>-- <br/>+Mr Rogers</span></field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="groups_id" eval="[(6,0,[ref('base.group_user'), ref('base.group_partner_manager')])]"/>
+            <field name="image_1920" type="base64" file="custom_reports/static/img/employee_performance/res_user/emp_01.jpeg"/>
+            <field eval="[(4, ref('sales_team.group_sale_salesman'))]" name="groups_id"/>
+        </record>
+        
+        <record id="user_click_02" model="res.users">
+            <field name="partner_id" ref="res_partner_click_02"/>
+            <field name="login">dustie@btbtam.com</field>
+            <field name="password">demo</field>
+            <field name="signature" type="xml"><span>-- <br/>+Mr Waring</span></field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="groups_id" eval="[(6,0,[ref('base.group_user'), ref('base.group_partner_manager')])]"/>
+            <field name="image_1920" type="base64" file="custom_reports/static/img/employee_performance/res_user/emp_02.jpg"/>
+            <field eval="[(4, ref('sales_team.group_sale_salesman'))]" name="groups_id"/>
+        </record>
+        
+        <record id="user_click_03" model="res.users">
+            <field name="partner_id" ref="res_partner_click_03"/>
+            <field name="login">dan@btbtam.com</field>
+            <field name="password">demo</field>
+            <field name="signature" type="xml"><span>-- <br/>+Mr Briggs</span></field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="groups_id" eval="[(6,0,[ref('base.group_user'), ref('base.group_partner_manager')])]"/>
+            <field name="image_1920" type="base64" file="custom_reports/static/img/employee_performance/res_user/emp_03.jpg"/>
+            <field eval="[(4, ref('sales_team.group_sale_salesman'))]" name="groups_id"/>
+        </record>
+        
+        <record id="user_click_04" model="res.users">
+            <field name="partner_id" ref="res_partner_click_04"/>
+            <field name="login">blake@btbtam.com</field>
+            <field name="password">demo</field>
+            <field name="signature" type="xml"><span>-- <br/>+Mr Richardson</span></field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="groups_id" eval="[(6,0,[ref('base.group_user'), ref('base.group_partner_manager')])]"/>
+            <field name="image_1920" type="base64" file="custom_reports/static/img/employee_performance/res_user/emp_04.jpg"/>
+            <field eval="[(4, ref('sales_team.group_sale_salesman'))]" name="groups_id"/>
+        </record>
+        
+        <record id="user_click_05" model="res.users">
+            <field name="partner_id" ref="res_partner_click_05"/>
+            <field name="login">paul@btbtam.com</field>
+            <field name="password">demo</field>
+            <field name="signature" type="xml"><span>-- <br/>+Mr Waggoner</span></field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="groups_id" eval="[(6,0,[ref('base.group_user'), ref('base.group_partner_manager')])]"/>
+            <field name="image_1920" type="base64" file="custom_reports/static/img/employee_performance/res_user/emp_05.jpg"/>
+            <field eval="[(4, ref('sales_team.group_sale_salesman'))]" name="groups_id"/>
+        </record> -->
+    
+        <!-- hr sales job-->
+
+        <record id="job_salesperson" model="hr.job">
+            <field name="name">Sales Person</field>
+            <field name="department_id" ref="hr.dep_sales"/>
+            <field name="no_of_recruitment">5</field>
+        </record>
+
+        <!-- hr employees -->
+    
+        <record id="employee_click_01" model="hr.employee">
+            <field name="name">Tommy Rogers</field>
+            <!-- <field name="user_id" ref="res_partner_click_01"/> -->
+            <field name="department_id" ref="hr.dep_sales"/>
+            <field name="parent_id" ref="hr.employee_admin"/>
+            <field name="job_id" ref="job_salesperson"/>
+            <field name="job_title">Sales Person</field>
+            <field name="category_ids" eval="[(6, 0, [ref('hr.employee_category_2')])]"/>
+            <field name="work_location">Building 1, Second Floor</field>
+            <field name="work_phone">+3281813700</field>
+            <field name="work_email">tommy@btbam.com</field>
+            <field name="image_1920" type="base64" file="custom_reports/static/img/employee_performance/hr/emp_01.jpeg"/>
+        </record>
+
+        <record id="employee_click_02" model="hr.employee">
+            <field name="name">Dustie Waring</field>
+            <!-- <field name="user_id" ref="res_partner_click_02"/> -->
+            <field name="department_id" ref="hr.dep_sales"/>
+            <field name="parent_id" ref="hr.employee_admin"/>
+            <field name="job_id" ref="job_salesperson"/>
+            <field name="job_title">Sales Person</field>
+            <field name="category_ids" eval="[(6, 0, [ref('hr.employee_category_2')])]"/>
+            <field name="work_location">Building 1, Second Floor</field>
+            <field name="work_phone">+3281813701</field>
+            <field name="work_email">dustie@btbam.com</field>
+            <field name="image_1920" type="base64" file="custom_reports/static/img/employee_performance/hr/emp_02.jpg"/>
+        </record>
+
+        <record id="employee_click_03" model="hr.employee">
+            <field name="name">Dan Briggs</field>
+            <!-- <field name="user_id" ref="res_partner_click_03"/>  -->
+            <field name="department_id" ref="hr.dep_sales"/>
+            <field name="parent_id" ref="hr.employee_admin"/>
+            <field name="job_id" ref="job_salesperson"/>
+            <field name="job_title">Sales Person</field>
+            <field name="category_ids" eval="[(6, 0, [ref('hr.employee_category_2')])]"/>
+            <field name="work_location">Building 1, Second Floor</field>
+            <field name="work_phone">+3281813702</field>
+            <field name="work_email">dan@btbam.com</field>
+            <field name="image_1920" type="base64" file="custom_reports/static/img/employee_performance/hr/emp_03.jpg"/>
+        </record>
+
+        <record id="employee_click_04" model="hr.employee">
+            <field name="name">Blake Richardson</field>
+            <!-- <field name="user_id" ref="res_partner_click_04"/>  -->
+            <field name="department_id" ref="hr.dep_sales"/>
+            <field name="parent_id" ref="hr.employee_admin"/>
+            <field name="job_id" ref="job_salesperson"/>
+            <field name="job_title">Sales Person</field>
+            <field name="category_ids" eval="[(6, 0, [ref('hr.employee_category_2')])]"/>
+            <field name="work_location">Building 1, Second Floor</field>
+            <field name="work_phone">+3281813703</field>
+            <field name="work_email">blake@btbam</field>
+            <field name="image_1920" type="base64" file="custom_reports/static/img/employee_performance/hr/emp_04.jpg"/>
+        </record>
+
+        <record id="employee_click_05" model="hr.employee">
+            <field name="name">Paul Waggoner</field>
+            <!-- <field name="user_id" ref="res_partner_click_05"/> -->
+            <field name="department_id" ref="hr.dep_sales"/>
+            <field name="parent_id" ref="hr.employee_admin"/>
+            <field name="job_id" ref="job_salesperson"/>
+            <field name="job_title">Sales Person</field>
+            <field name="category_ids" eval="[(6, 0, [ref('hr.employee_category_2')])]"/>
+            <field name="work_location">Building 1, Second Floor</field>
+            <field name="work_phone">+3281813704</field>
+            <field name="work_email">paul@btbam</field>
+            <field name="image_1920" type="base64" file="custom_reports/static/img/employee_performance/hr/emp_05.jpg"/>
+        </record>
+
+        <!-- employee_click_01 attendances -->
+
+        <record id="attendance_click_01" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-01 08:21')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-01 11:51')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_01"/>
+        </record>
+
+        <record id="attendance_click_02" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-02 12:47')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-02 19:53')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_01"/>
+        </record>
+
+        <record id="attendance_click_03" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-03 07:32')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-03 12:32')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_01"/>
+        </record>
+
+        <record id="attendance_click_04" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-04 14:01')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-04 17:21')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_01"/>
+        </record>
+
+        <record id="attendance_click_05" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-05 09:10')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-05 12:42')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_01"/>
+        </record>
+
+        <record id="attendance_click_06" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-06 13:10')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-06 18:34')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_01"/>
+        </record>
+
+        <record id="attendance_click_07" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-07 08:21')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-07 18:21')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_01"/>
+        </record>
+
+        <record id="attendance_click_08" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-08 08:21')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-08 12:54')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_01"/>
+        </record>
+
+        <record id="attendance_click_09" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-09 13:32')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-09 19:31')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_01"/>
+        </record>
+
+        <record id="attendance_click_10" model="hr.attendance">
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-10 08:00')" name="check_in"/>
+            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-10 09:00')" name="check_out"/>
+            <field name="employee_id" ref="employee_click_01"/>
+        </record>
+
+
+    </data>
+
+</odoo>

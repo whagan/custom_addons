@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <templates id="template" xml:space="preserve">
-
+   
    <t t-name="employee_performance_graph_template">
       <div class="col-md-12" style="display: block !important;">
 			<canvas class="bar-chart" id="bar-chart" width="300" height="150" style="display:block !important;width:100%;"></canvas>

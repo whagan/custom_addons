@@ -22,7 +22,7 @@
                 <field name="uom_po_id" ref="uom.product_uom_unit"/>
                 <field name="description_sale">ClickIt lamp.</field>
                 <field name="default_code">SUPP_1122</field>
-                <field name="image_1920" type="base64" file="custom_reports/static/img/lamp.png"/>
+                <field name="image_1920" type="base64" file="custom_reports/static/img/email_marketing/products/lamp.png"/>
         </record>
 
         <record id="product_click_02" model="product.product">
@@ -36,7 +36,7 @@
                 <field name="uom_po_id" ref="uom.product_uom_unit"/>
                 <field name="description_sale">ClickIt stapler.</field>
                 <field name="default_code">SUPP_1123</field>
-                <field name="image_1920" type="base64" file="custom_reports/static/img/stapler.png"/>
+                <field name="image_1920" type="base64" file="custom_reports/static/img/email_marketing/products/stapler.png"/>
         </record>
 
         <record id="product_click_03" model="product.product">
@@ -50,7 +50,7 @@
                 <field name="uom_po_id" ref="uom.product_uom_unit"/>
                 <field name="description_sale">ClickIt tape dispenser.</field>
                 <field name="default_code">SUPP_1124</field>
-                <field name="image_1920" type="base64" file="custom_reports/static/img/tape_dispenser.png"/>
+                <field name="image_1920" type="base64" file="custom_reports/static/img/email_marketing/products/tape_dispenser.png"/>
         </record>
 
         <record id="product_click_04" model="product.product">
@@ -64,7 +64,7 @@
                 <field name="uom_po_id" ref="uom.product_uom_unit"/>
                 <field name="description_sale">ClickIt paper clips.</field>
                 <field name="default_code">SUPP_1125</field>
-                <field name="image_1920" type="base64" file="custom_reports/static/img/paper_clips.png"/>
+                <field name="image_1920" type="base64" file="custom_reports/static/img/email_marketing/products/paper_clips.png"/>
         </record>
 
         <record id="product_click_05" model="product.product">
@@ -78,7 +78,7 @@
                 <field name="uom_po_id" ref="uom.product_uom_unit"/>
                 <field name="description_sale">ClickIt mouse pad.</field>
                 <field name="default_code">SUPP_1126</field>
-                <field name="image_1920" type="base64" file="custom_reports/static/img/mouse_pad.png"/>
+                <field name="image_1920" type="base64" file="custom_reports/static/img/email_marketing/products/mouse_pad.png"/>
         </record>
 
         <record id="product_click_06" model="product.product">
@@ -92,7 +92,7 @@
                 <field name="uom_po_id" ref="uom.product_uom_unit"/>
                 <field name="description_sale">ClickIt scissors.</field>
                 <field name="default_code">SUPP_1127</field>
-                <field name="image_1920" type="base64" file="custom_reports/static/img/scissors.png"/>
+                <field name="image_1920" type="base64" file="custom_reports/static/img/email_marketing/products/scissors.png"/>
         </record>
 
         <record id="product_click_07" model="product.product">
@@ -106,7 +106,7 @@
                 <field name="uom_po_id" ref="uom.product_uom_unit"/>
                 <field name="description_sale">ClickIt notepad.</field>
                 <field name="default_code">SUPP_1128</field>
-                <field name="image_1920" type="base64" file="custom_reports/static/img/note_pad.png"/>
+                <field name="image_1920" type="base64" file="custom_reports/static/img/email_marketing/products/note_pad.png"/>
         </record>
 
         <record id="product_click_08" model="product.product">
@@ -120,7 +120,7 @@
                 <field name="uom_po_id" ref="uom.product_uom_unit"/>
                 <field name="description_sale">ClickIt pens.</field>
                 <field name="default_code">SUPP_1129</field>
-                <field name="image_1920" type="base64" file="custom_reports/static/img/pens.png"/>
+                <field name="image_1920" type="base64" file="custom_reports/static/img/email_marketing/products/pens.png"/>
         </record>
 
         <record id="product_click_09" model="product.product">
@@ -134,7 +134,7 @@
                 <field name="uom_po_id" ref="uom.product_uom_unit"/>
                 <field name="description_sale">ClickIt clipboard.</field>
                 <field name="default_code">SUPP_1130</field>
-                <field name="image_1920" type="base64" file="custom_reports/static/img/clipboard.png"/>
+                <field name="image_1920" type="base64" file="custom_reports/static/img/email_marketing/products/clipboard.png"/>
         </record>
 
         <record id="product_click_10" model="product.product">
@@ -148,7 +148,7 @@
                 <field name="uom_po_id" ref="uom.product_uom_unit"/>
                 <field name="description_sale">ClickIt calendar.</field>
                 <field name="default_code">SUPP_1131</field>
-                <field name="image_1920" type="base64" file="custom_reports/static/img/calendar.png"/>
+                <field name="image_1920" type="base64" file="custom_reports/static/img/email_marketing/products/calendar.png"/>
         </record>
 
          <record id="product_click_11" model="product.product">
@@ -162,7 +162,7 @@
                 <field name="uom_po_id" ref="uom.product_uom_unit"/>
                 <field name="description_sale">ClickIt binder clips.</field>
                 <field name="default_code">SUPP_1132</field>
-                <field name="image_1920" type="base64" file="custom_reports/static/img/binder_clips.png"/>
+                <field name="image_1920" type="base64" file="custom_reports/static/img/email_marketing/products/binder_clips.png"/>
         </record>
 
          <record id="product_click_12" model="product.product">
@@ -176,7 +176,7 @@
                 <field name="uom_po_id" ref="uom.product_uom_unit"/>
                 <field name="description_sale">ClickIt pencil sharpener.</field>
                 <field name="default_code">SUPP_1133</field>
-                <field name="image_1920" type="base64" file="custom_reports/static/img/pencil_sharpener.png"/>
+                <field name="image_1920" type="base64" file="custom_reports/static/img/email_marketing/products/pencil_sharpener.png"/>
         </record>
 
          <!-- sale orders -->
@@ -185,7 +185,7 @@
             <field name="partner_id" ref="base.res_partner_2"/>
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
-            <field name="user_id" ref="base.user_demo"/>
+            <field name="user_id" ref="user_click_01"/>
             <field name="pricelist_id" ref="product.list0"/>
             <field name="team_id" ref="sales_team.team_sales_department"/>
             <field name="campaign_id" ref="utm.utm_campaign_email_campaign_products"/>
@@ -198,7 +198,7 @@
             <field name="partner_id" ref="base.res_partner_2"/>
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
-            <field name="user_id" ref="base.user_demo"/>
+            <field name="user_id" ref="user_click_01"/>
             <field name="pricelist_id" ref="product.list0"/>
             <field name="team_id" ref="sales_team.team_sales_department"/>
             <field name="campaign_id" ref="utm.utm_campaign_email_campaign_products"/>
@@ -211,7 +211,7 @@
             <field name="partner_id" ref="base.res_partner_2"/>
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
-            <field name="user_id" ref="base.user_demo"/>
+            <field name="user_id" ref="user_click_01"/>
             <field name="pricelist_id" ref="product.list0"/>
             <field name="team_id" ref="sales_team.team_sales_department"/>
             <field name="campaign_id" ref="utm.utm_campaign_email_campaign_products"/>
@@ -224,7 +224,7 @@
             <field name="partner_id" ref="base.res_partner_2"/>
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
-            <field name="user_id" ref="base.user_demo"/>
+            <field name="user_id" ref="user_click_02"/>
             <field name="pricelist_id" ref="product.list0"/>
             <field name="team_id" ref="sales_team.team_sales_department"/>
             <field name="campaign_id" ref="utm.utm_campaign_email_campaign_products"/>
@@ -237,7 +237,7 @@
             <field name="partner_id" ref="base.res_partner_2"/>
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
-            <field name="user_id" ref="base.user_demo"/>
+            <field name="user_id" ref="user_click_02"/>
             <field name="pricelist_id" ref="product.list0"/>
             <field name="team_id" ref="sales_team.team_sales_department"/>
             <field name="campaign_id" ref="utm.utm_campaign_email_campaign_products"/>
@@ -250,7 +250,7 @@
             <field name="partner_id" ref="base.res_partner_2"/>
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
-            <field name="user_id" ref="base.user_demo"/>
+            <field name="user_id" ref="user_click_03"/>
             <field name="pricelist_id" ref="product.list0"/>
             <field name="team_id" ref="sales_team.team_sales_department"/>
             <field name="campaign_id" ref="utm.utm_campaign_email_campaign_products"/>
@@ -259,11 +259,7 @@
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=2)).strftime('%Y-%m-%d %H:%M')"/>
         </record>
 
-        
-
-
-
-          <!-- sale order lines -->
+        <!-- sale order lines -->
 
         <record id="sale_order_line_click_01" model="sale.order.line">
             <field name="order_id" ref="sale_order_click_02"/>
@@ -548,7 +544,7 @@
                                                         <tr>
                                                             <td valign="center" width="30%" class="text-center o_mail_v_padding pb0" style="padding:20px 0 0px 0;vertical-align:middle;text-align:center;">
                                                                 <a href="http://www.clickit.com" style="text-decoration:none;font-weight:bold;background-color:transparent;color:rgb(100, 89, 116);">
-                                                                    <img border="0" src="/custom_reports/static/newsletters/July.png" style="border-style:none;height:auto;vertical-align:middle;max-width:400px;width:auto"/> ​
+                                                                    <img border="0" src="/custom_reports/static/img/email_marketing/newsletters/July.png" style="border-style:none;height:auto;vertical-align:middle;max-width:400px;width:auto"/> ​
                                                                 </a>
                                                             </td>
                                                         </tr>
@@ -653,7 +649,7 @@
                                                         <tr>
                                                             <td valign="center" width="30%" class="text-center o_mail_v_padding pb0" style="padding:20px 0 0px 0;vertical-align:middle;text-align:center;">
                                                                 <a href="http://www.clickit.com" style="text-decoration:none;font-weight:bold;background-color:transparent;color:rgb(100, 89, 116);">
-                                                                    <img border="0" src="/custom_reports/static/newsletters/August.png" style="border-style:none;height:auto;vertical-align:middle;max-width:400px;width:auto"/> ​
+                                                                    <img border="0" src="/custom_reports/static/img/email_marketing/newsletters/August.png" style="border-style:none;height:auto;vertical-align:middle;max-width:400px;width:auto"/> ​
                                                                 </a>
                                                             </td>
                                                         </tr>
@@ -758,7 +754,7 @@
                                                         <tr>
                                                             <td valign="center" width="30%" class="text-center o_mail_v_padding pb0" style="padding:20px 0 0px 0;vertical-align:middle;text-align:center;">
                                                                 <a href="http://www.clickit.com" style="text-decoration:none;font-weight:bold;background-color:transparent;color:rgb(100, 89, 116);">
-                                                                    <img border="0" src="/custom_reports/static/newsletters/September.png" style="border-style:none;height:auto;vertical-align:middle;max-width:400px;width:auto"/> ​
+                                                                    <img border="0" src="/custom_reports/static/img/email_marketing/newsletters/September.png" style="border-style:none;height:auto;vertical-align:middle;max-width:400px;width:auto"/> ​
                                                                 </a>
                                                             </td>
                                                         </tr>
@@ -862,7 +858,7 @@
                                                         <tr>
                                                             <td valign="center" width="30%" class="text-center o_mail_v_padding pb0" style="padding:20px 0 0px 0;vertical-align:middle;text-align:center;">
                                                                 <a href="http://www.clickit.com" style="text-decoration:none;font-weight:bold;background-color:transparent;color:rgb(100, 89, 116);">
-                                                                    <img border="0" src="/custom_reports/static/newsletters/October.png" style="border-style:none;height:auto;vertical-align:middle;max-width:400px;width:auto"/> ​
+                                                                    <img border="0" src="/custom_reports/static/img/email_marketing/newsletters/October.png" style="border-style:none;height:auto;vertical-align:middle;max-width:400px;width:auto"/> ​
                                                                 </a>
                                                             </td>
                                                         </tr>
@@ -1452,4 +1448,5 @@
         </record>
 
     </data>
+    
 </odoo>
