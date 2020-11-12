@@ -2,7 +2,7 @@
 
 <templates id="template" xml:space="preserve">
    
-   <t t-name="sale_statistics_graph_template">
+   <t t-name="sales_statistic_graph_template">
       <div class="col-md-12" style="display: block !important;">
 			<canvas class="bar-chart" id="bar-chart" width="300" height="150" style="display:block !important;width:100%;"></canvas>
 		</div>

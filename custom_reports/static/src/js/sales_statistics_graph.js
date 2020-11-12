@@ -1,5 +1,5 @@
 
-odoo.define('custom_reports.SalesStatisticsGraph', function(require)   {
+odoo.define('custom_reports.SalesStatisticGraph', function(require)   {
     'use strict';
 
     var core = require('web.core');
@@ -9,12 +9,12 @@ odoo.define('custom_reports.SalesStatisticsGraph', function(require)   {
 
     var COLORS = ['#875a7b', '#21b799', '#E4A900', '#D5653E', '#5B899E', '#E46F78', '#8F8F8F'];
 
-    var SalesStatisticsGraph = BasicFields.FieldText.extend({
+    var SalesStatisticGraph = BasicFields.FieldText.extend({
         jsLibs: [
             '/web/static/lib/Chart/Chart.js',
         ],
-        template: 'sale_statistics_graph_template',
-        xmlDependencies: ['custom_reports/static/src/xml/sales_statistics_graph.xml'],
+        template: 'sales_statistic_graph_template',
+        xmlDependencies: ['custom_reports/static/src/xml/sale_statistic_graph.xml'],
         
         /**
          * @override
@@ -216,6 +216,6 @@ odoo.define('custom_reports.SalesStatisticsGraph', function(require)   {
 
     });
 
-    FieldRegistry.add('sales_statistics_graph', SalesStatisticsGraph);
+    FieldRegistry.add('sales_statistic_graph', SalesStatisticGraph);
 
 });
