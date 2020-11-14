@@ -24,7 +24,19 @@
             <field name="barcode_nomenclature_id" ref="barcodes.default_barcode_nomenclature"/>
         </record>
 
-        <record model="pos.order" id="click_pos_order_01">
+        <!-- pos sessions -->
+
+        <record model="pos.session" id="click_pos_session_01_01">
+            <field name="config_id" ref="click_pos_config_01"/>
+            <field name="name">Kevin's Arcade/00001</field>
+            <field name="user_id" ref="user_click_01/">
+            <field name="start_at" eval=""
+
+        </record>
+
+        <!-- session id 1 -->
+
+        <record model="pos.order" id="click_pos_order_01_01">
             <field name="name">Daniel's Pizzeria/0001</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=1, hours=10)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
@@ -36,7 +48,7 @@
             <field name="session_id">1</field>
         </record>
 
-        <record model="pos.order" id="click_pos_order_02">
+        <record model="pos.order" id="click_pos_order_01_02">
             <field name="name">Daniel's Pizzeria/0002</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=1, hours=9)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
@@ -48,7 +60,7 @@
             <field name="session_id">1</field>
         </record>
 
-        <record model="pos.order" id="click_pos_order_03">
+        <record model="pos.order" id="click_pos_order_01_03">
             <field name="name">Daniel's Pizzeria/0003</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=1, hours=8)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
@@ -60,7 +72,7 @@
             <field name="session_id">1</field>
         </record>
 
-        <record model="pos.order" id="click_pos_order_04">
+        <record model="pos.order" id="click_pos_order_01_04">
             <field name="name">Daniel's Pizzeria/0004</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=1, hours=7)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
@@ -72,7 +84,7 @@
             <field name="session_id">1</field>
         </record>
 
-        <record model="pos.order" id="click_pos_order_05">
+        <record model="pos.order" id="click_pos_order_01_05">
             <field name="name">Daniel's Pizzeria/0005</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=1, hours=6)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
@@ -84,7 +96,7 @@
             <field name="session_id">1</field>
         </record>
 
-        <record model="pos.order" id="click_pos_order_06">
+        <record model="pos.order" id="click_pos_order_01_06">
             <field name="name">Daniel's Pizzeria/0006</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=1, hours=5)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
@@ -96,7 +108,7 @@
             <field name="session_id">1</field>
         </record>
 
-        <record model="pos.order" id="click_pos_order_07">
+        <record model="pos.order" id="click_pos_order_01_07">
             <field name="name">Daniel's Pizzeria/0007</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=1, hours=4)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
@@ -108,7 +120,7 @@
             <field name="session_id">1</field>
         </record>
 
-        <record model="pos.order" id="click_pos_order_08">
+        <record model="pos.order" id="click_pos_order_01_08">
             <field name="name">Daniel's Pizzeria/0008</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=1, hours=3)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
@@ -120,7 +132,7 @@
             <field name="session_id">1</field>
         </record>
 
-        <record model="pos.order" id="click_pos_order_09">
+        <record model="pos.order" id="click_pos_order_01_09">
             <field name="name">Daniel's Pizzeria/0009</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=1, hours=2)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
@@ -132,7 +144,7 @@
             <field name="session_id">1</field>
         </record>
 
-        <record model="pos.order" id="click_pos_order_10">
+        <record model="pos.order" id="click_pos_order_01_10">
             <field name="name">Daniel's Pizzeria/0010</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=1, hours=1)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
@@ -144,7 +156,7 @@
             <field name="session_id">1</field>
         </record>
 
-        <record model="pos.order" id="click_pos_order_11">
+        <record model="pos.order" id="click_pos_order_01_11">
             <field name="name">Daniel's Pizzeria/0011</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=1, hours=6)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
@@ -156,7 +168,7 @@
             <field name="session_id">1</field>
         </record>
 
-        <record model="pos.order" id="click_pos_order_12">
+        <record model="pos.order" id="click_pos_order_01_12">
             <field name="name">Daniel's Pizzeria/0012</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=1, hours=5)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
@@ -168,7 +180,7 @@
             <field name="session_id">1</field>
         </record>
 
-        <record model="pos.order" id="click_pos_order_13">
+        <record model="pos.order" id="click_pos_order_01_13">
             <field name="name">Daniel's Pizzeria/0013</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=1, hours=4)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
@@ -179,6 +191,215 @@
             <field name="pricelist_id">1</field>
             <field name="session_id">1</field>
         </record>
+
+        <!-- session id 1 -->
+
+        <record model="pos.order" id="click_pos_order_01_14">
+            <field name="name">John's Video Lodge/0001</field>
+            <field name="date_order" eval="(DateTime.today() - relativedelta(days=1, hours=10)).strftime('%Y-%m-%d %H:%M')"/>
+            <field name="amount_tax">0.0</field>
+            <field name="amount_total">600.00</field>
+            <field name="amount_paid">600.00</field>
+            <field name="amount_return">0.0</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="pricelist_id">1</field>
+            <field name="session_id">1</field>
+        </record>
+
+        <record model="pos.order" id="click_pos_order_01_15">
+            <field name="name">John's Video Lodge/0002</field>
+            <field name="date_order" eval="(DateTime.today() - relativedelta(days=1, hours=9)).strftime('%Y-%m-%d %H:%M')"/>
+            <field name="amount_tax">0.0</field>
+            <field name="amount_total">800.00</field>
+            <field name="amount_paid">800.00</field>
+            <field name="amount_return">0.0</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="pricelist_id">1</field>
+            <field name="session_id">1</field>
+        </record>
+
+        <record model="pos.order" id="click_pos_order_01_16">
+            <field name="name">John's Video Lodge/0003</field>
+            <field name="date_order" eval="(DateTime.today() - relativedelta(days=1, hours=8)).strftime('%Y-%m-%d %H:%M')"/>
+            <field name="amount_tax">0.0</field>
+            <field name="amount_total">1400.00</field>
+            <field name="amount_paid">1400.00</field>
+            <field name="amount_return">0.0</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="pricelist_id">1</field>
+            <field name="session_id">1</field>
+        </record>
+
+        <record model="pos.order" id="click_pos_order_01_17">
+            <field name="name">John's Video Lodge/0004</field>
+            <field name="date_order" eval="(DateTime.today() - relativedelta(days=1, hours=7)).strftime('%Y-%m-%d %H:%M')"/>
+            <field name="amount_tax">0.0</field>
+            <field name="amount_total">500.00</field>
+            <field name="amount_paid">500.00</field>
+            <field name="amount_return">0.0</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="pricelist_id">1</field>
+            <field name="session_id">1</field>
+        </record>
+
+        <record model="pos.order" id="click_pos_order_01_18">
+            <field name="name">John's Video Lodge/0005</field>
+            <field name="date_order" eval="(DateTime.today() - relativedelta(days=1, hours=6)).strftime('%Y-%m-%d %H:%M')"/>
+            <field name="amount_tax">0.0</field>
+            <field name="amount_total">300.00</field>
+            <field name="amount_paid">300.00</field>
+            <field name="amount_return">0.0</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="pricelist_id">1</field>
+            <field name="session_id">1</field>
+        </record>
+
+        <record model="pos.order" id="click_pos_order_01_19">
+            <field name="name">John's Video Lodge/0006</field>
+            <field name="date_order" eval="(DateTime.today() - relativedelta(days=1, hours=5)).strftime('%Y-%m-%d %H:%M')"/>
+            <field name="amount_tax">0.0</field>
+            <field name="amount_total">900.00</field>
+            <field name="amount_paid">900.00</field>
+            <field name="amount_return">0.0</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="pricelist_id">1</field>
+            <field name="session_id">1</field>
+        </record>
+
+        <record model="pos.order" id="click_pos_order_01_20">
+            <field name="name">John's Video Lodge/0007</field>
+            <field name="date_order" eval="(DateTime.today() - relativedelta(days=1, hours=4)).strftime('%Y-%m-%d %H:%M')"/>
+            <field name="amount_tax">0.0</field>
+            <field name="amount_total">500.00</field>
+            <field name="amount_paid">500.00</field>
+            <field name="amount_return">0.0</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="pricelist_id">1</field>
+            <field name="session_id">1</field>
+        </record>
+
+        <record model="pos.order" id="click_pos_order_01_21">
+            <field name="name">John's Video Lodge/0008</field>
+            <field name="date_order" eval="(DateTime.today() - relativedelta(days=1, hours=3)).strftime('%Y-%m-%d %H:%M')"/>
+            <field name="amount_tax">0.0</field>
+            <field name="amount_total">700.00</field>
+            <field name="amount_paid">700.00</field>
+            <field name="amount_return">0.0</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="pricelist_id">1</field>
+            <field name="session_id">1</field>
+        </record>
+
+        <record model="pos.order" id="click_pos_order_01_22">
+            <field name="name">John's Video Lodge/0009</field>
+            <field name="date_order" eval="(DateTime.today() - relativedelta(days=1, hours=2)).strftime('%Y-%m-%d %H:%M')"/>
+            <field name="amount_tax">0.0</field>
+            <field name="amount_total">150.00</field>
+            <field name="amount_paid">150.00</field>
+            <field name="amount_return">0.0</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="pricelist_id">1</field>
+            <field name="session_id">1</field>
+        </record>
+
+        <record model="pos.order" id="click_pos_order_01_23">
+            <field name="name">John's Video Lodge/0010</field>
+            <field name="date_order" eval="(DateTime.today() - relativedelta(days=1, hours=1)).strftime('%Y-%m-%d %H:%M')"/>
+            <field name="amount_tax">0.0</field>
+            <field name="amount_total">200.00</field>
+            <field name="amount_paid">200.00</field>
+            <field name="amount_return">0.0</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="pricelist_id">1</field>
+            <field name="session_id">1</field>
+        </record>
+
+        <record model="pos.order" id="click_pos_order_01_24">
+            <field name="name">John's Video Lodge/0011</field>
+            <field name="date_order" eval="(DateTime.today() - relativedelta(days=1, hours=6)).strftime('%Y-%m-%d %H:%M')"/>
+            <field name="amount_tax">0.0</field>
+            <field name="amount_total">100.00</field>
+            <field name="amount_paid">100.00</field>
+            <field name="amount_return">0.0</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="pricelist_id">1</field>
+            <field name="session_id">1</field>
+        </record>
+
+        <record model="pos.order" id="click_pos_order_01_25">
+            <field name="name">John's Video Lodge/0012</field>
+            <field name="date_order" eval="(DateTime.today() - relativedelta(days=1, hours=5)).strftime('%Y-%m-%d %H:%M')"/>
+            <field name="amount_tax">0.0</field>
+            <field name="amount_total">200.00</field>
+            <field name="amount_paid">200.00</field>
+            <field name="amount_return">0.0</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="pricelist_id">1</field>
+            <field name="session_id">1</field>
+        </record>
+
+        <record model="pos.order" id="click_pos_order_01_26">
+            <field name="name">John's Video Lodge/0013</field>
+            <field name="date_order" eval="(DateTime.today() - relativedelta(days=1, hours=4)).strftime('%Y-%m-%d %H:%M')"/>
+            <field name="amount_tax">0.0</field>
+            <field name="amount_total">550.00</field>
+            <field name="amount_paid">550.00</field>
+            <field name="amount_return">0.0</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="pricelist_id">1</field>
+            <field name="session_id">1</field>
+        </record>
+
+        <record model="pos.order" id="click_pos_order_01_27">
+            <field name="name">John's Video Lodge/0013</field>
+            <field name="date_order" eval="(DateTime.today() - relativedelta(days=1, hours=4)).strftime('%Y-%m-%d %H:%M')"/>
+            <field name="amount_tax">0.0</field>
+            <field name="amount_total">550.00</field>
+            <field name="amount_paid">550.00</field>
+            <field name="amount_return">0.0</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="pricelist_id">1</field>
+            <field name="session_id">1</field>
+        </record>
+
+        <record model="pos.order" id="click_pos_order_01_28">
+            <field name="name">John's Video Lodge/0013</field>
+            <field name="date_order" eval="(DateTime.today() - relativedelta(days=1, hours=4)).strftime('%Y-%m-%d %H:%M')"/>
+            <field name="amount_tax">0.0</field>
+            <field name="amount_total">550.00</field>
+            <field name="amount_paid">550.00</field>
+            <field name="amount_return">0.0</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="pricelist_id">1</field>
+            <field name="session_id">1</field>
+        </record>
+
+        <record model="pos.order" id="click_pos_order_01_29">
+            <field name="name">John's Video Lodge/0013</field>
+            <field name="date_order" eval="(DateTime.today() - relativedelta(days=1, hours=4)).strftime('%Y-%m-%d %H:%M')"/>
+            <field name="amount_tax">0.0</field>
+            <field name="amount_total">550.00</field>
+            <field name="amount_paid">550.00</field>
+            <field name="amount_return">0.0</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="pricelist_id">1</field>
+            <field name="session_id">1</field>
+        </record>
+
+        <record model="pos.order" id="click_pos_order_01_30">
+            <field name="name">John's Video Lodge/0013</field>
+            <field name="date_order" eval="(DateTime.today() - relativedelta(days=1, hours=4)).strftime('%Y-%m-%d %H:%M')"/>
+            <field name="amount_tax">0.0</field>
+            <field name="amount_total">550.00</field>
+            <field name="amount_paid">550.00</field>
+            <field name="amount_return">0.0</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="pricelist_id">1</field>
+            <field name="session_id">1</field>
+        </record>
+
+
+        <!-- session id 4 -->
 
         <record model="pos.order" id="click_pos_order_04_01">
             <field name="name">John's Video Lodge/0001</field>
@@ -336,6 +557,8 @@
             <field name="session_id">4</field>
         </record>
 
+        <!-- session id 2 -->
+
         <record model="pos.order" id="click_pos_order_02_01">
             <field name="name">John's Video Lodge/0001</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=1, hours=10)).strftime('%Y-%m-%d %H:%M')"/>
@@ -492,161 +715,7 @@
             <field name="session_id">2</field>
         </record>
 
-        <record model="pos.order" id="click_pos_order_01_01">
-            <field name="name">John's Video Lodge/0001</field>
-            <field name="date_order" eval="(DateTime.today() - relativedelta(days=1, hours=10)).strftime('%Y-%m-%d %H:%M')"/>
-            <field name="amount_tax">0.0</field>
-            <field name="amount_total">600.00</field>
-            <field name="amount_paid">600.00</field>
-            <field name="amount_return">0.0</field>
-            <field name="company_id" ref="base.main_company"/>
-            <field name="pricelist_id">1</field>
-            <field name="session_id">1</field>
-        </record>
-
-        <record model="pos.order" id="click_pos_order_01_02">
-            <field name="name">John's Video Lodge/0002</field>
-            <field name="date_order" eval="(DateTime.today() - relativedelta(days=1, hours=9)).strftime('%Y-%m-%d %H:%M')"/>
-            <field name="amount_tax">0.0</field>
-            <field name="amount_total">800.00</field>
-            <field name="amount_paid">800.00</field>
-            <field name="amount_return">0.0</field>
-            <field name="company_id" ref="base.main_company"/>
-            <field name="pricelist_id">1</field>
-            <field name="session_id">1</field>
-        </record>
-
-        <record model="pos.order" id="click_pos_order_01_03">
-            <field name="name">John's Video Lodge/0003</field>
-            <field name="date_order" eval="(DateTime.today() - relativedelta(days=1, hours=8)).strftime('%Y-%m-%d %H:%M')"/>
-            <field name="amount_tax">0.0</field>
-            <field name="amount_total">1400.00</field>
-            <field name="amount_paid">1400.00</field>
-            <field name="amount_return">0.0</field>
-            <field name="company_id" ref="base.main_company"/>
-            <field name="pricelist_id">1</field>
-            <field name="session_id">1</field>
-        </record>
-
-        <record model="pos.order" id="click_pos_order_01_04">
-            <field name="name">John's Video Lodge/0004</field>
-            <field name="date_order" eval="(DateTime.today() - relativedelta(days=1, hours=7)).strftime('%Y-%m-%d %H:%M')"/>
-            <field name="amount_tax">0.0</field>
-            <field name="amount_total">500.00</field>
-            <field name="amount_paid">500.00</field>
-            <field name="amount_return">0.0</field>
-            <field name="company_id" ref="base.main_company"/>
-            <field name="pricelist_id">1</field>
-            <field name="session_id">1</field>
-        </record>
-
-        <record model="pos.order" id="click_pos_order_01_05">
-            <field name="name">John's Video Lodge/0005</field>
-            <field name="date_order" eval="(DateTime.today() - relativedelta(days=1, hours=6)).strftime('%Y-%m-%d %H:%M')"/>
-            <field name="amount_tax">0.0</field>
-            <field name="amount_total">300.00</field>
-            <field name="amount_paid">300.00</field>
-            <field name="amount_return">0.0</field>
-            <field name="company_id" ref="base.main_company"/>
-            <field name="pricelist_id">1</field>
-            <field name="session_id">1</field>
-        </record>
-
-        <record model="pos.order" id="click_pos_order_01_06">
-            <field name="name">John's Video Lodge/0006</field>
-            <field name="date_order" eval="(DateTime.today() - relativedelta(days=1, hours=5)).strftime('%Y-%m-%d %H:%M')"/>
-            <field name="amount_tax">0.0</field>
-            <field name="amount_total">900.00</field>
-            <field name="amount_paid">900.00</field>
-            <field name="amount_return">0.0</field>
-            <field name="company_id" ref="base.main_company"/>
-            <field name="pricelist_id">1</field>
-            <field name="session_id">1</field>
-        </record>
-
-        <record model="pos.order" id="click_pos_order_01_07">
-            <field name="name">John's Video Lodge/0007</field>
-            <field name="date_order" eval="(DateTime.today() - relativedelta(days=1, hours=4)).strftime('%Y-%m-%d %H:%M')"/>
-            <field name="amount_tax">0.0</field>
-            <field name="amount_total">500.00</field>
-            <field name="amount_paid">500.00</field>
-            <field name="amount_return">0.0</field>
-            <field name="company_id" ref="base.main_company"/>
-            <field name="pricelist_id">1</field>
-            <field name="session_id">1</field>
-        </record>
-
-        <record model="pos.order" id="click_pos_order_01_08">
-            <field name="name">John's Video Lodge/0008</field>
-            <field name="date_order" eval="(DateTime.today() - relativedelta(days=1, hours=3)).strftime('%Y-%m-%d %H:%M')"/>
-            <field name="amount_tax">0.0</field>
-            <field name="amount_total">700.00</field>
-            <field name="amount_paid">700.00</field>
-            <field name="amount_return">0.0</field>
-            <field name="company_id" ref="base.main_company"/>
-            <field name="pricelist_id">1</field>
-            <field name="session_id">1</field>
-        </record>
-
-        <record model="pos.order" id="click_pos_order_01_09">
-            <field name="name">John's Video Lodge/0009</field>
-            <field name="date_order" eval="(DateTime.today() - relativedelta(days=1, hours=2)).strftime('%Y-%m-%d %H:%M')"/>
-            <field name="amount_tax">0.0</field>
-            <field name="amount_total">150.00</field>
-            <field name="amount_paid">150.00</field>
-            <field name="amount_return">0.0</field>
-            <field name="company_id" ref="base.main_company"/>
-            <field name="pricelist_id">1</field>
-            <field name="session_id">1</field>
-        </record>
-
-        <record model="pos.order" id="click_pos_order_01_10">
-            <field name="name">John's Video Lodge/0010</field>
-            <field name="date_order" eval="(DateTime.today() - relativedelta(days=1, hours=1)).strftime('%Y-%m-%d %H:%M')"/>
-            <field name="amount_tax">0.0</field>
-            <field name="amount_total">200.00</field>
-            <field name="amount_paid">200.00</field>
-            <field name="amount_return">0.0</field>
-            <field name="company_id" ref="base.main_company"/>
-            <field name="pricelist_id">1</field>
-            <field name="session_id">1</field>
-        </record>
-
-        <record model="pos.order" id="click_pos_order_01_11">
-            <field name="name">John's Video Lodge/0011</field>
-            <field name="date_order" eval="(DateTime.today() - relativedelta(days=1, hours=6)).strftime('%Y-%m-%d %H:%M')"/>
-            <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
-            <field name="amount_return">0.0</field>
-            <field name="company_id" ref="base.main_company"/>
-            <field name="pricelist_id">1</field>
-            <field name="session_id">1</field>
-        </record>
-
-        <record model="pos.order" id="click_pos_order_01_12">
-            <field name="name">John's Video Lodge/0012</field>
-            <field name="date_order" eval="(DateTime.today() - relativedelta(days=1, hours=5)).strftime('%Y-%m-%d %H:%M')"/>
-            <field name="amount_tax">0.0</field>
-            <field name="amount_total">200.00</field>
-            <field name="amount_paid">200.00</field>
-            <field name="amount_return">0.0</field>
-            <field name="company_id" ref="base.main_company"/>
-            <field name="pricelist_id">1</field>
-            <field name="session_id">1</field>
-        </record>
-
-        <record model="pos.order" id="click_pos_order_01_13">
-            <field name="name">John's Video Lodge/0013</field>
-            <field name="date_order" eval="(DateTime.today() - relativedelta(days=1, hours=4)).strftime('%Y-%m-%d %H:%M')"/>
-            <field name="amount_tax">0.0</field>
-            <field name="amount_total">550.00</field>
-            <field name="amount_paid">550.00</field>
-            <field name="amount_return">0.0</field>
-            <field name="company_id" ref="base.main_company"/>
-            <field name="pricelist_id">1</field>
-            <field name="session_id">1</field>
-        </record>
+        <!-- session id 3 -->
 
         <record model="pos.order" id="click_pos_order_03_01">
             <field name="name">John's Video Lodge/0001</field>
@@ -804,6 +873,41 @@
             <field name="session_id">3</field>
         </record>
 
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
         
 
 
