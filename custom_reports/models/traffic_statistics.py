@@ -33,6 +33,36 @@ class TrafficStatisticsReport(models.Model):
         self.env['custom_reports.traffic_statistic'].create(records)
         return record
 
+    def write(self, values):
+        record = super(TrafficStatisticsReport, self).write(values)
+        old_shops = self.env['custom_reports.traffic_statistic'].search([
+            ('traffic_statistics_report_id', '=', self.id)
+        ])
+        old_shops_ids = []
+        for old_shop in old_shops:
+            old_shops_ids.append(old_shop.shop_id.id)
+        new_shops_ids = values['shop_ids'][0][2]
+        remove_list = []
+        add_records = []
+        for old_shop_id in old_shops_ids:
+            if old_shop_id not in new_shops_ids:
+                remove_list.append(old_shop_id)
+        for new_shop_id in new_shops_ids:
+            if new_shop_id not in old_shops_ids:
+                add_records.append({
+                    'shop_id': new_shop_id,
+                    'traffic_statistics_report_id':  self.id,
+                    'start_date': self.start_date,
+                    'end_date': self.end_date
+                })
+        remove_records = self.env['custom_reports.traffic_statistic'].search([
+            ('shop_id', 'in', remove_list)
+        ])
+        remove_records.unlink()
+        self.env['custom_reports.traffic_statistic'].create(add_records)
+        return record
+
+
     @api.constrains('start_date','end_date')
     def _check_date_validity(self):
         for report in self:
