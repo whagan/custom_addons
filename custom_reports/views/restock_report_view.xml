@@ -96,7 +96,7 @@
         <field name="name">Restock Report</field>
         <field name="model">custom_reports.restock_report</field>
         <field name="arch" type="xml">
-            <form edit="false">
+            <form>
                 <header></header>
                 <sheet>                    
                     <group>
@@ -108,9 +108,9 @@
                             <label class="oe_input_label" for="product_ids" string="Products" style="font-weight:bold"/>
                             <field name="product_ids" widget="many2many_tags"/><!-- widget="many2many_checkboxes" -->
                         </div>
-                        <div class="oe_edit_only bg-primary">
+                        <!-- <div class="oe_edit_only bg-primary">
                             IMPORTANT: You cannot alter the report after its create. Please create a new report if you want to make item changes.
-                        </div>
+                        </div> -->
                     </group>
                     <notebook readonly="1" class="oe_read_only">
                         <page string="View" disable_linking="true">
