@@ -71,7 +71,7 @@ class SalesStatistics(models.Model):
                     ('date_order', '<=', record.end_date),
                     ('date_order', '>=', record.start_date)
                 ])
-                if sales: # if found in attendance, sum the worked_hours
+                if sales:
                     for sale in sales:
                         sales_location += sale.amount_total
             record.sales_location = sales_location

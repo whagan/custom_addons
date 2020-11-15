@@ -1,0 +1,29 @@
+<odoo>
+
+    <data noupdate="0">
+
+        <!-- pos configs (locations) -->
+        
+        <record model="pos.config" id="click_pos_config_01">
+            <field name="name">Kevin's Arcade</field>
+            <field name="barcode_nomenclature_id" ref="barcodes.default_barcode_nomenclature"/>
+        </record>
+
+        <record model="pos.config" id="click_pos_config_02">
+            <field name="name">Will's Dairy-aire</field>
+            <field name="barcode_nomenclature_id" ref="barcodes.default_barcode_nomenclature"/>
+        </record>
+
+        <record model="pos.config" id="click_pos_config_03">
+            <field name="name">Daniel's Pizzeria</field>
+            <field name="barcode_nomenclature_id" ref="barcodes.default_barcode_nomenclature"/>
+        </record>
+
+        <record model="pos.config" id="click_pos_config_03">
+            <field name="name">John's Video Lodge</field>
+            <field name="barcode_nomenclature_id" ref="barcodes.default_barcode_nomenclature"/>
+        </record>
+
+   </data>
+
+</odoo>

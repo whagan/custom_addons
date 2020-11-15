@@ -1,8 +1,6 @@
 odoo.define('custom_reports.EmployeePerformanceGraph', function(require)   {
     'use strict';
 
-    var core = require('web.core');
-
     var BasicFields = require('web.basic_fields');
     var FieldRegistry = require('web.field_registry');
 
