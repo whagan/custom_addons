@@ -29,12 +29,202 @@
         <record model="pos.session" id="click_pos_session_01_01">
             <field name="config_id" ref="click_pos_config_01"/>
             <field name="name">Kevin's Arcade/00001</field>
-            <field name="user_id" ref="user_click_01/">
-            <field name="start_at" eval=""
-
+            <field name="user_id" ref="user_click_01"/>
+            <field name="start_at" eval=eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-01 08:21')"/>
+            <field name="stop_at" eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-01 11:51')"/>
+            <field name="state">closed</field>
         </record>
 
-        <!-- session id 1 -->
+        <record model="pos.session" id="click_pos_session_01_02">
+            <field name="config_id" ref="click_pos_config_01"/>
+            <field name="name">Kevin's Arcade/00002</field>
+            <field name="user_id" ref="user_click_01"/>
+            <field name="start_at" eval=eval="(datetime.now()+relativedelta(days=-29)).strftime('%Y-%m-01 08:21')"/>
+            <field name="stop_at" eval="(datetime.now()+relativedelta(days=-29)).strftime('%Y-%m-01 11:51')"/>
+            <field name="state">closed</field>
+        </record>
+
+        <record model="pos.session" id="click_pos_session_01_03">
+            <field name="config_id" ref="click_pos_config_01"/>
+            <field name="name">Kevin's Arcade/00003</field>
+            <field name="user_id" ref="user_click_01"/>
+            <field name="start_at" eval=eval="(datetime.now()+relativedelta(days=-28)).strftime('%Y-%m-01 08:21')"/>
+            <field name="stop_at" eval="(datetime.now()+relativedelta(days=-28)).strftime('%Y-%m-01 11:51')"/>
+            <field name="state">closed</field>
+        </record>
+        
+        <record model="pos.session" id="click_pos_session_01_04">
+            <field name="config_id" ref="click_pos_config_01"/>
+            <field name="name">Kevin's Arcade/00004</field>
+            <field name="user_id" ref="user_click_01"/>
+            <field name="start_at" eval=eval="(datetime.now()+relativedelta(days=-27)).strftime('%Y-%m-01 08:21')"/>
+            <field name="stop_at" eval="(datetime.now()+relativedelta(days=-27)).strftime('%Y-%m-01 11:51')"/>
+            <field name="state">closed</field>
+        </record>
+        
+        <record model="pos.session" id="click_pos_session_01_05">
+            <field name="config_id" ref="click_pos_config_01"/>
+            <field name="name">Kevin's Arcade/00005</field>
+            <field name="user_id" ref="user_click_01"/>
+            <field name="start_at" eval=eval="(datetime.now()+relativedelta(days=-26)).strftime('%Y-%m-01 08:21')"/>
+            <field name="stop_at" eval="(datetime.now()+relativedelta(days=-26)).strftime('%Y-%m-01 11:51')"/>
+            <field name="state">closed</field>
+        </record>
+
+        <record model="pos.session" id="click_pos_session_01_06">
+            <field name="config_id" ref="click_pos_config_01"/>
+            <field name="name">Kevin's Arcade/00006</field>
+            <field name="user_id" ref="user_click_01"/>
+            <field name="start_at" eval=eval="(datetime.now()+relativedelta(days=-23)).strftime('%Y-%m-01 08:21')"/>
+            <field name="stop_at" eval="(datetime.now()+relativedelta(days=-23)).strftime('%Y-%m-01 11:51')"/>
+            <field name="state">closed</field>
+        </record>
+
+        <record model="pos.session" id="click_pos_session_01_07">
+            <field name="config_id" ref="click_pos_config_01"/>
+            <field name="name">Kevin's Arcade/00007</field>
+            <field name="user_id" ref="user_click_01"/>
+            <field name="start_at" eval=eval="(datetime.now()+relativedelta(days=-22)).strftime('%Y-%m-01 08:21')"/>
+            <field name="stop_at" eval="(datetime.now()+relativedelta(days=-22)).strftime('%Y-%m-01 11:51')"/>
+            <field name="state">closed</field>
+        </record>
+
+        <record model="pos.session" id="click_pos_session_01_08">
+            <field name="config_id" ref="click_pos_config_01"/>
+            <field name="name">Kevin's Arcade/00008</field>
+            <field name="user_id" ref="user_click_01"/>
+            <field name="start_at" eval=eval="(datetime.now()+relativedelta(days=-21)).strftime('%Y-%m-01 08:21')"/>
+            <field name="stop_at" eval="(datetime.now()+relativedelta(days=-21)).strftime('%Y-%m-01 11:51')"/>
+            <field name="state">closed</field>
+        </record>
+
+        <record model="pos.session" id="click_pos_session_01_09">
+            <field name="config_id" ref="click_pos_config_01"/>
+            <field name="name">Kevin's Arcade/00009</field>
+            <field name="user_id" ref="user_click_01"/>
+            <field name="start_at" eval=eval="(datetime.now()+relativedelta(days=-20)).strftime('%Y-%m-01 08:21')"/>
+            <field name="stop_at" eval="(datetime.now()+relativedelta(days=-20)).strftime('%Y-%m-01 11:51')"/>
+            <field name="state">closed</field>
+        </record>
+
+        <record model="pos.session" id="click_pos_session_01_10">
+            <field name="config_id" ref="click_pos_config_01"/>
+            <field name="name">Kevin's Arcade/00010</field>
+            <field name="user_id" ref="user_click_01"/>
+            <field name="start_at" eval=eval="(datetime.now()+relativedelta(days=-19)).strftime('%Y-%m-01 08:21')"/>
+            <field name="stop_at" eval="(datetime.now()+relativedelta(days=-19)).strftime('%Y-%m-01 11:51')"/>
+            <field name="state">closed</field>
+        </record>
+
+        <record model="pos.session" id="click_pos_session_01_11">
+            <field name="config_id" ref="click_pos_config_01"/>
+            <field name="name">Kevin's Arcade/00011</field>
+            <field name="user_id" ref="user_click_01"/>
+            <field name="start_at" eval=eval="(datetime.now()+relativedelta(days=-16)).strftime('%Y-%m-01 08:21')"/>
+            <field name="stop_at" eval="(datetime.now()+relativedelta(days=-16)).strftime('%Y-%m-01 11:51')"/>
+            <field name="state">closed</field>
+        </record>
+
+        <record model="pos.session" id="click_pos_session_01_12">
+            <field name="config_id" ref="click_pos_config_01"/>
+            <field name="name">Kevin's Arcade/00012</field>
+            <field name="user_id" ref="user_click_01"/>
+            <field name="start_at" eval=eval="(datetime.now()+relativedelta(days=-15)).strftime('%Y-%m-01 08:21')"/>
+            <field name="stop_at" eval="(datetime.now()+relativedelta(days=-15)).strftime('%Y-%m-01 11:51')"/>
+            <field name="state">closed</field>
+        </record>
+
+        <record model="pos.session" id="click_pos_session_01_13">
+            <field name="config_id" ref="click_pos_config_01"/>
+            <field name="name">Kevin's Arcade/00013</field>
+            <field name="user_id" ref="user_click_01"/>
+            <field name="start_at" eval=eval="(datetime.now()+relativedelta(days=-14)).strftime('%Y-%m-01 08:21')"/>
+            <field name="stop_at" eval="(datetime.now()+relativedelta(days=-14)).strftime('%Y-%m-01 11:51')"/>
+            <field name="state">closed</field>
+        </record>
+
+        <record model="pos.session" id="click_pos_session_01_14">
+            <field name="config_id" ref="click_pos_config_01"/>
+            <field name="name">Kevin's Arcade/00014</field>
+            <field name="user_id" ref="user_click_01"/>
+            <field name="start_at" eval=eval="(datetime.now()+relativedelta(days=-13)).strftime('%Y-%m-01 08:21')"/>
+            <field name="stop_at" eval="(datetime.now()+relativedelta(days=-13)).strftime('%Y-%m-01 11:51')"/>
+            <field name="state">closed</field>
+        </record>
+
+        <record model="pos.session" id="click_pos_session_01_15">
+            <field name="config_id" ref="click_pos_config_01"/>
+            <field name="name">Kevin's Arcade/00015</field>
+            <field name="user_id" ref="user_click_01"/>
+            <field name="start_at" eval=eval="(datetime.now()+relativedelta(days=-12)).strftime('%Y-%m-01 08:21')"/>
+            <field name="stop_at" eval="(datetime.now()+relativedelta(days=-12)).strftime('%Y-%m-01 11:51')"/>
+            <field name="state">closed</field>
+        </record>
+
+        <record model="pos.session" id="click_pos_session_01_16">
+            <field name="config_id" ref="click_pos_config_01"/>
+            <field name="name">Kevin's Arcade/00016</field>
+            <field name="user_id" ref="user_click_01"/>
+            <field name="start_at" eval=eval="(datetime.now()+relativedelta(days=-9)).strftime('%Y-%m-01 08:21')"/>
+            <field name="stop_at" eval="(datetime.now()+relativedelta(days=-9)).strftime('%Y-%m-01 11:51')"/>
+            <field name="state">closed</field>
+        </record>
+
+        <record model="pos.session" id="click_pos_session_01_17">
+            <field name="config_id" ref="click_pos_config_01"/>
+            <field name="name">Kevin's Arcade/00017</field>
+            <field name="user_id" ref="user_click_01"/>
+            <field name="start_at" eval=eval="(datetime.now()+relativedelta(days=-8)).strftime('%Y-%m-01 08:21')"/>
+            <field name="stop_at" eval="(datetime.now()+relativedelta(days=-8)).strftime('%Y-%m-01 11:51')"/>
+            <field name="state">closed</field>
+        </record>
+
+        <record model="pos.session" id="click_pos_session_01_18">
+            <field name="config_id" ref="click_pos_config_01"/>
+            <field name="name">Kevin's Arcade/00018</field>
+            <field name="user_id" ref="user_click_01"/>
+            <field name="start_at" eval=eval="(datetime.now()+relativedelta(days=-7)).strftime('%Y-%m-01 08:21')"/>
+            <field name="stop_at" eval="(datetime.now()+relativedelta(days=-7)).strftime('%Y-%m-01 11:51')"/>
+            <field name="state">closed</field>
+        </record>
+
+        <record model="pos.session" id="click_pos_session_01_19">
+            <field name="config_id" ref="click_pos_config_01"/>
+            <field name="name">Kevin's Arcade/00019</field>
+            <field name="user_id" ref="user_click_01"/>
+            <field name="start_at" eval=eval="(datetime.now()+relativedelta(days=-6)).strftime('%Y-%m-01 08:21')"/>
+            <field name="stop_at" eval="(datetime.now()+relativedelta(days=-6)).strftime('%Y-%m-01 11:51')"/>
+            <field name="state">closed</field>
+        </record>
+
+        <record model="pos.session" id="click_pos_session_01_20">
+            <field name="config_id" ref="click_pos_config_01"/>
+            <field name="name">Kevin's Arcade/00020</field>
+            <field name="user_id" ref="user_click_01"/>
+            <field name="start_at" eval=eval="(datetime.now()+relativedelta(days=-5)).strftime('%Y-%m-01 08:21')"/>
+            <field name="stop_at" eval="(datetime.now()+relativedelta(days=-5)).strftime('%Y-%m-01 11:51')"/>
+            <field name="state">closed</field>
+        </record>
+
+        <record model="pos.session" id="click_pos_session_01_21">
+            <field name="config_id" ref="click_pos_config_01"/>
+            <field name="name">Kevin's Arcade/00021</field>
+            <field name="user_id" ref="user_click_01"/>
+            <field name="start_at" eval=eval="(datetime.now()+relativedelta(days=-2)).strftime('%Y-%m-01 08:21')"/>
+            <field name="stop_at" eval="(datetime.now()+relativedelta(days=-2)).strftime('%Y-%m-01 11:51')"/>
+            <field name="state">closed</field>
+        </record>
+
+        <record model="pos.session" id="click_pos_session_01_22">
+            <field name="config_id" ref="click_pos_config_01"/>
+            <field name="name">Kevin's Arcade/00022</field>
+            <field name="user_id" ref="user_click_01"/>
+            <field name="start_at" eval=eval="(datetime.now()+relativedelta(days=-1)).strftime('%Y-%m-01 08:21')"/>
+            <field name="stop_at" eval="(datetime.now()+relativedelta(days=-1)).strftime('%Y-%m-01 11:51')"/>
+            <field name="state">closed</field>
+        </record>
+
+        <!-- orders session id 1 -->
 
         <record model="pos.order" id="click_pos_order_01_01">
             <field name="name">Daniel's Pizzeria/0001</field>
