@@ -2,7 +2,8 @@ from odoo import models, fields, api, exceptions, _
 from odoo.tools import format_datetime
 from odoo.exceptions import ValidationError
 import datetime
-
+import logging
+_logger = logging.getLogger(__name__)
 
 
 # Employee Performance Report DataModel
@@ -36,6 +37,28 @@ class EmployeePerformanceReport(models.Model):
         self.env['custom_reports.employee_performance'].create(records)
         return record
 
+    def write(self, values):
+        record = super(EmployeePerformanceReport, self).write(values)
+        old_employee_ids = self.env['custom_reports.employee_performance'].search([
+            ('employee_performance_report_id', '=', self.id)
+        ])
+        old_list = []
+        for old_employee_id in old_employee_ids:
+            old.append(old_employee_id.employee_id.id)
+        new_employee_ids = values['employee_ids'][0][2]
+        _logger.debug("OLD EMPLOYEE IDS", old)
+        _logger.debug("NEW EMPLOYEE IDS", new_employee_ids)
+        for employ_id in old_employee_ids:
+            _logger.debug("THIS IS An Old EMPLOYEE ID ", employ_id.employee_id)
+        for employee_id in new_employee_ids:
+            # if employee_id not in 
+            _logger.debug("THIS IS A NEW ID: ", employee_id)
+
+        return record
+                        
+
+
+          
     @api.constrains('start_date','end_date')
     def _check_date_validity(self):
         for report in self:
