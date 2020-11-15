@@ -2,9 +2,6 @@ from odoo import models, fields, api, exceptions, _
 from odoo.tools import format_datetime
 from odoo.exceptions import ValidationError
 import datetime
-import logging
-_logger = logging.getLogger(__name__)
-
 
 # Employee Performance Report DataModel
 class EmployeePerformanceReport(models.Model):
@@ -39,24 +36,32 @@ class EmployeePerformanceReport(models.Model):
 
     def write(self, values):
         record = super(EmployeePerformanceReport, self).write(values)
-        old_employee_ids = self.env['custom_reports.employee_performance'].search([
+        old_employees = self.env['custom_reports.employee_performance'].search([
             ('employee_performance_report_id', '=', self.id)
         ])
-        old_list = []
-        for old_employee_id in old_employee_ids:
-            old.append(old_employee_id.employee_id.id)
-        new_employee_ids = values['employee_ids'][0][2]
-        _logger.debug("OLD EMPLOYEE IDS", old)
-        _logger.debug("NEW EMPLOYEE IDS", new_employee_ids)
-        for employ_id in old_employee_ids:
-            _logger.debug("THIS IS An Old EMPLOYEE ID ", employ_id.employee_id)
-        for employee_id in new_employee_ids:
-            # if employee_id not in 
-            _logger.debug("THIS IS A NEW ID: ", employee_id)
-
+        old_employees_ids = []
+        for old_employee in old_employees:
+            old_employees_ids.append(old_employee.employee_id.id)
+        new_employees_ids = values['employee_ids'][0][2]
+        remove_list = []
+        add_records = []
+        for old_employee_id in old_employees_ids:
+            if old_employee_id not in new_employees_ids:
+                remove_list.append(old_employee_id)
+        for new_employee_id in new_employees_ids:
+            if new_employee_id not in old_employees_ids:
+                add_records.append({
+                    'employee_id': new_employee_id,
+                    'employee_performance_report_id':  self.id,
+                    'start_date': self.start_date,
+                    'end_date': self.end_date
+                })
+        remove_records = self.env['custom_reports.employee_performance'].search([
+            ('employee_id', 'in', remove_list)
+        ])
+        remove_records.unlink()
+        self.env['custom_reports.employee_performance'].create(add_records)
         return record
-                        
-
 
           
     @api.constrains('start_date','end_date')
