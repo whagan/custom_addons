@@ -74,3 +74,7 @@ Team ClickIt Github repo.
 #### Sales Statistics Report  
 
 24. Under the "My Reports" sub-menu you may click "Sales Statistics Report" which will display all the relevant point of sales information located in the demo data. Here the user can select any location, start date, and end date. Upon saving the user will see all the point of sales transactions for each of the desired locations. 
+
+#### Traffic Statistics Report
+
+25. Under the "My Reports" sub-menu you may click "Traffic Statistics Report" which will display all the relevant point of sales information located in the demo data. Here the user can select any location, start date, and end date. Upon saving the user will see all the point of sales transactions for each of the desired locations according to the time of day the transaction occurred. 
