@@ -3,49 +3,49 @@
     <record model="custom_reports.custom_report" id="customreport0">
         <field name="name">Employee Performance</field>
         <field name="category">Human Resources</field>
-        <field name="description">Employee Performance Custom Report</field>
+        <field name="description">Custom Report evaluating employees sales/hours worked over a period of time</field>
         <field name="url">custom_reports.employee_performance_report</field>
     </record>
 
     <record model="custom_reports.custom_report" id="customreport1">
         <field name="name">Contacts</field>
         <field name="category">Unknown</field>
-        <field name="description">Contacts Custom Report</field>
+        <field name="description">Comprehensive Collection of Contacts</field>
         <field name="url">res.partner</field>
     </record>
 
     <record model="custom_reports.custom_report" id="customreport2">
         <field name="name">Sales By Company</field>
         <field name="category">Sales</field>
-        <field name="description">Sales By Company Custom Report</field>
+        <field name="description">Custom Report evaluating companies based on a given time period. </field>
         <field name="url">custom_reports.sales_by_company_report</field>
     </record>
 
     <record model="custom_reports.custom_report" id="customreport3">
         <field name="name">Email Marketing Report</field>
         <field name="category">Marketing</field>
-        <field name="description">Email Marketing Custom Report</field>
+        <field name="description">Custom Report evaluating the effectiveness of past Marketing campagns. </field>
         <field name="url">custom_reports.email_marketing_report</field>
     </record>
 
      <record model="custom_reports.custom_report" id="customreport4">
         <field name="name">Sales Statistics Report</field>
         <field name="category">Sales</field>
-        <field name="description">Sales Statistics Custom Report</field>
+        <field name="description">Custom Report evaluating the total sales of given locations over a period of time.</field>
         <field name="url">custom_reports.sales_statistics_report</field>
     </record>
     
     <record model="custom_reports.custom_report" id="customreport5">
         <field name="name">Restock Report</field>
         <field name="category">Inventory</field>
-        <field name="description">Restock custom report description.</field>
+        <field name="description">Custom Report showing the current status of your inventory. </field>
         <field name="url">custom_reports.restock_report</field>
     </record>
 
     <record model="custom_reports.custom_report" id="customreport6">
         <field name="name">Traffic Statistics Report</field>
         <field name="category">Sales</field>
-        <field name="description">Traffic Statistics Custom Report.</field>
+        <field name="description">Custom Report evaluating the sales of given locations over the course of the day.</field>
         <field name="url">custom_reports.traffic_statistics_report</field>
     </record>
 
