@@ -8,6 +8,11 @@ Team ClickIt Github repo.
 * [Odoo Installation Guide](https://www.odoo.com/documentation/master/setup/install.html#source-install)
     * The installation **WILL NOT WORK** if you are using Python 3.7+. Use Python 3.6.
 
+### Trouble Shooting
+
+* If any issues arise try upgrading the Custom Reports module. 
+* When in doubt create a new DB.
+
 #### Install Our Module
 
 1. Open a terminal (in administrator mode, if relevant) and move to the top level of your Odoo installation (`odoo-bin` is in the top level).
