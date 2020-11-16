@@ -3,7 +3,7 @@
     <record model="custom_reports.custom_report" id="customreport0">
         <field name="name">Employee Performance</field>
         <field name="category">Human Resources</field>
-        <field name="description">Custom Report evaluating employees sales/hours worked over a period of time./field>
+        <field name="description">Custom Report evaluating employees sales/hours worked over a period of time.</field>
         <field name="url">custom_reports.employee_performance_report</field>
     </record>
 
