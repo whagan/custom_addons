@@ -62,7 +62,7 @@
         <field name="name">Traffic Statistics Report</field>
         <field name="model">custom_reports.traffic_statistics_report</field>
         <field name="arch" type="xml">
-            <tree>
+            <tree import="false">
                 <field name="report_title"/>
             </tree>
         </field>

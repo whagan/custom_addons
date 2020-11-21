@@ -1,0 +1,21 @@
+<odoo>
+
+    <data noupdate="0">
+
+        <record id="click_company_01" model="res.company">
+            <field name="name">Top Notch Company</field>
+        </record>
+
+        <record id="click_company_02" model="res.company">
+            <field name="name">Top Notch Company 2</field>
+        </record>
+
+        <record id="click_company_03" model="res.company">
+            <field name="name">Top Notch Company 3</field>
+        </record>
+
+
+
+    </data>
+
+</odoo>

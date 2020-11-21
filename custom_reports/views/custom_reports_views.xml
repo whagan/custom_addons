@@ -13,7 +13,6 @@
 
     <!-- submenus -->
     <menuitem id="custom_reports_submenu" name="My Reports" parent="custom_reports_menu" action="custom_reports.custom_report_action"/>
-    <menuitem id="configure_submenu" name="Configure" parent="custom_reports_menu" action="custom_reports.custom_report_action"/>
    
     <!-- submenu list items placeholder -->
     <!-- cannot get dynamically list url yet -->
@@ -32,13 +31,10 @@
         <field name="model">custom_reports.custom_report</field>
         <field name="type">tree</field>
         <field name="arch" type="xml">
-            <tree default_order="name">
+            <tree js_class="custom_reports_list" create="false" import="false">                
+                <button name="click" type="object" string="View"/>
                 <field name="name" />
-                <!-- <field name="url" widget="url" />  -->
-                <!-- <button name="%(custom_reports.contact_report_action)d" type="action" string="VIEW" /> -->
-                <button name="click" type="object" string="View" />
-                <field name="category" />
-                <field name="description" />
+                <field name="description"/>
             </tree>
         </field>
     </record>
@@ -49,14 +45,13 @@
         <field name="model">custom_reports.custom_report</field>
         <field name="type">form</field>
         <field name="arch" type="xml">
-            <form>
+            <form create="false" import="false">
                 <sheet>
                     <div class="oe_title">
                         <label for="name" class="oe_edit_only" string="Report Name" />
                         <h1><field name="name" /></h1>
                     </div>
                     <group>
-                        <field name="url" /> <!-- widget="url" -->
                         <field name="category" placeholder="Unknown" />
                         <field name="description" placeholder="Report description..." />
                     </group>
@@ -64,4 +59,5 @@
             </form>
         </field>
     </record>    
+    
 </odoo>

@@ -57,7 +57,7 @@
         <field name="name">Sales Statistics Report</field>
         <field name="model">custom_reports.sales_statistics_report</field>
         <field name="arch" type="xml">
-            <tree>
+            <tree import="false">
                 <field name="report_title"/>
                 <field name="start_date"/>
                 <field name="end_date"/>

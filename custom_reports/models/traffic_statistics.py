@@ -2,8 +2,6 @@ from odoo import models, fields, api, _
 from odoo.tools import format_datetime
 from odoo.exceptions import ValidationError
 import datetime
-import logging
-_logger = logging.getLogger(__name__)
 
 class TrafficStatisticsReport(models.Model):
     _name = 'custom_reports.traffic_statistics_report'
@@ -17,7 +15,6 @@ class TrafficStatisticsReport(models.Model):
     traffic_statistic_ids = fields.One2many('custom_reports.traffic_statistic', 'traffic_statistics_report_id', string="Traffic Statistics")
     traffic_statistic_graph = fields.Text('Traffic Graph', default='TrafficGraph')
 
- 
     @api.model
     def create(self, values):
         record = super(TrafficStatisticsReport, self).create(values)
@@ -113,10 +110,8 @@ class TrafficStatistic(models.Model):
                     hours_sales_avg = []
                     for sale in sales:
                         hours_sales[sale.date_order.hour].append(sale.amount_total)
-                    _logger.debug("THIS IS THE hours_sales: ", hours_sales)
                     for hour in hours_sales:
                         hours_sales_avg.append(record._avg_per_hour(hour))
-                    _logger.debug("THIS IS THE hours_sales_avg: ", hours_sales_avg)
                     record.max_hour = str(record._max_hour(hours_sales_avg))
                     record.min_hour = str(record._min_hour(hours_sales_avg))
                     record.all_hour = str(hours_sales_avg)

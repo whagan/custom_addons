@@ -3,8 +3,6 @@ from odoo.tools import format_datetime
 from odoo.exceptions import ValidationError
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
-import logging
-_logger = logging.getLogger(__name__)
 
 class RestockReport(models.Model):
     _name = 'custom_reports.restock_report'
@@ -78,7 +76,6 @@ class Restock(models.Model):
     _description = 'Product Restock'
 
     product_id = fields.Many2one('product.product', string="Product", ondelete='cascade', index=True, store=True)
-    # product_tmpl_id = fields.Many2one('product.template', string='Template', related="product_id.product_tmpl_id")
     restock_report_id = fields.Many2one('custom_reports.restock_report', string="Restock Report", ondelete='cascade', store=True)
 
     # computed fields
