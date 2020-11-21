@@ -1,0 +1,53 @@
+<odoo>
+    <!-- custom reports -->
+    <record model="custom_reports.custom_report" id="customreport0">
+        <field name="name">Employee Performance</field>
+        <field name="category">Human Resources</field>
+        <field name="description">Evaluates an employee's performance over a span of time.</field>
+        <field name="url">custom_reports.employee_performance_report</field>
+    </record>
+
+    <record model="custom_reports.custom_report" id="customreport1">
+        <field name="name">Contacts</field>
+        <field name="category">Unknown</field>
+        <field name="description">Comprehensive collection of contacts.</field>
+        <field name="url">res.partner</field>
+    </record>
+
+    <record model="custom_reports.custom_report" id="customreport2">
+        <field name="name">Sales By Company</field>
+        <field name="category">Sales</field>
+        <field name="description">Company sales over a span of time. </field>
+        <field name="url">custom_reports.sales_by_company_report</field>
+    </record>
+
+    <record model="custom_reports.custom_report" id="customreport3">
+        <field name="name">Email Marketing Report</field>
+        <field name="category">Marketing</field>
+        <field name="description">Measures the effectiveness of recent marketing campaigns. </field>
+        <field name="url">custom_reports.email_marketing_report</field>
+    </record>
+
+     <record model="custom_reports.custom_report" id="customreport4">
+        <field name="name">Sales Statistics Report</field>
+        <field name="category">Sales</field>
+        <field name="description">Analysis of a location's sales performance.</field>
+        <field name="url">custom_reports.sales_statistics_report</field>
+    </record>
+    
+    <record model="custom_reports.custom_report" id="customreport5">
+        <field name="name">Restock Report</field>
+        <field name="category">Inventory</field>
+        <field name="description">Reflects the current status of inventory. </field>
+        <field name="url">custom_reports.restock_report</field>
+    </record>
+
+    <record model="custom_reports.custom_report" id="customreport6">
+        <field name="name">Traffic Statistics Report</field>
+        <field name="category">Sales</field>
+        <field name="description">Tracks the busiest time of day for a store.</field>
+        <field name="url">custom_reports.traffic_statistics_report</field>
+    </record>
+
+</odoo>
+

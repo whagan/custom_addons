@@ -8,6 +8,11 @@ Team ClickIt Github repo.
 * [Odoo Installation Guide](https://www.odoo.com/documentation/master/setup/install.html#source-install)
     * The installation **WILL NOT WORK** if you are using Python 3.7+. Use Python 3.6.
 
+### Trouble Shooting
+
+* If any issues arise try upgrading the Custom Reports module. 
+* When in doubt create a new DB.
+
 #### Install Our Module
 
 1. Open a terminal (in administrator mode, if relevant) and move to the top level of your Odoo installation (`odoo-bin` is in the top level).
@@ -74,3 +79,7 @@ Team ClickIt Github repo.
 #### Sales Statistics Report  
 
 24. Under the "My Reports" sub-menu you may click "Sales Statistics Report" which will display all the relevant point of sales information located in the demo data. Here the user can select any location, start date, and end date. Upon saving the user will see all the point of sales transactions for each of the desired locations. 
+
+#### Traffic Statistics Report
+
+25. Under the "My Reports" sub-menu you may click "Traffic Statistics Report" which will display all the relevant point of sales information located in the demo data. Here the user can select any location, start date, and end date. Upon saving the user will see all the point of sales transactions for each of the desired locations according to the time of day the transaction occurred. 

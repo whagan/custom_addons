@@ -57,7 +57,7 @@
         <field name="name">Sales Statistics Report</field>
         <field name="model">custom_reports.sales_statistics_report</field>
         <field name="arch" type="xml">
-            <tree>
+            <tree import="false">
                 <field name="report_title"/>
                 <field name="start_date"/>
                 <field name="end_date"/>
@@ -123,7 +123,9 @@
         <field name="arch" type="xml">
             <xpath expr="//notebook" position="inside">
                 <page string="Graph">
-                    <!-- <widget name ="sales_statistics_graph"/>     -->
+                         <field name="sales_statistics_graph" widget="sales_statistics_graph"
+						title="Sales Statistics" 
+						options="{'graph_type': 'pie'}"/>
                 </page>
             </xpath>
         </field>

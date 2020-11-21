@@ -3,8 +3,6 @@ from odoo.tools import format_datetime
 from odoo.exceptions import ValidationError
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
-import logging
-_logger = logging.getLogger(__name__)
 
 class RestockReport(models.Model):
     _name = 'custom_reports.restock_report'
@@ -39,21 +37,25 @@ class RestockReport(models.Model):
             else:
                 report.items = "report has a few inactive products"
     
-    # @api.onchange('product_ids')
-    # def onchange_product_ids(self):
-    #     for report in self:
-    #         records = []
-    #         for restock in report.product_restock_ids:
-    #             if restock.product_id in report.product_ids:
-    #                 records.append(restock.product_id)
-    #             else:
-    #                 report.product_restock_ids.remove(restock)
-    #         for product_id in report.product_ids:
-    #             if product_id.id not in records:
-    #                 report.product_restock_ids.append({
-    #                     'product_id': product_id.id,
-    #                     'restock_report_id': report.id
-    #                 })
+    def write(self, values):
+        record = super(RestockReport, self).write(values)
+        old_list = self.env['custom_reports.product_restock'].search([('restock_report_id', '=', self.id)])
+        old_ids = []
+        for old_id in old_list:
+            old_ids.append(old_id.product_id.id)
+        new_ids = values['product_ids'][0][2]
+        remove_list = []
+        add_records = []
+        for old_list_id in old_ids:
+            if old_list_id not in new_ids:
+                remove_list.append(old_list_id)
+        for new_id in new_ids:
+            if new_id not in old_ids:
+                add_records.append({'product_id': new_id, 'restock_report_id':  self.id})
+        remove_records = self.env['custom_reports.product_restock'].search([('product_id', 'in', remove_list)])
+        remove_records.unlink()
+        self.env['custom_reports.product_restock'].create(add_records)
+        return record
     
 
     @api.model
@@ -74,7 +76,6 @@ class Restock(models.Model):
     _description = 'Product Restock'
 
     product_id = fields.Many2one('product.product', string="Product", ondelete='cascade', index=True, store=True)
-    # product_tmpl_id = fields.Many2one('product.template', string='Template', related="product_id.product_tmpl_id")
     restock_report_id = fields.Many2one('custom_reports.restock_report', string="Restock Report", ondelete='cascade', store=True)
 
     # computed fields

@@ -1,11 +1,8 @@
 
-from odoo import models, fields, api
+from odoo import models, fields, api, _
 from odoo.tools import format_datetime
 from odoo.exceptions import ValidationError
 import datetime
-import logging
-_logger = logging.getLogger(__name__)
-
  
 #Sales By Company Report DataModel
 class SalesByCompanyReport(models.Model):
@@ -13,13 +10,13 @@ class SalesByCompanyReport(models.Model):
     _description = 'Sales By Company Report'
     _rec_name = 'report_title'
     
-    # basic properties
     report_title = fields.Char('Report Title', required=True)
-    start_date = fields.Datetime(string='Start Date')
-    end_date = fields.Datetime(string='End Date')
+    start_date = fields.Datetime(string='Start Date', required=True, ValidationError='_check_date_validity')
+    end_date = fields.Datetime(string='End Date', required=True, ValidationError='_check_date_validity')
     company_ids = fields.Many2many('res.company', relation='custom_reports_sales_by_company_report_rel', column1='custom_report_id', column2='company_id', string="companies")
     sales_by_company_ids = fields.One2many('custom_reports.sales_by_company', 'sales_by_company_report_id', string="Sales By Company")
     sales_by_company_graph = fields.Text('Sales Graph', default = 'SalesGraph' )
+    
     # methods
     # method for the creation of a new instance of a report
     @api.model
@@ -36,6 +33,42 @@ class SalesByCompanyReport(models.Model):
             })
         self.env['custom_reports.sales_by_company'].create(records)
         return record
+
+    def write(self, values):
+        record = super(SalesByCompanyReport, self).write(values)
+        old_companies = self.env['custom_reports.sales_by_company'].search([
+            ('sales_by_company_report_id', '=', self.id)
+        ])
+        old_companies_ids = []
+        for old_company in old_companies:
+            old_companies_ids.append(old_company.company.id)
+        new_companies_ids = values['company_ids'][0][2]
+        remove_list = []
+        add_records = []
+        for old_company_id in old_companies_ids:
+            if old_company_id not in new_companies_ids:
+                remove_list.append(old_company_id)
+        for new_company_id in new_companies_ids:
+            if new_company_id not in old_companies_ids:
+                add_records.append({
+                    'company': new_company_id,
+                    'sales_by_company_report_id':  self.id,
+                    'start_date': self.start_date,
+                    'end_date': self.end_date
+                })
+        remove_records = self.env['custom_reports.sales_by_company'].search([
+            ('company', 'in', remove_list)
+        ])
+        remove_records.unlink()
+        self.env['custom_reports.sales_by_company'].create(add_records)
+        return record
+
+    @api.constrains('start_date','end_date')
+    def _check_date_validity(self):
+        for report in self:
+            if report.start_date and report.end_date:
+                if report.start_date > report.end_date:
+                    raise ValidationError(_("Error. Start date must be earlier than end date."))
     
 
 #Sales By Company DataModel

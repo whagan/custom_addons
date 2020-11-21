@@ -1,9 +1,7 @@
-from odoo import models, fields, api
+from odoo import models, fields, api, _
 from odoo.tools import format_datetime
 from odoo.exceptions import ValidationError
 import datetime
-import logging
-_logger = logging.getLogger(__name__)
 
 #Sales Statistics Report DataModel
 class SalesStatisticsReport(models.Model):
@@ -13,11 +11,11 @@ class SalesStatisticsReport(models.Model):
     
     # Basic properties
     report_title = fields.Char('Report Title', required=True)
-    start_date = fields.Datetime(string = 'Start Date')
-    end_date = fields.Datetime(string = 'End Date')
+    start_date = fields.Datetime(string = 'Start Date', required=True, ValidationError='_check_date_validity')
+    end_date = fields.Datetime(string = 'End Date', required=True, ValidationError='_check_date_validity')
     location_ids = fields.Many2many('stock.location', relation='sales_statistics_report_rel', column1='custom_report_id', column2='location_id', string="Location")
     sales_statistic_ids = fields.One2many('custom_reports.sales_statistic', 'sales_statistics_report_id', string="Sales Statistics")
-
+    sales_statistics_graph = fields.Text('Sales Graph', default = 'SalesGraph' )
  
     @api.model
     def create(self, values):
@@ -33,6 +31,42 @@ class SalesStatisticsReport(models.Model):
             })
         self.env['custom_reports.sales_statistic'].create(records)
         return record
+
+    def write(self, values):
+        record = super(SalesStatisticsReport, self).write(values)
+        old_locations = self.env['custom_reports.sales_statistic'].search([
+            ('sales_statistics_report_id', '=', self.id)
+        ])
+        old_locations_ids = []
+        for old_location in old_locations:
+            old_locations_ids.append(old_location.location_id.id)
+        new_locations_ids = values['location_ids'][0][2]
+        remove_list = []
+        add_records = []
+        for old_location_id in old_locations_ids:
+            if old_location_id not in new_locations_ids:
+                remove_list.append(old_location_id)
+        for new_location_id in new_locations_ids:
+            if new_location_id not in old_locations_ids:
+                add_records.append({
+                    'location_id': new_location_id,
+                    'sales_statistics_report_id':  self.id,
+                    'start_date': self.start_date,
+                    'end_date': self.end_date
+                })
+        remove_records = self.env['custom_reports.sales_statistic'].search([
+            ('location_id', 'in', remove_list)
+        ])
+        remove_records.unlink()
+        self.env['custom_reports.sales_statistic'].create(add_records)
+        return record
+
+    @api.constrains('start_date','end_date')
+    def _check_date_validity(self):
+        for report in self:
+            if report.start_date and report.end_date:
+                if report.start_date > report.end_date:
+                    raise ValidationError(_("Error. Start date must be earlier than end date."))
 
 
 
@@ -64,7 +98,7 @@ class SalesStatistics(models.Model):
                     ('date_order', '<=', record.end_date),
                     ('date_order', '>=', record.start_date)
                 ])
-                if sales: # if found in attendance, sum the worked_hours
+                if sales:
                     for sale in sales:
                         sales_location += sale.amount_total
             record.sales_location = sales_location

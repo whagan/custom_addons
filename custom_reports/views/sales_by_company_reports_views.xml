@@ -59,10 +59,8 @@
         <field name="name">Sales By Company Report</field>
         <field name="model">custom_reports.sales_by_company_report</field>
         <field name="arch" type="xml">
-            <tree>
+            <tree import="false">
                 <field name="report_title"/>
-                <field name="start_date"/>
-                <field name="end_date"/>
             </tree>
         </field>
     </record>
