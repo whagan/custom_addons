@@ -23,8 +23,6 @@ odoo.define('custom_reports.SalesStatisticGraph', function(require)   {
             this._super.apply(this, arguments);
             this.graph_data = arguments[2].data.sales_statistic_ids.data;
             this.graph_type = this.attrs.options.graph_type;
-            console.log("HEY");
-            console.log(this);
         },
 
         /**
