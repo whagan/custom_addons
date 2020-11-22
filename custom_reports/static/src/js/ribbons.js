@@ -1,3 +1,4 @@
+// create our custom ribbon widget
 odoo.define('custom_reports.ribbon', function (require)  {
     'use strict';
 
@@ -20,16 +21,19 @@ odoo.define('custom_reports.ribbon', function (require)  {
             this.text = options.attrs.title || options.attrs.text;
             this.tooltip = options.attrs.tooltip;
             this.className = options.attrs.bg_color ? options.attrs.bg_color : 'bg-success';
+
+            // if text is longer than 15 character, set to small
             if (this.text.length > 15) {
                 this.className += ' o_small';
-            } else if (this.text.length > 10) {
+            }
+            // if text is longer than 10, set to medium
+            else if (this.text.length > 10) {
                 this.className += ' o_medium';
             }
+            // otherwise default
         },
     });
     widgetRegistry.add('custom_ribbon', CustomRibbonWidget);
 
     return CustomRibbonWidget;
-
-
 })

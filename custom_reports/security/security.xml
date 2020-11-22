@@ -1,3 +1,4 @@
+<!-- Adding security groups for Custom Reports -->
 <odoo>
     <data>
         <record id="group_manager" model="res.groups">
@@ -6,6 +7,5 @@
         <record id="group_user" model="res.groups">
             <field name="name">Custom Reports / User</field>
         </record>
-       
     </data>
 </odoo>

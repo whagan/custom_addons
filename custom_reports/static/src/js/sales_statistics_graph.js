@@ -33,20 +33,20 @@ odoo.define('custom_reports.SalesStatisticGraph', function(require)   {
             var labels = [];
             var data = [];
 
+            // get data
             self.graph_data.forEach(graph_datum =>  {
                 labels.push(graph_datum.data.location_id.data.display_name);
                 data.push(graph_datum.data.sales_location);
             });
 
+            // get colors
             var colors = self._getColors(data.length);
 
+            // set graph type
             switch (self.graph_type) {
                 case 'bar':
                     self.config = self._getBarGraph(labels, data, colors);
                     break;
-                // case 'line':
-                //     self.config = self._getLineGraph(labels, data, colors);
-                //     break;
                 case 'pie':
                     self.config = self._getPieGraph(labels, data, colors);
                     break;
@@ -60,6 +60,8 @@ odoo.define('custom_reports.SalesStatisticGraph', function(require)   {
                     self.config = self._getRadarGraph(labels, data, colors);
                     break;
             }
+
+            // load
             self._loadChart();
         },
 
@@ -84,41 +86,6 @@ odoo.define('custom_reports.SalesStatisticGraph', function(require)   {
                 },
             };
         },
-
-        //  /**
-        //  * Returns a line graph
-        //  * @private
-        //  */
-        // _getLineGraph: function (labels, data, colors)   {
-        //     return {
-        //         type: 'line',
-        //         data: {
-        //            labels: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
-        //            datasets: [{
-        //                label: 'ClickIt July Sale Ad',
-        //                data: [20, 22, 24, 27, 25, 44, 35, 27, 12, 8, 7],
-        //                borderColor: "#8e5ea2",
-        //                fill: false
-        //             },  {
-        //                 label: 'ClickIt August Sale Ad',
-        //                 data: [18, 20, 24, 29, 35, 37, 45, 50, 45, 40, 35],
-        //                 borderColor: "#3cba9f",
-        //                 fill: false
-
-        //             },  {
-        //                 label: 'ClickIt September Sale Ad',
-        //                 data: [27, 25, 29, 32, 30, 37, 55, 60, 65, 50, 30],
-        //                 borderColor: "#c45850",
-        //                 fill: false
-        //             },  {
-        //                 label: 'ClickIt October Sale Ad',
-        //                 data: [35, 29, 29, 32, 48, 50, 55, 60, 67, 70, 65],
-        //                 borderColor: "#3e95cd",
-        //                 fill: false
-        //             }]
-        //         },
-        //     };
-        // },
 
         /**
          * Returns a pie graph
