@@ -109,6 +109,8 @@ class TrafficStatistic(models.Model):
                     record.max_hour = "[0]"
                     record.min_hour = "[0]"
                     record.all_hour = "[0]"
+                    record.max_hour_fmt = "No data"
+                    record.min_hour_fmt = "No data"
             else:
                 raise exceptions.ValidationError(_("Error. Shop not found."))
     
