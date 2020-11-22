@@ -70,8 +70,8 @@
             <field name="name">Kevin's Arcade/1001</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=30, hours=13)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">250.00</field>
+            <field name="amount_paid">250.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -94,8 +94,8 @@
             <field name="name">Kevin's Arcade/1003</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=28, hours=8)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">485.00</field>
+            <field name="amount_paid">485.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -106,8 +106,8 @@
             <field name="name">Kevin's Arcade/1004</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=27, hours=2)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">375.00</field>
+            <field name="amount_paid">375.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -118,8 +118,8 @@
             <field name="name">Kevin's Arcade/1005</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=26, hours=11)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">525.00</field>
+            <field name="amount_paid">525.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -130,8 +130,8 @@
             <field name="name">Kevin's Arcade/1006</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=25, hours=17)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">725.00</field>
+            <field name="amount_paid">725.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -142,8 +142,8 @@
             <field name="name">Kevin's Arcade/1007</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=24, hours=13)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">250.00</field>
+            <field name="amount_paid">250.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -154,8 +154,8 @@
             <field name="name">Kevin's Arcade/1008</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=23, hours=7)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">485.00</field>
+            <field name="amount_paid">485.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -166,8 +166,8 @@
             <field name="name">Kevin's Arcade/1009</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=22, hours=8)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">675.00</field>
+            <field name="amount_paid">675.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -178,8 +178,8 @@
             <field name="name">Kevin's Arcade/1010</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=21, hours=7)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">375.00</field>
+            <field name="amount_paid">375.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -190,8 +190,8 @@
             <field name="name">Kevin's Arcade/1011</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=20, hours=6)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">675.00</field>
+            <field name="amount_paid">675.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -202,8 +202,8 @@
             <field name="name">Kevin's Arcade/1012</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=19, hours=2)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">485.00</field>
+            <field name="amount_paid">485.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -214,8 +214,8 @@
             <field name="name">Kevin's Arcade/1013</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=18, hours=2)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">250.00</field>
+            <field name="amount_paid">250.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -226,8 +226,8 @@
             <field name="name">Kevin's Arcade/1014</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=17, hours=2)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">485.00</field>
+            <field name="amount_paid">485.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -238,8 +238,8 @@
             <field name="name">Kevin's Arcade/1015</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=16, hours=1)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">485.00</field>
+            <field name="amount_paid">485.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -250,8 +250,8 @@
             <field name="name">Kevin's Arcade/1016</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=15, hours=9)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">375.00</field>
+            <field name="amount_paid">375.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -274,8 +274,8 @@
             <field name="name">Kevin's Arcade/1018</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=13, hours=9)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">250.00</field>
+            <field name="amount_paid">250.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -298,8 +298,8 @@
             <field name="name">Kevin's Arcade/1020</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=11, hours=9)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">525.00</field>
+            <field name="amount_paid">525.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -310,8 +310,8 @@
             <field name="name">Kevin's Arcade/1021</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=10, hours=9)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">485.00</field>
+            <field name="amount_paid">485.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -322,8 +322,8 @@
             <field name="name">Kevin's Arcade/1022</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=9, hours=9)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">250.00</field>
+            <field name="amount_paid">250.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -334,8 +334,8 @@
             <field name="name">Kevin's Arcade/1023</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=8, hours=7)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">525.00</field>
+            <field name="amount_paid">525.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -346,8 +346,8 @@
             <field name="name">Kevin's Arcade/1024</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=7, hours=6)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">375.00</field>
+            <field name="amount_paid">375.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -358,8 +358,8 @@
             <field name="name">Kevin's Arcade/1025</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=6, hours=10)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">485.00</field>
+            <field name="amount_paid">485.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -382,8 +382,8 @@
             <field name="name">Kevin's Arcade/1027</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=4, hours=8)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">675.00</field>
+            <field name="amount_paid">675.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -394,8 +394,8 @@
             <field name="name">Kevin's Arcade/1028</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=3, hours=9)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">250.00</field>
+            <field name="amount_paid">250.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -418,8 +418,8 @@
             <field name="name">Kevin's Arcade/1030</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=1, hours=12)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">725.00</field>
+            <field name="amount_paid">725.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -430,8 +430,8 @@
             <field name="name">Kevin's Arcade/1031</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(hours=14)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">375.00</field>
+            <field name="amount_paid">375.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -444,8 +444,8 @@
             <field name="name">Will's Dairy-aire/1001</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=30, hours=1)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">485.00</field>
+            <field name="amount_paid">485.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -456,8 +456,8 @@
             <field name="name">Will's Dairy-aire/1002</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=29, hours=13)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">525.00</field>
+            <field name="amount_paid">525.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -468,8 +468,8 @@
             <field name="name">Will's Dairy-aire/1003</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=28, hours=16)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">250.00</field>
+            <field name="amount_paid">250.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -504,8 +504,8 @@
             <field name="name">Will's Dairy-aire/1006</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=25, hours=5)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">525.00</field>
+            <field name="amount_paid">525.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -516,8 +516,8 @@
             <field name="name">Will's Dairy-aire/1007</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=24, hours=1)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">485.00</field>
+            <field name="amount_paid">485.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -540,8 +540,8 @@
             <field name="name">Will's Dairy-aire/1009</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=22, hours=20)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">675.00</field>
+            <field name="amount_paid">675.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -552,8 +552,8 @@
             <field name="name">Will's Dairy-aire/1010</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=21, hours=19)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">250.00</field>
+            <field name="amount_paid">250.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -564,8 +564,8 @@
             <field name="name">Will's Dairy-aire/1011</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=20, hours=18)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">485.00</field>
+            <field name="amount_paid">485.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -588,8 +588,8 @@
             <field name="name">Will's Dairy-aire/1013</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=18, hours=12)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">375.00</field>
+            <field name="amount_paid">375.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -600,8 +600,8 @@
             <field name="name">Will's Dairy-aire/1014</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=17, hours=10)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">675.00</field>
+            <field name="amount_paid">675.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -612,8 +612,8 @@
             <field name="name">Will's Dairy-aire/1015</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=16, hours=13)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">525.00</field>
+            <field name="amount_paid">525.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -624,8 +624,8 @@
             <field name="name">Will's Dairy-aire/1016</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=15, hours=3)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">725.00</field>
+            <field name="amount_paid">725.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -636,8 +636,8 @@
             <field name="name">Will's Dairy-aire/1017</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=14, hours=3)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">250.00</field>
+            <field name="amount_paid">250.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -660,8 +660,8 @@
             <field name="name">Will's Dairy-aire/1019</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=12, hours=19)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">525.00</field>
+            <field name="amount_paid">525.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -672,8 +672,8 @@
             <field name="name">Will's Dairy-aire/1020</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=11, hours=3)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">375.00</field>
+            <field name="amount_paid">375.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -684,8 +684,8 @@
             <field name="name">Will's Dairy-aire/1021</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=10, hours=2)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">485.00</field>
+            <field name="amount_paid">485.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -708,8 +708,8 @@
             <field name="name">Will's Dairy-aire/1023</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=8, hours=6)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">675.00</field>
+            <field name="amount_paid">675.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -720,8 +720,8 @@
             <field name="name">Will's Dairy-aire/1024</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=7, hours=6)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">485.00</field>
+            <field name="amount_paid">485.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -732,8 +732,8 @@
             <field name="name">Will's Dairy-aire/1025</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=6, hours=2)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">525.00</field>
+            <field name="amount_paid">525.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -744,8 +744,8 @@
             <field name="name">Will's Dairy-aire/1026</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=5, hours=7)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">250.00</field>
+            <field name="amount_paid">250.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -756,8 +756,8 @@
             <field name="name">Will's Dairy-aire/1027</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=4, hours=2)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">525.00</field>
+            <field name="amount_paid">525.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -780,8 +780,8 @@
             <field name="name">Will's Dairy-aire/1029</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=2, hours=13)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">485.00</field>
+            <field name="amount_paid">485.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -792,8 +792,8 @@
             <field name="name">Will's Dairy-aire/1030</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=1, hours=19)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">375.00</field>
+            <field name="amount_paid">375.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -804,8 +804,8 @@
             <field name="name">Will's Dairy-aire/1031</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(hours=2)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">675.00</field>
+            <field name="amount_paid">675.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -818,8 +818,8 @@
             <field name="name">Daniel's Pizzeria/1001</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=30, hours=13)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">525.00</field>
+            <field name="amount_paid">525.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -842,8 +842,8 @@
             <field name="name">Daniel's Pizzeria/1003</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=28, hours=15)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">250.00</field>
+            <field name="amount_paid">250.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -854,8 +854,8 @@
             <field name="name">Daniel's Pizzeria/1004</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=27, hours=20)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">485.00</field>
+            <field name="amount_paid">485.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -866,8 +866,8 @@
             <field name="name">Daniel's Pizzeria/1005</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=26, hours=11)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">375.00</field>
+            <field name="amount_paid">375.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -878,8 +878,8 @@
             <field name="name">Daniel's Pizzeria/1006</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=25, hours=15)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">725.00</field>
+            <field name="amount_paid">725.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -890,8 +890,8 @@
             <field name="name">Daniel's Pizzeria/1007</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=24, hours=8)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">525.00</field>
+            <field name="amount_paid">525.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -902,8 +902,8 @@
             <field name="name">Daniel's Pizzeria/1008</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=23, hours=23)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">525.00</field>
+            <field name="amount_paid">525.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -914,8 +914,8 @@
             <field name="name">Daniel's Pizzeria/1009</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=22, hours=20)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">675.00</field>
+            <field name="amount_paid">675.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -926,8 +926,8 @@
             <field name="name">Daniel's Pizzeria/1010</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=21, hours=12)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">485.00</field>
+            <field name="amount_paid">485.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -938,8 +938,8 @@
             <field name="name">Daniel's Pizzeria/1011</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=20, hours=12)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">250.00</field>
+            <field name="amount_paid">250.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -950,8 +950,8 @@
             <field name="name">Daniel's Pizzeria/1012</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=19, hours=9)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">675.00</field>
+            <field name="amount_paid">675.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -962,8 +962,8 @@
             <field name="name">Daniel's Pizzeria/1013</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=18, hours=12)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">375.00</field>
+            <field name="amount_paid">375.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -974,8 +974,8 @@
             <field name="name">Daniel's Pizzeria/1014</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=17, hours=7)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">675.00</field>
+            <field name="amount_paid">675.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -998,8 +998,8 @@
             <field name="name">Daniel's Pizzeria/1016</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=15, hours=13)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">485.00</field>
+            <field name="amount_paid">485.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -1010,8 +1010,8 @@
             <field name="name">Daniel's Pizzeria/1017</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=14, hours=2)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">250.00</field>
+            <field name="amount_paid">250.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -1034,8 +1034,8 @@
             <field name="name">Daniel's Pizzeria/1019</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=12, hours=12)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">525.00</field>
+            <field name="amount_paid">525.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -1046,8 +1046,8 @@
             <field name="name">Daniel's Pizzeria/1020</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=11, hours=4)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">485.00</field>
+            <field name="amount_paid">485.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -1058,8 +1058,8 @@
             <field name="name">Daniel's Pizzeria/1021</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=10, hours=2)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">375.00</field>
+            <field name="amount_paid">375.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -1070,8 +1070,8 @@
             <field name="name">Daniel's Pizzeria/1022</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=9, hours=19)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">250.00</field>
+            <field name="amount_paid">250.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -1082,8 +1082,8 @@
             <field name="name">Daniel's Pizzeria/1023</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=8, hours=16)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">725.00</field>
+            <field name="amount_paid">725.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -1106,8 +1106,8 @@
             <field name="name">Daniel's Pizzeria/1025</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=6, hours=22)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">525.00</field>
+            <field name="amount_paid">525.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -1118,8 +1118,8 @@
             <field name="name">Daniel's Pizzeria/1026</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=5, hours=17)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">485.00</field>
+            <field name="amount_paid">485.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -1142,8 +1142,8 @@
             <field name="name">Daniel's Pizzeria/1028</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=3, hours=19)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">675.00</field>
+            <field name="amount_paid">675.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -1154,8 +1154,8 @@
             <field name="name">Daniel's Pizzeria/1029</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=2, hours=3)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">250.00</field>
+            <field name="amount_paid">250.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -1178,8 +1178,8 @@
             <field name="name">Daniel's Pizzeria/1031</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(hours=12)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">375.00</field>
+            <field name="amount_paid">375.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -1192,8 +1192,8 @@
             <field name="name">John's Video Lodge/1001</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=30, hours=15)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">525.00</field>
+            <field name="amount_paid">525.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -1204,8 +1204,8 @@
             <field name="name">John's Video Lodge/1002</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=29, hours=8)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">485.00</field>
+            <field name="amount_paid">485.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -1228,8 +1228,8 @@
             <field name="name">John's Video Lodge/1004</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=27, hours=20)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">485.00</field>
+            <field name="amount_paid">485.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -1240,8 +1240,8 @@
             <field name="name">John's Video Lodge/1005</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=26, hours=21)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">250.00</field>
+            <field name="amount_paid">250.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -1264,8 +1264,8 @@
             <field name="name">John's Video Lodge/1007</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=24, hours=8)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">675.00</field>
+            <field name="amount_paid">675.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -1276,8 +1276,8 @@
             <field name="name">John's Video Lodge/1008</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=23, hours=23)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">375.00</field>
+            <field name="amount_paid">375.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -1288,8 +1288,8 @@
             <field name="name">John's Video Lodge/1009</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=22, hours=20)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">725.00</field>
+            <field name="amount_paid">725.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -1300,8 +1300,8 @@
             <field name="name">John's Video Lodge/1010</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=21, hours=12)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">525.00</field>
+            <field name="amount_paid">525.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -1312,8 +1312,8 @@
             <field name="name">John's Video Lodge/1011</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=20, hours=12)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">250.00</field>
+            <field name="amount_paid">250.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -1336,8 +1336,8 @@
             <field name="name">John's Video Lodge/1013</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=18, hours=12)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">485.00</field>
+            <field name="amount_paid">485.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -1348,8 +1348,8 @@
             <field name="name">John's Video Lodge/1014</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=17, hours=17)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">525.00</field>
+            <field name="amount_paid">525.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -1360,8 +1360,8 @@
             <field name="name">John's Video Lodge/1015</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=16, hours=11)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">375.00</field>
+            <field name="amount_paid">375.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -1372,8 +1372,8 @@
             <field name="name">John's Video Lodge/1016</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=15, hours=1)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">485.00</field>
+            <field name="amount_paid">485.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -1384,8 +1384,8 @@
             <field name="name">John's Video Lodge/1017</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=14, hours=6)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">250.00</field>
+            <field name="amount_paid">250.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -1396,8 +1396,8 @@
             <field name="name">John's Video Lodge/1018</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=13, hours=3)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">675.00</field>
+            <field name="amount_paid">675.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -1408,8 +1408,8 @@
             <field name="name">John's Video Lodge/1019</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=12, hours=19)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">675.00</field>
+            <field name="amount_paid">675.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -1432,8 +1432,8 @@
             <field name="name">John's Video Lodge/1021</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=10, hours=22)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">375.00</field>
+            <field name="amount_paid">375.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -1456,8 +1456,8 @@
             <field name="name">John's Video Lodge/1023</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=8, hours=17)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">250.00</field>
+            <field name="amount_paid">250.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -1480,8 +1480,8 @@
             <field name="name">John's Video Lodge/1025</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=6, hours=2)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">525.00</field>
+            <field name="amount_paid">525.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -1492,8 +1492,8 @@
             <field name="name">John's Video Lodge/1026</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=5, hours=17)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">485.00</field>
+            <field name="amount_paid">485.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -1504,8 +1504,8 @@
             <field name="name">John's Video Lodge/1027</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=4, hours=22)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">485.00</field>
+            <field name="amount_paid">485.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -1516,8 +1516,8 @@
             <field name="name">John's Video Lodge/1028</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=3, hours=9)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">375.00</field>
+            <field name="amount_paid">375.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -1528,8 +1528,8 @@
             <field name="name">John's Video Lodge/1029</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=2, hours=13)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">675.00</field>
+            <field name="amount_paid">675.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -1540,8 +1540,8 @@
             <field name="name">John's Video Lodge/1030</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(days=1, hours=21)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">250.00</field>
+            <field name="amount_paid">250.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
@@ -1552,8 +1552,8 @@
             <field name="name">John's Video Lodge/1031</field>
             <field name="date_order" eval="(DateTime.today() - relativedelta(hours=2)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="amount_tax">0.0</field>
-            <field name="amount_total">100.00</field>
-            <field name="amount_paid">100.00</field>
+            <field name="amount_total">675.00</field>
+            <field name="amount_paid">675.00</field>
             <field name="amount_return">0.0</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="pricelist_id">1</field>
