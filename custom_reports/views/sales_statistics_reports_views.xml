@@ -123,9 +123,9 @@
         <field name="arch" type="xml">
             <xpath expr="//notebook" position="inside">
                 <page string="Graph">
-                         <field name="sales_statistics_graph" widget="sales_statistics_graph"
+                         <field name="sales_statistics_graph" widget="sales_statistic_graph"
 						title="Sales Statistics" 
-						options="{'graph_type': 'pie'}"/>
+						options="{'graph_type': 'radar'}"/>
                 </page>
             </xpath>
         </field>

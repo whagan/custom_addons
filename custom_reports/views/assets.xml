@@ -14,6 +14,7 @@
       <script type="text/javascript" src="/custom_reports/static/src/js/graphs/employee_performance_graph.js"/>
       <script type="text/javascript" src="/custom_reports/static/src/js/graphs/email_marketing_graph.js"/>
       <script type="text/javascript" src="/custom_reports/static/src/js/graphs/sales_by_company_graph.js"/>
+      <script type="text/javascript" src="/custom_reports/static/src/js/graphs/sales_statistics_graph.js"/>
       <script type="text/javascript" src="/custom_reports/static/src/js/graphs/traffic_statistic_graph.js"/>
 
     </xpath>
