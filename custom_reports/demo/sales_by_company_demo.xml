@@ -974,8 +974,6 @@
         <function model="sale.order" name="action_confirm" eval="[[ref('company_sale_click_03_14')]]"/>
         <function model="sale.order" name="action_confirm" eval="[[ref('company_sale_click_03_15')]]"/>
 
-
-
         <!-- setting date_order in the past for spread -->
 
         <record id="company_sale_click_01_01" model="sale.order">

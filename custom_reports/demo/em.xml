@@ -1,587 +1,4 @@
-<odoo>
-
-    <data noupdate="0">
-
-        <!-- res company -->
-
-        <record id="emp_click_company_01" model="res.company">
-            <field name="name">Click It</field>
-        </record>
-
-        <!-- res partner -->
-
-        <record id="res_partner_click_01" model="res.partner">
-            <field name="name">Tommy Rogers</field>
-            <field name="company_name">BTBAM</field>
-            <field name="street">775 Watauga</field>
-            <field name="city">Memphis</field>
-            <field name="zip">38117</field>
-            <field name='country_id' ref='base.us'/>
-            <field name='state_id' ref='base.state_us_43'/>
-            <field name="phone">+1 555-555-5555</field>
-            <field name="email">tommy@btbam.example.com</field>
-            <field name="tz">Europe/Brussels</field>
-            <field name="image_1920" type="base64" file="custom_reports/static/img/employee_performance/res_partner/emp_01.jpeg"/>
-        </record>
-
-        <record id="res_partner_click_02" model="res.partner">
-            <field name="name">Dustie Waring</field>
-            <field name="company_name">BTBAM</field>
-            <field name="street">215 Perkins Rd</field>
-            <field name="city">Memphis</field>
-            <field name="zip">38117</field>
-            <field name='country_id' ref='base.us'/>
-            <field name='state_id' ref='base.state_us_43'/>
-            <field name="phone">+1 555-555-5555</field>
-            <field name="email">dustie@btbam.example.com</field>
-            <field name="tz">Europe/Brussels</field>
-            <field name="image_1920" type="base64" file="custom_reports/static/img/employee_performance/res_partner/emp_02.jpg"/>
-        </record>
-
-        <record id="res_partner_click_03" model="res.partner">
-            <field name="name">Dan Briggs</field>
-            <field name="company_name">BTBAM</field>
-            <field name="street">677 Alexander St</field>
-            <field name="city">Memphis</field>
-            <field name="zip">38117</field>
-            <field name='country_id' ref='base.us'/>
-            <field name='state_id' ref='base.state_us_43'/>
-            <field name="phone">+1 555-555-5555</field>
-            <field name="email">dan@btbam.example.com</field>
-            <field name="tz">Europe/Brussels</field>
-            <field name="image_1920" type="base64" file="custom_reports/static/img/employee_performance/res_partner/emp_03.jpg"/>
-        </record>
-
-        <record id="res_partner_click_04" model="res.partner">
-            <field name="name">Blake Richardson</field>
-            <field name="company_name">BTBAM</field>
-            <field name="street">72 Patterson</field>
-            <field name="city">Memphis</field>
-            <field name="zip">38117</field>
-            <field name='country_id' ref='base.us'/>
-            <field name='state_id' ref='base.state_us_43'/>
-            <field name="phone">+1 555-555-5555</field>
-            <field name="email">blake@btbam.example.com</field>
-            <field name="tz">Europe/Brussels</field>
-            <field name="image_1920" type="base64" file="custom_reports/static/img/employee_performance/res_partner/emp_04.jpg"/>
-        </record>
-
-        <record id="res_partner_click_05" model="res.partner">
-            <field name="name">Paul Waggoner</field>
-            <field name="company_name">BTBAM</field>
-            <field name="street">459 Holmes St</field>
-            <field name="city">Memphis</field>
-            <field name="zip">38117</field>
-            <field name='country_id' ref='base.us'/>
-            <field name='state_id' ref='base.state_us_43'/>
-            <field name="phone">+1 555-555-5555</field>
-            <field name="email">paul@btbam.example.com</field>
-            <field name="tz">Europe/Brussels</field>
-            <field name="image_1920" type="base64" file="custom_reports/static/img/employee_performance/res_partner/emp_05.jpg"/>
-        </record>
-
-        <!-- res user -->
-
-        <record id="user_click_01" model="res.users">
-            <field name="partner_id" ref="res_partner_click_01"/>
-            <field name="login">tommy@btbtam.com</field>
-            <field name="password">demo</field>
-            <field name="signature" type="xml"><span>-- <br/>+Mr Rogers</span></field>
-            <field name="company_id" ref="base.main_company"/>
-            <field name="groups_id" eval="[(6,0,[ref('base.group_user'), ref('base.group_partner_manager')])]"/>
-            <field name="image_1920" type="base64" file="custom_reports/static/img/employee_performance/res_user/emp_01.jpeg"/>
-            <field eval="[(4, ref('sales_team.group_sale_salesman'))]" name="groups_id"/>
-        </record>
-        
-        <record id="user_click_02" model="res.users">
-            <field name="partner_id" ref="res_partner_click_02"/>
-            <field name="login">dustie@btbtam.com</field>
-            <field name="password">demo</field>
-            <field name="signature" type="xml"><span>-- <br/>+Mr Waring</span></field>
-            <field name="company_id" ref="base.main_company"/>
-            <field name="groups_id" eval="[(6,0,[ref('base.group_user'), ref('base.group_partner_manager')])]"/>
-            <field name="image_1920" type="base64" file="custom_reports/static/img/employee_performance/res_user/emp_02.jpg"/>
-            <field eval="[(4, ref('sales_team.group_sale_salesman'))]" name="groups_id"/>
-        </record>
-        
-        <record id="user_click_03" model="res.users">
-            <field name="partner_id" ref="res_partner_click_03"/>
-            <field name="login">dan@btbtam.com</field>
-            <field name="password">demo</field>
-            <field name="signature" type="xml"><span>-- <br/>+Mr Briggs</span></field>
-            <field name="company_id" ref="base.main_company"/>
-            <field name="groups_id" eval="[(6,0,[ref('base.group_user'), ref('base.group_partner_manager')])]"/>
-            <field name="image_1920" type="base64" file="custom_reports/static/img/employee_performance/res_user/emp_03.jpg"/>
-            <field eval="[(4, ref('sales_team.group_sale_salesman'))]" name="groups_id"/>
-        </record>
-        
-        <record id="user_click_04" model="res.users">
-            <field name="partner_id" ref="res_partner_click_04"/>
-            <field name="login">blake@btbtam.com</field>
-            <field name="password">demo</field>
-            <field name="signature" type="xml"><span>-- <br/>+Mr Richardson</span></field>
-            <field name="company_id" ref="base.main_company"/>
-            <field name="groups_id" eval="[(6,0,[ref('base.group_user'), ref('base.group_partner_manager')])]"/>
-            <field name="image_1920" type="base64" file="custom_reports/static/img/employee_performance/res_user/emp_04.jpg"/>
-            <field eval="[(4, ref('sales_team.group_sale_salesman'))]" name="groups_id"/>
-        </record>
-        
-        <record id="user_click_05" model="res.users">
-            <field name="partner_id" ref="res_partner_click_05"/>
-            <field name="login">paul@btbtam.com</field>
-            <field name="password">demo</field>
-            <field name="signature" type="xml"><span>-- <br/>+Mr Waggoner</span></field>
-            <field name="company_id" ref="base.main_company"/>
-            <field name="groups_id" eval="[(6,0,[ref('base.group_user'), ref('base.group_partner_manager')])]"/>
-            <field name="image_1920" type="base64" file="custom_reports/static/img/employee_performance/res_user/emp_05.jpg"/>
-            <field eval="[(4, ref('sales_team.group_sale_salesman'))]" name="groups_id"/>
-        </record> -->
-    
-        <!-- hr sales job-->
-
-        <record id="job_salesperson" model="hr.job">
-            <field name="name">Sales Person</field>
-            <field name="department_id" ref="hr.dep_sales"/>
-            <field name="no_of_recruitment">5</field>
-        </record>
-
-        <!-- hr employees -->
-    
-        <record id="employee_click_01" model="hr.employee">
-            <field name="name">Tommy Rogers</field>
-            <field name="user_id" ref="user_click_01"/>
-            <field name="department_id" ref="hr.dep_sales"/>
-            <field name="parent_id" ref="hr.employee_admin"/>
-            <field name="job_id" ref="job_salesperson"/>
-            <field name="job_title">Sales Person</field>
-            <field name="category_ids" eval="[(6, 0, [ref('hr.employee_category_2')])]"/>
-            <field name="work_location">Building 1, Second Floor</field>
-            <field name="work_phone">+3281813700</field>
-            <field name="work_email">tommy@btbam.com</field>
-            <field name="image_1920" type="base64" file="custom_reports/static/img/employee_performance/hr/emp_01.jpeg"/>
-        </record>
-
-        <record id="employee_click_02" model="hr.employee">
-            <field name="name">Dustie Waring</field>
-            <field name="user_id" ref="user_click_02"/>
-            <field name="department_id" ref="hr.dep_sales"/>
-            <field name="parent_id" ref="hr.employee_admin"/>
-            <field name="job_id" ref="job_salesperson"/>
-            <field name="job_title">Sales Person</field>
-            <field name="category_ids" eval="[(6, 0, [ref('hr.employee_category_2')])]"/>
-            <field name="work_location">Building 1, Second Floor</field>
-            <field name="work_phone">+3281813701</field>
-            <field name="work_email">dustie@btbam.com</field>
-            <field name="image_1920" type="base64" file="custom_reports/static/img/employee_performance/hr/emp_02.jpg"/>
-        </record>
-
-        <record id="employee_click_03" model="hr.employee">
-            <field name="name">Dan Briggs</field>
-            <field name="user_id" ref="user_click_03"/>
-            <field name="department_id" ref="hr.dep_sales"/>
-            <field name="parent_id" ref="hr.employee_admin"/>
-            <field name="job_id" ref="job_salesperson"/>
-            <field name="job_title">Sales Person</field>
-            <field name="category_ids" eval="[(6, 0, [ref('hr.employee_category_2')])]"/>
-            <field name="work_location">Building 1, Second Floor</field>
-            <field name="work_phone">+3281813702</field>
-            <field name="work_email">dan@btbam.com</field>
-            <field name="image_1920" type="base64" file="custom_reports/static/img/employee_performance/hr/emp_03.jpg"/>
-        </record>
-
-        <record id="employee_click_04" model="hr.employee">
-            <field name="name">Blake Richardson</field>
-            <field name="user_id" ref="user_click_04"/>
-            <field name="department_id" ref="hr.dep_sales"/>
-            <field name="parent_id" ref="hr.employee_admin"/>
-            <field name="job_id" ref="job_salesperson"/>
-            <field name="job_title">Sales Person</field>
-            <field name="category_ids" eval="[(6, 0, [ref('hr.employee_category_2')])]"/>
-            <field name="work_location">Building 1, Second Floor</field>
-            <field name="work_phone">+3281813703</field>
-            <field name="work_email">blake@btbam</field>
-            <field name="image_1920" type="base64" file="custom_reports/static/img/employee_performance/hr/emp_04.jpg"/>
-        </record>
-
-        <record id="employee_click_05" model="hr.employee">
-            <field name="name">Paul Waggoner</field>
-            <field name="user_id" ref="user_click_05"/>
-            <field name="department_id" ref="hr.dep_sales"/>
-            <field name="parent_id" ref="hr.employee_admin"/>
-            <field name="job_id" ref="job_salesperson"/>
-            <field name="job_title">Sales Person</field>
-            <field name="category_ids" eval="[(6, 0, [ref('hr.employee_category_2')])]"/>
-            <field name="work_location">Building 1, Second Floor</field>
-            <field name="work_phone">+3281813704</field>
-            <field name="work_email">paul@btbam</field>
-            <field name="image_1920" type="base64" file="custom_reports/static/img/employee_performance/hr/emp_05.jpg"/>
-        </record>
-
-        <!-- employee_click_01 attendances -->
-
-        <record id="attendance_click_01_01" model="hr.attendance">
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-01 08:21')" name="check_in"/>
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-01 11:51')" name="check_out"/>
-            <field name="employee_id" ref="employee_click_01"/>
-        </record>
-
-        <record id="attendance_click_01_02" model="hr.attendance">
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-02 12:47')" name="check_in"/>
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-02 19:53')" name="check_out"/>
-            <field name="employee_id" ref="employee_click_01"/>
-        </record>
-
-        <record id="attendance_click_01_03" model="hr.attendance">
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-03 07:32')" name="check_in"/>
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-03 12:32')" name="check_out"/>
-            <field name="employee_id" ref="employee_click_01"/>
-        </record>
-
-        <record id="attendance_click_01_04" model="hr.attendance">
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-04 14:01')" name="check_in"/>
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-04 17:21')" name="check_out"/>
-            <field name="employee_id" ref="employee_click_01"/>
-        </record>
-
-        <record id="attendance_click_01_05" model="hr.attendance">
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-05 09:10')" name="check_in"/>
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-05 12:42')" name="check_out"/>
-            <field name="employee_id" ref="employee_click_01"/>
-        </record>
-
-        <record id="attendance_click_01_06" model="hr.attendance">
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-06 13:10')" name="check_in"/>
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-06 18:34')" name="check_out"/>
-            <field name="employee_id" ref="employee_click_01"/>
-        </record>
-
-        <record id="attendance_click_01_07" model="hr.attendance">
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-07 08:21')" name="check_in"/>
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-07 18:21')" name="check_out"/>
-            <field name="employee_id" ref="employee_click_01"/>
-        </record>
-
-        <record id="attendance_click_01_08" model="hr.attendance">
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-08 08:21')" name="check_in"/>
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-08 12:54')" name="check_out"/>
-            <field name="employee_id" ref="employee_click_01"/>
-        </record>
-
-        <record id="attendance_click_01_09" model="hr.attendance">
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-09 13:32')" name="check_in"/>
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-09 19:31')" name="check_out"/>
-            <field name="employee_id" ref="employee_click_01"/>
-        </record>
-
-        <record id="attendance_click_01_10" model="hr.attendance">
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-10 08:00')" name="check_in"/>
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-10 09:00')" name="check_out"/>
-            <field name="employee_id" ref="employee_click_01"/>
-        </record>
-
-        <record id="attendance_click_01_11" model="hr.attendance">
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-11 08:21')" name="check_in"/>
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-11 11:51')" name="check_out"/>
-            <field name="employee_id" ref="employee_click_01"/>
-        </record>
-
-        <record id="attendance_click_01_12" model="hr.attendance">
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-12 12:47')" name="check_in"/>
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-12 19:53')" name="check_out"/>
-            <field name="employee_id" ref="employee_click_01"/>
-        </record>
-
-        <record id="attendance_click_01_13" model="hr.attendance">
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-13 07:32')" name="check_in"/>
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-13 12:32')" name="check_out"/>
-            <field name="employee_id" ref="employee_click_01"/>
-        </record>
-
-        <record id="attendance_click_01_14" model="hr.attendance">
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-14 14:01')" name="check_in"/>
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-14 17:21')" name="check_out"/>
-            <field name="employee_id" ref="employee_click_01"/>
-        </record>
-
-        <record id="attendance_click_01_15" model="hr.attendance">
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-15 09:10')" name="check_in"/>
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-15 12:42')" name="check_out"/>
-            <field name="employee_id" ref="employee_click_01"/>
-        </record>
-
-        <record id="attendance_click_01_16" model="hr.attendance">
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-16 13:10')" name="check_in"/>
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-16 18:34')" name="check_out"/>
-            <field name="employee_id" ref="employee_click_01"/>
-        </record>
-
-        <record id="attendance_click_01_17" model="hr.attendance">
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-17 08:21')" name="check_in"/>
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-17 18:21')" name="check_out"/>
-            <field name="employee_id" ref="employee_click_01"/>
-        </record>
-
-        <record id="attendance_click_01_18" model="hr.attendance">
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-18 08:21')" name="check_in"/>
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-18 12:54')" name="check_out"/>
-            <field name="employee_id" ref="employee_click_01"/>
-        </record>
-
-        <record id="attendance_click_01_19" model="hr.attendance">
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-19 13:32')" name="check_in"/>
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-19 19:31')" name="check_out"/>
-            <field name="employee_id" ref="employee_click_01"/>
-        </record>
-
-        <record id="attendance_click_01_20" model="hr.attendance">
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-20 08:00')" name="check_in"/>
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-20 09:00')" name="check_out"/>
-            <field name="employee_id" ref="employee_click_01"/>
-        </record>
-
-        <record id="attendance_click_01_21" model="hr.attendance">
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-21 08:21')" name="check_in"/>
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-21 11:51')" name="check_out"/>
-            <field name="employee_id" ref="employee_click_01"/>
-        </record>
-
-        <record id="attendance_click_01_22" model="hr.attendance">
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-22 12:47')" name="check_in"/>
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-22 19:53')" name="check_out"/>
-            <field name="employee_id" ref="employee_click_01"/>
-        </record>
-
-        <record id="attendance_click_01_23" model="hr.attendance">
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-23 07:32')" name="check_in"/>
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-23 12:32')" name="check_out"/>
-            <field name="employee_id" ref="employee_click_01"/>
-        </record>
-
-        <record id="attendance_click_01_24" model="hr.attendance">
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-24 14:01')" name="check_in"/>
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-24 17:21')" name="check_out"/>
-            <field name="employee_id" ref="employee_click_01"/>
-        </record>
-
-        <record id="attendance_click_01_25" model="hr.attendance">
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-25 09:10')" name="check_in"/>
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-25 12:42')" name="check_out"/>
-            <field name="employee_id" ref="employee_click_01"/>
-        </record>
-
-        <record id="attendance_click_01_26" model="hr.attendance">
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-26 13:10')" name="check_in"/>
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-26 18:34')" name="check_out"/>
-            <field name="employee_id" ref="employee_click_01"/>
-        </record>
-
-        <record id="attendance_click_01_27" model="hr.attendance">
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-27 08:21')" name="check_in"/>
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-27 18:21')" name="check_out"/>
-            <field name="employee_id" ref="employee_click_01"/>
-        </record>
-
-        <record id="attendance_click_01_28" model="hr.attendance">
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-28 08:21')" name="check_in"/>
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-28 12:54')" name="check_out"/>
-            <field name="employee_id" ref="employee_click_01"/>
-        </record>
-
-        <record id="attendance_click_01_29" model="hr.attendance">
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-29 13:32')" name="check_in"/>
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-29 19:31')" name="check_out"/>
-            <field name="employee_id" ref="employee_click_01"/>
-        </record>
-
-        <record id="attendance_click_01_30" model="hr.attendance">
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-30 08:00')" name="check_in"/>
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-30 09:00')" name="check_out"/>
-            <field name="employee_id" ref="employee_click_01"/>
-        </record> -->
-
-        <!-- employee_click_02 attendances -->
-
-        <record id="attendance_click_02_01" model="hr.attendance">
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-01 08:21')" name="check_in"/>
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-01 11:51')" name="check_out"/>
-            <field name="employee_id" ref="employee_click_02"/>
-        </record>
-
-        <record id="attendance_click_02_02" model="hr.attendance">
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-02 12:47')" name="check_in"/>
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-02 19:53')" name="check_out"/>
-            <field name="employee_id" ref="employee_click_02"/>
-        </record>
-
-        <record id="attendance_click_02_03" model="hr.attendance">
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-03 07:32')" name="check_in"/>
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-03 12:32')" name="check_out"/>
-            <field name="employee_id" ref="employee_click_02"/>
-        </record>
-
-        <record id="attendance_click_02_04" model="hr.attendance">
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-04 14:01')" name="check_in"/>
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-04 17:21')" name="check_out"/>
-            <field name="employee_id" ref="employee_click_02"/>
-        </record>
-
-        <record id="attendance_click_02_05" model="hr.attendance">
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-05 09:10')" name="check_in"/>
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-05 12:42')" name="check_out"/>
-            <field name="employee_id" ref="employee_click_02"/>
-        </record>
-
-        <record id="attendance_click_02_06" model="hr.attendance">
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-06 13:10')" name="check_in"/>
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-06 18:34')" name="check_out"/>
-            <field name="employee_id" ref="employee_click_02"/>
-        </record>
-
-        <record id="attendance_click_02_07" model="hr.attendance">
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-07 08:21')" name="check_in"/>
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-07 18:21')" name="check_out"/>
-            <field name="employee_id" ref="employee_click_02"/>
-        </record>
-
-        <record id="attendance_click_02_08" model="hr.attendance">
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-08 08:21')" name="check_in"/>
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-08 12:54')" name="check_out"/>
-            <field name="employee_id" ref="employee_click_02"/>
-        </record>
-
-        <record id="attendance_click_02_09" model="hr.attendance">
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-09 13:32')" name="check_in"/>
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-09 19:31')" name="check_out"/>
-            <field name="employee_id" ref="employee_click_02"/>
-        </record>
-
-        <record id="attendance_click_02_10" model="hr.attendance">
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-10 08:00')" name="check_in"/>
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-10 09:00')" name="check_out"/>
-            <field name="employee_id" ref="employee_click_02"/>
-        </record>
-
-        <record id="attendance_click_02_11" model="hr.attendance">
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-11 08:21')" name="check_in"/>
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-11 11:51')" name="check_out"/>
-            <field name="employee_id" ref="employee_click_02"/>
-        </record>
-
-        <record id="attendance_click_02_12" model="hr.attendance">
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-12 12:47')" name="check_in"/>
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-12 19:53')" name="check_out"/>
-            <field name="employee_id" ref="employee_click_02"/>
-        </record>
-
-        <record id="attendance_click_02_13" model="hr.attendance">
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-13 07:32')" name="check_in"/>
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-13 12:32')" name="check_out"/>
-            <field name="employee_id" ref="employee_click_02"/>
-        </record>
-
-        <record id="attendance_click_02_14" model="hr.attendance">
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-14 14:01')" name="check_in"/>
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-14 17:21')" name="check_out"/>
-            <field name="employee_id" ref="employee_click_02"/>
-        </record>
-
-        <record id="attendance_click_02_15" model="hr.attendance">
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-15 09:10')" name="check_in"/>
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-15 12:42')" name="check_out"/>
-            <field name="employee_id" ref="employee_click_02"/>
-        </record>
-
-        <record id="attendance_click_02_16" model="hr.attendance">
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-16 13:10')" name="check_in"/>
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-16 18:34')" name="check_out"/>
-            <field name="employee_id" ref="employee_click_02"/>
-        </record>
-
-        <record id="attendance_click_02_17" model="hr.attendance">
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-17 08:10')" name="check_in"/>
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-17 18:21')" name="check_out"/>
-            <field name="employee_id" ref="employee_click_02"/>
-        </record>
-
-        <record id="attendance_click_02_18" model="hr.attendance">
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-18 08:21')" name="check_in"/>
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-18 12:54')" name="check_out"/>
-            <field name="employee_id" ref="employee_click_02"/>
-        </record>
-
-        <record id="attendance_click_02_19" model="hr.attendance">
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-19 13:32')" name="check_in"/>
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-19 19:31')" name="check_out"/>
-            <field name="employee_id" ref="employee_click_02"/>
-        </record>
-
-        <record id="attendance_click_02_20" model="hr.attendance">
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-20 08:00')" name="check_in"/>
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-20 09:00')" name="check_out"/>
-            <field name="employee_id" ref="employee_click_02"/>
-        </record>
-
-        <record id="attendance_click_02_21" model="hr.attendance">
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-21 08:21')" name="check_in"/>
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-21 11:51')" name="check_out"/>
-            <field name="employee_id" ref="employee_click_02"/>
-        </record>
-
-        <record id="attendance_click_02_22" model="hr.attendance">
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-22 12:47')" name="check_in"/>
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-22 19:53')" name="check_out"/>
-            <field name="employee_id" ref="employee_click_02"/>
-        </record>
-
-        <record id="attendance_click_02_23" model="hr.attendance">
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-23 07:32')" name="check_in"/>
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-23 12:32')" name="check_out"/>
-            <field name="employee_id" ref="employee_click_02"/>
-        </record>
-
-        <record id="attendance_click_02_24" model="hr.attendance">
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-24 14:01')" name="check_in"/>
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-24 17:21')" name="check_out"/>
-            <field name="employee_id" ref="employee_click_02"/>
-        </record>
-
-        <record id="attendance_click_02_25" model="hr.attendance">
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-25 09:10')" name="check_in"/>
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-25 12:42')" name="check_out"/>
-            <field name="employee_id" ref="employee_click_02"/>
-        </record>
-
-        <record id="attendance_click_02_26" model="hr.attendance">
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-26 13:10')" name="check_in"/>
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-26 18:34')" name="check_out"/>
-            <field name="employee_id" ref="employee_click_02"/>
-        </record>
-
-        <record id="attendance_click_02_27" model="hr.attendance">
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-27 08:21')" name="check_in"/>
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-27 18:21')" name="check_out"/>
-            <field name="employee_id" ref="employee_click_02"/>
-        </record>
-
-        <record id="attendance_click_02_28" model="hr.attendance">
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-28 08:21')" name="check_in"/>
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-28 12:54')" name="check_out"/>
-            <field name="employee_id" ref="employee_click_02"/>
-        </record>
-
-        <record id="attendance_click_02_29" model="hr.attendance">
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-29 13:32')" name="check_in"/>
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-29 19:31')" name="check_out"/>
-            <field name="employee_id" ref="employee_click_02"/>
-        </record>
-
-        <record id="attendance_click_02_30" model="hr.attendance">
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-30 08:00')" name="check_in"/>
-            <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-30 09:00')" name="check_out"/>
-            <field name="employee_id" ref="employee_click_02"/>
-        </record>
-
-        <!-- employee_click_03 attendances -->
+ <!-- employee_click_03 attendances -->
 
         <record id="attendance_click_03_01" model="hr.attendance">
             <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-01 08:21')" name="check_in"/>
@@ -763,7 +180,8 @@
             <field name="employee_id" ref="employee_click_03"/>
         </record>
 
-        <!-- employee_click_04 attendances -->
+
+ <!-- employee_click_04 attendances -->
 
         <record id="attendance_click_04_01" model="hr.attendance">
             <field eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-01 08:21')" name="check_in"/>
@@ -1127,6 +545,13 @@
             <field name="employee_id" ref="employee_click_05"/>
         </record>
 
+
+
+
+
+
+
+
         <!-- product category -->
 
         <record id="emp_perform_product_category_click" model="product.category">
@@ -1152,7 +577,7 @@
 
         <record id="emp_perform_product_click_02" model="product.product">
                 <field name="name">ClickIt Medium Purchase</field>
-                <field name="categ_id" ref="emp_perform_product_category_click"/>
+                <field name="categ_id" ref="company_product_category_click"/>
                 <field name="standard_price">250.0</field>
                 <field name="list_price">300.0</field>
                 <field name="type">consu</field>
@@ -1174,7 +599,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_01"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-01 08:30')"/>
@@ -1186,7 +611,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_01"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-02 12:50')"/>
@@ -1198,7 +623,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_01"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-03 07:35')"/>
@@ -1210,7 +635,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_01"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-04 14:05')"/>
@@ -1222,7 +647,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_01"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-05 09:11')"/>
@@ -1234,7 +659,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_01"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-06 14:10')"/>
@@ -1246,7 +671,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_01"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-07 08:24')"/>
@@ -1258,7 +683,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_01"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-08 08:27')"/>
@@ -1270,7 +695,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_01"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-09 13:34')"/>
@@ -1282,7 +707,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_01"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-10 08:01')"/>
@@ -1294,7 +719,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_01"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-11 08:23')"/>
@@ -1306,7 +731,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_01"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-12 12:49')"/>
@@ -1318,7 +743,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_01"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-14 14:03')"/>
@@ -1330,7 +755,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_01"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-15 09:11')"/>
@@ -1342,7 +767,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_01"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-16 13:11')"/>
@@ -1354,7 +779,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_01"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-17 08:22')"/>
@@ -1366,7 +791,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_01"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-18 08:22')"/>
@@ -1378,7 +803,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_01"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-19 13:33')"/>
@@ -1390,7 +815,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_01"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-20 08:01')"/>
@@ -1402,7 +827,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_01"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-21 08:22')"/>
@@ -1414,7 +839,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_01"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-22 12:48')"/>
@@ -1426,7 +851,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_01"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-23 07:33')"/>
@@ -1438,7 +863,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_01"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-25 09:19')"/>
@@ -1450,7 +875,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_01"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-26 13:11')"/>
@@ -1462,7 +887,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_01"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-27 08:22')"/>
@@ -1476,7 +901,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_02"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-01 08:23')"/>
@@ -1488,7 +913,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_02"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-02 12:48')"/>
@@ -1500,7 +925,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_02"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-03 07:33')"/>
@@ -1512,7 +937,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_02"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-04 14:02')"/>
@@ -1524,7 +949,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_02"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-05 09:11')"/>
@@ -1536,7 +961,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_02"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-06 13:11')"/>
@@ -1548,7 +973,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_02"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-07 08:22')"/>
@@ -1560,7 +985,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_02"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-08 08:23')"/>
@@ -1572,7 +997,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_02"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-09 13:33')"/>
@@ -1584,7 +1009,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_02"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-10 08:01')"/>
@@ -1596,7 +1021,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_02"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-11 08:23')"/>
@@ -1608,7 +1033,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/> 
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_02"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-12 12:48')"/>
@@ -1620,7 +1045,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_02"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-13 07:33')"/>
@@ -1632,7 +1057,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_02"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-14 14:02')"/>
@@ -1644,7 +1069,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_02"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-15 09:11')"/>
@@ -1656,7 +1081,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_02"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-16 13:11')"/>
@@ -1668,7 +1093,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_02"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-17 08:22')"/>
@@ -1680,7 +1105,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_02"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-18 08:22')"/>
@@ -1692,7 +1117,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_02"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-19 13:33')"/>
@@ -1704,7 +1129,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_02"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-20 08:01')"/>
@@ -1716,7 +1141,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_02"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-21 08:22')"/>
@@ -1728,7 +1153,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_02"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-22 12:48')"/>
@@ -1740,7 +1165,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_02"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-23 07:33')"/>
@@ -1752,7 +1177,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_02"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-24 14:02')"/>
@@ -1764,7 +1189,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_02"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-25 09:11')"/>
@@ -1778,7 +1203,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_03"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-01 11:50')"/>
@@ -1790,7 +1215,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_03"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-02 19:52')"/>
@@ -1802,7 +1227,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_03"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-03 12:31')"/>
@@ -1814,7 +1239,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_03"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-05 12:40')"/>
@@ -1826,7 +1251,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_03"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-06 18:33')"/>
@@ -1838,7 +1263,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_03"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-14 17:20')"/>
@@ -1850,7 +1275,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_03"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-16 18:33')"/>
@@ -1862,7 +1287,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_03"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-19 19:30')"/>
@@ -1874,7 +1299,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_03"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-21 11:50')"/>
@@ -1886,7 +1311,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_03"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-23 12:30')"/>
@@ -1898,7 +1323,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_03"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-27 18:20')"/>
@@ -1910,7 +1335,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_03"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-30 08:59')"/>
@@ -1922,7 +1347,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_03"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval=""/>
@@ -1934,7 +1359,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_03"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval=""/>
@@ -1946,7 +1371,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_03"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval=""/>
@@ -1958,7 +1383,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_03"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval=""/>
@@ -1970,7 +1395,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_03"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval=""/>
@@ -1982,7 +1407,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_03"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval=""/>
@@ -1994,7 +1419,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_03"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval=""/>
@@ -2006,7 +1431,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_03"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval=""/>
@@ -2018,7 +1443,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_03"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval=""/>
@@ -2030,7 +1455,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_03"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval=""/>
@@ -2042,7 +1467,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_03"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval=""/>
@@ -2054,7 +1479,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_03"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval=""/>
@@ -2066,7 +1491,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_03"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval=""/>
@@ -2080,7 +1505,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_04"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-01 10:51')"/>
@@ -2092,7 +1517,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_04"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-04 16:21')"/>
@@ -2104,7 +1529,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_04"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-07 17:21')"/>
@@ -2116,7 +1541,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_04"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-11 10:51')"/>
@@ -2128,7 +1553,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_04"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-15 11:42')"/>
@@ -2140,7 +1565,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_04"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-19 12:31')"/>
@@ -2152,7 +1577,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_04"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-21 10:51')"/>
@@ -2164,7 +1589,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_04"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-26 17:34')"/>
@@ -2176,7 +1601,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_04"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-30 08:00')"/>
@@ -2188,7 +1613,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_04"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval=""/>
@@ -2200,7 +1625,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_04"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval=""/>
@@ -2212,7 +1637,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_04"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval=""/>
@@ -2224,7 +1649,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_04"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval=""/>
@@ -2236,7 +1661,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_04"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval=""/>
@@ -2248,7 +1673,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_04"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval=""/>
@@ -2260,7 +1685,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_04"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval=""/>
@@ -2272,7 +1697,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_04"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval=""/>
@@ -2284,7 +1709,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_04"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval=""/>
@@ -2296,7 +1721,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_04"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval=""/>
@@ -2308,7 +1733,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_04"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval=""/>
@@ -2320,7 +1745,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_04"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval=""/>
@@ -2332,7 +1757,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_04"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval=""/>
@@ -2344,7 +1769,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_04"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval=""/>
@@ -2356,7 +1781,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_04"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval=""/>
@@ -2368,7 +1793,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_04"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval=""/>
@@ -2382,7 +1807,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_05"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-04 14:02')"/>
@@ -2394,7 +1819,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_05"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-08 08:22')"/>
@@ -2406,7 +1831,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_05"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-10 08:01')"/>
@@ -2418,7 +1843,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_05"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-19 13:33')"/>
@@ -2430,7 +1855,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_05"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-26 13:11')"/>
@@ -2442,7 +1867,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_05"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval=""/>
@@ -2454,7 +1879,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_05"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval=""/>
@@ -2466,7 +1891,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_05"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval=""/>
@@ -2478,7 +1903,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_05"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval=""/>
@@ -2490,7 +1915,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_05"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval=""/>
@@ -2502,7 +1927,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_05"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval=""/>
@@ -2514,7 +1939,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_05"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval=""/>
@@ -2526,7 +1951,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_05"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval=""/>
@@ -2538,7 +1963,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_05"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval=""/>
@@ -2550,7 +1975,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_05"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval=""/>
@@ -2562,7 +1987,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_05"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval=""/>
@@ -2574,7 +1999,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_05"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval=""/>
@@ -2586,7 +2011,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_05"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval=""/>
@@ -2598,7 +2023,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_05"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval=""/>
@@ -2610,7 +2035,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_05"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval=""/>
@@ -2622,7 +2047,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_05"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval=""/>
@@ -2634,7 +2059,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_05"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval=""/>
@@ -2646,7 +2071,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_05"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval=""/>
@@ -2658,7 +2083,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_05"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval=""/>
@@ -2670,7 +2095,7 @@
             <field name="partner_invoice_id" ref="base.res_partner_2"/>
             <field name="partner_shipping_id" ref="base.res_partner_2"/>
             <field name="pricelist_id" ref="product.list0"/>
-            <field name="company_id" ref="base.main_company"/>
+            <field name="company_id" ref="emp_click_company_01"/>
             <field name="user_id" ref="user_click_05"/>
             <field name="picking_policy">direct</field>
             <field name="date_order" eval=""/>
@@ -3836,8 +3261,3 @@
         <record id="employee_sale_click_05_05" model="sale.order">
             <field name="date_order" eval="(datetime.now()+relativedelta(months=-1)).strftime('%Y-%m-26 13:11')"/>
         </record>
-
-
-    </data>
-
-</odoo>
