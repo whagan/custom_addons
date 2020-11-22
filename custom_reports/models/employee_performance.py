@@ -3,8 +3,6 @@ from odoo.tools import format_datetime
 from odoo.exceptions import ValidationError
 import datetime
 
-
-
 # Employee Performance Report DataModel
 class EmployeePerformanceReport(models.Model):
     _name = 'custom_reports.employee_performance_report'
@@ -36,6 +34,36 @@ class EmployeePerformanceReport(models.Model):
         self.env['custom_reports.employee_performance'].create(records)
         return record
 
+    def write(self, values):
+        record = super(EmployeePerformanceReport, self).write(values)
+        old_employees = self.env['custom_reports.employee_performance'].search([
+            ('employee_performance_report_id', '=', self.id)
+        ])
+        old_employees_ids = []
+        for old_employee in old_employees:
+            old_employees_ids.append(old_employee.employee_id.id)
+        new_employees_ids = values['employee_ids'][0][2]
+        remove_list = []
+        add_records = []
+        for old_employee_id in old_employees_ids:
+            if old_employee_id not in new_employees_ids:
+                remove_list.append(old_employee_id)
+        for new_employee_id in new_employees_ids:
+            if new_employee_id not in old_employees_ids:
+                add_records.append({
+                    'employee_id': new_employee_id,
+                    'employee_performance_report_id':  self.id,
+                    'start_date': self.start_date,
+                    'end_date': self.end_date
+                })
+        remove_records = self.env['custom_reports.employee_performance'].search([
+            ('employee_id', 'in', remove_list)
+        ])
+        remove_records.unlink()
+        self.env['custom_reports.employee_performance'].create(add_records)
+        return record
+
+          
     @api.constrains('start_date','end_date')
     def _check_date_validity(self):
         for report in self:

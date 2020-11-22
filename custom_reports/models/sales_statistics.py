@@ -2,8 +2,6 @@ from odoo import models, fields, api, _
 from odoo.tools import format_datetime
 from odoo.exceptions import ValidationError
 import datetime
-import logging
-_logger = logging.getLogger(__name__)
 
 #Sales Statistics Report DataModel
 class SalesStatisticsReport(models.Model):
@@ -32,6 +30,35 @@ class SalesStatisticsReport(models.Model):
                 'end_date': record.end_date
             })
         self.env['custom_reports.sales_statistic'].create(records)
+        return record
+
+    def write(self, values):
+        record = super(SalesStatisticsReport, self).write(values)
+        old_locations = self.env['custom_reports.sales_statistic'].search([
+            ('sales_statistics_report_id', '=', self.id)
+        ])
+        old_locations_ids = []
+        for old_location in old_locations:
+            old_locations_ids.append(old_location.location_id.id)
+        new_locations_ids = values['location_ids'][0][2]
+        remove_list = []
+        add_records = []
+        for old_location_id in old_locations_ids:
+            if old_location_id not in new_locations_ids:
+                remove_list.append(old_location_id)
+        for new_location_id in new_locations_ids:
+            if new_location_id not in old_locations_ids:
+                add_records.append({
+                    'location_id': new_location_id,
+                    'sales_statistics_report_id':  self.id,
+                    'start_date': self.start_date,
+                    'end_date': self.end_date
+                })
+        remove_records = self.env['custom_reports.sales_statistic'].search([
+            ('location_id', 'in', remove_list)
+        ])
+        remove_records.unlink()
+        self.env['custom_reports.sales_statistic'].create(add_records)
         return record
 
     @api.constrains('start_date','end_date')

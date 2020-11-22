@@ -13,8 +13,6 @@ class EmailMarketingReport(models.Model):
     mass_mailing_ids = fields.Many2many('mailing.mailing', relation='custom_reports_email_marketing_report_mail_rel', column1='email_marketing_id', column2='mass_mailing_id', string="Mass Mailings")
     email_marketing_graph = fields.Text('Email Marketing Graph', default='EmailMarketGraph')
     
-
-
 class MassMailing(models.Model):
     _inherit = 'mailing.mailing'
 

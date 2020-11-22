@@ -1,0 +1,1120 @@
+<odoo>
+
+    <data noupdate="0">
+
+        <!-- companies -->
+
+        <record id="click_company_01" model="res.company">
+            <field name="name">My Company (Memphis)</field>
+        </record>
+
+        <record id="click_company_02" model="res.company">
+            <field name="name">My Company (Dallas)</field>
+        </record>
+
+        <record id="click_company_03" model="res.company">
+            <field name="name">My Company (Wichita)</field>
+        </record>
+
+        <!-- product category -->
+
+        <record id="company_product_category_click" model="product.category">
+            <field name="parent_id" ref="product.product_category_1"/>
+            <field name="name">ClickIt Supplies</field>
+        </record>
+
+        <!-- products to sale -->
+
+        <record id="company_product_click_01" model="product.product">
+                <field name="name">ClickIt Big Purchase</field>
+                <field name="categ_id" ref="company_product_category_click"/>
+                <field name="standard_price">3500.0</field>
+                <field name="list_price">4000.0</field>
+                <field name="type">consu</field>
+                <field name="weight">100.0</field>
+                <field name="uom_id" ref="uom.product_uom_unit"/>
+                <field name="uom_po_id" ref="uom.product_uom_unit"/>
+                <field name="description_sale">ClickIt big purchase.</field>
+                <field name="default_code">SUPP_1211</field>
+                <field name="image_1920" type="base64" file="custom_reports/static/img/sales_company/large-purchases.jpg"/>
+        </record>
+
+        <record id="company_product_click_02" model="product.product">
+                <field name="name">ClickIt Medium Purchase</field>
+                <field name="categ_id" ref="company_product_category_click"/>
+                <field name="standard_price">1500.0</field>
+                <field name="list_price">1800.0</field>
+                <field name="type">consu</field>
+                <field name="weight">100.0</field>
+                <field name="uom_id" ref="uom.product_uom_unit"/>
+                <field name="uom_po_id" ref="uom.product_uom_unit"/>
+                <field name="description_sale">ClickIt medium purchase.</field>
+                <field name="default_code">SUPP_1212</field>
+                <field name="image_1920" type="base64" file="custom_reports/static/img/sales_company/medium-purchases.jpeg"/>
+        </record>
+
+        <!-- sale orders -->
+
+        <!-- Memphis sales order -->
+
+         <record id="company_sale_click_01_01" model="sale.order">
+            <field name="name">My Company (Memphis), Sale Order 1</field>
+            <field name="partner_id" ref="base.res_partner_2"/>
+            <field name="partner_invoice_id" ref="base.res_partner_2"/>
+            <field name="partner_shipping_id" ref="base.res_partner_2"/>
+            <field name="pricelist_id" ref="product.list0"/>
+            <field name="company_id" ref="click_company_01"/>
+            <field name="picking_policy">direct</field>
+            <field name="date_order" eval="(datetime.now()-relativedelta(months=4,days=29)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+
+        <record id="company_sale_click_01_02" model="sale.order">
+            <field name="name">My Company (Memphis), Sale Order 2</field>
+            <field name="partner_id" ref="base.res_partner_2"/>
+            <field name="partner_invoice_id" ref="base.res_partner_2"/>
+            <field name="partner_shipping_id" ref="base.res_partner_2"/>
+            <field name="pricelist_id" ref="product.list0"/>
+            <field name="company_id" ref="click_company_01"/>
+            <field name="picking_policy">direct</field>
+            <field name="date_order" eval="(datetime.now()-relativedelta(months=4,days=15)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+
+        <record id="company_sale_click_01_03" model="sale.order">
+            <field name="name">My Company (Memphis), Sale Order 3</field>
+            <field name="partner_id" ref="base.res_partner_2"/>
+            <field name="partner_invoice_id" ref="base.res_partner_2"/>
+            <field name="partner_shipping_id" ref="base.res_partner_2"/>
+            <field name="pricelist_id" ref="product.list0"/>
+            <field name="company_id" ref="click_company_01"/>
+            <field name="picking_policy">direct</field>
+            <field name="date_order" eval="(datetime.now()-relativedelta(months=4,days=1)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+
+        <record id="company_sale_click_01_04" model="sale.order">
+            <field name="name">My Company (Memphis), Sale Order 4</field>
+            <field name="partner_id" ref="base.res_partner_2"/>
+            <field name="partner_invoice_id" ref="base.res_partner_2"/>
+            <field name="partner_shipping_id" ref="base.res_partner_2"/>
+            <field name="pricelist_id" ref="product.list0"/>
+            <field name="company_id" ref="click_company_01"/>
+            <field name="picking_policy">direct</field>
+            <field name="date_order" eval="(datetime.now()-relativedelta(months=3,days=29)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+
+        <record id="company_sale_click_01_05" model="sale.order">
+            <field name="name">My Company (Memphis), Sale Order 5</field>
+            <field name="partner_id" ref="base.res_partner_2"/>
+            <field name="partner_invoice_id" ref="base.res_partner_2"/>
+            <field name="partner_shipping_id" ref="base.res_partner_2"/>
+            <field name="pricelist_id" ref="product.list0"/>
+            <field name="company_id" ref="click_company_01"/>
+            <field name="picking_policy">direct</field>
+            <field name="date_order" eval="(datetime.now()-relativedelta(months=3,days=15)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+
+        <record id="company_sale_click_01_06" model="sale.order">
+            <field name="name">My Company (Memphis), Sale Order 6</field>
+            <field name="partner_id" ref="base.res_partner_2"/>
+            <field name="partner_invoice_id" ref="base.res_partner_2"/>
+            <field name="partner_shipping_id" ref="base.res_partner_2"/>
+            <field name="pricelist_id" ref="product.list0"/>
+            <field name="company_id" ref="click_company_01"/>
+            <field name="picking_policy">direct</field>
+            <field name="date_order" eval="(datetime.now()-relativedelta(months=3,days=1)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+
+        <record id="company_sale_click_01_07" model="sale.order">
+            <field name="name">My Company (Memphis), Sale Order 7</field>
+            <field name="partner_id" ref="base.res_partner_2"/>
+            <field name="partner_invoice_id" ref="base.res_partner_2"/>
+            <field name="partner_shipping_id" ref="base.res_partner_2"/>
+            <field name="pricelist_id" ref="product.list0"/>
+            <field name="company_id" ref="click_company_01"/>
+            <field name="picking_policy">direct</field>
+            <field name="date_order" eval="(datetime.now()-relativedelta(months=2,days=29)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+
+        <record id="company_sale_click_01_08" model="sale.order">
+            <field name="name">My Company (Memphis), Sale Order 8</field>
+            <field name="partner_id" ref="base.res_partner_2"/>
+            <field name="partner_invoice_id" ref="base.res_partner_2"/>
+            <field name="partner_shipping_id" ref="base.res_partner_2"/>
+            <field name="pricelist_id" ref="product.list0"/>
+            <field name="company_id" ref="click_company_01"/>
+            <field name="picking_policy">direct</field>
+            <field name="date_order" eval="(datetime.now()-relativedelta(months=3,days=15)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+
+        <record id="company_sale_click_01_09" model="sale.order">
+            <field name="name">My Company (Memphis), Sale Order 9</field>
+            <field name="partner_id" ref="base.res_partner_2"/>
+            <field name="partner_invoice_id" ref="base.res_partner_2"/>
+            <field name="partner_shipping_id" ref="base.res_partner_2"/>
+            <field name="pricelist_id" ref="product.list0"/>
+            <field name="company_id" ref="click_company_01"/>
+            <field name="picking_policy">direct</field>
+            <field name="date_order" eval="(datetime.now()-relativedelta(months=2,days=1)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+
+        <record id="company_sale_click_01_10" model="sale.order">
+            <field name="name">My Company (Memphis), Sale Order 10</field>
+            <field name="partner_id" ref="base.res_partner_2"/>
+            <field name="partner_invoice_id" ref="base.res_partner_2"/>
+            <field name="partner_shipping_id" ref="base.res_partner_2"/>
+            <field name="pricelist_id" ref="product.list0"/>
+            <field name="company_id" ref="click_company_01"/>
+            <field name="picking_policy">direct</field>
+            <field name="date_order" eval="(datetime.now()-relativedelta(months=1,days=29)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+
+        <record id="company_sale_click_01_11" model="sale.order">
+            <field name="name">My Company (Memphis), Sale Order 11</field>
+            <field name="partner_id" ref="base.res_partner_2"/>
+            <field name="partner_invoice_id" ref="base.res_partner_2"/>
+            <field name="partner_shipping_id" ref="base.res_partner_2"/>
+            <field name="pricelist_id" ref="product.list0"/>
+            <field name="company_id" ref="click_company_01"/>
+            <field name="picking_policy">direct</field>
+            <field name="date_order" eval="(datetime.now()-relativedelta(months=1,days=14)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+
+        <record id="company_sale_click_01_12" model="sale.order">
+            <field name="name">My Company (Memphis), Sale Order 12</field>
+            <field name="partner_id" ref="base.res_partner_2"/>
+            <field name="partner_invoice_id" ref="base.res_partner_2"/>
+            <field name="partner_shipping_id" ref="base.res_partner_2"/>
+            <field name="pricelist_id" ref="product.list0"/>
+            <field name="company_id" ref="click_company_01"/>
+            <field name="picking_policy">direct</field>
+            <field name="date_order" eval="(datetime.now()-relativedelta(months=1,days=1)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+
+        <record id="company_sale_click_01_13" model="sale.order">
+            <field name="name">My Company (Memphis), Sale Order 13</field>
+            <field name="partner_id" ref="base.res_partner_2"/>
+            <field name="partner_invoice_id" ref="base.res_partner_2"/>
+            <field name="partner_shipping_id" ref="base.res_partner_2"/>
+            <field name="pricelist_id" ref="product.list0"/>
+            <field name="company_id" ref="click_company_01"/>
+            <field name="picking_policy">direct</field>
+            <field name="date_order" eval="(datetime.now()-relativedelta(days=29)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+
+        <record id="company_sale_click_01_14" model="sale.order">
+            <field name="name">My Company (Memphis), Sale Order 14</field>
+            <field name="partner_id" ref="base.res_partner_2"/>
+            <field name="partner_invoice_id" ref="base.res_partner_2"/>
+            <field name="partner_shipping_id" ref="base.res_partner_2"/>
+            <field name="pricelist_id" ref="product.list0"/>
+            <field name="company_id" ref="click_company_01"/>
+            <field name="picking_policy">direct</field>
+            <field name="date_order" eval="(datetime.now()-relativedelta(days=14)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+
+        <record id="company_sale_click_01_15" model="sale.order">
+            <field name="name">My Company (Memphis), Sale Order 15</field>
+            <field name="partner_id" ref="base.res_partner_2"/>
+            <field name="partner_invoice_id" ref="base.res_partner_2"/>
+            <field name="partner_shipping_id" ref="base.res_partner_2"/>
+            <field name="pricelist_id" ref="product.list0"/>
+            <field name="company_id" ref="click_company_01"/>
+            <field name="picking_policy">direct</field>
+            <field name="date_order" eval="(datetime.now()-relativedelta(days=1)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+
+        <!-- Dallas sales orders -->
+
+        <record id="company_sale_click_02_01" model="sale.order">
+            <field name="name">My Company (Dallas), Sale Order 1</field>
+            <field name="partner_id" ref="base.res_partner_2"/>
+            <field name="partner_invoice_id" ref="base.res_partner_2"/>
+            <field name="partner_shipping_id" ref="base.res_partner_2"/>
+            <field name="pricelist_id" ref="product.list0"/>
+            <field name="company_id" ref="click_company_02"/>
+            <field name="picking_policy">direct</field>
+            <field name="date_order" eval="(datetime.now()-relativedelta(months=4,days=29)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+
+        <record id="company_sale_click_02_02" model="sale.order">
+            <field name="name">My Company (Dallas), Sale Order 2</field>
+            <field name="partner_id" ref="base.res_partner_2"/>
+            <field name="partner_invoice_id" ref="base.res_partner_2"/>
+            <field name="partner_shipping_id" ref="base.res_partner_2"/>
+            <field name="pricelist_id" ref="product.list0"/>
+            <field name="company_id" ref="click_company_02"/>
+            <field name="picking_policy">direct</field>
+            <field name="date_order" eval="(datetime.now()-relativedelta(months=4,days=15)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+
+        <record id="company_sale_click_02_03" model="sale.order">
+            <field name="name">My Company (Dallas), Sale Order 3</field>
+            <field name="partner_id" ref="base.res_partner_2"/>
+            <field name="partner_invoice_id" ref="base.res_partner_2"/>
+            <field name="partner_shipping_id" ref="base.res_partner_2"/>
+            <field name="pricelist_id" ref="product.list0"/>
+            <field name="company_id" ref="click_company_02"/>
+            <field name="picking_policy">direct</field>
+            <field name="date_order" eval="(datetime.now()-relativedelta(months=4,days=1)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+
+        <record id="company_sale_click_02_04" model="sale.order">
+            <field name="name">My Company (Dallas), Sale Order 4</field>
+            <field name="partner_id" ref="base.res_partner_2"/>
+            <field name="partner_invoice_id" ref="base.res_partner_2"/>
+            <field name="partner_shipping_id" ref="base.res_partner_2"/>
+            <field name="pricelist_id" ref="product.list0"/>
+            <field name="company_id" ref="click_company_02"/>
+            <field name="picking_policy">direct</field>
+            <field name="date_order" eval="(datetime.now()-relativedelta(months=3,days=29)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+
+        <record id="company_sale_click_02_05" model="sale.order">
+            <field name="name">My Company (Dallas), Sale Order 5</field>
+            <field name="partner_id" ref="base.res_partner_2"/>
+            <field name="partner_invoice_id" ref="base.res_partner_2"/>
+            <field name="partner_shipping_id" ref="base.res_partner_2"/>
+            <field name="pricelist_id" ref="product.list0"/>
+            <field name="company_id" ref="click_company_02"/>
+            <field name="picking_policy">direct</field>
+            <field name="date_order" eval="(datetime.now()-relativedelta(months=3,days=15)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+
+        <record id="company_sale_click_02_06" model="sale.order">
+            <field name="name">My Company (Dallas), Sale Order 6</field>
+            <field name="partner_id" ref="base.res_partner_2"/>
+            <field name="partner_invoice_id" ref="base.res_partner_2"/>
+            <field name="partner_shipping_id" ref="base.res_partner_2"/>
+            <field name="pricelist_id" ref="product.list0"/>
+            <field name="company_id" ref="click_company_02"/>
+            <field name="picking_policy">direct</field>
+            <field name="date_order" eval="(datetime.now()-relativedelta(months=3,days=1)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+
+        <record id="company_sale_click_02_07" model="sale.order">
+            <field name="name">My Company (Dallas), Sale Order 7</field>
+            <field name="partner_id" ref="base.res_partner_2"/>
+            <field name="partner_invoice_id" ref="base.res_partner_2"/>
+            <field name="partner_shipping_id" ref="base.res_partner_2"/>
+            <field name="pricelist_id" ref="product.list0"/>
+            <field name="company_id" ref="click_company_02"/>
+            <field name="picking_policy">direct</field>
+            <field name="date_order" eval="(datetime.now()-relativedelta(months=2,days=29)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+
+        <record id="company_sale_click_02_08" model="sale.order">
+            <field name="name">My Company (Dallas), Sale Order 8</field>
+            <field name="partner_id" ref="base.res_partner_2"/>
+            <field name="partner_invoice_id" ref="base.res_partner_2"/>
+            <field name="partner_shipping_id" ref="base.res_partner_2"/>
+            <field name="pricelist_id" ref="product.list0"/>
+            <field name="company_id" ref="click_company_02"/>
+            <field name="picking_policy">direct</field>
+            <field name="date_order" eval="(datetime.now()-relativedelta(months=3,days=15)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+
+        <record id="company_sale_click_02_09" model="sale.order">
+            <field name="name">My Company (Dallas), Sale Order 9</field>
+            <field name="partner_id" ref="base.res_partner_2"/>
+            <field name="partner_invoice_id" ref="base.res_partner_2"/>
+            <field name="partner_shipping_id" ref="base.res_partner_2"/>
+            <field name="pricelist_id" ref="product.list0"/>
+            <field name="company_id" ref="click_company_02"/>
+            <field name="picking_policy">direct</field>
+            <field name="date_order" eval="(datetime.now()-relativedelta(months=2,days=1)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+
+        <record id="company_sale_click_02_10" model="sale.order">
+            <field name="name">My Company (Dallas), Sale Order 10</field>
+            <field name="partner_id" ref="base.res_partner_2"/>
+            <field name="partner_invoice_id" ref="base.res_partner_2"/>
+            <field name="partner_shipping_id" ref="base.res_partner_2"/>
+            <field name="pricelist_id" ref="product.list0"/>
+            <field name="company_id" ref="click_company_02"/>
+            <field name="picking_policy">direct</field>
+            <field name="date_order" eval="(datetime.now()-relativedelta(months=1,days=29)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+
+        <record id="company_sale_click_02_11" model="sale.order">
+            <field name="name">My Company (Dallas), Sale Order 11</field>
+            <field name="partner_id" ref="base.res_partner_2"/>
+            <field name="partner_invoice_id" ref="base.res_partner_2"/>
+            <field name="partner_shipping_id" ref="base.res_partner_2"/>
+            <field name="pricelist_id" ref="product.list0"/>
+            <field name="company_id" ref="click_company_02"/>
+            <field name="picking_policy">direct</field>
+            <field name="date_order" eval="(datetime.now()-relativedelta(months=1,days=14)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+
+        <record id="company_sale_click_02_12" model="sale.order">
+            <field name="name">My Company (Dallas), Sale Order 12</field>
+            <field name="partner_id" ref="base.res_partner_2"/>
+            <field name="partner_invoice_id" ref="base.res_partner_2"/>
+            <field name="partner_shipping_id" ref="base.res_partner_2"/>
+            <field name="pricelist_id" ref="product.list0"/>
+            <field name="company_id" ref="click_company_02"/>
+            <field name="picking_policy">direct</field>
+            <field name="date_order" eval="(datetime.now()-relativedelta(months=1,days=1)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+
+        <record id="company_sale_click_02_13" model="sale.order">
+            <field name="name">My Company (Dallas), Sale Order 13</field>
+            <field name="partner_id" ref="base.res_partner_2"/>
+            <field name="partner_invoice_id" ref="base.res_partner_2"/>
+            <field name="partner_shipping_id" ref="base.res_partner_2"/>
+            <field name="pricelist_id" ref="product.list0"/>
+            <field name="company_id" ref="click_company_02"/>
+            <field name="picking_policy">direct</field>
+            <field name="date_order" eval="(datetime.now()-relativedelta(days=29)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+
+        <record id="company_sale_click_02_14" model="sale.order">
+            <field name="name">My Company (Dallas), Sale Order 14</field>
+            <field name="partner_id" ref="base.res_partner_2"/>
+            <field name="partner_invoice_id" ref="base.res_partner_2"/>
+            <field name="partner_shipping_id" ref="base.res_partner_2"/>
+            <field name="pricelist_id" ref="product.list0"/>
+            <field name="company_id" ref="click_company_02"/>
+            <field name="picking_policy">direct</field>
+            <field name="date_order" eval="(datetime.now()-relativedelta(days=14)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+
+        <record id="company_sale_click_02_15" model="sale.order">
+            <field name="name">My Company (Dallas), Sale Order 15</field>
+            <field name="partner_id" ref="base.res_partner_2"/>
+            <field name="partner_invoice_id" ref="base.res_partner_2"/>
+            <field name="partner_shipping_id" ref="base.res_partner_2"/>
+            <field name="pricelist_id" ref="product.list0"/>
+            <field name="company_id" ref="click_company_02"/>
+            <field name="picking_policy">direct</field>
+            <field name="date_order" eval="(datetime.now()-relativedelta(days=1)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+
+        <!-- Wichita sales order -->
+
+        <record id="company_sale_click_03_01" model="sale.order">
+            <field name="name">My Company (Wichita), Sale Order 1</field>
+            <field name="partner_id" ref="base.res_partner_2"/>
+            <field name="partner_invoice_id" ref="base.res_partner_2"/>
+            <field name="partner_shipping_id" ref="base.res_partner_2"/>
+            <field name="pricelist_id" ref="product.list0"/>
+            <field name="company_id" ref="click_company_03"/>
+            <field name="picking_policy">direct</field>
+            <field name="date_order" eval="(datetime.now()-relativedelta(months=4,days=29)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+
+        <record id="company_sale_click_03_02" model="sale.order">
+            <field name="name">My Company (Wichita), Sale Order 2</field>
+            <field name="partner_id" ref="base.res_partner_2"/>
+            <field name="partner_invoice_id" ref="base.res_partner_2"/>
+            <field name="partner_shipping_id" ref="base.res_partner_2"/>
+            <field name="pricelist_id" ref="product.list0"/>
+            <field name="company_id" ref="click_company_03"/>
+            <field name="picking_policy">direct</field>
+            <field name="date_order" eval="(datetime.now()-relativedelta(months=4,days=15)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+
+        <record id="company_sale_click_03_03" model="sale.order">
+            <field name="name">My Company (Wichita), Sale Order 3</field>
+            <field name="partner_id" ref="base.res_partner_2"/>
+            <field name="partner_invoice_id" ref="base.res_partner_2"/>
+            <field name="partner_shipping_id" ref="base.res_partner_2"/>
+            <field name="pricelist_id" ref="product.list0"/>
+            <field name="company_id" ref="click_company_03"/>
+            <field name="picking_policy">direct</field>
+            <field name="date_order" eval="(datetime.now()-relativedelta(months=4,days=1)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+
+        <record id="company_sale_click_03_04" model="sale.order">
+            <field name="name">My Company (Wichita), Sale Order 4</field>
+            <field name="partner_id" ref="base.res_partner_2"/>
+            <field name="partner_invoice_id" ref="base.res_partner_2"/>
+            <field name="partner_shipping_id" ref="base.res_partner_2"/>
+            <field name="pricelist_id" ref="product.list0"/>
+            <field name="company_id" ref="click_company_03"/>
+            <field name="picking_policy">direct</field>
+            <field name="date_order" eval="(datetime.now()-relativedelta(months=3,days=29)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+
+        <record id="company_sale_click_03_05" model="sale.order">
+            <field name="name">My Company (Wichita), Sale Order 5</field>
+            <field name="partner_id" ref="base.res_partner_2"/>
+            <field name="partner_invoice_id" ref="base.res_partner_2"/>
+            <field name="partner_shipping_id" ref="base.res_partner_2"/>
+            <field name="pricelist_id" ref="product.list0"/>
+            <field name="company_id" ref="click_company_03"/>
+            <field name="picking_policy">direct</field>
+            <field name="date_order" eval="(datetime.now()-relativedelta(months=3,days=15)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+
+        <record id="company_sale_click_03_06" model="sale.order">
+            <field name="name">My Company (Wichita), Sale Order 6</field>
+            <field name="partner_id" ref="base.res_partner_2"/>
+            <field name="partner_invoice_id" ref="base.res_partner_2"/>
+            <field name="partner_shipping_id" ref="base.res_partner_2"/>
+            <field name="pricelist_id" ref="product.list0"/>
+            <field name="company_id" ref="click_company_03"/>
+            <field name="picking_policy">direct</field>
+            <field name="date_order" eval="(datetime.now()-relativedelta(months=3,days=1)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+
+        <record id="company_sale_click_03_07" model="sale.order">
+            <field name="name">My Company (Wichita), Sale Order 7</field>
+            <field name="partner_id" ref="base.res_partner_2"/>
+            <field name="partner_invoice_id" ref="base.res_partner_2"/>
+            <field name="partner_shipping_id" ref="base.res_partner_2"/>
+            <field name="pricelist_id" ref="product.list0"/>
+            <field name="company_id" ref="click_company_03"/>
+            <field name="picking_policy">direct</field>
+            <field name="date_order" eval="(datetime.now()-relativedelta(months=2,days=29)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+
+        <record id="company_sale_click_03_08" model="sale.order">
+            <field name="name">My Company (Wichita), Sale Order 8</field>
+            <field name="partner_id" ref="base.res_partner_2"/>
+            <field name="partner_invoice_id" ref="base.res_partner_2"/>
+            <field name="partner_shipping_id" ref="base.res_partner_2"/>
+            <field name="pricelist_id" ref="product.list0"/>
+            <field name="company_id" ref="click_company_03"/>
+            <field name="picking_policy">direct</field>
+            <field name="date_order" eval="(datetime.now()-relativedelta(months=3,days=15)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+
+        <record id="company_sale_click_03_09" model="sale.order">
+            <field name="name">My Company (Wichita), Sale Order 9</field>
+            <field name="partner_id" ref="base.res_partner_2"/>
+            <field name="partner_invoice_id" ref="base.res_partner_2"/>
+            <field name="partner_shipping_id" ref="base.res_partner_2"/>
+            <field name="pricelist_id" ref="product.list0"/>
+            <field name="company_id" ref="click_company_03"/>
+            <field name="picking_policy">direct</field>
+            <field name="date_order" eval="(datetime.now()-relativedelta(months=2,days=1)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+
+        <record id="company_sale_click_03_10" model="sale.order">
+            <field name="name">My Company (Wichita), Sale Order 10</field>
+            <field name="partner_id" ref="base.res_partner_2"/>
+            <field name="partner_invoice_id" ref="base.res_partner_2"/>
+            <field name="partner_shipping_id" ref="base.res_partner_2"/>
+            <field name="pricelist_id" ref="product.list0"/>
+            <field name="company_id" ref="click_company_03"/>
+            <field name="picking_policy">direct</field>
+            <field name="date_order" eval="(datetime.now()-relativedelta(months=1,days=29)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+
+        <record id="company_sale_click_03_11" model="sale.order">
+            <field name="name">My Company (Wichita), Sale Order 11</field>
+            <field name="partner_id" ref="base.res_partner_2"/>
+            <field name="partner_invoice_id" ref="base.res_partner_2"/>
+            <field name="partner_shipping_id" ref="base.res_partner_2"/>
+            <field name="pricelist_id" ref="product.list0"/>
+            <field name="company_id" ref="click_company_03"/>
+            <field name="picking_policy">direct</field>
+            <field name="date_order" eval="(datetime.now()-relativedelta(months=1,days=14)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+
+        <record id="company_sale_click_03_12" model="sale.order">
+            <field name="name">My Company (Wichita), Sale Order 12</field>
+            <field name="partner_id" ref="base.res_partner_2"/>
+            <field name="partner_invoice_id" ref="base.res_partner_2"/>
+            <field name="partner_shipping_id" ref="base.res_partner_2"/>
+            <field name="pricelist_id" ref="product.list0"/>
+            <field name="company_id" ref="click_company_03"/>
+            <field name="picking_policy">direct</field>
+            <field name="date_order" eval="(datetime.now()-relativedelta(months=1,days=1)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+
+        <record id="company_sale_click_03_13" model="sale.order">
+            <field name="name">My Company (Wichita), Sale Order 13</field>
+            <field name="partner_id" ref="base.res_partner_2"/>
+            <field name="partner_invoice_id" ref="base.res_partner_2"/>
+            <field name="partner_shipping_id" ref="base.res_partner_2"/>
+            <field name="pricelist_id" ref="product.list0"/>
+            <field name="company_id" ref="click_company_03"/>
+            <field name="picking_policy">direct</field>
+            <field name="date_order" eval="(datetime.now()-relativedelta(days=29)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+
+        <record id="company_sale_click_03_14" model="sale.order">
+            <field name="name">My Company (Wichita), Sale Order 14</field>
+            <field name="partner_id" ref="base.res_partner_2"/>
+            <field name="partner_invoice_id" ref="base.res_partner_2"/>
+            <field name="partner_shipping_id" ref="base.res_partner_2"/>
+            <field name="pricelist_id" ref="product.list0"/>
+            <field name="company_id" ref="click_company_03"/>
+            <field name="picking_policy">direct</field>
+            <field name="date_order" eval="(datetime.now()-relativedelta(days=14)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+
+        <record id="company_sale_click_03_15" model="sale.order">
+            <field name="name">My Company (Wichita), Sale Order 15</field>
+            <field name="partner_id" ref="base.res_partner_2"/>
+            <field name="partner_invoice_id" ref="base.res_partner_2"/>
+            <field name="partner_shipping_id" ref="base.res_partner_2"/>
+            <field name="pricelist_id" ref="product.list0"/>
+            <field name="company_id" ref="click_company_03"/>
+            <field name="picking_policy">direct</field>
+            <field name="date_order" eval="(datetime.now()-relativedelta(days=1)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+
+        <!-- sale orders lines -->
+
+        <!-- Memphis sales order lines -->
+
+        <record id="company_sale_line_click_01_01" model="sale.order.line">
+            <field name="order_id" ref="company_sale_click_01_01"/>
+            <field name="product_id" ref="company_product_click_01"/>
+            <field name="product_uom_qty">1</field>
+            <field name="product_uom" ref="uom.product_uom_unit"/>
+            <field name="price_unit">4000.00</field>
+        </record>
+
+        <record id="company_sale_line_click_01_02" model="sale.order.line">
+            <field name="order_id" ref="company_sale_click_01_02"/>
+            <field name="product_id" ref="company_product_click_01"/>
+            <field name="product_uom_qty">1</field>
+            <field name="product_uom" ref="uom.product_uom_unit"/>
+            <field name="price_unit">4000.00</field>
+        </record>
+
+        <record id="company_sale_line_click_01_03" model="sale.order.line">
+            <field name="order_id" ref="company_sale_click_01_03"/>
+            <field name="product_id" ref="company_product_click_01"/>
+            <field name="product_uom_qty">1</field>
+            <field name="product_uom" ref="uom.product_uom_unit"/>
+            <field name="price_unit">4000.00</field>
+        </record>
+
+        <record id="company_sale_line_click_01_04" model="sale.order.line">
+            <field name="order_id" ref="company_sale_click_01_04"/>
+            <field name="product_id" ref="company_product_click_01"/>
+            <field name="product_uom_qty">1</field>
+            <field name="product_uom" ref="uom.product_uom_unit"/>
+            <field name="price_unit">4000.00</field>
+        </record>
+        
+        <record id="company_sale_line_click_01_05" model="sale.order.line">
+            <field name="order_id" ref="company_sale_click_01_05"/>
+            <field name="product_id" ref="company_product_click_01"/>
+            <field name="product_uom_qty">1</field>
+            <field name="product_uom" ref="uom.product_uom_unit"/>
+            <field name="price_unit">4000.00</field>
+        </record>
+        
+        <record id="company_sale_line_click_01_06" model="sale.order.line">
+            <field name="order_id" ref="company_sale_click_01_06"/>
+            <field name="product_id" ref="company_product_click_01"/>
+            <field name="product_uom_qty">1</field>
+            <field name="product_uom" ref="uom.product_uom_unit"/>
+            <field name="price_unit">4000.00</field>
+        </record>
+        
+        <record id="company_sale_line_click_01_07" model="sale.order.line">
+            <field name="order_id" ref="company_sale_click_01_07"/>
+            <field name="product_id" ref="company_product_click_01"/>
+            <field name="product_uom_qty">1</field>
+            <field name="product_uom" ref="uom.product_uom_unit"/>
+            <field name="price_unit">4000.00</field>
+        </record>
+        
+        <record id="company_sale_line_click_01_08" model="sale.order.line">
+            <field name="order_id" ref="company_sale_click_01_08"/>
+            <field name="product_id" ref="company_product_click_02"/>
+            <field name="product_uom_qty">1</field>
+            <field name="product_uom" ref="uom.product_uom_unit"/>
+            <field name="price_unit">1800.00</field>
+        </record>
+        
+        <record id="company_sale_line_click_01_09" model="sale.order.line">
+            <field name="order_id" ref="company_sale_click_01_09"/>
+            <field name="product_id" ref="company_product_click_02"/>
+            <field name="product_uom_qty">1</field>
+            <field name="product_uom" ref="uom.product_uom_unit"/>
+            <field name="price_unit">1800.00</field>
+        </record>
+        
+        <record id="company_sale_line_click_01_10" model="sale.order.line">
+            <field name="order_id" ref="company_sale_click_01_10"/>
+            <field name="product_id" ref="company_product_click_02"/>
+            <field name="product_uom_qty">1</field>
+            <field name="product_uom" ref="uom.product_uom_unit"/>
+            <field name="price_unit">1800.00</field>
+        </record>
+        
+        <record id="company_sale_line_click_01_11" model="sale.order.line">
+            <field name="order_id" ref="company_sale_click_01_11"/>
+            <field name="product_id" ref="company_product_click_02"/>
+            <field name="product_uom_qty">1</field>
+            <field name="product_uom" ref="uom.product_uom_unit"/>
+            <field name="price_unit">1800.00</field>
+        </record>
+        
+        <record id="company_sale_line_click_01_12" model="sale.order.line">
+            <field name="order_id" ref="company_sale_click_01_12"/>
+            <field name="product_id" ref="company_product_click_02"/>
+            <field name="product_uom_qty">1</field>
+            <field name="product_uom" ref="uom.product_uom_unit"/>
+            <field name="price_unit">1800.00</field>
+        </record>
+        
+        <record id="company_sale_line_click_01_13" model="sale.order.line">
+            <field name="order_id" ref="company_sale_click_01_13"/>
+            <field name="product_id" ref="company_product_click_01"/>
+            <field name="product_uom_qty">1</field>
+            <field name="product_uom" ref="uom.product_uom_unit"/>
+            <field name="price_unit">4000.00</field>
+        </record>
+        
+        <record id="company_sale_line_click_01_14" model="sale.order.line">
+            <field name="order_id" ref="company_sale_click_01_14"/>
+            <field name="product_id" ref="company_product_click_01"/>
+            <field name="product_uom_qty">1</field>
+            <field name="product_uom" ref="uom.product_uom_unit"/>
+            <field name="price_unit">4000.00</field>
+        </record>
+
+        <record id="company_sale_line_click_01_15" model="sale.order.line">
+            <field name="order_id" ref="company_sale_click_01_15"/>
+            <field name="product_id" ref="company_product_click_01"/>
+            <field name="product_uom_qty">1</field>
+            <field name="product_uom" ref="uom.product_uom_unit"/>
+            <field name="price_unit">4000.00</field>
+        </record>
+
+        <!-- Dallas sales order lines -->
+
+        <record id="company_sale_line_click_02_01" model="sale.order.line">
+            <field name="order_id" ref="company_sale_click_02_01"/>
+            <field name="product_id" ref="company_product_click_01"/>
+            <field name="product_uom_qty">1</field>
+            <field name="product_uom" ref="uom.product_uom_unit"/>
+            <field name="price_unit">4000.00</field>
+        </record>
+
+        <record id="company_sale_line_click_02_02" model="sale.order.line">
+            <field name="order_id" ref="company_sale_click_02_02"/>
+            <field name="product_id" ref="company_product_click_01"/>
+            <field name="product_uom_qty">1</field>
+            <field name="product_uom" ref="uom.product_uom_unit"/>
+            <field name="price_unit">4000.00</field>
+        </record>
+
+        <record id="company_sale_line_click_02_03" model="sale.order.line">
+            <field name="order_id" ref="company_sale_click_02_03"/>
+            <field name="product_id" ref="company_product_click_01"/>
+            <field name="product_uom_qty">1</field>
+            <field name="product_uom" ref="uom.product_uom_unit"/>
+            <field name="price_unit">4000.00</field>
+        </record>
+
+        <record id="company_sale_line_click_02_04" model="sale.order.line">
+            <field name="order_id" ref="company_sale_click_02_04"/>
+            <field name="product_id" ref="company_product_click_01"/>
+            <field name="product_uom_qty">1</field>
+            <field name="product_uom" ref="uom.product_uom_unit"/>
+            <field name="price_unit">4000.00</field>
+        </record>
+        
+        <record id="company_sale_line_click_02_05" model="sale.order.line">
+            <field name="order_id" ref="company_sale_click_02_05"/>
+            <field name="product_id" ref="company_product_click_01"/>
+            <field name="product_uom_qty">1</field>
+            <field name="product_uom" ref="uom.product_uom_unit"/>
+            <field name="price_unit">4000.00</field>
+        </record>
+        
+        <record id="company_sale_line_click_02_06" model="sale.order.line">
+            <field name="order_id" ref="company_sale_click_02_06"/>
+            <field name="product_id" ref="company_product_click_01"/>
+            <field name="product_uom_qty">1</field>
+            <field name="product_uom" ref="uom.product_uom_unit"/>
+            <field name="price_unit">4000.00</field>
+        </record>
+        
+        <record id="company_sale_line_click_02_07" model="sale.order.line">
+            <field name="order_id" ref="company_sale_click_02_07"/>
+            <field name="product_id" ref="company_product_click_01"/>
+            <field name="product_uom_qty">1</field>
+            <field name="product_uom" ref="uom.product_uom_unit"/>
+            <field name="price_unit">4000.00</field>
+        </record>
+        
+        <record id="company_sale_line_click_02_08" model="sale.order.line">
+            <field name="order_id" ref="company_sale_click_02_08"/>
+            <field name="product_id" ref="company_product_click_02"/>
+            <field name="product_uom_qty">1</field>
+            <field name="product_uom" ref="uom.product_uom_unit"/>
+            <field name="price_unit">1800.00</field>
+        </record>
+        
+        <record id="company_sale_line_click_02_09" model="sale.order.line">
+            <field name="order_id" ref="company_sale_click_02_09"/>
+            <field name="product_id" ref="company_product_click_02"/>
+            <field name="product_uom_qty">1</field>
+            <field name="product_uom" ref="uom.product_uom_unit"/>
+            <field name="price_unit">1800.00</field>
+        </record>
+        
+        <record id="company_sale_line_click_02_10" model="sale.order.line">
+            <field name="order_id" ref="company_sale_click_02_10"/>
+            <field name="product_id" ref="company_product_click_02"/>
+            <field name="product_uom_qty">1</field>
+            <field name="product_uom" ref="uom.product_uom_unit"/>
+            <field name="price_unit">1800.00</field>
+        </record>
+        
+        <record id="company_sale_line_click_02_11" model="sale.order.line">
+            <field name="order_id" ref="company_sale_click_02_11"/>
+            <field name="product_id" ref="company_product_click_02"/>
+            <field name="product_uom_qty">1</field>
+            <field name="product_uom" ref="uom.product_uom_unit"/>
+            <field name="price_unit">1800.00</field>
+        </record>
+        
+        <record id="company_sale_line_click_02_12" model="sale.order.line">
+            <field name="order_id" ref="company_sale_click_02_12"/>
+            <field name="product_id" ref="company_product_click_01"/>
+            <field name="product_uom_qty">1</field>
+            <field name="product_uom" ref="uom.product_uom_unit"/>
+            <field name="price_unit">4000.00</field>
+        </record>
+        
+        <record id="company_sale_line_click_02_13" model="sale.order.line">
+            <field name="order_id" ref="company_sale_click_02_13"/>
+            <field name="product_id" ref="company_product_click_02"/>
+            <field name="product_uom_qty">1</field>
+            <field name="product_uom" ref="uom.product_uom_unit"/>
+            <field name="price_unit">1800.00</field>
+        </record>
+        
+        <record id="company_sale_line_click_02_14" model="sale.order.line">
+            <field name="order_id" ref="company_sale_click_02_14"/>
+            <field name="product_id" ref="company_product_click_02"/>
+            <field name="product_uom_qty">1</field>
+            <field name="product_uom" ref="uom.product_uom_unit"/>
+            <field name="price_unit">1800.00</field>
+        </record>
+
+        <record id="company_sale_line_click_02_15" model="sale.order.line">
+            <field name="order_id" ref="company_sale_click_02_15"/>
+            <field name="product_id" ref="company_product_click_02"/>
+            <field name="product_uom_qty">1</field>
+            <field name="product_uom" ref="uom.product_uom_unit"/>
+            <field name="price_unit">1800.00</field>
+        </record>
+
+        <!-- Wichita sales order lines -->
+
+        <record id="company_sale_line_click_03_01" model="sale.order.line">
+            <field name="order_id" ref="company_sale_click_03_01"/>
+            <field name="product_id" ref="company_product_click_02"/>
+            <field name="product_uom_qty">1</field>
+            <field name="product_uom" ref="uom.product_uom_unit"/>
+            <field name="price_unit">1800.00</field>
+        </record>
+
+        <record id="company_sale_line_click_03_02" model="sale.order.line">
+            <field name="order_id" ref="company_sale_click_03_02"/>
+            <field name="product_id" ref="company_product_click_02"/>
+            <field name="product_uom_qty">1</field>
+            <field name="product_uom" ref="uom.product_uom_unit"/>
+            <field name="price_unit">1800.00</field>
+        </record>
+
+        <record id="company_sale_line_click_03_03" model="sale.order.line">
+            <field name="order_id" ref="company_sale_click_03_03"/>
+            <field name="product_id" ref="company_product_click_02"/>
+            <field name="product_uom_qty">1</field>
+            <field name="product_uom" ref="uom.product_uom_unit"/>
+            <field name="price_unit">1800.00</field>
+        </record>
+
+        <record id="company_sale_line_click_03_04" model="sale.order.line">
+            <field name="order_id" ref="company_sale_click_03_04"/>
+            <field name="product_id" ref="company_product_click_02"/>
+            <field name="product_uom_qty">1</field>
+            <field name="product_uom" ref="uom.product_uom_unit"/>
+            <field name="price_unit">1800.00</field>
+        </record>
+        
+        <record id="company_sale_line_click_03_05" model="sale.order.line">
+            <field name="order_id" ref="company_sale_click_03_05"/>
+            <field name="product_id" ref="company_product_click_02"/>
+            <field name="product_uom_qty">1</field>
+            <field name="product_uom" ref="uom.product_uom_unit"/>
+            <field name="price_unit">1800.00</field>
+        </record>
+        
+        <record id="company_sale_line_click_03_06" model="sale.order.line">
+            <field name="order_id" ref="company_sale_click_03_06"/>
+            <field name="product_id" ref="company_product_click_02"/>
+            <field name="product_uom_qty">1</field>
+            <field name="product_uom" ref="uom.product_uom_unit"/>
+            <field name="price_unit">1800.00</field>
+        </record>
+        
+        <record id="company_sale_line_click_03_07" model="sale.order.line">
+            <field name="order_id" ref="company_sale_click_03_07"/>
+            <field name="product_id" ref="company_product_click_02"/>
+            <field name="product_uom_qty">1</field>
+            <field name="product_uom" ref="uom.product_uom_unit"/>
+            <field name="price_unit">1800.00</field>
+        </record>
+        
+        <record id="company_sale_line_click_03_08" model="sale.order.line">
+            <field name="order_id" ref="company_sale_click_03_08"/>
+            <field name="product_id" ref="company_product_click_02"/>
+            <field name="product_uom_qty">1</field>
+            <field name="product_uom" ref="uom.product_uom_unit"/>
+            <field name="price_unit">1800.00</field>
+        </record>
+        
+        <record id="company_sale_line_click_03_09" model="sale.order.line">
+            <field name="order_id" ref="company_sale_click_03_09"/>
+            <field name="product_id" ref="company_product_click_01"/>
+            <field name="product_uom_qty">1</field>
+            <field name="product_uom" ref="uom.product_uom_unit"/>
+            <field name="price_unit">4000.00</field>
+        </record>
+        
+        <record id="company_sale_line_click_03_10" model="sale.order.line">
+            <field name="order_id" ref="company_sale_click_03_10"/>
+            <field name="product_id" ref="company_product_click_02"/>
+            <field name="product_uom_qty">1</field>
+            <field name="product_uom" ref="uom.product_uom_unit"/>
+            <field name="price_unit">1800.00</field>
+        </record>
+        
+        <record id="company_sale_line_click_03_11" model="sale.order.line">
+            <field name="order_id" ref="company_sale_click_03_11"/>
+            <field name="product_id" ref="company_product_click_01"/>
+            <field name="product_uom_qty">1</field>
+            <field name="product_uom" ref="uom.product_uom_unit"/>
+            <field name="price_unit">4000.00</field>
+        </record>
+        
+        <record id="company_sale_line_click_03_12" model="sale.order.line">
+            <field name="order_id" ref="company_sale_click_03_12"/>
+            <field name="product_id" ref="company_product_click_01"/>
+            <field name="product_uom_qty">1</field>
+            <field name="product_uom" ref="uom.product_uom_unit"/>
+            <field name="price_unit">4000.00</field>
+        </record>
+        
+        <record id="company_sale_line_click_03_13" model="sale.order.line">
+            <field name="order_id" ref="company_sale_click_03_13"/>
+            <field name="product_id" ref="company_product_click_01"/>
+            <field name="product_uom_qty">1</field>
+            <field name="product_uom" ref="uom.product_uom_unit"/>
+            <field name="price_unit">4000.00</field>
+        </record>
+        
+        <record id="company_sale_line_click_03_14" model="sale.order.line">
+            <field name="order_id" ref="company_sale_click_03_14"/>
+            <field name="product_id" ref="company_product_click_02"/>
+            <field name="product_uom_qty">1</field>
+            <field name="product_uom" ref="uom.product_uom_unit"/>
+            <field name="price_unit">1800.00</field>
+        </record>
+
+        <record id="company_sale_line_click_03_15" model="sale.order.line">
+            <field name="order_id" ref="company_sale_click_03_15"/>
+            <field name="product_id" ref="company_product_click_01"/>
+            <field name="product_uom_qty">1</field>
+            <field name="product_uom" ref="uom.product_uom_unit"/>
+            <field name="price_unit">4000.00</field>
+        </record>
+
+        <!-- confirm sales order -->
+
+        <function model="sale.order" name="action_confirm" eval="[[ref('company_sale_click_01_01')]]"/>
+        <function model="sale.order" name="action_confirm" eval="[[ref('company_sale_click_01_02')]]"/>
+        <function model="sale.order" name="action_confirm" eval="[[ref('company_sale_click_01_03')]]"/>
+        <function model="sale.order" name="action_confirm" eval="[[ref('company_sale_click_01_04')]]"/>
+        <function model="sale.order" name="action_confirm" eval="[[ref('company_sale_click_01_05')]]"/>
+        <function model="sale.order" name="action_confirm" eval="[[ref('company_sale_click_01_06')]]"/>
+        <function model="sale.order" name="action_confirm" eval="[[ref('company_sale_click_01_07')]]"/>
+        <function model="sale.order" name="action_confirm" eval="[[ref('company_sale_click_01_08')]]"/>
+        <function model="sale.order" name="action_confirm" eval="[[ref('company_sale_click_01_09')]]"/>
+        <function model="sale.order" name="action_confirm" eval="[[ref('company_sale_click_01_10')]]"/>
+        <function model="sale.order" name="action_confirm" eval="[[ref('company_sale_click_01_11')]]"/>
+        <function model="sale.order" name="action_confirm" eval="[[ref('company_sale_click_01_12')]]"/>
+        <function model="sale.order" name="action_confirm" eval="[[ref('company_sale_click_01_13')]]"/>
+        <function model="sale.order" name="action_confirm" eval="[[ref('company_sale_click_01_14')]]"/>
+        <function model="sale.order" name="action_confirm" eval="[[ref('company_sale_click_01_15')]]"/>
+
+        <function model="sale.order" name="action_confirm" eval="[[ref('company_sale_click_02_01')]]"/>
+        <function model="sale.order" name="action_confirm" eval="[[ref('company_sale_click_02_02')]]"/>
+        <function model="sale.order" name="action_confirm" eval="[[ref('company_sale_click_02_03')]]"/>
+        <function model="sale.order" name="action_confirm" eval="[[ref('company_sale_click_02_04')]]"/>
+        <function model="sale.order" name="action_confirm" eval="[[ref('company_sale_click_02_05')]]"/>
+        <function model="sale.order" name="action_confirm" eval="[[ref('company_sale_click_02_06')]]"/>
+        <function model="sale.order" name="action_confirm" eval="[[ref('company_sale_click_02_07')]]"/>
+        <function model="sale.order" name="action_confirm" eval="[[ref('company_sale_click_02_08')]]"/>
+        <function model="sale.order" name="action_confirm" eval="[[ref('company_sale_click_02_09')]]"/>
+        <function model="sale.order" name="action_confirm" eval="[[ref('company_sale_click_02_10')]]"/>
+        <function model="sale.order" name="action_confirm" eval="[[ref('company_sale_click_02_11')]]"/>
+        <function model="sale.order" name="action_confirm" eval="[[ref('company_sale_click_02_12')]]"/>
+        <function model="sale.order" name="action_confirm" eval="[[ref('company_sale_click_02_13')]]"/>
+        <function model="sale.order" name="action_confirm" eval="[[ref('company_sale_click_02_14')]]"/>
+        <function model="sale.order" name="action_confirm" eval="[[ref('company_sale_click_02_15')]]"/>
+       
+        <function model="sale.order" name="action_confirm" eval="[[ref('company_sale_click_03_01')]]"/>
+        <function model="sale.order" name="action_confirm" eval="[[ref('company_sale_click_03_02')]]"/>
+        <function model="sale.order" name="action_confirm" eval="[[ref('company_sale_click_03_03')]]"/>
+        <function model="sale.order" name="action_confirm" eval="[[ref('company_sale_click_03_04')]]"/>
+        <function model="sale.order" name="action_confirm" eval="[[ref('company_sale_click_03_05')]]"/>
+        <function model="sale.order" name="action_confirm" eval="[[ref('company_sale_click_03_06')]]"/>
+        <function model="sale.order" name="action_confirm" eval="[[ref('company_sale_click_03_07')]]"/>
+        <function model="sale.order" name="action_confirm" eval="[[ref('company_sale_click_03_08')]]"/>
+        <function model="sale.order" name="action_confirm" eval="[[ref('company_sale_click_03_09')]]"/>
+        <function model="sale.order" name="action_confirm" eval="[[ref('company_sale_click_03_10')]]"/>
+        <function model="sale.order" name="action_confirm" eval="[[ref('company_sale_click_03_11')]]"/>
+        <function model="sale.order" name="action_confirm" eval="[[ref('company_sale_click_03_12')]]"/>
+        <function model="sale.order" name="action_confirm" eval="[[ref('company_sale_click_03_13')]]"/>
+        <function model="sale.order" name="action_confirm" eval="[[ref('company_sale_click_03_14')]]"/>
+        <function model="sale.order" name="action_confirm" eval="[[ref('company_sale_click_03_15')]]"/>
+
+        <!-- setting date_order in the past for spread -->
+
+        <record id="company_sale_click_01_01" model="sale.order">
+            <field name="date_order" eval="(datetime.now()-relativedelta(months=4,days=29)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+        <record id="company_sale_click_01_02" model="sale.order">
+            <field name="date_order" eval="(datetime.now()-relativedelta(months=4,days=15)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+        <record id="company_sale_click_01_03" model="sale.order">
+            <field name="date_order" eval="(datetime.now()-relativedelta(months=4,days=1)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+        <record id="company_sale_click_01_04" model="sale.order">
+            <field name="date_order" eval="(datetime.now()-relativedelta(months=3,days=29)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+        <record id="company_sale_click_01_05" model="sale.order">
+            <field name="date_order" eval="(datetime.now()-relativedelta(months=3,days=15)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+        <record id="company_sale_click_01_06" model="sale.order">
+            <field name="date_order" eval="(datetime.now()-relativedelta(months=3,days=1)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+        <record id="company_sale_click_01_07" model="sale.order">
+            <field name="date_order" eval="(datetime.now()-relativedelta(months=2,days=29)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+        <record id="company_sale_click_01_08" model="sale.order">
+            <field name="date_order" eval="(datetime.now()-relativedelta(months=2,days=15)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+        <record id="company_sale_click_01_09" model="sale.order">
+            <field name="date_order" eval="(datetime.now()-relativedelta(months=2,days=1)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+        <record id="company_sale_click_01_10" model="sale.order">
+            <field name="date_order" eval="(datetime.now()-relativedelta(months=1,days=29)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+        <record id="company_sale_click_01_11" model="sale.order">
+            <field name="date_order" eval="(datetime.now()-relativedelta(months=1,days=15)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+        <record id="company_sale_click_01_12" model="sale.order">
+            <field name="date_order" eval="(datetime.now()-relativedelta(months=1,days=1)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+        <record id="company_sale_click_01_13" model="sale.order">
+            <field name="date_order" eval="(datetime.now()-relativedelta(days=29)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+        <record id="company_sale_click_01_14" model="sale.order">
+            <field name="date_order" eval="(datetime.now()-relativedelta(days=15)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+        <record id="company_sale_click_01_15" model="sale.order">
+            <field name="date_order" eval="(datetime.now()-relativedelta(days=1)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+
+        <record id="company_sale_click_02_01" model="sale.order">
+            <field name="date_order" eval="(datetime.now()-relativedelta(months=4,days=29)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+        <record id="company_sale_click_02_02" model="sale.order">
+            <field name="date_order" eval="(datetime.now()-relativedelta(months=4,days=15)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+        <record id="company_sale_click_02_03" model="sale.order">
+            <field name="date_order" eval="(datetime.now()-relativedelta(months=4,days=1)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+        <record id="company_sale_click_02_04" model="sale.order">
+            <field name="date_order" eval="(datetime.now()-relativedelta(months=3,days=29)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+        <record id="company_sale_click_02_05" model="sale.order">
+            <field name="date_order" eval="(datetime.now()-relativedelta(months=3,days=15)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+        <record id="company_sale_click_02_06" model="sale.order">
+            <field name="date_order" eval="(datetime.now()-relativedelta(months=3,days=1)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+        <record id="company_sale_click_02_07" model="sale.order">
+            <field name="date_order" eval="(datetime.now()-relativedelta(months=2,days=29)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+        <record id="company_sale_click_02_08" model="sale.order">
+            <field name="date_order" eval="(datetime.now()-relativedelta(months=2,days=15)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+        <record id="company_sale_click_02_09" model="sale.order">
+            <field name="date_order" eval="(datetime.now()-relativedelta(months=2,days=1)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+        <record id="company_sale_click_02_10" model="sale.order">
+            <field name="date_order" eval="(datetime.now()-relativedelta(months=1,days=29)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+        <record id="company_sale_click_02_11" model="sale.order">
+            <field name="date_order" eval="(datetime.now()-relativedelta(months=1,days=15)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+        <record id="company_sale_click_02_12" model="sale.order">
+            <field name="date_order" eval="(datetime.now()-relativedelta(months=1,days=1)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+        <record id="company_sale_click_02_13" model="sale.order">
+            <field name="date_order" eval="(datetime.now()-relativedelta(days=29)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+        <record id="company_sale_click_02_14" model="sale.order">
+            <field name="date_order" eval="(datetime.now()-relativedelta(days=15)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+        <record id="company_sale_click_02_15" model="sale.order">
+            <field name="date_order" eval="(datetime.now()-relativedelta(days=1)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+
+        <record id="company_sale_click_03_01" model="sale.order">
+            <field name="date_order" eval="(datetime.now()-relativedelta(months=4,days=29)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+        <record id="company_sale_click_03_02" model="sale.order">
+            <field name="date_order" eval="(datetime.now()-relativedelta(months=4,days=15)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+        <record id="company_sale_click_03_03" model="sale.order">
+            <field name="date_order" eval="(datetime.now()-relativedelta(months=4,days=1)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+        <record id="company_sale_click_03_04" model="sale.order">
+            <field name="date_order" eval="(datetime.now()-relativedelta(months=3,days=29)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+        <record id="company_sale_click_03_05" model="sale.order">
+            <field name="date_order" eval="(datetime.now()-relativedelta(months=3,days=15)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+        <record id="company_sale_click_03_06" model="sale.order">
+            <field name="date_order" eval="(datetime.now()-relativedelta(months=3,days=1)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+        <record id="company_sale_click_03_07" model="sale.order">
+            <field name="date_order" eval="(datetime.now()-relativedelta(months=2,days=29)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+        <record id="company_sale_click_03_08" model="sale.order">
+            <field name="date_order" eval="(datetime.now()-relativedelta(months=2,days=15)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+        <record id="company_sale_click_03_09" model="sale.order">
+            <field name="date_order" eval="(datetime.now()-relativedelta(months=2,days=1)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+        <record id="company_sale_click_03_10" model="sale.order">
+            <field name="date_order" eval="(datetime.now()-relativedelta(months=1,days=29)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+        <record id="company_sale_click_03_11" model="sale.order">
+            <field name="date_order" eval="(datetime.now()-relativedelta(months=1,days=15)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+        <record id="company_sale_click_03_12" model="sale.order">
+            <field name="date_order" eval="(datetime.now()-relativedelta(months=1,days=1)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+        <record id="company_sale_click_03_13" model="sale.order">
+            <field name="date_order" eval="(datetime.now()-relativedelta(days=29)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+        <record id="company_sale_click_03_14" model="sale.order">
+            <field name="date_order" eval="(datetime.now()-relativedelta(days=15)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+        <record id="company_sale_click_03_15" model="sale.order">
+            <field name="date_order" eval="(datetime.now()-relativedelta(days=1)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+
+
+    </data>
+
+</odoo>
