@@ -23,7 +23,7 @@
         <field name="name">Email Marketing Report</field>
         <field name="model">custom_reports.email_marketing_report</field>
         <field name="arch" type="xml">
-            <form dupliate="0">
+            <form duplicate="0">
                 <sheet>
                     <group>
                         <div class="oe_title">
