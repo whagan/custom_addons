@@ -2,11 +2,21 @@
 <odoo>
   <template id="custom_reports_assets" name="Custom Reports Assets" inherit_id="web.assets_backend">
     <xpath expr="." position="inside">
-      <script type="text/javascript" src="/custom_reports/static/src/js/employee_performance_graph.js"/>
-      <script type="text/javascript" src="/custom_reports/static/src/js/email_marketing_graph.js"/>
-      <script type="text/javascript" src="/custom_reports/static/src/js/sales_by_company_graph.js"/>
-      <script type="text/javascript" src="/custom_reports/static/src/js/traffic_statistic_graph.js"/>
-      <link rel="stylesheet" type="text/scss" href="/custom_reports/static/src/scss/employee_performance_graph.scss"/>  
+
+      <script type="text/javascript" src="/custom_reports/static/src/js/views/custom_reports/custom_reports_list_renderer.js"/>
+      <script type="text/javascript" src="/custom_reports/static/src/js/views/custom_reports/custom_reports_list_controller.js"/> 
+      <script type="text/javascript" src="/custom_reports/static/src/js/views/custom_reports/custom_reports_list_view.js"/>
+
+      <script type="text/javascript" src="/custom_reports/static/src/js/views/sub_reports/sub_reports_list_renderer.js"/>
+      <script type="text/javascript" src="/custom_reports/static/src/js/views/sub_reports/sub_reports_list_controller.js"/> 
+      <script type="text/javascript" src="/custom_reports/static/src/js/views/sub_reports/sub_reports_list_view.js"/>
+
+      <script type="text/javascript" src="/custom_reports/static/src/js/graphs/employee_performance_graph.js"/>
+      <script type="text/javascript" src="/custom_reports/static/src/js/graphs/email_marketing_graph.js"/>
+      <script type="text/javascript" src="/custom_reports/static/src/js/graphs/sales_by_company_graph.js"/>
+      <script type="text/javascript" src="/custom_reports/static/src/js/graphs/sales_statistics_graph.js"/>
+      <script type="text/javascript" src="/custom_reports/static/src/js/graphs/traffic_statistic_graph.js"/>
+
     </xpath>
   </template>
 

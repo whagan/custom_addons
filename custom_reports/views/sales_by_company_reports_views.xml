@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
 
- <!-- sales by company action -->
+    <!-- sales by company action -->
     <record id="sales_by_company_action" model="ir.actions.act_window">
         <field name="name">Sales By Company</field>
         <field name="res_model">custom_reports.sales_by_company</field>
@@ -39,7 +39,7 @@
         <field name="name">Sales By Company</field>
         <field name="model">custom_reports.sales_by_company</field>
         <field name="arch" type="xml">
-            <tree>
+            <tree js_class="sub_reports_list">
                 <field name="company"/>
                 <field name="total_sales"/>
             </tree>
@@ -51,7 +51,6 @@
         <field name="name">Sales By Company Report</field>
         <field name="res_model">custom_reports.sales_by_company_report</field>
         <field name="view_mode">tree,form</field>
-
     </record>
 
     <!-- tree -->
@@ -59,10 +58,8 @@
         <field name="name">Sales By Company Report</field>
         <field name="model">custom_reports.sales_by_company_report</field>
         <field name="arch" type="xml">
-            <tree>
+            <tree js_class="sub_reports_list" import="false">
                 <field name="report_title"/>
-                <field name="start_date"/>
-                <field name="end_date"/>
             </tree>
         </field>
     </record>
@@ -73,7 +70,7 @@
         <field name="name">Sales By Company Report</field>
         <field name="model">custom_reports.sales_by_company_report</field>
         <field name="arch" type="xml">
-            <form>
+            <form duplicate="0">
                 <sheet>
                     <group>
                         <div class="oe_title">
