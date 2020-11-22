@@ -13,7 +13,7 @@
         <field name="name">Employee Performance</field>
         <field name="model">custom_reports.employee_performance</field>
         <field name="arch" type="xml">
-            <tree>
+            <tree js_class="sub_reports_list">
                 <field name="employee_id"/>
                 <field name="total_sales"/>
                 <field name="worked_hours"/>
@@ -62,7 +62,7 @@
         <field name="name">Employee Performance Report</field>
         <field name="model">custom_reports.employee_performance_report</field>
         <field name="arch" type="xml">
-            <tree js_class="employee_performance_list" import="false">
+            <tree js_class="sub_reports_list" import="false">
                 <field name="report_title"/>
             </tree>
         </field>

@@ -7,9 +7,9 @@
       <script type="text/javascript" src="/custom_reports/static/src/js/views/custom_reports/custom_reports_list_controller.js"/> 
       <script type="text/javascript" src="/custom_reports/static/src/js/views/custom_reports/custom_reports_list_view.js"/>
 
-      <script type="text/javascript" src="/custom_reports/static/src/js/views/custom_reports/employee_performance/employee_performance_list_renderer.js"/>
-      <script type="text/javascript" src="/custom_reports/static/src/js/views/custom_reports/employee_performance/employee_performance_list_controller.js"/> 
-      <script type="text/javascript" src="/custom_reports/static/src/js/views/custom_reports/employee_performance/employee_performance_list_view.js"/>
+      <script type="text/javascript" src="/custom_reports/static/src/js/views/sub_reports/sub_reports_list_renderer.js"/>
+      <script type="text/javascript" src="/custom_reports/static/src/js/views/sub_reports/sub_reports_list_controller.js"/> 
+      <script type="text/javascript" src="/custom_reports/static/src/js/views/sub_reports/sub_reports_list_view.js"/>
 
       <script type="text/javascript" src="/custom_reports/static/src/js/graphs/employee_performance_graph.js"/>
       <script type="text/javascript" src="/custom_reports/static/src/js/graphs/email_marketing_graph.js"/>

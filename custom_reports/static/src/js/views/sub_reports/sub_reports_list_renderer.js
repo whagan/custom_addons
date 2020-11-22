@@ -1,19 +1,19 @@
-odoo.define('custom_reports.EmployeePerformanceListRenderer', function (require)  {
+odoo.define('custom_reports.SubReportsListRenderer', function (require)  {
     "use strict";
     
     var ListRenderer = require('web.ListRenderer');
     
-    var EmployeePerformanceListRenderer = ListRenderer.extend({
+    var SubReportsListRenderer = ListRenderer.extend({
         /**
          * @override
          * 
          */
         init: function (parent, state, params)  {
             this._super(parent, state, params);
-            this.hasSelectors = false;
+            this.activeActions.export_xlsx = false;
         },
     });
 
-    return EmployeePerformanceListRenderer;
+    return SubReportsListRenderer;
 
 });

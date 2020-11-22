@@ -84,7 +84,7 @@
         <field name="name">Restock Report</field>
         <field name="model">custom_reports.restock_report</field>
         <field name="arch" type="xml">
-            <tree import="false">
+            <tree js_class="sub_reports_list" import="false">
                 <field name="report_title"/>
                 <field name="items"/>
             </tree>

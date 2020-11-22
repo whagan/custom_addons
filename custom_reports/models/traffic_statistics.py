@@ -2,6 +2,9 @@ from odoo import models, fields, api, _
 from odoo.tools import format_datetime
 from odoo.exceptions import ValidationError
 import datetime
+import logging
+_logger = logging.getLogger(__name__)
+_
 
 class TrafficStatisticsReport(models.Model):
     _name = 'custom_reports.traffic_statistics_report'
@@ -81,27 +84,36 @@ class TrafficStatistic(models.Model):
     min_hour = fields.Char(string="Min Hour(s)", compute="_compute_rank_hour", readonly=False)
     all_hour = fields.Char(string="All Hours", compute="_compute_rank_hour", readonly=False)
 
+    max_hour_fmt = fields.Char(string="Max Hour(s)", compute="_compute_rank_hour", readonly=False)
+    min_hour_fmt = fields.Char(string="Min Hour(s)", compute="_compute_rank_hour", readonly=False)
+
+    max_hour_date = field.Datetime()
+
     @api.depends('shop_id', 'start_date', 'end_date')
     def _compute_sales_shop(self):
         for record in self:
             sales_shop = 0.0           
             if record.shop_id and (record.start_date <= record.end_date):
-                sales = record.env['pos.order'].search([
-                    ('session_id', '=', record.shop_id.id),
-                    ('date_order', '<=', record.end_date),
-                    ('date_order', '>=', record.start_date)
+                sessions = record.env['pos.session'].search([
+                    ('config_id', '=', record.shop_id)
                 ])
-                if sales:
-                    for sale in sales:
-                        sales_shop += sale.amount_total
-            record.sales_shop = sales_location
-    
+                for session in sessions:
+                    sales = record.env['pos.order'].search([
+                        ('session_id', '=', session.id),
+                        ('date_order', '<=', record.end_date),
+                        ('date_order', '>=', record.start_date)
+                    ])
+                    if sales:
+                        for sale in sales:
+                            sales_shop += sale.amount_total
+            record.sales_shop = sales_shop
+
     @api.depends('shop_id', 'start_date', 'end_date')
     def _compute_rank_hour(self):
         for record in self:
             if record.shop_id and (record.start_date <= record.end_date):
                 sales = record.env['pos.order'].search([
-                    ('session_id', '=', record.shop_id.id),
+                    ('session_id.config_id', '=', record.shop_id.id),
                     ('date_order', '<=', record.end_date),
                     ('date_order', '>=', record.start_date)
                 ])
@@ -115,13 +127,14 @@ class TrafficStatistic(models.Model):
                     record.max_hour = str(record._max_hour(hours_sales_avg))
                     record.min_hour = str(record._min_hour(hours_sales_avg))
                     record.all_hour = str(hours_sales_avg)
+                    record.max_hour_fmt = record._hour_fmt(record._max_hour(hours_sales_avg))
+                    record.min_hour_fmt = record._hour_fmt(record._min_hour(hours_sales_avg))
                 else:
                     record.max_hour = "[0]"
                     record.min_hour = "[0]"
                     record.all_hour = "[0]"
             else:
                 raise exceptions.ValidationError(_("Error. Shop not found."))
-            
 
     def _avg_per_hour(self, hour_list):
         if not hour_list:
@@ -133,3 +146,15 @@ class TrafficStatistic(models.Model):
     
     def _min_hour(self, hour_list_avg):
         return [index for index, value in enumerate(hour_list_avg) if value == min(hour_list_avg)]
+    
+    def _hour_fmt(self, hour_list):
+        hours_fmt = []
+        for hour in hour_list:
+            if hour == 0:
+		        hours_fmt.append("{} AM".format(12))
+	        elif hour < 12:
+                hours_fmt.append("{} AM".format(hour))
+	        elif hour >= 12:
+                hours_fmt.append("{} PM".format(hour))
+
+
