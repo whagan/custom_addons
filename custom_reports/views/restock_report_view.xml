@@ -7,21 +7,6 @@
         <field name="view_mode">form</field>
     </record>
 
-    <!-- product restock tree -->
-    <!-- <record model="ir.ui.view" id="product_restock_view_tree">
-        <field name="name">Product Restock</field>
-        <field name="model">custom_reports.product_restock</field>
-        <field name="arch" type="xml">
-            <tree create="false" edit="false" delete="false">
-                <field name="product_id" readonly="1"/>
-                <field name="estimated_stock"/>
-                <field name="estimated_stock_3M"/>
-                <field name="estimated_stock_y"/>
-                <field name="restock_recommended"/>
-            </tree>
-        </field>
-    </record> -->
-
     <!-- product restock form -->
     <record model="ir.ui.view" id="product_restock_view_form">
         <field name="name">Product Restock</field>
@@ -34,13 +19,8 @@
                     <group>
                         <field name="estimated_stock" decoration-danger="estimated_stock&lt;=-10" decoration-warning="estimated_stock&lt;=0"/>
                         <field name="estimated_stock_3M" decoration-danger="estimated_stock_3M&lt;=-10" decoration-warning="estimated_stock_3M &lt;= 0"/>
-                        <!-- <field name="estimated_stock_y" decoration-danger="estimated_stock_y&lt;=-10" decoration-warning="estimated_stock_y &lt;= 0"/> -->
-                        <!-- <field name="income_1M" decoration-danger="income_1M&lt;0"/> -->
-                        <!-- <field name="income_3M_avg" decoration-danger="income_3M_avg&lt;0"/> -->
-                        <!-- <field name="income_1Y_avg" decoration-danger="income_1Y_avg&lt;0"/> -->
                         <field name="income_1M_r" decoration-danger="income_1M_r&lt;0"/>
                         <field name="income_3M_avg_r" decoration-danger="income_1M_r&lt;0"/>
-                        <!-- <field name="income_1Y_avg_r" decoration-danger="income_1M_r&lt;0"/> -->
                         <separator/>
                         <field name="restock_recommended" decoration-primary="restock_recommended==True" decoration-muted="restock_recommended==False"/>
                         <div colspan="2">Restock recommendation is made by stock level and whether money was made off that product.</div>
@@ -49,28 +29,6 @@
             </form>
         </field>
     </record>
-
-    <!-- product restock pivot -->
-    <!-- <record model="ir.ui.view" id="product_restock_view_pivot">
-        <field name="name">Product Restock</field>
-        <field name="model">custom_reports.product_restock</field>
-        <field name="arch" type="xml">
-            <pivot>
-                <field name="product_id" type="row"/>
-                <field name="unit_current" type="col"/>
-                <field name="unit_1M" type="col"/>
-                <field name="unit_3M_avg" type="col"/>
-                <field name="unit_1Y_avg" type="col"/>
-                <field name="sale_1M" type="col"/>
-                <field name="sale_3M_avg" type="col"/>
-                <field name="sale_1Y_avg" type="col"/>
-                <field name="estimated_stock" type="col"/>
-                <field name="estimated_stock_3M" type="col"/>
-                <field name="estimated_stock_y" type="col"/>
-                <field name="restock_recommended" type="col" widget="radio"/>
-            </pivot>
-        </field>
-    </record> -->
 
     <!-- restock reports action -->
     <record model="ir.actions.act_window" id="restock_report_action" >
@@ -106,11 +64,8 @@
                         </div>
                         <div colspan="2">
                             <label class="oe_input_label" for="product_ids" string="Products" style="font-weight:bold"/>
-                            <field name="product_ids" widget="many2many_tags"/><!-- widget="many2many_checkboxes" -->
+                            <field name="product_ids" widget="many2many_tags"/>
                         </div>
-                        <!-- <div class="oe_edit_only bg-primary">
-                            IMPORTANT: You cannot alter the report after its create. Please create a new report if you want to make item changes.
-                        </div> -->
                     </group>
                     <notebook readonly="1" class="oe_read_only">
                         <page string="View" disable_linking="true">
@@ -133,10 +88,8 @@
                                     <field name="unit_current"/>
                                     <field name="unit_1M"/>
                                     <field name="unit_3M_avg"/>
-                                    <!-- <field name="unit_1Y_avg"/> -->
                                     <field name="sale_1M"/>
                                     <field name="sale_3M_avg"/>
-                                    <!-- <field name="sale_1Y_avg"/> -->
                                     <field name="income_1M_r"/>
                                     <field name="income_3M_avg_r"/>
                                     <field name="name" invisible="1"/>

@@ -3,7 +3,7 @@ from odoo.tools import format_datetime
 from odoo.exceptions import ValidationError
 import datetime
 
-# Employee Performance Report DataModel
+# Employee Performance Report DataModel (Main Report)
 class EmployeePerformanceReport(models.Model):
     _name = 'custom_reports.employee_performance_report'
     _description = "Employee Performance Report"
@@ -13,12 +13,12 @@ class EmployeePerformanceReport(models.Model):
     report_title = fields.Char('Report Title', required=True)
     start_date = fields.Datetime(string='Start Date', required=True, ValidationError='_check_date_validity')
     end_date = fields.Datetime(string='End Date', required=True, ValidationError='_check_date_validity')
-
     employee_ids = fields.Many2many('hr.employee', relation='custom_reports_employee_report_rel', column1='custom_report_id', column2='employee_id', string="Employees")
     employee_performance_ids = fields.One2many('custom_reports.employee_performance', 'employee_performance_report_id', string="Employee Performances")
     employee_performance_graph = fields.Text('Employee Graph', default='EmployeeGraph')
     
-    # methods 
+    # methods
+    # create override would add all of the items on the list to the subreport's list
     @api.model
     def create(self, values):
         record = super(EmployeePerformanceReport, self).create(values)
@@ -34,8 +34,10 @@ class EmployeePerformanceReport(models.Model):
         self.env['custom_reports.employee_performance'].create(records)
         return record
 
+    # write override would adds and removes items on the subreport based on the whether items are in the new values or not 
     def write(self, values):
         record = super(EmployeePerformanceReport, self).write(values)
+        # find the list of items in the original subreport
         old_employees = self.env['custom_reports.employee_performance'].search([
             ('employee_performance_report_id', '=', self.id)
         ])
@@ -45,9 +47,11 @@ class EmployeePerformanceReport(models.Model):
         new_employees_ids = values['employee_ids'][0][2]
         remove_list = []
         add_records = []
+        # if an old item is not in the new list, add item to the remove list
         for old_employee_id in old_employees_ids:
             if old_employee_id not in new_employees_ids:
                 remove_list.append(old_employee_id)
+        # if a new item is not in the old list, add item to the add list
         for new_employee_id in new_employees_ids:
             if new_employee_id not in old_employees_ids:
                 add_records.append({
@@ -56,30 +60,24 @@ class EmployeePerformanceReport(models.Model):
                     'start_date': self.start_date,
                     'end_date': self.end_date
                 })
+        # remove items in the remove list from the subreport
         remove_records = self.env['custom_reports.employee_performance'].search([
             ('employee_id', 'in', remove_list)
         ])
         remove_records.unlink()
+        # add items in the add list to the subreport
         self.env['custom_reports.employee_performance'].create(add_records)
         return record
 
-          
+    # check date validity (start date cannot be after end date)
     @api.constrains('start_date','end_date')
     def _check_date_validity(self):
         for report in self:
             if report.start_date and report.end_date:
                 if report.start_date > report.end_date:
                     raise ValidationError(_("Error. Start date must be earlier than end date."))
-
     
-    @api.constrains('start_date', 'end_date')
-    def _check_validity_start_date_end_date(self):
-        for record in self:
-            if record.start_date and record.end_date:
-                if record.end_date < record.start_date:
-                    raise exceptions.ValidationError(_("Error. Start Date must be earlier than End Date."))
-    
-#Employee Performance DataModel
+#Employee Performance DataModel (Sub Report)
 class EmployeePerformance(models.Model):
     _name = 'custom_reports.employee_performance'
     _description = 'Employee Performance'
@@ -91,7 +89,7 @@ class EmployeePerformance(models.Model):
     start_date = fields.Datetime(related='employee_performance_report_id.start_date', required=True)
     end_date = fields.Datetime(related='employee_performance_report_id.end_date', required=True)
 
-    #computed properties
+    # computed properties
     worked_hours = fields.Float(string="Worked Hours", compute="_compute_worked_hours", readonly=False)
     total_sales = fields.Float(string="Total Sales", compute="_compute_total_sales", readonly=False)
     sales_hour = fields.Float(string="Sales / Hour", compute="_compute_sales_hour", readonly=False)
