@@ -14,7 +14,7 @@ odoo.define('custom_reports.SalesStatisticGraph', function(require)   {
             '/web/static/lib/Chart/Chart.js',
         ],
         template: 'sales_statistic_graph_template',
-        xmlDependencies: ['custom_reports/static/src/xml/sale_statistic_graph.xml'],
+        xmlDependencies: ['custom_reports/static/src/xml/sales_statistic_graph.xml'],
         
         /**
          * @override
@@ -151,7 +151,7 @@ odoo.define('custom_reports.SalesStatisticGraph', function(require)   {
                 data: {
                    labels: labels,
                    datasets: [{
-                       label: 'Sales by Company',
+                       label: 'Sales Statistics',
                        data: data,
                        backgroundColor: colors,
                     }]

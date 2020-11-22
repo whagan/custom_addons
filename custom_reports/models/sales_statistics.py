@@ -2,8 +2,6 @@ from odoo import models, fields, api, _
 from odoo.tools import format_datetime
 from odoo.exceptions import ValidationError
 import datetime
-import logging
-_logger = logging.getLogger(__name__)
 
 #Sales Statistics Report DataModel
 class SalesStatisticsReport(models.Model):

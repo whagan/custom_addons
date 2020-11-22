@@ -12,7 +12,7 @@
         <field name="name">Product Restock</field>
         <field name="model">custom_reports.product_restock</field>
         <field name="arch" type="xml">
-            <form string="Product" create="false" edit="false" delete="false">
+            <form string="Product" create="false" edit="false" delete="false" duplicate="0">
                 <header><field name="product_id"/></header>
                 <sheet>
                     <h2><field name="name" decoration-bf="restock_recommended==True" decoration-muted="restock_recommended==False"/></h2>
@@ -42,7 +42,7 @@
         <field name="name">Restock Report</field>
         <field name="model">custom_reports.restock_report</field>
         <field name="arch" type="xml">
-            <tree>
+            <tree js_class="sub_reports_list" import="false">
                 <field name="report_title"/>
                 <field name="items"/>
             </tree>
@@ -54,7 +54,7 @@
         <field name="name">Restock Report</field>
         <field name="model">custom_reports.restock_report</field>
         <field name="arch" type="xml">
-            <form>
+            <form duplicate="0">
                 <header></header>
                 <sheet>                    
                     <group>

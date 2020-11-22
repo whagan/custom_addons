@@ -3,8 +3,6 @@ from odoo.tools import format_datetime
 from odoo.exceptions import ValidationError
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
-import logging
-_logger = logging.getLogger(__name__)
 
 # Main Report Model
 class RestockReport(models.Model):

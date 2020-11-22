@@ -2,8 +2,6 @@ from odoo import models, fields, api, _
 from odoo.tools import format_datetime
 from odoo.exceptions import ValidationError
 import datetime
-import logging
-_logger = logging.getLogger(__name__)
 
 # Main Report Model
 class TrafficStatisticsReport(models.Model):
@@ -90,35 +88,22 @@ class TrafficStatistic(models.Model):
     start_date = fields.Datetime(related='traffic_statistics_report_id.start_date', required=True)
     end_date = fields.Datetime(related='traffic_statistics_report_id.end_date', required=True)
 
+    max_hour = fields.Char(compute="_compute_rank_hour", readonly=False)
+    min_hour = fields.Char(compute="_compute_rank_hour", readonly=False)
+    all_hour = fields.Char(compute="_compute_rank_hour", readonly=False)
+
     # computed properties
-    max_hour = fields.Char(string="Max Hour(s)", compute="_compute_rank_hour", readonly=False)
-    min_hour = fields.Char(string="Min Hour(s)", compute="_compute_rank_hour", readonly=False)
-    all_hour = fields.Char(string="All Hours", compute="_compute_rank_hour", readonly=False)
-
+    max_hour_fmt = fields.Char(string="Max Hours(s)", compute="_compute_rank_hour", readonly=False)
+    min_hour_fmt = fields.Char(string="Min Hours(s)", compute="_compute_rank_hour", readonly=False)
+    
     # methods
-    # compute sales between a date time range
-    @api.depends('shop_id', 'start_date', 'end_date')
-    def _compute_sales_shop(self):
-        for record in self:
-            sales_shop = 0.0           
-            if record.shop_id and (record.start_date <= record.end_date):
-                sales = record.env['pos.order'].search([
-                    ('session_id', '=', record.shop_id.id),
-                    ('date_order', '<=', record.end_date),
-                    ('date_order', '>=', record.start_date)
-                ])
-                if sales:
-                    for sale in sales:
-                        sales_shop += sale.amount_total
-            record.sales_shop = sales_shop
-
-    # compute rank hours will figure out which hour of the day are the sales the best
+    # compute rank hour to figure which is the best and the worst hours
     @api.depends('shop_id', 'start_date', 'end_date')
     def _compute_rank_hour(self):
         for record in self:
             if record.shop_id and (record.start_date <= record.end_date):
                 sales = record.env['pos.order'].search([
-                    ('session_id', '=', record.shop_id.id),
+                    ('session_id.config_id', '=', record.shop_id.id),
                     ('date_order', '<=', record.end_date),
                     ('date_order', '>=', record.start_date)
                 ])
@@ -127,22 +112,40 @@ class TrafficStatistic(models.Model):
                     hours_sales_avg = []
                     for sale in sales:
                         hours_sales[sale.date_order.hour].append(sale.amount_total)
-                    _logger.debug("THIS IS THE hours_sales: ", hours_sales)
                     for hour in hours_sales:
                         hours_sales_avg.append(record._avg_per_hour(hour))
-                    _logger.debug("THIS IS THE hours_sales_avg: ", hours_sales_avg)
                     record.max_hour = str(record._max_hour(hours_sales_avg))
                     record.min_hour = str(record._min_hour(hours_sales_avg))
                     record.all_hour = str(hours_sales_avg)
+                    record.max_hour_fmt = record._hour_fmt(record._max_hour(hours_sales_avg))
+                    record.min_hour_fmt = record._hour_fmt(record._min_hour(hours_sales_avg))
                 else:
                     record.max_hour = "[0]"
                     record.min_hour = "[0]"
                     record.all_hour = "[0]"
+                    record.max_hour_fmt = "No data"
+                    record.min_hour_fmt = "No data"
             else:
                 raise exceptions.ValidationError(_("Error. Shop not found."))
-            
-
-    # average per hour
+    
+    # display the time in AMPM format
+    def _hour_fmt(self, hour_list):
+        hour_list.sort()
+        hours_fmt = []
+        for hour in hour_list:
+            if hour == 0:
+                hours_fmt.append("{} AM".format(12))
+            elif hour < 12:
+                hours_fmt.append("{} AM".format(hour))
+            elif hour == 12:
+                hours_fmt.append("{} PM".format(12))
+            elif hour > 12:
+                hours_fmt.append("{} PM".format(hour - 12))
+            else:
+                hours_fmt.append("{} AM".format(0))
+        return str(hours_fmt).replace("'", "").replace("[", "").replace("]", "")
+    
+    # calculate the average sum / number of elements
     def _avg_per_hour(self, hour_list):
         if not hour_list:
             return round(0, 2)
