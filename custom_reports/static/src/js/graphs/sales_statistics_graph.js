@@ -33,20 +33,20 @@ odoo.define('custom_reports.SalesStatisticGraph', function(require)   {
             var labels = [];
             var data = [];
 
+            // get data
             self.graph_data.forEach(graph_datum =>  {
                 labels.push(graph_datum.data.location_id.data.display_name);
                 data.push(graph_datum.data.sales_location);
             });
 
+            // get colors
             var colors = self._getColors(data.length);
 
+            // set graph type
             switch (self.graph_type) {
                 case 'bar':
                     self.config = self._getBarGraph(labels, data, colors);
                     break;
-                // case 'line':
-                //     self.config = self._getLineGraph(labels, data, colors);
-                //     break;
                 case 'pie':
                     self.config = self._getPieGraph(labels, data, colors);
                     break;
@@ -60,6 +60,8 @@ odoo.define('custom_reports.SalesStatisticGraph', function(require)   {
                     self.config = self._getRadarGraph(labels, data, colors);
                     break;
             }
+
+            // load
             self._loadChart();
         },
 

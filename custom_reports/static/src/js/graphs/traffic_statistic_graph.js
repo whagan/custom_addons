@@ -27,10 +27,12 @@ odoo.define('custom_reports.TrafficStatisticGraph', function(require)   {
          */
         start: function()   {
             var self = this;
-            
             var datasets = [];
+            
+            // get colors
             var colors = self._getColors(self.graph_data.length);
 
+            // get data
             self.graph_data.forEach(function (graph_datum, index)   {
                 datasets.push({
                     label: graph_datum.data.shop_id.data.display_name,
@@ -42,9 +44,11 @@ odoo.define('custom_reports.TrafficStatisticGraph', function(require)   {
 
             console.log(datasets);
 
+            // set as line graph
             self.config = self._getLineGraph(datasets);
+
+            // load
             self._loadChart();
-            
         },
 
         // ----------------------------

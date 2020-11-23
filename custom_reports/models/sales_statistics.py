@@ -17,6 +17,8 @@ class SalesStatisticsReport(models.Model):
     sales_statistic_ids = fields.One2many('custom_reports.sales_statistic', 'sales_statistics_report_id', string="Sales Statistics")
     sales_statistics_graph = fields.Text('Sales Graph', default = 'SalesGraph' )
  
+    # methods
+    # create override would add all of the items on the list to the subreport's list
     @api.model
     def create(self, values):
         record = super(SalesStatisticsReport, self).create(values)
@@ -32,8 +34,10 @@ class SalesStatisticsReport(models.Model):
         self.env['custom_reports.sales_statistic'].create(records)
         return record
 
+    # write override would adds and removes items on the subreport based on the whether items are in the new values or not
     def write(self, values):
         record = super(SalesStatisticsReport, self).write(values)
+        # find the list of items in the original subreport
         old_locations = self.env['custom_reports.sales_statistic'].search([
             ('sales_statistics_report_id', '=', self.id)
         ])
@@ -43,9 +47,11 @@ class SalesStatisticsReport(models.Model):
         new_locations_ids = values['location_ids'][0][2]
         remove_list = []
         add_records = []
+        # if an old item is not in the new list, add item to the remove list
         for old_location_id in old_locations_ids:
             if old_location_id not in new_locations_ids:
                 remove_list.append(old_location_id)
+        # if a new item is not in the old list, add item to the add list
         for new_location_id in new_locations_ids:
             if new_location_id not in old_locations_ids:
                 add_records.append({
@@ -54,13 +60,16 @@ class SalesStatisticsReport(models.Model):
                     'start_date': self.start_date,
                     'end_date': self.end_date
                 })
+        # remove items in the remove list from the subreport
         remove_records = self.env['custom_reports.sales_statistic'].search([
             ('location_id', 'in', remove_list)
         ])
         remove_records.unlink()
+        # add items in the add list to the subreport
         self.env['custom_reports.sales_statistic'].create(add_records)
         return record
 
+    # check date validity
     @api.constrains('start_date','end_date')
     def _check_date_validity(self):
         for report in self:
@@ -68,9 +77,7 @@ class SalesStatisticsReport(models.Model):
                 if report.start_date > report.end_date:
                     raise ValidationError(_("Error. Start date must be earlier than end date."))
 
-
-
-#sales Statistics DataModel
+#sales Statistics DataModel (sub report)
 class SalesStatistics(models.Model):
     _name = 'custom_reports.sales_statistic'
     _description = 'Sales Statistic'
@@ -81,10 +88,9 @@ class SalesStatistics(models.Model):
     start_date = fields.Datetime(related='sales_statistics_report_id.start_date', required=True)
     end_date = fields.Datetime(related='sales_statistics_report_id.end_date', required=True)
 
-    # computed values
+    # computed properites
     # sales per this location between start date and end date 
     sales_location = fields.Float(string="Sales / Location", compute="_compute_sales_location", readonly=False)
-
 
     # methods
     # this method gets the computed work hours between a time period

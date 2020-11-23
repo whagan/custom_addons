@@ -3,10 +3,11 @@ Team ClickIt Github repo.
 
 ### Installation
 
-#### Install Odoo
+#### Install Odoo 13
 
 * [Odoo Installation Guide](https://www.odoo.com/documentation/master/setup/install.html#source-install)
-    * The installation **WILL NOT WORK** if you are using Python 3.7+. Use Python 3.6.
+    * Custom Reports was designed using Odoo 13. Use in other Odoo versions at your own risk.
+    * The installation **WILL NOT WORK** if you are using Python 3.8+. Use Python 3.6.* or 3.7.*
 
 ### Trouble Shooting
 
@@ -45,7 +46,7 @@ Team ClickIt Github repo.
 13. Go to "Settings". Under "Users", click "Manage Users". 
 14. The default is Mitchell Admin. Click "Mitchell Admin".
 15. Click "Edit" and check the "Custom Reports / Manager" box.
-16. In order for these changes to take effect, you must log out and log back in.
+16. For these changes to take effect, you must log out and log back in.
 
 #### Custom Reports
 
@@ -64,13 +65,11 @@ Team ClickIt Github repo.
 
 #### Sales By Company Report
 
-22. Under the "My Reports" sub-menu you may click "Sales By Location Report" and create a new Sales By Location Report selecting from the created demo data to fill the provided fields. The demo data currently only has one company ("Your Company"), if needed one can generate new companies by navigating to "Settings" and clicking "Manage Companies". Here you can create new companies. Upon creation of a new company you must navigate back to "Settings" and click " Manage User", under your profile be sure to enable the "Multi Companies" property beneath the "Extra Rights" heading. (This report has been changed to a sales by company as of Sprint6)
+22. Under the "My Reports" sub-menu you may click "Sales By Company Report" and create a new Sales By Company Report selecting from the created demo data to fill the provided fields. The demo data currently only has one company ("Your Company"), if needed one can generate new companies by navigating to "Settings" and clicking "Manage Companies". Here you can create new companies. Upon creation of a new company you must navigate back to "Settings" and click " Manage User", under your profile be sure to enable the "Multi Companies" property beneath the "Extra Rights" heading.
 
 #### Contacts Report
 
 22. Under the "My Reports" sub-menu you may click "Contacts Report" which will display all the contacts located in the demo data. Here you can apply filters and groups as needed. You can also generate or import new contacts utilizing the create and import buttons respectively.
-
-#### New as of Sprint 6
 
 #### Inventory Restock Report
 

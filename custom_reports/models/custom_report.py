@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 from odoo import models, fields, api
 from odoo.tools import format_datetime
 from odoo.exceptions import ValidationError
@@ -13,10 +11,12 @@ class CustomReport(models.Model):
 
     # basic properties
     name = fields.Char(string="Report Title", required=True)
-    url = fields.Char() #required=True
+    url = fields.Char()
     category = fields.Char()
     description = fields.Text()
 
+    # methods
+    # return the view
     def click(self):
         return  {
             'name': self.name,
@@ -24,6 +24,5 @@ class CustomReport(models.Model):
             'view_id': False,
             'res_model': self.url,
             'type':'ir.actions.act_window',
-            'target': 'current',
+            'target': 'current'
         }
-    
