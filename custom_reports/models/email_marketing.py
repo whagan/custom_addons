@@ -34,7 +34,7 @@ class MassMailing(models.Model):
     def _compute_prev_sales(self):
         for record in self:
             total_sales = 0.0
-            if record.product_ids:
+            if record.product_ids and record.sent_date:
                 for product_id in record.product_ids:
                     product_sales = record.env['sale.order.line'].search([
                         ('product_id', '=', product_id.id),
@@ -52,6 +52,9 @@ class MassMailing(models.Model):
     @api.depends('product_ids')
     def _compute_since_sales(self):
         for record in self:
+            if not record.sent_date:
+                record.sales_since_avg = 0
+                continue
             total_sales = 0.0
             date_delta = datetime.now() - record.sent_date
             if record.product_ids:
